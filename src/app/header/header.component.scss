@@ -1,0 +1,27 @@
+
+h2 {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin: 0 15px;
+    text-align: center;
+    }
+.logo {
+    height: 250px;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    margin: 0 !important;
+    position: relative;
+    &:after {
+        content: '';
+        background: url('../../assets/images/header-before.svg');
+        width: 100%;
+        height: 44px;
+        position: absolute;
+        left: 0;
+        bottom: 0; 
+    }
+}
+.lita-icon {
+            margin-right: 1rem;
+}

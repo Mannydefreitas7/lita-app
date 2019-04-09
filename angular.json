@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "lita",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -27,7 +27,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "theme.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -84,7 +86,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "theme.scss"
             ],
             "scripts": [],
             "assets": [

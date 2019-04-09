@@ -1,0 +1,34 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+// The rest of this is like a normal theme.scss file. The only difference being that we use create-wonky-theme instead of mat-light-theme
+$custom-theme-primary: mat-palette($mat-blue, 900);
+$custom-theme-accent: mat-palette($mat-deep-orange);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+
+@mixin lita-header-theme($custom-theme) {
+	// Extract the palettes you need from the theme definition.
+	$primary: map-get($custom-theme, primary);
+	$accent: map-get($custom-theme, accent);
+  
+	// Define any styles affected by the theme.
+	.header {
+	  // Use mat-color to extract individual colors from a palette.
+	  
+	  a {
+		  color: #fff;
+		  width: 80%;
+		  text-align: left;
+		  margin: 0 auto;
+		  font-weight: 400;
+	  }
+	}
+  }
+
+  @include lita-header-theme($custom-theme);
+  @include angular-material-theme($custom-theme);
