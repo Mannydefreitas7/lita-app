@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from '../../core/auth.service';
+import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,6 +15,9 @@ import { AuthService } from '../../core/auth.service';
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   hide = true;
+  faGoogle = faGoogle;
+  faFacebook = faFacebook;
+  faMicrosoft = faMicrosoft;
 
   constructor(
     public fb: FormBuilder,
@@ -38,6 +42,11 @@ export class SignupComponent implements OnInit {
   }
   get password() {
    return this.signUpForm.get('password');
+  }
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
   }
 
   signUp() {

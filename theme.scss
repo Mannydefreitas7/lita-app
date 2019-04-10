@@ -2,8 +2,6 @@
 
 @include mat-core();
 
-
-// The rest of this is like a normal theme.scss file. The only difference being that we use create-wonky-theme instead of mat-light-theme
 $custom-theme-primary: mat-palette($mat-blue, 900);
 $custom-theme-accent: mat-palette($mat-deep-orange);
 $custom-theme-warn: mat-palette($mat-red);
@@ -19,7 +17,6 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 	// Define any styles affected by the theme.
 	.header {
 	  // Use mat-color to extract individual colors from a palette.
-	  
 	  a {
 		  color: #fff;
 		  width: 80%;
@@ -28,7 +25,19 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 		  font-weight: 400;
 	  }
 	}
+	.facebook {
+		background: #3C5A99;
+		color: #fff;
+	}
+	.google {
+		background: #4285F4;
+		color: #fff;
+	}
+	.microsoft {
+		background: #00A4EF;
+		color: #fff;
+	}
   }
 
-  @include lita-header-theme($custom-theme);
   @include angular-material-theme($custom-theme);
+  @include lita-header-theme($custom-theme);

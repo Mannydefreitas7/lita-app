@@ -14,7 +14,9 @@ interface User {
   name?: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   user: Observable<User>;
 
@@ -79,9 +81,15 @@ googleLogin() {
   return this.socialLogin(provider);
 }
 
-githubLogin() {
-  const provider = new firebase.auth.GithubAuthProvider();
-  return this.socialLogin(provider);
+MicrosoftLogin() {
+  var provider = new firebase.auth.OAuthProvider();
+  provider.addScope('mail.read');
+  provider.addScope('calendars.read');
+  firebase.auth().signInWithPopup(provider)
+  .then(function(result) {
+      return this.socialLogin(result);
+  })
+  .catch(error => console.log(error.message));
 }
 
 FacebookLogin() {
@@ -107,4 +115,5 @@ FacebookLogin() {
   };
   return userRef.set(data, { merge: true });
     }
-  }
+
+}

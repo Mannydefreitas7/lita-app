@@ -10,7 +10,8 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './/app-routing.module';
 import { environment } from 'src/environments/environment';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from './core/auth.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,10 @@ import { environment } from 'src/environments/environment';
     CoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

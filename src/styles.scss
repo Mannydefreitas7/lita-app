@@ -1,15 +1,45 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
 @import './node_modules/flex-box-grid/dist/scss/index.scss';
 
-
 body {
     font-family: 'PT Sans', sans-serif;
     margin: 0;
     height: 100%;
     width: 100%;
 }
-
 .column {
     flex-direction: column;
 }
 
+.lita_section {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    &.lita-login {
+        height: calc(100% - 5pc);
+        background:initial;
+        padding: 5pc 0 0 0;
+        position: absolute;
+        .lita-login {
+        &--card {
+            width: 40%;
+            height: min-content;
+            box-shadow: 2px 2px 20px #3333;
+        }
+    } 
+    
+    button {
+        margin: 10px 0;
+    }
+    mat-form-field {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        }
+        .social {
+            margin: 10px 5px 10px 0;
+            fa-icon {
+                margin-right: 5px;
+            }
+        }
+    }
+}

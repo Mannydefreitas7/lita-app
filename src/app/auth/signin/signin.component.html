@@ -1,26 +1,25 @@
-<main>
-  <section>
-    <form [formGroup]="signInForm" (ngSubmit)="signIn()">
-      <h3>Welcome Back</h3>
-      <p>Login to your account</p>
 
-    <mat-form-field [formGroup]="signInForm">
-      <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.valid">Not a valid email</mat-error>
-    </mat-form-field>
-    <mat-form-field [formGroup]="signInForm">
-      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
-      <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
-      <mat-hint align="end">
-        <a routerLink="/reset-password">Forgot Password?</a>
-      </mat-hint>
-    <mat-error *ngIf="password.valid">Not a valid password</mat-error>
-    </mat-form-field>
+<form [formGroup]="signInForm" (ngSubmit)="signIn()">
+    <h3>Login to your account</h3>
 
-    <button mat-button type="submit" color="accent">Sign In</button>
-    <p>Tired of yet another password? Continue with: </p>
-    <button mat-button (click)="auth.googleLogin()">Google</button>
-    <button mat-button (click)="auth.FacebookLogin()">Facebook</button>
-    </form>
-  </section>
-</main>
+  <mat-form-field [formGroup]="signInForm" appearance="fill">
+      <mat-label>Email</mat-label>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+  <mat-error *ngIf="email.valid">Not a valid email</mat-error>
+  </mat-form-field>
+  <mat-form-field [formGroup]="signInForm" appearance="fill">
+      <mat-label>Create Password</mat-label>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+    <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
+    <mat-hint align="end">
+      <a routerLink="/reset-password">Forgot Password?</a>
+    </mat-hint>
+  <mat-error *ngIf="password.valid">Not a valid password</mat-error>
+  </mat-form-field>
+
+  <button mat-flat-button type="submit" color="primary">SIGN IN</button>
+  <mat-divider></mat-divider>
+    <h3>Tired of yet another password? Continue with: </h3>
+    <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
+    <button mat-flat-button (click)="auth.MicrosoftLogin()" class="social microsoft"><fa-icon [icon]="faMicrosoft" size="md"></fa-icon> Microsoft</button>
+</form>
