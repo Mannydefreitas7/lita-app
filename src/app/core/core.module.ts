@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PublishersComponent } from './publishers/publishers.component';
-import { LiteratureComponent } from './literature/literature.component';
-import { OrderComponent } from './order/order.component';
-import { ReportComponent } from './report/report.component';
-import { HelpComponent } from './help/help.component';
+
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthModule } from '../auth/auth.module';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
-    PublishersComponent, 
-    LiteratureComponent, 
-    OrderComponent, 
-    ReportComponent, 
-    HelpComponent
   ],
   imports: [
-    CommonModule
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AuthModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class CoreModule { }

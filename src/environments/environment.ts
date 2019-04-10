@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDs9ghv1jgGuhMgf3WGHgCqz7JKWnEiLCY',
+    authDomain: 'lita-app.firebaseapp.com',
+    databaseURL: 'https://lita-app.firebaseio.com',
+    projectId: 'lita-app',
+    storageBucket: 'lita-app.appspot.com',
+    messagingSenderId: '918298657225'
+  }
 };
 
 /*
