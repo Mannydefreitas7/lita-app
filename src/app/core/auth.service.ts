@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
 interface User {
   uid: string;
   email: string;
-  name: string;
+  name?: string;
 }
 
 @Injectable()
@@ -35,10 +35,27 @@ export class AuthService {
         .catch(error => console.log(error.message));
       }
 
+      emailSignUp(email: string, password: string) {
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then(() => console.log('Welcome, Your Account has been created!'))
+        .then(user => this.updateUserData(user))
+        .catch(error => console.log(error.message));
+      }
+
     signOut() {
       return this.afAuth.auth.signOut()
       .then(() => {
         this.router.navigate(['/']);
       });
+    }
+
+ private updateUserData(user) {
+  const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+
+  const data: User = {
+    uid: user.uid,
+    email: user.email || null
+  }
+  return userRef.set(data, { merge: true })
     }
   }
