@@ -11,10 +11,16 @@
     <mat-form-field [formGroup]="signInForm">
       <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
       <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
+      <mat-hint align="end">
+        <a routerLink="/reset-password">Forgot Password?</a>
+      </mat-hint>
     <mat-error *ngIf="password.valid">Not a valid password</mat-error>
     </mat-form-field>
 
     <button mat-button type="submit" color="accent">Sign In</button>
+    <p>Tired of yet another password? Continue with: </p>
+    <button mat-button (click)="auth.googleLogin()">Google</button>
+    <button mat-button (click)="auth.FacebookLogin()">Facebook</button>
     </form>
   </section>
 </main>

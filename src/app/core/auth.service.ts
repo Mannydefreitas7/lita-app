@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -16,6 +17,9 @@ interface User {
 @Injectable()
 export class AuthService {
   user: Observable<User>;
+
+  authState: any = null;
+
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -28,7 +32,17 @@ export class AuthService {
           return Observable.of(null);
         }
       });
+    this.afAuth.authState.subscribe(data => this.authState = data);
   }
+
+  get authenticated(): boolean {
+    return this.authState !== null;
+  }
+
+  get currentUserId(): string {
+    return this.authenticated ? this.authState.uid : null;
+  }
+
     emailSignIn(email: string, password: string) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(() => console.log('You have successfully signed in'))
@@ -37,8 +51,19 @@ export class AuthService {
 
       emailSignUp(email: string, password: string) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then(() => console.log('Welcome, Your Account has been created!'))
         .then(user => this.updateUserData(user))
+        .then(() => console.log('Welcome, Your Account has been created!'))
+        .catch(error => console.log(error.message))
+        .then(user => {
+          this.afAuth.auth.currentUser.sendEmailVerification()
+          .then(() => console.log('We sent you an email verification'))
+          .catch(error => console.log(error.message));
+        });
+      }
+
+      resetPassword(email: string) {
+        return firebase.auth().sendPasswordResetEmail(email)
+        .then(() => console.log('We\'ve sent you a password reset link'))
         .catch(error => console.log(error.message));
       }
 
@@ -47,6 +72,30 @@ export class AuthService {
       .then(() => {
         this.router.navigate(['/']);
       });
+    }
+
+googleLogin() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return this.socialLogin(provider);
+}
+
+githubLogin() {
+  const provider = new firebase.auth.GithubAuthProvider();
+  return this.socialLogin(provider);
+}
+
+FacebookLogin() {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  return this.socialLogin(provider);
+}
+
+
+    private socialLogin(provider) {
+      return this.afAuth.auth.signInWithRedirect(provider)
+      .then(credential => {
+        return this.updateUserData(this.user);
+      })
+      .catch(error => console.log(error.message));
     }
 
  private updateUserData(user) {
