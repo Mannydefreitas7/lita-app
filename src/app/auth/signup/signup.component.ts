@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router
   ) {
     this.signUpForm = this.fb.group({
@@ -43,11 +43,7 @@ export class SignupComponent implements OnInit {
   get password() {
    return this.signUpForm.get('password');
   }
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
+
 
   signUp() {
     return this.auth.emailSignUp(this.email.value, this.password.value)

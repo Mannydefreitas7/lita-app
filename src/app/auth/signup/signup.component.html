@@ -6,7 +6,7 @@
       <mat-label>Your Email</mat-label>
         <input matInput placeholder="example@domain.com" [formControl]="email" required>
         <mat-icon matSuffix>email</mat-icon>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-error *ngIf="email.invalid"></mat-error>
     </mat-form-field>
     <mat-form-field [formGroup]="signUpForm" appearance="fill" hintLabel="Must be at least 6 characters long">
         <mat-label>Create Password</mat-label>
@@ -20,6 +20,6 @@
     <mat-divider></mat-divider>
     <h3>Tired of yet another password? Continue with: </h3>
     <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
-    <!-- <button mat-flat-button (click)="auth.FacebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> -->
-    <button mat-flat-button (click)="auth.MicrosoftLogin()" class="social microsoft"><fa-icon [icon]="faMicrosoft" size="md"></fa-icon> Microsoft</button>
+   <button mat-flat-button (click)="auth.facebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> 
+    <button mat-flat-button (click)="auth.microsoftLogin()" class="social microsoft"><fa-icon [icon]="faMicrosoft" size="md"></fa-icon> Microsoft</button>
 </form>

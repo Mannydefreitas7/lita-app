@@ -81,27 +81,23 @@ googleLogin() {
   return this.socialLogin(provider);
 }
 
-MicrosoftLogin() {
-  var provider = new firebase.auth.OAuthProvider();
+microsoftLogin() {
+  const provider = new firebase.auth.OAuthProvider('microsoft.com');
   provider.addScope('mail.read');
   provider.addScope('calendars.read');
-  firebase.auth().signInWithPopup(provider)
-  .then(function(result) {
-      return this.socialLogin(result);
-  })
-  .catch(error => console.log(error.message));
+  return this.socialLogin(provider);
 }
 
-FacebookLogin() {
+facebookLogin() {
   const provider = new firebase.auth.FacebookAuthProvider();
   return this.socialLogin(provider);
 }
 
 
     private socialLogin(provider) {
-      return this.afAuth.auth.signInWithRedirect(provider)
+      return this.afAuth.auth.signInWithPopup(provider)
       .then(credential => {
-        return this.updateUserData(this.user);
+        return this.updateUserData(credential.user);
       })
       .catch(error => console.log(error.message));
     }
@@ -111,9 +107,10 @@ FacebookLogin() {
 
   const data: User = {
     uid: user.uid,
-    email: user.email || null
+    email: user.email
   };
   return userRef.set(data, { merge: true });
     }
+
 
 }
