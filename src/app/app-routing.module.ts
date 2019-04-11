@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
-import { CoreModule } from './core/core.module';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
@@ -14,12 +13,10 @@ const routes: Routes = [
 
   imports: [
     AuthModule,
-    CoreModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
     AuthModule,
-    CoreModule,
     RouterModule
   ]
 })
