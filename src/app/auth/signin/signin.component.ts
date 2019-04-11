@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { SharedModule } from '../../shared/shared.module';
-import { AuthService } from '../../core/auth.service';
+
 import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public auth: AuthService,
+    public auth: any,
     private router: Router
   ) {
     this.signInForm = this.fb.group({
