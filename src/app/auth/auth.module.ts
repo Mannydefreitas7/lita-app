@@ -8,10 +8,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { HomeModule } from '../home/home.module';
 
 const routes: Routes = [
-  { path: '', component: SigninComponent, data: { title: 'Sign In'} },
-  { path: 'signup', component: SignupComponent, data: { title: 'Sign Up'} },
-  { path: 'reset-password', component: ResetPasswordComponent, data: { title: 'Reset Password'}},
-  { path: 'home', loadChildren: './home/home.module#HomeModule' }
+  { path: '', component: SigninComponent, outlet: 'login' },
+  { path: 'signup', component: SignupComponent, outlet: 'login' },
+  { path: 'reset-password', component: ResetPasswordComponent, outlet: 'login' },
+  { path: 'home', loadChildren: '../home/home.module#HomeModule'  }
 ];
 
 @NgModule({

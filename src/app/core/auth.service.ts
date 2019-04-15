@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs';
 
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/observable/of';
 
 interface User {
   uid: string;
@@ -16,7 +16,9 @@ interface User {
   displayName?: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn:  'root'
+})
 export class AuthService {
   user: Observable<User>;
 
@@ -25,15 +27,17 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone
   ) {
-    this.user = this.afAuth.authState.switchMap(user => {
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
       if (user) {
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
-        return null;
+        return of(null);
       }
-    });
+    }));
 
     this.afAuth.authState.subscribe(data => this.authState = data);
   }
@@ -49,6 +53,9 @@ export class AuthService {
   emailSignIn(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(() => console.log('you have successfully signed in'))
+      .then(() => {
+        this.router.navigate(['/home'])
+      })
       .catch(error => console.log(error.message));
   }
 
@@ -80,7 +87,13 @@ export class AuthService {
 
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    return this.socialLogin(provider);
+
+    return this.socialLogin(provider)
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Google'))
+    .catch(error => console.log(error.message));
   }
 
   githubLogin() {
@@ -99,7 +112,7 @@ export class AuthService {
   }
 
   private socialLogin(provider) {
-    return this.afAuth.auth.signInWithRedirect(provider)
+    return this.afAuth.auth.signInWithPopup(provider)
       .then((credential: any) => {
         return this.updateUserData(credential.user);
       })

@@ -7,11 +7,20 @@ import { ReportComponent } from './report/report.component';
 import { HelpComponent } from './help/help.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  }
+];
 
 @NgModule({
   declarations: [HeaderComponent, OrderComponent, PublishersComponent, LiteratureComponent, ReportComponent, HelpComponent, HomeComponent],
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class HomeModule { }
