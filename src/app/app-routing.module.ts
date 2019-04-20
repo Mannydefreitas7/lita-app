@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
 import { Routes, RouterModule } from '@angular/router';
+import { PublishersComponent } from './home/publishers/publishers.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: './auth/auth.module#AuthModule',
-    pathMatch: 'full'
+    path: 'home',
+    component: DashboardComponent, canActivate: [AuthGuard]
   }
 ];
 
@@ -19,6 +21,7 @@ const routes: Routes = [
   exports: [
     AuthModule,
     RouterModule
-  ]
+  ],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+mat-sidenav {
+	width: 250px;
+}
+.header {
+	border: none;
+	background-color: #0076BF;
+	box-shadow: 2px 2px 20px #2222;
+	a {
+		color: #fff;
+	}
+  }

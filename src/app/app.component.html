@@ -1,19 +1,12 @@
-<section class="lita_section lita-login row X--center">
-	<mat-card class="lita-login--card">
-		<div class="row X--center">
-			<svg-icon src="../../assets/images/Logo.svg" [svgStyle]="{ 'width.px':140 }"></svg-icon>
-		</div>
-		<div class="row X--center">
-			<mat-card-subtitle class="lita-login--subtitle">	
-				<p>Congregation Literature Management App</p>
-			</mat-card-subtitle>
-		</div>
-		<div class="row X--center X--middle">
-			<mat-card-content>
-				<router-outlet name="login"></router-outlet>
-			</mat-card-content>
-		</div>
-	</mat-card>
-</section>
+<mat-sidenav-container>
+    <mat-sidenav  *ngIf="user" class="header" mode="side" opened fixedInViewport>
+      <lita-header></lita-header>
+    </mat-sidenav>
+    <mat-sidenav-content>
+		<router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 
 

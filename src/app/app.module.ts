@@ -12,10 +12,16 @@ import { AppRoutingModule } from './/app-routing.module';
 import { environment } from 'src/environments/environment';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './core/auth.service';
+import { PublishersComponent } from './home/publishers/publishers.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PublishersComponent,
+    HeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

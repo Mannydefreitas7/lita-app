@@ -5,17 +5,16 @@ import { SharedModule } from '../shared/shared.module';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { HomeModule } from '../home/home.module';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: SigninComponent, outlet: 'login' },
-  { path: 'signup', component: SignupComponent, outlet: 'login' },
-  { path: 'reset-password', component: ResetPasswordComponent, outlet: 'login' },
-  { path: 'home', loadChildren: '../home/home.module#HomeModule'  }
+  { path: '', component: LoginComponent , children: [{
+    path: 'reset-password', component: ResetPasswordComponent}]
+}
 ];
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent, ResetPasswordComponent],
-  imports: [RouterModule.forChild(routes), SharedModule, HomeModule]
+  declarations: [SigninComponent, SignupComponent, ResetPasswordComponent, LoginComponent],
+  imports: [RouterModule.forChild(routes), SharedModule]
 })
 export class AuthModule { }

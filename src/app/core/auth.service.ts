@@ -46,6 +46,14 @@ export class AuthService {
     return this.authState !== null;
   }
 
+  get currentUserObservable(): any {
+    return this.afAuth.auth;
+  }
+
+  isAuth(): boolean {
+    return this.user !== null;
+  }
+
   get currentUserId(): string {
     return this.authenticated ? this.authState.uid : null;
   }
@@ -54,7 +62,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(() => console.log('you have successfully signed in'))
       .then(() => {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
       })
       .catch(error => console.log(error.message));
   }
