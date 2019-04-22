@@ -48,12 +48,11 @@ export class SignupComponent implements OnInit {
 
 
 
-
   signUp() {
     return this.auth.emailSignUp(this.email.value, this.password.value)
     .then(user => {
       if (this.signUpForm.valid) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       }
     });
   }

@@ -70,7 +70,7 @@ export class AuthService {
 
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(user => this.updateUserData(user))
+      .then(credential => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
       .then(user => {
         this.afAuth.auth.currentUser.sendEmailVerification()
@@ -79,6 +79,9 @@ export class AuthService {
       })
       .catch(error => console.log(error.message));
   }
+
+
+ 
 
   resetPassword(email: string) {
     return firebase.auth().sendPasswordResetEmail(email)
