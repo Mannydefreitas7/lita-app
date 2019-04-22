@@ -1,0 +1,21 @@
+.section {
+	&-login {
+		height: 100vh;
+	}
+	.mat-card {
+		width: max-content;
+	}
+}
+.lita-button {
+	margin: 10px 0;
+	&.social {
+		margin: 0 10px 0 0;
+	}
+}
+.mat-hint {
+	a {
+		text-decoration: none;
+		color: #3337;
+	}
+}
+

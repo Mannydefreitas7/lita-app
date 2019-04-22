@@ -7,13 +7,28 @@ import { AuthService } from '../../core/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  currentUser = this.auth.currentUserObservable.currentUser;
-
+  currentUser: any = this.auth.currentUserObservable.currentUser;
+  currentUserName: string;
+  currentUserImage: any;
   constructor(private auth: AuthService) {
-    console.log(this.currentUser);
+
+      if (this.currentUser.displayName != null) {
+        this.currentUserName = this.currentUser.displayName;
+      } else {
+        this.currentUserName = 'to Lita';
+      }
+
+      if (this.currentUser.photoURL != null) {
+        this.currentUserImage = this.currentUser.photoURL;
+      } else {
+        this.currentUserImage = '../../assets/images/profile.png';
+      }
+      console.log(this.currentUser, this.currentUserImage, this.currentUserName);
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 
 
   logOut() {

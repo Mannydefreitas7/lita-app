@@ -10,7 +10,7 @@ import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-
   // tslint:disable-next-line:component-selector
   selector: 'lita-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./../login/login.component.scss']
 })
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;

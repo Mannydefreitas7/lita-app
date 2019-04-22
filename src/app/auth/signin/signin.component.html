@@ -1,26 +1,41 @@
-
 <form [formGroup]="signInForm" (ngSubmit)="signIn()">
-    <h3>Login to your account</h3>
+  <h3>Login to your account</h3>
 
-  <mat-form-field [formGroup]="signInForm" appearance="fill">
-      <mat-label>Email</mat-label>
+  <mat-form-field [formGroup]="signInForm" appearance="fill" fxFill>
+    <mat-label>Email</mat-label>
     <input matInput placeholder="Enter your email" [formControl]="email" required autocomplete="username email">
     <mat-icon matSuffix>email</mat-icon>
-  <mat-error *ngIf="!email.valid">Not a valid email</mat-error>
+    <mat-error *ngIf="!email.valid">Not a valid email</mat-error>
   </mat-form-field>
-  <mat-form-field [formGroup]="signInForm" appearance="fill">
-      <mat-label>Create Password</mat-label>
-    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required autocomplete="current-password">
-    <mat-icon matSuffix style="cursor: pointer;" (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
+
+  <mat-form-field [formGroup]="signInForm" appearance="fill" fxFill>
+    <mat-label>Create Password</mat-label>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+      [formControl]="password" required autocomplete="current-password">
+    <mat-icon matSuffix style="cursor: pointer;" (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}
+    </mat-icon>
     <mat-hint align="end">
-      <a routerLink="/reset-password">Forgot Password?</a>
+      <a (click)="openPasswordDialog()" style="cursor: pointer;">Forgot Password?</a>
     </mat-hint>
-  <mat-error *ngIf="!password.valid">Not a valid password</mat-error>
+    <mat-error *ngIf="!password.valid">Not a valid password</mat-error>
   </mat-form-field>
+
   <mat-error *ngIf="">Email and Password are required</mat-error>
-  <button mat-flat-button type="submit" color="primary">SIGN IN</button>
+
+  <div fxLayout="row">
+    <button mat-flat-button class="lita-button" type="submit" color="primary">SIGN IN</button>
+  </div>
+
   <mat-divider></mat-divider>
-    <h3>Continue with: </h3>
-    <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
-    <button mat-flat-button (click)="auth.facebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> 
+
+  <h3>Continue with: </h3>
+
+  <button mat-flat-button (click)="auth.googleLogin()" class="lita-button social google">
+    <fa-icon [icon]="faGoogle" size="md"></fa-icon> Google
+  </button>
+
+  <button mat-flat-button (click)="auth.facebookLogin()" class="lita-button social facebook">
+    <fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook
+  </button>
+
 </form>

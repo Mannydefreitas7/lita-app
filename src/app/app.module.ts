@@ -20,6 +20,7 @@ import { HelpComponent } from './home/help/help.component';
 import { OrderComponent } from './home/order/order.component';
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HomeComponent } from './home/home/home.component';
     AngularFireModule.initializeApp(environment.firebase),
     AuthModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FlexLayoutModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

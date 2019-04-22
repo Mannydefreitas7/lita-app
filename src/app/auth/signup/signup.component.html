@@ -1,30 +1,38 @@
 <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
-      <h2>Create an account</h2>
+  <h3>Create an account</h3>
 
-      <mat-form-field [formGroup]="signUpForm" appearance="fill">
-        <mat-label>Your Name</mat-label>
-          <input matInput placeholder="John Doe" formControlName="name" autocomplete="name">
-          <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
+  <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+    <mat-label>Your Name</mat-label>
+    <input matInput placeholder="John Doe" formControlName="name" autocomplete="name">
+    <mat-icon matSuffix>person</mat-icon>
+  </mat-form-field>
 
-    <mat-form-field [formGroup]="signUpForm" appearance="fill">
-      <mat-label>Your Email</mat-label>
-        <input matInput placeholder="example@domain.com" [formControl]="email" required autocomplete="username email">
-        <mat-icon matSuffix>email</mat-icon>
-        <mat-error *ngIf="email.invalid"></mat-error>
-    </mat-form-field>
-    <mat-form-field [formGroup]="signUpForm" appearance="fill" [hintLabel]=" empty ? 'Must be at least 6 characters long' : ''">
-        <mat-label>Create Password</mat-label>
-      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required autocomplete="current-password">
-      <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
-    <mat-error *ngIf="password.valid">Not a valid password</mat-error>
-    </mat-form-field>
+  <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+    <mat-label>Your Email</mat-label>
+    <input matInput placeholder="example@domain.com" [formControl]="email" required autocomplete="username email">
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="email.invalid">Not a valid email</mat-error>
+  </mat-form-field>
 
-    <button mat-flat-button type="submit" color="primary">SIGN UP</button>
+  <mat-form-field [formGroup]="signUpForm" appearance="fill"
+    [hintLabel]="" fxFill>
+    <mat-label>Create Password</mat-label>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password"
+      required autocomplete="current-password">
+    <mat-icon matSuffix matSuffix style="cursor: pointer;" (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
+    <mat-error *ngIf="!password.valid">Password must contain letters and numbers</mat-error>
+  </mat-form-field>
 
-    <mat-divider></mat-divider>
-    <h3>Register with Social Accounts:</h3>
-    <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
-   <button mat-flat-button (click)="auth.facebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> 
-    
+  <div fxLayout="row">
+    <button mat-flat-button class="lita-button" type="submit" color="primary">SIGN UP</button>
+  </div>
+  <mat-divider></mat-divider>
+  <h3>Register with Social Accounts:</h3>
+  <button mat-flat-button (click)="auth.googleLogin()" class="lita-button social google">
+    <fa-icon [icon]="faGoogle" size="md"></fa-icon> Google
+  </button>
+  <button mat-flat-button (click)="auth.facebookLogin()" class="lita-button social facebook">
+    <fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook
+  </button>
+
 </form>

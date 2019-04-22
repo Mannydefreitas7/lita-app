@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    FlexLayoutModule
   ],
   exports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }

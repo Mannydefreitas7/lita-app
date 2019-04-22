@@ -5,12 +5,13 @@ import { Observable } from 'rxjs/Observable';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from '../../core/auth.service';
 import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
-
+import {MatDialog} from '@angular/material';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./../login/login.component.scss']
 })
 export class SigninComponent implements OnInit {
   signInForm: FormGroup;
@@ -22,7 +23,8 @@ export class SigninComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -44,6 +46,14 @@ export class SigninComponent implements OnInit {
    return this.signInForm.get('password');
   }
 
+  openPasswordDialog() {
+    const dialogRef = this.dialog.open(ResetPasswordComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   signIn() {
     return this.auth.emailSignIn(this.email.value, this.password.value)
     .then(user => {
@@ -55,3 +65,8 @@ export class SigninComponent implements OnInit {
 
 
 }
+@Component({
+  selector: 'reset-password',
+  templateUrl: './../reset-password/reset-password.component.html',
+})
+export class ResetPasswordDialog {}
