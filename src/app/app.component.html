@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav  *ngIf="user" class="header" mode="side" opened fixedInViewport>
+    <mat-sidenav *ngIf="router.url !== '/' && router.url !== '/signup' && router.url !== '/signin' && router.url !== '/reset-password'" class="header" mode="side" opened fixedInViewport>
       <lita-header></lita-header>
     </mat-sidenav>
     <mat-sidenav-content>

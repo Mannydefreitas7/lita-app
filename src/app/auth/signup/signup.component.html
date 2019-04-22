@@ -7,7 +7,7 @@
         <mat-icon matSuffix>email</mat-icon>
         <mat-error *ngIf="email.invalid"></mat-error>
     </mat-form-field>
-    <mat-form-field [formGroup]="signUpForm" appearance="fill" hintLabel="Must be at least 6 characters long">
+    <mat-form-field [formGroup]="signUpForm" appearance="fill" [hintLabel]=" empty ? 'Must be at least 6 characters long' : ''">
         <mat-label>Create Password</mat-label>
       <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password" required autocomplete="current-password">
       <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>

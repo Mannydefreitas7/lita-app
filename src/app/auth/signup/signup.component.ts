@@ -15,6 +15,7 @@ import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   hide = true;
+  empty: boolean;
   faGoogle = faGoogle;
   faFacebook = faFacebook;
   faMicrosoft = faMicrosoft;
@@ -43,6 +44,9 @@ export class SignupComponent implements OnInit {
   get password() {
    return this.signUpForm.get('password');
   }
+
+
+
 
 
   signUp() {

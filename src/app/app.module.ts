@@ -15,13 +15,21 @@ import { AuthService } from './core/auth.service';
 import { PublishersComponent } from './home/publishers/publishers.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { LiteratureComponent } from './home/literature/literature.component';
+import { HelpComponent } from './home/help/help.component';
+import { OrderComponent } from './home/order/order.component';
+import { ReportComponent } from './home/report/report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublishersComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    LiteratureComponent,
+    HelpComponent,
+    OrderComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

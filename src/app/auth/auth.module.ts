@@ -8,9 +8,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent , children: [{
-    path: 'reset-password', component: ResetPasswordComponent}]
-}
+  { path: '', component: LoginComponent },
+  { path: 'reset-password', component: ResetPasswordComponent }
 ];
 
 @NgModule({
