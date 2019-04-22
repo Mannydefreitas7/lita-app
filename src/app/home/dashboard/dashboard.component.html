@@ -1,8 +1,20 @@
 <mat-toolbar class="dashboard dashboard-toolbar">
   <h3 color="grey">Welcome <span>{{ currentUser.displayName }}</span></h3>
-  <div class="dashboard-toolbar--image">
-    <img [src]="currentUser.photoURL" alt="">
-  </div>
-  <mat-icon (click)="logOut()" style="cursor: pointer;">exit_to_app</mat-icon>
+  <button mat-button [matMenuTriggerFor]="userSettings">
+    <div class="dashboard-toolbar--image">
+      <img [src]="currentUser.photoURL" alt="">
+    </div>
+  </button>
+  <mat-menu #userSettings="matMenu" xPosition="before">
+      <button mat-menu-item (click)="logOut()" style="cursor: pointer;">
+        <mat-icon >settings</mat-icon> 
+        Settings
+      </button>
+      <button style="cursor: pointer;" mat-menu-item (click)="logOut()">
+        <mat-icon>exit_to_app</mat-icon> 
+        Log Out
+      </button>
+  </mat-menu>
+  
 </mat-toolbar>
 <router-outlet></router-outlet>

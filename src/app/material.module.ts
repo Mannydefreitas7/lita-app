@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatListModule, MatIconModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { MatListModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule } from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
@@ -21,7 +21,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatCardModule,
     MatProgressSpinnerModule,
     FontAwesomeModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule
   ],
   exports: [
     MatIconModule,
@@ -33,7 +34,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatCardModule,
     MatProgressSpinnerModule,
     FontAwesomeModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule { }
