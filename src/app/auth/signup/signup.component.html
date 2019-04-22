@@ -1,6 +1,12 @@
 <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
       <h2>Create an account</h2>
 
+      <mat-form-field [formGroup]="signUpForm" appearance="fill">
+        <mat-label>Your Name</mat-label>
+          <input matInput placeholder="John Doe" formControlName="name" autocomplete="name">
+          <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
     <mat-form-field [formGroup]="signUpForm" appearance="fill">
       <mat-label>Your Email</mat-label>
         <input matInput placeholder="example@domain.com" [formControl]="email" required autocomplete="username email">
@@ -17,7 +23,7 @@
     <button mat-flat-button type="submit" color="primary">SIGN UP</button>
 
     <mat-divider></mat-divider>
-    <h3>Tired of yet another password? Continue with: </h3>
+    <h3>Register with Social Accounts:</h3>
     <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
    <button mat-flat-button (click)="auth.facebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> 
     

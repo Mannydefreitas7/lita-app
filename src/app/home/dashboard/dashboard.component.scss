@@ -1,0 +1,23 @@
+.dashboard {
+	&-toolbar {
+		h3 {
+			color: #777;
+			font-weight: 300;
+		}
+		span {
+			font-weight: 400;
+			color: #333;
+			text-transform: capitalize;
+		}
+		&--image { 
+			width: 44px;
+			height: 44px;
+			position: relative;
+			border-radius: 50%;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

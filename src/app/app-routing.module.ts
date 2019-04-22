@@ -8,12 +8,14 @@ import { LiteratureComponent } from './home/literature/literature.component';
 import { OrderComponent } from './home/order/order.component';
 import { ReportComponent } from './home/report/report.component';
 import { HelpComponent } from './home/help/help.component';
+import { HomeComponent } from './home/home/home.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: DashboardComponent, canActivate: [AuthGuard],
     children: [
+      { path: '', component: HomeComponent  },
       { path: 'literature', component: LiteratureComponent },
       { path: 'publishers', component: PublishersComponent },
       { path: 'order' , component: OrderComponent },

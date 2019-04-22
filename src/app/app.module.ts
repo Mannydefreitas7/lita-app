@@ -19,6 +19,7 @@ import { LiteratureComponent } from './home/literature/literature.component';
 import { HelpComponent } from './home/help/help.component';
 import { OrderComponent } from './home/order/order.component';
 import { ReportComponent } from './home/report/report.component';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReportComponent } from './home/report/report.component';
     LiteratureComponent,
     HelpComponent,
     OrderComponent,
-    ReportComponent
+    ReportComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,11 +7,15 @@ import { AuthService } from '../../core/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  currentUser = this.auth.currentUserObservable.currentUser;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService) {
+    console.log(this.currentUser);
+   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+
   logOut() {
     return this.auth.signOut();
   }

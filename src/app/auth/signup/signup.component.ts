@@ -15,7 +15,7 @@ import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   hide = true;
-  empty: boolean;
+  empty: boolean = true;
   faGoogle = faGoogle;
   faFacebook = faFacebook;
   faMicrosoft = faMicrosoft;
@@ -32,8 +32,8 @@ export class SignupComponent implements OnInit {
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
         Validators.minLength(6),
         Validators.maxLength(25)
-      ]
-    ]
+      ],
+    ], name: ['', [Validators.required, Validators.minLength(3)]]
     });
    }
 
@@ -45,11 +45,12 @@ export class SignupComponent implements OnInit {
    return this.signUpForm.get('password');
   }
 
-
-
+  get name() {
+    return this.signUpForm.get('name');
+  }
 
   signUp() {
-    return this.auth.emailSignUp(this.email.value, this.password.value)
+    return this.auth.emailSignUp(this.name.value, this.email.value, this.password.value)
     .then(user => {
       if (this.signUpForm.valid) {
         this.router.navigate(['/home']);

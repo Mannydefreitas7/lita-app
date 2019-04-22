@@ -7,6 +7,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
+import { FormBuilder } from '@angular/forms';
 
 
 interface User {
@@ -28,7 +29,8 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private form: FormBuilder
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -68,7 +70,7 @@ export class AuthService {
   }
 
 
-  emailSignUp(email: string, password: string) {
+  emailSignUp(name: string, email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(credential => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
@@ -79,7 +81,6 @@ export class AuthService {
       })
       .catch(error => console.log(error.message));
   }
-
 
  
 
@@ -114,7 +115,15 @@ export class AuthService {
 
   facebookLogin() {
     const provider = new firebase.auth.FacebookAuthProvider();
-    return this.socialLogin(provider);
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then((result: any) => {
+      return this.updateUserData(result.user) })
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Facebook'))
+    .catch(error =>
+      console.log(error.code, error.message, error.email, error.credential));
   }
 
   twitterLogin() {
@@ -134,7 +143,7 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     const data: User = {
       uid: user.uid,
-      email: user.email || null,
+      email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL
     };

@@ -20,6 +20,7 @@
   <mat-error *ngIf="">Email and Password are required</mat-error>
   <button mat-flat-button type="submit" color="primary">SIGN IN</button>
   <mat-divider></mat-divider>
-    <h3>Tired of yet another password? Continue with: </h3>
+    <h3>Continue with: </h3>
     <button mat-flat-button (click)="auth.googleLogin()" class="social google"><fa-icon [icon]="faGoogle" size="md"></fa-icon> Google</button>
+    <button mat-flat-button (click)="auth.facebookLogin()" class="social facebook"><fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook</button> 
 </form>
