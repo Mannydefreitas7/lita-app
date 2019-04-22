@@ -70,7 +70,7 @@ export class AuthService {
   }
 
 
-  emailSignUp(name: string, email: string, password: string) {
+  emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(credential => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))

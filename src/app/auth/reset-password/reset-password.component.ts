@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ResetPasswordComponent implements OnInit {
   email: string;
   successMessage: string;
-  close: boolean = false;
+  close = false;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class ResetPasswordComponent implements OnInit {
 
   resetPassword(email) {
     return this.auth.resetPassword(this.email)
-    .then(() => this.successMessage = "We sent you a email." )
+    .then(() => this.successMessage = 'We sent you a email.' )
     .then(() => this.close = true);
   }
 

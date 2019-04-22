@@ -15,7 +15,8 @@ import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   hide = true;
-  empty: boolean = true;
+  empty = true;
+  emailMessage = false;
   faGoogle = faGoogle;
   faFacebook = faFacebook;
   faMicrosoft = faMicrosoft;
@@ -33,8 +34,9 @@ export class SignupComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(25)
       ],
-    ], name: ['', [Validators.required, Validators.minLength(3)]]
+    ], emailCheck: ['', [Validators.email, Validators.required]]
     });
+
    }
 
   ngOnInit() {}
@@ -45,16 +47,23 @@ export class SignupComponent implements OnInit {
    return this.signUpForm.get('password');
   }
 
-  get name() {
-    return this.signUpForm.get('name');
+  get emailCheck() {
+    return this.signUpForm.get('emailCheck');
   }
 
+  
+
   signUp() {
-    return this.auth.emailSignUp(this.name.value, this.email.value, this.password.value)
+    if (this.emailCheck.value !== this.email.value) {
+      console.log(this.emailCheck.value);
+      this.emailMessage = true;
+    } else {
+    return this.auth.emailSignUp(this.email.value, this.password.value)
     .then(user => {
       if (this.signUpForm.valid) {
         this.router.navigate(['/home']);
       }
     });
   }
+}
 }
