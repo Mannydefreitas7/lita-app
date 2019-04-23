@@ -1,9 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
@@ -52,7 +51,21 @@ export class AuthService {
     return this.afAuth.auth;
   }
 
-  isAuth(): boolean {
+  get firebaseFireStore(): any {
+    return this.afs;
+  }
+
+  stateChanged(): any {
+    return this.afAuth.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.ngZone.run(() => this.router.navigate(['/home']));
+      } else {
+        this.ngZone.run(() => this.router.navigate(['/']));
+      }
+    });
+  }
+
+  get isAuth(): boolean {
     return this.user !== null;
   }
 
@@ -107,10 +120,15 @@ export class AuthService {
     .then(() => console.log('You are logged-in with Google'))
     .catch(error => console.log(error.message));
   }
+  microsoftLogin() {
 
-  githubLogin() {
-    const provider = new firebase.auth.GithubAuthProvider();
-    return this.socialLogin(provider);
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    return this.socialLogin(provider)
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Microsoft'))
+    .catch(error => console.log(error.message));
   }
 
   facebookLogin() {
@@ -139,7 +157,7 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
-  private updateUserData(user) {
+  updateUserData(user) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     const data: User = {
       uid: user.uid,

@@ -21,6 +21,7 @@ import { OrderComponent } from './home/order/order.component';
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AuthModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
