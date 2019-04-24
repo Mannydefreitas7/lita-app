@@ -22,7 +22,7 @@ interface User {
 })
 export class AuthService {
   user: Observable<User>;
-
+  msgdialog: string;
   authState: any = null;
 
   constructor(
@@ -79,10 +79,10 @@ export class AuthService {
           .then(() => console.log('We sent you an email verification'))
           .catch(error => console.log(error.message));
       })
-      .catch(error => console.log(error.message));
+      .catch(error => this.msgdialog = error.message);
   }
 
- 
+
 
   resetPassword(email: string) {
     return firebase.auth().sendPasswordResetEmail(email)
@@ -105,7 +105,7 @@ export class AuthService {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
     .then(() => console.log('You are logged-in with Google'))
-    .catch(error => console.log(error.message));
+    .catch(error => this.msgdialog = error.message);
   }
 
   githubLogin() {
@@ -117,13 +117,13 @@ export class AuthService {
     const provider = new firebase.auth.FacebookAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result: any) => {
-      return this.updateUserData(result.user) })
+      return this.updateUserData(result.user); })
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
     .then(() => console.log('You are logged-in with Facebook'))
     .catch(error =>
-      console.log(error.code, error.message, error.email, error.credential));
+      this.msgdialog = error.message);
   }
 
   twitterLogin() {
