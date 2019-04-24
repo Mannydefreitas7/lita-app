@@ -6,8 +6,9 @@
     </div>
   </button>
 </mat-toolbar>
+<mat-progress-bar *ngIf="loading" color="primary" mode="indeterminate" ></mat-progress-bar>
 <mat-menu #userSettings="matMenu" xPosition="before">
-    <button mat-menu-item (click)="logOut()" style="cursor: pointer;">
+    <button mat-menu-item (click)=" updateProfile()" style="cursor: pointer;">
       <mat-icon >settings</mat-icon> 
       Settings
     </button>

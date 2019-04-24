@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lita-login',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afs: AuthService, private router: Router) { }
 
   ngOnInit() {
+    const currentUser = this.afs.isAuth;
+    console.log(currentUser);
+      if (currentUser) {
+        this.afs.stateChanged();
+      } else {
+        this.router.navigate(['/']);
+    }
   }
-
 }

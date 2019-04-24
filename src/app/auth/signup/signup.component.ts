@@ -54,10 +54,6 @@ export class SignupComponent implements OnInit {
   
 
   signUp() {
-    if (this.emailCheck.value !== this.email.value) {
-      console.log(this.emailCheck.value);
-      this.emailMessage = true;
-    } else {
     return this.auth.emailSignUp(this.email.value, this.password.value)
     .then(user => {
       if (this.signUpForm.valid) {
@@ -65,5 +61,4 @@ export class SignupComponent implements OnInit {
       }
     });
   }
-}
 }

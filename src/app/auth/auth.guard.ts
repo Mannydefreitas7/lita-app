@@ -7,15 +7,22 @@ import { AuthService } from '../core/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean {
-      if (this.auth.authenticated) { return true; } 
+      if (this.auth.authenticated) { 
+        return true
+      } else if (this.auth.isAuth) {
+        return true
+      }
       else {
         console.log('access denied')
         this.router.navigate(['/']);
       }
   }
+
+  
 }

@@ -8,12 +8,12 @@
       <mat-error *ngIf="email.invalid">Not a valid email</mat-error>
     </mat-form-field>
 
-  <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+  <!-- <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
     <mat-label>Type Your Email Again</mat-label>
     <input matInput placeholder="example@domain.com" [formControl]="emailCheck" required autocomplete="username email">
     <mat-icon matSuffix>email</mat-icon>
     <mat-error *ngIf="emailMessage">Emails don't match.</mat-error>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <mat-form-field [formGroup]="signUpForm" appearance="fill"
     [hintLabel]="" fxFill>
@@ -35,5 +35,8 @@
   <button mat-flat-button (click)="auth.facebookLogin()" class="lita-button social facebook">
     <fa-icon [icon]="faFacebook" size="md"></fa-icon> Facebook
   </button>
+  <button mat-flat-button (click)="auth.microsoftLogin()" class="lita-button social microsoft">
+      <fa-icon [icon]="faMicrosoft" size="md"></fa-icon> Microsoft
+    </button>
 
 </form>

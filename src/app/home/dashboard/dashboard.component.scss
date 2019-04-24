@@ -1,4 +1,4 @@
-.dashboard {
+.dashboard, .settings {
 	&-toolbar {
 		h3 {
 			color: #777;
@@ -16,9 +16,18 @@
 			border-radius: 50%;
 			overflow: hidden;
 			background: #1111;
+			&.settings--image {
+				width: 200px;
+				height: 200px;
+				margin-bottom: 3pc;
+			}
 			img {
 				width: 100%;
 			}
 		}
 	}
 }
+.settings {
+	width: 300px;
+}
+.lita-icon { margin-right: 10px; }

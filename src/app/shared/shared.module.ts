@@ -5,9 +5,12 @@ import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SettingsComponent } from '../home/dashboard/settings.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SettingsComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AngularSvgIconModule,
     FlexLayoutModule
   ],
+  entryComponents: [SettingsComponent],
   exports: [
     CommonModule,
     FormsModule,
