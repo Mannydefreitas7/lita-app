@@ -1,8 +1,8 @@
 [{
 	"id": 5000,
 	"name": "Watchtower Library",
-	"pubId": "",
-	"contextTitle": "",
+	"pubId": "wlcdrom",
+	"contextTitle": "CD-ROM",
 	"cover": "",
 	"quantity": {
 		"in": 0,

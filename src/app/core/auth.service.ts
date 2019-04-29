@@ -45,7 +45,6 @@ export class AuthService {
     this.http.get('assets/literature.json').subscribe((results: Array<Object>) => {
       // tslint:disable-next-line:prefer-for-of
     this.pubs = JSON.parse(JSON.stringify(results));
-    console.log(this.pubs)
   });
   }
 
@@ -97,7 +96,7 @@ export class AuthService {
   emailSignUp(email: string, password: string, displayName?: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(credential =>
-      this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: ''})
+      this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
       .then(() => console.log('name added succesfully'))
       .then(() => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
@@ -183,7 +182,7 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: user.displayName || "",
       photoURL: user.photoURL,
       congregation: {
         id: publisherID,
