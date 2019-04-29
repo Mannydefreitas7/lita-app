@@ -24,13 +24,13 @@ export class DashboardComponent implements OnInit {
   loading = true;
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog) {
 
-      if (this.currentUser.displayName != null) {
+      if (this.currentUser.displayName !== null) {
         this.currentUserName = this.currentUser.displayName;
       } else {
         this.currentUserName = 'to Lita';
       }
 
-      if (this.currentUser.photoURL != null) {
+      if (this.currentUser.photoURL !== null) {
         this.currentUserImage = this.currentUser.photoURL;
       } else {
         this.currentUserImage = '../../assets/images/profile.png';

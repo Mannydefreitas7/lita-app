@@ -1,34 +1,34 @@
-<div class="logo row column X--center">
+<div class="logo" fxLayout="column" fxLayoutAlign="center center">
 	<svg-icon src="../../assets/images/Logo.svg" [svgStyle]="{ 'width.px':140 }"></svg-icon>
 	<h2>Congregation Literature management system</h2>
 </div>
 <mat-list>
 		<mat-list-item>
-				<a mat-button routerLink="/home">
+				<a mat-button routerLink="/home" routerLinkActive="home active">
 					<mat-icon class="lita-icon">home</mat-icon>
 					Home
 				</a>
 			</mat-list-item>
 	<mat-list-item>
-		<a mat-button routerLink='/home/publishers' >
+		<a mat-button routerLink='/home/publishers' routerLinkActive="active">
 		  <mat-icon class="lita-icon">people_outline</mat-icon>
 		  Publishers
 		</a>
 	</mat-list-item>
 	<mat-list-item>
-		<a mat-button routerLink='/home/order'>
+		<a mat-button routerLink='/home/order' routerLinkActive="active">
 		  <mat-icon class="lita-icon">content_paste</mat-icon>
 		  Order
 		</a>
 	</mat-list-item>
 	<mat-list-item>
-		<a mat-button routerLink='/home/report'>
+		<a mat-button routerLink='/home/report' routerLinkActive="active">
 		  <mat-icon class="lita-icon">poll</mat-icon>
 		  Report
 		  </a>
 	</mat-list-item>
 	<mat-list-item>
-		<a mat-button routerLink='/home/help'>
+		<a mat-button routerLink='/home/help' routerLinkActive="active">
 			<mat-icon class="lita-icon">help_outline</mat-icon>
 			Help
 		  </a>

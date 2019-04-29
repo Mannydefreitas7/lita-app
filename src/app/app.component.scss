@@ -15,6 +15,13 @@ mat-sidenav {
 	box-shadow: 2px 2px 20px #2222;
 	a {
 		color: #fff;
+		&.active {
+			background: #0164a2;
+			&.home {
+				color: #fff;
+				background: initial;
+			}
+		}
 	}
   }
   a, button {

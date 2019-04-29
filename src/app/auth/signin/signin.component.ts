@@ -63,8 +63,3 @@ export class SigninComponent implements OnInit {
     });
   }
 }
-@Component({
-  selector: 'reset-password',
-  templateUrl: './../reset-password/reset-password.component.html',
-})
-export class ResetPasswordDialog {} 
