@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 
 @Component({
@@ -36,9 +36,8 @@ export class SettingsComponent {
    const user =  this.auth.updateUserData;
 
     this.updateForm = this.fb.group({
-      displayName : [''],
+      displayName : ['', Validators.required],
       photoURL : ['']
     });
-    console.log(user)
   }
 } 

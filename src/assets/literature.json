@@ -1,3702 +1,1272 @@
-[
-<<<<<<< HEAD
-{ 
-	"id": "watchtower-no2-2019-may-jun", 
-	"url": "/en/publications/magazines/watchtower-no2-2019-may-jun/", 
-	"title": "No 2 2019  Is Life Worth Living", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201905/wpub/wp_E_201905_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no1-2019-jan-feb", 
-	"url": "/en/publications/magazines/watchtower-no1-2019-jan-feb/", 
-	"title": "No 1 2019  Who Is God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201901/wpub/wp_E_201901_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no3-2018-nov-dec", 
-	"url": "/en/publications/magazines/awake-no3-2018-nov-dec/", 
-	"title": "No 3 2018  Help for Those Who Grieve", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201811/wpub/g_E_201811_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no2-2018-jul-aug", 
-	"url": "/en/publications/magazines/awake-no2-2018-jul-aug/", 
-	"title": "No 2 2018  12 Secrets of Successful Families", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201807/wpub/g_E_201807_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no1-2018-mar-apr", 
-	"url": "/en/publications/magazines/awake-no1-2018-mar-apr/", 
-	"title": "No 1 2018  The Way of Happiness", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201803/wpub/g_E_201803_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no6-2017-december", 
-	"url": "/en/publications/magazines/awake-no6-2017-december/", 
-	"title": "No 6 2017  Is the World out of Control", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201712/wpub/g_E_201712_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no5-2017-october", 
-	"url": "/en/publications/magazines/awake-no5-2017-october/", 
-	"title": "No 5 2017  When Disaster StrikesSteps That Can Save Lives", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201710/wpub/g_E_201710_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no4-2017-august", 
-	"url": "/en/publications/magazines/awake-no4-2017-august/", 
-	"title": "No 4 2017  Are You Doing Too Much", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201708/wpub/g_E_201708_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no3-2017-june", 
-	"url": "/en/publications/magazines/awake-no3-2017-june/", 
-	"title": "No 3 2017  Is the Bible Really From God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201706/wpub/g_E_201706_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no2-2017-april", 
-	"url": "/en/publications/magazines/awake-no2-2017-april/", 
-	"title": "No 2 2017  What Is Behind the Supernatural", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201704/wpub/g_E_201704_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no1-2017-february", 
-	"url": "/en/publications/magazines/awake-no1-2017-february/", 
-	"title": "No 1 2017  Teen DepressionWhy What Can Help", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201702/wpub/g_E_201702_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no6-2016-december", 
-	"url": "/en/publications/magazines/awake-no6-2016-december/", 
-	"title": "No 6 2016  DiseaseHow to Reduce the Risk", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201612/wpub/g_E_201612_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no2-2016-april", 
-	"url": "/en/publications/magazines/awake-no2-2016-april/", 
-	"title": "No 2 2016  Is the Bible Just a Good Book", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201604/wpub/g_E_201604_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no1-2016-february", 
-	"url": "/en/publications/magazines/awake-no1-2016-february/", 
-	"title": "No 1 2016  Attitude Makes a Difference", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201602/wpub/g_E_201602_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no5-2016-october", 
-	"url": "/en/publications/magazines/awake-no5-2016-october/", 
-	"title": "No 5 2016  Did Jesus Really Exist", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201610/wpub/g_E_201610_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no4-2016-august", 
-	"url": "/en/publications/magazines/awake-no4-2016-august/", 
-	"title": "No 4 2016  How to Harness Your Habits", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201608/wpub/g_E_201608_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no3-2016-june", 
-	"url": "/en/publications/magazines/awake-no3-2016-june/", 
-	"title": "No 3 2016  Breaking the Language Barrier", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201606/wpub/g_E_201606_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201512", 
-	"url": "/en/publications/magazines/g201512/", 
-	"title": "December 2015  Making Peace at Home", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201512/wpub/g_E_201512_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201509", 
-	"url": "/en/publications/magazines/g201509/", 
-	"title": "September 2015  A Balanced View of Money", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201509/wpub/g_E_201509_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201507", 
-	"url": "/en/publications/magazines/g201507/", 
-	"title": "July 2015  Are You in Control of Your Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201507/wpub/g_E_201507_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201506", 
-	"url": "/en/publications/magazines/g201506/", 
-	"title": "June 2015  Improve Your Health5 Things You Can Do Today", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201506/wpub/g_E_201506_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201505", 
-	"url": "/en/publications/magazines/g201505/", 
-	"title": "May 2015  Hope for the Homeless and the Poor", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201505/wpub/g_E_201505_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201504", 
-	"url": "/en/publications/magazines/g201504/", 
-	"title": "April 2015  Whatever Happened to Discipline", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201504/wpub/g_E_201504_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201503", 
-	"url": "/en/publications/magazines/g201503/", 
-	"title": "March 2015  Is There a God What Difference Does It Make", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201503/wpub/g_E_201503_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201502", 
-	"url": "/en/publications/magazines/g201502/", 
-	"title": "February 2015  Is the Bible Relevant Today", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201502/wpub/g_E_201502_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201501", 
-	"url": "/en/publications/magazines/g201501/", 
-	"title": "January 2015  How Did Life Begin", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201501/wpub/g_E_201501_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201511", 
-	"url": "/en/publications/magazines/g201511/", 
-	"title": "November 2015  Is Religion Dying Out", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201511/wpub/g_E_201511_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201508", 
-	"url": "/en/publications/magazines/g201508/", 
-	"title": "August 2015  Your CellsLiving Libraries", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201508/wpub/g_E_201508_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "g201510", 
-	"url": "/en/publications/magazines/g201510/", 
-	"title": "October 2015  3 Questions People Would Like to Ask God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201510/wpub/g_E_201510_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "The-Greatest-Man-Who-Ever-Lived", 
-	"url": "/en/publications/books/The-Greatest-Man-Who-Ever-Lived/", 
-	"title": "The Greatest Man Who Ever Lived", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/gt/E/wpub/gt_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-stories", 
-	"url": "/en/publications/books/bible-stories/", 
-	"title": "My Book of Bible Stories", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/my/E/wpub/my_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "draw-close", 
-	"url": "/en/publications/books/draw-close/", 
-	"title": "Draw Close to Jehovah", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/cl/E/wpub/cl_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Live-With-Jehovahs-Day-in-Mind", 
-	"url": "/en/publications/books/Live-With-Jehovahs-Day-in-Mind/", 
-	"title": "Live With Jehovahs Day in Mind", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jd/E/wpub/jd_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-teach", 
-	"url": "/en/publications/books/bible-teach/", 
-	"title": "What Does the Bible Really Teach", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bh/E/wpub/bh_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "The-Secret-of-Family-Happiness", 
-	"url": "/en/publications/books/The-Secret-of-Family-Happiness/", 
-	"title": "The Secret of Family Happiness", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/fy/E/wpub/fy_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "satisfying-life", 
-	"url": "/en/publications/books/satisfying-life/", 
-	"title": "A Satisfying LifeHow to Attain It", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/la/E/wpub/la_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "when-someone-dies", 
-	"url": "/en/publications/books/when-someone-dies/", 
-	"title": "When Someone You Love Dies", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/we/E/wpub/we_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "learn-from-great-teacher-jesus", 
-	"url": "/en/publications/books/learn-from-great-teacher-jesus/", 
-	"title": "Learn From the Great Teacher", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lr/E/wpub/lr_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "gods-love", 
-	"url": "/en/publications/books/gods-love/", 
-	"title": "Keep Yourselves in Gods Love", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lv/E/wpub/lv_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2010-Yearbook-of-Jehovahs-Witnesses", 
-	"url": "/en/publications/books/2010-Yearbook-of-Jehovahs-Witnesses/", 
-	"title": "2010 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb10/E/wpub/yb10_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Bearing-Thorough-Witness-About-Gods-Kingdom", 
-	"url": "/en/publications/books/Bearing-Thorough-Witness-About-Gods-Kingdom/", 
-	"title": "Bearing Thorough Witness About Gods Kingdom", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bt/E/wpub/bt_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Come-Be-My-Follower", 
-	"url": "/en/publications/books/Come-Be-My-Follower/", 
-	"title": "Come Be My Follower", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/cf/E/wpub/cf_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2011-Yearbook-of-Jehovahs-Witnesses", 
-	"url": "/en/publications/books/2011-Yearbook-of-Jehovahs-Witnesses/", 
-	"title": "2011 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb11/E/wpub/yb11_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "listen-and-live", 
-	"url": "/en/publications/books/listen-and-live/", 
-	"title": "Listen to God and Live Forever", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ll/E/wpub/ll_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2012-Yearbook-of-Jehovahs-Witnesses", 
-	"url": "/en/publications/books/2012-Yearbook-of-Jehovahs-Witnesses/", 
-	"title": "2012 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb12/E/wpub/yb12_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Gods-Word-for-Us-Through-Jeremiah", 
-	"url": "/en/publications/books/Gods-Word-for-Us-Through-Jeremiah/", 
-	"title": "Gods Word for Us Through Jeremiah", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jr/E/wpub/jr_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "was-life-created", 
-	"url": "/en/publications/books/was-life-created/", 
-	"title": "Was Life Created", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lc/E/wpub/lc_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "real-faith", 
-	"url": "/en/publications/books/real-faith/", 
-	"title": "Real FaithYour Key to a Happy Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rk/E/wpub/rk_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "know-truth-tract", 
-	"url": "/en/publications/books/know-truth-tract/", 
-	"title": "Would You Like to Know the Truth", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/kt/E/wpub/kt_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "a-peaceful-new-world-will-it-come", 
-	"url": "/en/publications/books/a-peaceful-new-world-will-it-come/", 
-	"title": "A Peaceful New WorldWill It Come", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-17/E/wpub/T-17_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Listen-to-God", 
-	"url": "/en/publications/books/Listen-to-God/", 
-	"title": "Listen to God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ld/E/wpub/ld_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "blood", 
-	"url": "/en/publications/books/blood/", 
-	"title": "How Can Blood Save Your Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hb/E/wpub/hb_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Schedule-for-Bible-Reading", 
-	"url": "/en/publications/books/Schedule-for-Bible-Reading/", 
-	"title": "Schedule for Bible Reading", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sbr/E/wpub/sbr_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-message", 
-	"url": "/en/publications/books/bible-message/", 
-	"title": "The BibleWhat Is Its Message", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bm/E/wpub/bm_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Questions-Young-People-Ask-Answers-That-Work-Volume-1", 
-	"url": "/en/publications/books/Questions-Young-People-Ask-Answers-That-Work-Volume-1/", 
-	"title": "Questions Young People AskAnswers That Work Volume 1", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yp1/E/wpub/yp1_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "origin-of-life-5-questions", 
-	"url": "/en/publications/books/origin-of-life-5-questions/", 
-	"title": "The Origin of LifeFive Questions Worth Asking", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lf/E/wpub/lf_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "path-to-peace-and-happiness", 
-	"url": "/en/publications/books/path-to-peace-and-happiness/", 
-	"title": "The Pathway to Peace and Happiness", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ph/E/wpub/ph_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Questions-Young-People-Ask-Answers-That-Work-Volume-2", 
-	"url": "/en/publications/books/Questions-Young-People-Ask-Answers-That-Work-Volume-2/", 
-	"title": "Questions Young People AskAnswers That Work Volume 2", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yp2/E/wpub/yp2_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "road-to-life", 
-	"url": "/en/publications/books/road-to-life/", 
-	"title": "The Road to Everlasting LifeHave You Found It", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ol/E/wpub/ol_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Benefit-From-Theocratic-Ministry-School-Education", 
-	"url": "/en/publications/books/Benefit-From-Theocratic-Ministry-School-Education/", 
-	"title": "Benefit From Theocratic Ministry School Education", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/be/E/wpub/be_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2013-Yearbook-of-Jehovahs-Witnesses", 
-	"url": "/en/publications/books/2013-Yearbook-of-Jehovahs-Witnesses/", 
-	"title": "2013 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb13/E/wpub/yb13_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "jehovahs-will", 
-	"url": "/en/publications/books/jehovahs-will/", 
-	"title": "Who Are Doing Jehovahs Will Today", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jl/E/wpub/jl_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "good-news-from-god", 
-	"url": "/en/publications/books/good-news-from-god/", 
-	"title": "Good News From God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/fg/E/wpub/fg_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "lasting-peace-and-happiness", 
-	"url": "/en/publications/books/lasting-peace-and-happiness/", 
-	"title": "Lasting Peace and HappinessHow to Find Them", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/pc/E/wpub/pc_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Youths-What-Will-You-Do-With-Your-Life", 
-	"url": "/en/publications/books/Youths-What-Will-You-Do-With-Your-Life/", 
-	"title": "YouthsWhat Will You Do With Your Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yi/E/wpub/yi_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "trust-the-creator-tract", 
-	"url": "/en/publications/books/trust-the-creator-tract/", 
-	"title": "You Can Trust the Creator", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-82/E/wpub/T-82_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "dead-live-again-tract", 
-	"url": "/en/publications/books/dead-live-again-tract/", 
-	"title": "Can the Dead Really Live Again", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-35/E/wpub/T-35_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "My-Bible-Lessons", 
-	"url": "/en/publications/books/My-Bible-Lessons/", 
-	"title": "My Bible Lessons", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/mb/E/wpub/mb_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "suffering-end-tract", 
-	"url": "/en/publications/books/suffering-end-tract/", 
-	"title": "Will Suffering Ever End", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-34/E/wpub/T-34_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "control-world-tract", 
-	"url": "/en/publications/books/control-world-tract/", 
-	"title": "Who Really Controls the World", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-33/E/wpub/T-33_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "family-life-tract", 
-	"url": "/en/publications/books/family-life-tract/", 
-	"title": "What Is the Key to Happy Family Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-32/E/wpub/T-32_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "view-future-tract", 
-	"url": "/en/publications/books/view-future-tract/", 
-	"title": "How Do You View the Future", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-31/E/wpub/T-31_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "view-bible-tract", 
-	"url": "/en/publications/books/view-bible-tract/", 
-	"title": "How Do You View the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-30/E/wpub/T-30_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2014-yearbook", 
-	"url": "/en/publications/books/2014-yearbook/", 
-	"title": "2014 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb14/E/wpub/yb14_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "happy-life", 
-	"url": "/en/publications/books/happy-life/", 
-	"title": "How Can You Have a Happy Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hl/E/wpub/hl_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "true-faith", 
-	"url": "/en/publications/books/true-faith/", 
-	"title": "Imitate Their Faith", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ia/E/wpub/ia_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "spirits-of-the-dead", 
-	"url": "/en/publications/books/spirits-of-the-dead/", 
-	"title": "Spirits of the DeadCan They Help You or Harm You Do They Really Exist", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sp/E/wpub/sp_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Memorial-Invitation", 
-	"url": "/en/publications/books/Memorial-Invitation/", 
-	"title": "Memorial Invitation", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/minvpw/E/wpub/minvpw_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2019-convention-program", 
-	"url": "/en/publications/books/2019-convention-program/", 
-	"title": "2019 Convention Program", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/co-pgm19/E/wpub/CO-pgm19_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Jehovahs-Witnesses-and-Education", 
-	"url": "/en/publications/books/Jehovahs-Witnesses-and-Education/", 
-	"title": "Jehovahs Witnesses and Education", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ed/E/wpub/ed_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2018-service-year-report", 
-	"url": "/en/publications/books/2018-service-year-report/", 
-	"title": "2018 Service Year Report of Jehovahs Witnesses Worldwide", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/syr18/E/wpub/syr18_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Insight-on-the-Scriptures", 
-	"url": "/en/publications/books/Insight-on-the-Scriptures/", 
-	"title": "Insight on the Scriptures", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/it/E/wpub/it_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "pure-worship", 
-	"url": "/en/publications/books/pure-worship/", 
-	"title": "Pure Worship of JehovahRestored At Last", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rr/E/wpub/rr_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "reading-and-teaching", 
-	"url": "/en/publications/books/reading-and-teaching/", 
-	"title": "Apply Yourself to Reading and Teaching", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/th/E/wpub/th_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Examining-the-Scriptures-Daily-2019", 
-	"url": "/en/publications/books/Examining-the-Scriptures-Daily-2019/", 
-	"title": "Examining the Scriptures Daily2019", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/es19/E/wpub/es19_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "circuit-assembly-2019-co", 
-	"url": "/en/publications/books/circuit-assembly-2019-co/", 
-	"title": "20182019 Circuit Assembly ProgramWith Circuit Overseer", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ca-copgm19/E/wpub/CA-copgm19_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Research-Guide-for-Jehovahs-Witnesses-2018-Edition", 
-	"url": "/en/publications/books/Research-Guide-for-Jehovahs-Witnesses-2018-Edition/", 
-	"title": "Research Guide for Jehovahs Witnesses2018 Edition", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rsg18/E/wpub/rsg18_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "circuit-assembly-2019-br", 
-	"url": "/en/publications/books/circuit-assembly-2019-br/", 
-	"title": "20182019 Circuit Assembly ProgramWith Branch Representative", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ca-brpgm19/E/wpub/CA-brpgm19_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "world-without-war", 
-	"url": "/en/publications/books/world-without-war/", 
-	"title": "Will There Ever Be a World Without War", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wi/E/wpub/wi_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "in-gods-love", 
-	"url": "/en/publications/books/in-gods-love/", 
-	"title": "How to Remain in Gods Love", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lvs/E/wpub/lvs_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Watch-Tower-Publications-Index-2017", 
-	"url": "/en/publications/books/Watch-Tower-Publications-Index-2017/", 
-	"title": "Watch Tower Publications Index 2017", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx17/E/wpub/dx17_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-stories-lessons", 
-	"url": "/en/publications/books/bible-stories-lessons/", 
-	"title": "Lessons You Can Learn From the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lfb/E/wpub/lfb_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2017-service-year-report", 
-	"url": "/en/publications/books/2017-service-year-report/", 
-	"title": "2017 Service Year Report of Jehovahs Witnesses Worldwide", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/syr17/E/wpub/syr17_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Watch-Tower-Publications-Index-2016", 
-	"url": "/en/publications/books/Watch-Tower-Publications-Index-2016/", 
-	"title": "Watch Tower Publications Index 2016", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx16/E/wpub/dx16_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2017-yearbook", 
-	"url": "/en/publications/books/2017-yearbook/", 
-	"title": "2017 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb17/E/wpub/yb17_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "sing-out-joyfully", 
-	"url": "/en/publications/music-songs/sing-out-joyfully/", 
-	"title": "Sing Out Joyfully to Jehovah", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sjjls/E/wpub/sjjls_E_lg.jpg", 
-	"contextTitle": "MUSIC", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-glossary", 
-	"url": "/en/publications/books/bible-glossary/", 
-	"title": "Glossary", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/nwtstg/univ/wpub/nwtstg_univ_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Watch-Tower-Publications-Index-2001-2015", 
-	"url": "/en/publications/books/Watch-Tower-Publications-Index-2001-2015/", 
-	"title": "Watch Tower Publications Index 20012015", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx01-15/E/wpub/dx01-15_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "teen-questions", 
-	"url": "/en/publications/books/teen-questions/", 
-	"title": "Answers to 10 Questions Young People Ask", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ypq/E/wpub/ypq_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "jesus", 
-	"url": "/en/publications/books/jesus/", 
-	"title": "JesusThe Way the Truth the Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/m/1102014600/E/art/1102014600_E_cvr_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "return-to-jehovah", 
-	"url": "/en/publications/books/return-to-jehovah/", 
-	"title": "Return to Jehovah", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rj/E/wpub/rj_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no3-2018-sep-oct", 
-	"url": "/en/publications/magazines/watchtower-no3-2018-sep-oct/", 
-	"title": "No 3 2018  Does God Care About You", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201809/wpub/wp_E_201809_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no2-2018-may-jun", 
-	"url": "/en/publications/magazines/watchtower-no2-2018-may-jun/", 
-	"title": "No 2 2018  What Does the Future Hold", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201805/wpub/wp_E_201805_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no1-2018-jan-feb", 
-	"url": "/en/publications/magazines/watchtower-no1-2018-jan-feb/", 
-	"title": "No 1 2018  Is the Bible Still Relevant Today", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201801/wpub/wp_E_201801_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2016-yearbook", 
-	"url": "/en/publications/books/2016-yearbook/", 
-	"title": "2016 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb16/E/wpub/yb16_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "bible-study", 
-	"url": "/en/publications/books/bible-study/", 
-	"title": "What Can the Bible Teach Us", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bhs/E/wpub/bhs_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "An-Introduction-to-Gods-Word", 
-	"url": "/en/publications/books/An-Introduction-to-Gods-Word/", 
-	"title": "An Introduction to Gods Word", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/igw/E/wpub/igw_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Invitation-to-Congregation-Meetings", 
-	"url": "/en/publications/books/Invitation-to-Congregation-Meetings/", 
-	"title": "Invitation to Congregation Meetings", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/inv/E/wpub/inv_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2015-yearbook", 
-	"url": "/en/publications/books/2015-yearbook/", 
-	"title": "2015 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb15/E/wpub/yb15_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "happy-family", 
-	"url": "/en/publications/books/happy-family/", 
-	"title": "Your Family Can Be Happy", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hf/E/wpub/hf_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "Organized-to-Do-Jehovahs-Will", 
-	"url": "/en/publications/books/Organized-to-Do-Jehovahs-Will/", 
-	"title": "Organized to Do Jehovahs Will", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/od/E/wpub/od_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "kingdom-of-god-tract", 
-	"url": "/en/publications/books/kingdom-of-god-tract/", 
-	"title": "What Is the Kingdom of God", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-36/E/wpub/T-36_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "teach-your-children", 
-	"url": "/en/publications/books/teach-your-children/", 
-	"title": "Teach Your Children", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yc/E/wpub/yc_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "jworg-tract", 
-	"url": "/en/publications/books/jworg-tract/", 
-	"title": "Where Can We Find Answers to Lifes Big Questions", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-37/E/wpub/T-37_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "gods-kingdom", 
-	"url": "/en/publications/books/gods-kingdom/", 
-	"title": "Gods Kingdom Rules", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/kr/E/wpub/kr_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "gods-friend", 
-	"url": "/en/publications/books/gods-friend/", 
-	"title": "You Can Be Gods Friend", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/gf/E/wpub/gf_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "spirits-of-the-dead", 
-	"url": "/en/publications/books/spirits-of-the-dead/", 
-	"title": "Spirits of the DeadCan They Help You or Harm You Do They Really Exist", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sp/E/wpub/sp_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "2014-yearbook", 
-	"url": "/en/publications/books/2014-yearbook/", 
-	"title": "2014 Yearbook of Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb14/E/wpub/yb14_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "true-faith", 
-	"url": "/en/publications/books/true-faith/", 
-	"title": "Imitate Their Faith", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ia/E/wpub/ia_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "happy-life", 
-	"url": "/en/publications/books/happy-life/", 
-	"title": "How Can You Have a Happy Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hl/E/wpub/hl_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "view-bible-tract", 
-	"url": "/en/publications/books/view-bible-tract/", 
-	"title": "How Do You View the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-30/E/wpub/T-30_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "view-future-tract", 
-	"url": "/en/publications/books/view-future-tract/", 
-	"title": "How Do You View the Future", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-31/E/wpub/T-31_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "family-life-tract", 
-	"url": "/en/publications/books/family-life-tract/", 
-	"title": "What Is the Key to Happy Family Life", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-32/E/wpub/T-32_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "control-world-tract", 
-	"url": "/en/publications/books/control-world-tract/", 
-	"title": "Who Really Controls the World", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-33/E/wpub/T-33_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "suffering-end-tract", 
-	"url": "/en/publications/books/suffering-end-tract/", 
-	"title": "Will Suffering Ever End", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-34/E/wpub/T-34_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "My-Bible-Lessons", 
-	"url": "/en/publications/books/My-Bible-Lessons/", 
-	"title": "My Bible Lessons", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/mb/E/wpub/mb_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "dead-live-again-tract", 
-	"url": "/en/publications/books/dead-live-again-tract/", 
-	"title": "Can the Dead Really Live Again", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-35/E/wpub/T-35_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "trust-the-creator-tract", 
-	"url": "/en/publications/books/trust-the-creator-tract/", 
-	"title": "You Can Trust the Creator", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-82/E/wpub/T-82_E_lg.jpg", 
-	"contextTitle": "BOOKS amp BROCHURES", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no6-2017-november", 
-	"url": "/en/publications/magazines/watchtower-no6-2017-november/", 
-	"title": "No 6 2017  What Is the Best Gift of All", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201711/wpub/wp_E_201711_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no5-2017-september", 
-	"url": "/en/publications/magazines/watchtower-no5-2017-september/", 
-	"title": "No 5 2017  AngelsAre They Real Why It Matters", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201709/wpub/wp_E_201709_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no4-2017-july", 
-	"url": "/en/publications/magazines/watchtower-no4-2017-july/", 
-	"title": "No 4 2017  What Does the Bible Say About Life and Death", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201707/wpub/wp_E_201707_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no3-2017-may", 
-	"url": "/en/publications/magazines/watchtower-no3-2017-may/", 
-	"title": "No 3 2017  The Four HorsemenHow Their Ride Affects You", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201705/wpub/wp_E_201705_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no2-2017-march", 
-	"url": "/en/publications/magazines/watchtower-no2-2017-march/", 
-	"title": "No 2 2017  Will You Accept Gods Greatest Gift", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201703/wpub/wp_E_201703_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no1-2017-january", 
-	"url": "/en/publications/magazines/watchtower-no1-2017-january/", 
-	"title": "No 1 2017  How to Get More From Reading the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201701/wpub/wp_E_201701_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no6-2016-november", 
-	"url": "/en/publications/magazines/watchtower-no6-2016-november/", 
-	"title": "No 6 2016  Enlightening Visions of the Spirit Realm", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201611/wpub/wp_E_201611_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no5-2016-september", 
-	"url": "/en/publications/magazines/watchtower-no5-2016-september/", 
-	"title": "No 5 2016  Where Can You Find Comfort", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201609/wpub/wp_E_201609_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no4-2016-july", 
-	"url": "/en/publications/magazines/watchtower-no4-2016-july/", 
-	"title": "No 4 2016  The BibleA Story of Survival", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201607/wpub/wp_E_201607_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no3-2016-may", 
-	"url": "/en/publications/magazines/watchtower-no3-2016-may/", 
-	"title": "No 3 2016  When a Loved One Dies", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201605/wpub/wp_E_201605_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no2-2016-march", 
-	"url": "/en/publications/magazines/watchtower-no2-2016-march/", 
-	"title": "No 2 2016  Why Did Jesus Suffer and Die", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201603/wpub/wp_E_201603_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "watchtower-no1-2016-january", 
-	"url": "/en/publications/magazines/watchtower-no1-2016-january/", 
-	"title": "No 1 2016  Why Be Honest", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201601/wpub/wp_E_201601_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20151201", 
-	"url": "/en/publications/magazines/wp20151201/", 
-	"title": "December 2015  You Can Understand the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151201/wpub/wp_E_20151201_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20151101", 
-	"url": "/en/publications/magazines/wp20151101/", 
-	"title": "November 2015  How Does God View War", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151101/wpub/wp_E_20151101_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20151001", 
-	"url": "/en/publications/magazines/wp20151001/", 
-	"title": "October 2015  Does It Do Any Good to Pray", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151001/wpub/wp_E_20151001_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150901", 
-	"url": "/en/publications/magazines/wp20150901/", 
-	"title": "September 2015  Who Are Jehovahs Witnesses", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150901/wpub/wp_E_20150901_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150801", 
-	"url": "/en/publications/magazines/wp20150801/", 
-	"title": "August 2015  Life After DeathIs It Possible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150801/wpub/wp_E_20150801_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150701", 
-	"url": "/en/publications/magazines/wp20150701/", 
-	"title": "July 2015  How to Deal With Anxiety", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150701/wpub/wp_E_20150701_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150601", 
-	"url": "/en/publications/magazines/wp20150601/", 
-	"title": "June 2015  Has Science Replaced the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150601/wpub/wp_E_20150601_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150501", 
-	"url": "/en/publications/magazines/wp20150501/", 
-	"title": "May 2015  Is the End Near", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150501/wpub/wp_E_20150501_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150401", 
-	"url": "/en/publications/magazines/wp20150401/", 
-	"title": "April 2015  Would You Like to Study the Bible", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150401/wpub/wp_E_20150401_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150301", 
-	"url": "/en/publications/magazines/wp20150301/", 
-	"title": "March 2015  Jesus SavesFrom What", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150301/wpub/wp_E_20150301_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150201", 
-	"url": "/en/publications/magazines/wp20150201/", 
-	"title": "February 2015  How to Enjoy Your Work", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150201/wpub/wp_E_20150201_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "wp20150101", 
-	"url": "/en/publications/magazines/wp20150101/", 
-	"title": "January 2015  A Government Free of Corruption", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150101/wpub/wp_E_20150101_lg.jpg", 
-	"contextTitle": "THE WATCHTOWER", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no2-2019-jul-aug", 
-	"url": "/en/publications/magazines/awake-no2-2019-jul-aug/", 
-	"title": "No 2 2019  Six Lessons Children Need to Learn", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201907/wpub/g_E_201907_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
-},
-{ 
-	"id": "awake-no1-2019-mar-apr", 
-	"url": "/en/publications/magazines/awake-no1-2019-mar-apr/", 
-	"title": "No 1 2019  Will We Ever Feel Safe and Secure", 
-	"cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201903/wpub/g_E_201903_lg.jpg", 
-	"contextTitle": "AWAKE", 
-	"quantity": { 
-	"in": 0, 
-	"onHand": 0, 
-	"out": 0
-	 } 
+[{
+	"id": 5000,
+	"name": "Watchtower Library",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
 	}
-]
-=======
-    {
-        "id": "watchtower-no2-2019-may-jun",
-        "url": "/en/publications/magazines/watchtower-no2-2019-may-jun/",
-        "title": "No 2 2019  Is Life Worth Living",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201905/wpub/wp_E_201905_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no1-2019-jan-feb",
-        "url": "/en/publications/magazines/watchtower-no1-2019-jan-feb/",
-        "title": "No 1 2019  Who Is God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201901/wpub/wp_E_201901_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no3-2018-nov-dec",
-        "url": "/en/publications/magazines/awake-no3-2018-nov-dec/",
-        "title": "No 3 2018  Help for Those Who Grieve",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201811/wpub/g_E_201811_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no2-2018-jul-aug",
-        "url": "/en/publications/magazines/awake-no2-2018-jul-aug/",
-        "title": "No 2 2018  12 Secrets of Successful Families",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201807/wpub/g_E_201807_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no1-2018-mar-apr",
-        "url": "/en/publications/magazines/awake-no1-2018-mar-apr/",
-        "title": "No 1 2018  The Way of Happiness",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201803/wpub/g_E_201803_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no6-2017-december",
-        "url": "/en/publications/magazines/awake-no6-2017-december/",
-        "title": "No 6 2017  Is the World out of Control",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201712/wpub/g_E_201712_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no5-2017-october",
-        "url": "/en/publications/magazines/awake-no5-2017-october/",
-        "title": "No 5 2017  When Disaster StrikesSteps That Can Save Lives",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201710/wpub/g_E_201710_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no4-2017-august",
-        "url": "/en/publications/magazines/awake-no4-2017-august/",
-        "title": "No 4 2017  Are You Doing Too Much",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201708/wpub/g_E_201708_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no3-2017-june",
-        "url": "/en/publications/magazines/awake-no3-2017-june/",
-        "title": "No 3 2017  Is the Bible Really From God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201706/wpub/g_E_201706_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no2-2017-april",
-        "url": "/en/publications/magazines/awake-no2-2017-april/",
-        "title": "No 2 2017  What Is Behind the Supernatural",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201704/wpub/g_E_201704_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no1-2017-february",
-        "url": "/en/publications/magazines/awake-no1-2017-february/",
-        "title": "No 1 2017  Teen DepressionWhy What Can Help",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201702/wpub/g_E_201702_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no6-2016-december",
-        "url": "/en/publications/magazines/awake-no6-2016-december/",
-        "title": "No 6 2016  DiseaseHow to Reduce the Risk",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201612/wpub/g_E_201612_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no2-2016-april",
-        "url": "/en/publications/magazines/awake-no2-2016-april/",
-        "title": "No 2 2016  Is the Bible Just a Good Book",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201604/wpub/g_E_201604_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no1-2016-february",
-        "url": "/en/publications/magazines/awake-no1-2016-february/",
-        "title": "No 1 2016  Attitude Makes a Difference",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201602/wpub/g_E_201602_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no5-2016-october",
-        "url": "/en/publications/magazines/awake-no5-2016-october/",
-        "title": "No 5 2016  Did Jesus Really Exist",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201610/wpub/g_E_201610_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no4-2016-august",
-        "url": "/en/publications/magazines/awake-no4-2016-august/",
-        "title": "No 4 2016  How to Harness Your Habits",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201608/wpub/g_E_201608_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no3-2016-june",
-        "url": "/en/publications/magazines/awake-no3-2016-june/",
-        "title": "No 3 2016  Breaking the Language Barrier",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201606/wpub/g_E_201606_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201512",
-        "url": "/en/publications/magazines/g201512/",
-        "title": "December 2015  Making Peace at Home",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201512/wpub/g_E_201512_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201509",
-        "url": "/en/publications/magazines/g201509/",
-        "title": "September 2015  A Balanced View of Money",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201509/wpub/g_E_201509_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201507",
-        "url": "/en/publications/magazines/g201507/",
-        "title": "July 2015  Are You in Control of Your Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201507/wpub/g_E_201507_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201506",
-        "url": "/en/publications/magazines/g201506/",
-        "title": "June 2015  Improve Your Health5 Things You Can Do Today",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201506/wpub/g_E_201506_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201505",
-        "url": "/en/publications/magazines/g201505/",
-        "title": "May 2015  Hope for the Homeless and the Poor",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201505/wpub/g_E_201505_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201504",
-        "url": "/en/publications/magazines/g201504/",
-        "title": "April 2015  Whatever Happened to Discipline",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201504/wpub/g_E_201504_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201503",
-        "url": "/en/publications/magazines/g201503/",
-        "title": "March 2015  Is There a God What Difference Does It Make",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201503/wpub/g_E_201503_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201502",
-        "url": "/en/publications/magazines/g201502/",
-        "title": "February 2015  Is the Bible Relevant Today",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201502/wpub/g_E_201502_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201501",
-        "url": "/en/publications/magazines/g201501/",
-        "title": "January 2015  How Did Life Begin",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201501/wpub/g_E_201501_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201511",
-        "url": "/en/publications/magazines/g201511/",
-        "title": "November 2015  Is Religion Dying Out",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201511/wpub/g_E_201511_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201508",
-        "url": "/en/publications/magazines/g201508/",
-        "title": "August 2015  Your CellsLiving Libraries",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201508/wpub/g_E_201508_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "g201510",
-        "url": "/en/publications/magazines/g201510/",
-        "title": "October 2015  3 Questions People Would Like to Ask God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201510/wpub/g_E_201510_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "The-Greatest-Man-Who-Ever-Lived",
-        "url": "/en/publications/books/The-Greatest-Man-Who-Ever-Lived/",
-        "title": "The Greatest Man Who Ever Lived",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/gt/E/wpub/gt_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-stories",
-        "url": "/en/publications/books/bible-stories/",
-        "title": "My Book of Bible Stories",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/my/E/wpub/my_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "draw-close",
-        "url": "/en/publications/books/draw-close/",
-        "title": "Draw Close to Jehovah",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/cl/E/wpub/cl_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Live-With-Jehovahs-Day-in-Mind",
-        "url": "/en/publications/books/Live-With-Jehovahs-Day-in-Mind/",
-        "title": "Live With Jehovahs Day in Mind",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jd/E/wpub/jd_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-teach",
-        "url": "/en/publications/books/bible-teach/",
-        "title": "What Does the Bible Really Teach",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bh/E/wpub/bh_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "The-Secret-of-Family-Happiness",
-        "url": "/en/publications/books/The-Secret-of-Family-Happiness/",
-        "title": "The Secret of Family Happiness",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/fy/E/wpub/fy_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "satisfying-life",
-        "url": "/en/publications/books/satisfying-life/",
-        "title": "A Satisfying LifeHow to Attain It",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/la/E/wpub/la_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "when-someone-dies",
-        "url": "/en/publications/books/when-someone-dies/",
-        "title": "When Someone You Love Dies",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/we/E/wpub/we_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "learn-from-great-teacher-jesus",
-        "url": "/en/publications/books/learn-from-great-teacher-jesus/",
-        "title": "Learn From the Great Teacher",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lr/E/wpub/lr_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "gods-love",
-        "url": "/en/publications/books/gods-love/",
-        "title": "Keep Yourselves in Gods Love",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lv/E/wpub/lv_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2010-Yearbook-of-Jehovahs-Witnesses",
-        "url": "/en/publications/books/2010-Yearbook-of-Jehovahs-Witnesses/",
-        "title": "2010 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb10/E/wpub/yb10_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Bearing-Thorough-Witness-About-Gods-Kingdom",
-        "url": "/en/publications/books/Bearing-Thorough-Witness-About-Gods-Kingdom/",
-        "title": "Bearing Thorough Witness About Gods Kingdom",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bt/E/wpub/bt_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Come-Be-My-Follower",
-        "url": "/en/publications/books/Come-Be-My-Follower/",
-        "title": "Come Be My Follower",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/cf/E/wpub/cf_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2011-Yearbook-of-Jehovahs-Witnesses",
-        "url": "/en/publications/books/2011-Yearbook-of-Jehovahs-Witnesses/",
-        "title": "2011 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb11/E/wpub/yb11_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "listen-and-live",
-        "url": "/en/publications/books/listen-and-live/",
-        "title": "Listen to God and Live Forever",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ll/E/wpub/ll_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2012-Yearbook-of-Jehovahs-Witnesses",
-        "url": "/en/publications/books/2012-Yearbook-of-Jehovahs-Witnesses/",
-        "title": "2012 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb12/E/wpub/yb12_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Gods-Word-for-Us-Through-Jeremiah",
-        "url": "/en/publications/books/Gods-Word-for-Us-Through-Jeremiah/",
-        "title": "Gods Word for Us Through Jeremiah",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jr/E/wpub/jr_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "was-life-created",
-        "url": "/en/publications/books/was-life-created/",
-        "title": "Was Life Created",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lc/E/wpub/lc_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "real-faith",
-        "url": "/en/publications/books/real-faith/",
-        "title": "Real FaithYour Key to a Happy Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rk/E/wpub/rk_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "know-truth-tract",
-        "url": "/en/publications/books/know-truth-tract/",
-        "title": "Would You Like to Know the Truth",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/kt/E/wpub/kt_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "a-peaceful-new-world-will-it-come",
-        "url": "/en/publications/books/a-peaceful-new-world-will-it-come/",
-        "title": "A Peaceful New WorldWill It Come",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-17/E/wpub/T-17_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Listen-to-God",
-        "url": "/en/publications/books/Listen-to-God/",
-        "title": "Listen to God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ld/E/wpub/ld_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "blood",
-        "url": "/en/publications/books/blood/",
-        "title": "How Can Blood Save Your Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hb/E/wpub/hb_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Schedule-for-Bible-Reading",
-        "url": "/en/publications/books/Schedule-for-Bible-Reading/",
-        "title": "Schedule for Bible Reading",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sbr/E/wpub/sbr_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-message",
-        "url": "/en/publications/books/bible-message/",
-        "title": "The BibleWhat Is Its Message",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bm/E/wpub/bm_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Questions-Young-People-Ask-Answers-That-Work-Volume-1",
-        "url": "/en/publications/books/Questions-Young-People-Ask-Answers-That-Work-Volume-1/",
-        "title": "Questions Young People AskAnswers That Work Volume 1",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yp1/E/wpub/yp1_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "origin-of-life-5-questions",
-        "url": "/en/publications/books/origin-of-life-5-questions/",
-        "title": "The Origin of LifeFive Questions Worth Asking",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lf/E/wpub/lf_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "path-to-peace-and-happiness",
-        "url": "/en/publications/books/path-to-peace-and-happiness/",
-        "title": "The Pathway to Peace and Happiness",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ph/E/wpub/ph_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Questions-Young-People-Ask-Answers-That-Work-Volume-2",
-        "url": "/en/publications/books/Questions-Young-People-Ask-Answers-That-Work-Volume-2/",
-        "title": "Questions Young People AskAnswers That Work Volume 2",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yp2/E/wpub/yp2_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "road-to-life",
-        "url": "/en/publications/books/road-to-life/",
-        "title": "The Road to Everlasting LifeHave You Found It",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ol/E/wpub/ol_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Benefit-From-Theocratic-Ministry-School-Education",
-        "url": "/en/publications/books/Benefit-From-Theocratic-Ministry-School-Education/",
-        "title": "Benefit From Theocratic Ministry School Education",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/be/E/wpub/be_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2013-Yearbook-of-Jehovahs-Witnesses",
-        "url": "/en/publications/books/2013-Yearbook-of-Jehovahs-Witnesses/",
-        "title": "2013 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb13/E/wpub/yb13_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "jehovahs-will",
-        "url": "/en/publications/books/jehovahs-will/",
-        "title": "Who Are Doing Jehovahs Will Today",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/jl/E/wpub/jl_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "good-news-from-god",
-        "url": "/en/publications/books/good-news-from-god/",
-        "title": "Good News From God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/fg/E/wpub/fg_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "lasting-peace-and-happiness",
-        "url": "/en/publications/books/lasting-peace-and-happiness/",
-        "title": "Lasting Peace and HappinessHow to Find Them",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/pc/E/wpub/pc_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Youths-What-Will-You-Do-With-Your-Life",
-        "url": "/en/publications/books/Youths-What-Will-You-Do-With-Your-Life/",
-        "title": "YouthsWhat Will You Do With Your Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yi/E/wpub/yi_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "trust-the-creator-tract",
-        "url": "/en/publications/books/trust-the-creator-tract/",
-        "title": "You Can Trust the Creator",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-82/E/wpub/T-82_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "dead-live-again-tract",
-        "url": "/en/publications/books/dead-live-again-tract/",
-        "title": "Can the Dead Really Live Again",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-35/E/wpub/T-35_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "My-Bible-Lessons",
-        "url": "/en/publications/books/My-Bible-Lessons/",
-        "title": "My Bible Lessons",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/mb/E/wpub/mb_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "suffering-end-tract",
-        "url": "/en/publications/books/suffering-end-tract/",
-        "title": "Will Suffering Ever End",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-34/E/wpub/T-34_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "control-world-tract",
-        "url": "/en/publications/books/control-world-tract/",
-        "title": "Who Really Controls the World",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-33/E/wpub/T-33_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "family-life-tract",
-        "url": "/en/publications/books/family-life-tract/",
-        "title": "What Is the Key to Happy Family Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-32/E/wpub/T-32_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "view-future-tract",
-        "url": "/en/publications/books/view-future-tract/",
-        "title": "How Do You View the Future",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-31/E/wpub/T-31_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "view-bible-tract",
-        "url": "/en/publications/books/view-bible-tract/",
-        "title": "How Do You View the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-30/E/wpub/T-30_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2014-yearbook",
-        "url": "/en/publications/books/2014-yearbook/",
-        "title": "2014 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb14/E/wpub/yb14_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "happy-life",
-        "url": "/en/publications/books/happy-life/",
-        "title": "How Can You Have a Happy Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hl/E/wpub/hl_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "true-faith",
-        "url": "/en/publications/books/true-faith/",
-        "title": "Imitate Their Faith",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ia/E/wpub/ia_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "spirits-of-the-dead",
-        "url": "/en/publications/books/spirits-of-the-dead/",
-        "title": "Spirits of the DeadCan They Help You or Harm You Do They Really Exist",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sp/E/wpub/sp_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Memorial-Invitation",
-        "url": "/en/publications/books/Memorial-Invitation/",
-        "title": "Memorial Invitation",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/minvpw/E/wpub/minvpw_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2019-convention-program",
-        "url": "/en/publications/books/2019-convention-program/",
-        "title": "2019 Convention Program",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/co-pgm19/E/wpub/CO-pgm19_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Jehovahs-Witnesses-and-Education",
-        "url": "/en/publications/books/Jehovahs-Witnesses-and-Education/",
-        "title": "Jehovahs Witnesses and Education",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ed/E/wpub/ed_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2018-service-year-report",
-        "url": "/en/publications/books/2018-service-year-report/",
-        "title": "2018 Service Year Report of Jehovahs Witnesses Worldwide",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/syr18/E/wpub/syr18_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Insight-on-the-Scriptures",
-        "url": "/en/publications/books/Insight-on-the-Scriptures/",
-        "title": "Insight on the Scriptures",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/it/E/wpub/it_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "pure-worship",
-        "url": "/en/publications/books/pure-worship/",
-        "title": "Pure Worship of JehovahRestored At Last",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rr/E/wpub/rr_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "reading-and-teaching",
-        "url": "/en/publications/books/reading-and-teaching/",
-        "title": "Apply Yourself to Reading and Teaching",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/th/E/wpub/th_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Examining-the-Scriptures-Daily-2019",
-        "url": "/en/publications/books/Examining-the-Scriptures-Daily-2019/",
-        "title": "Examining the Scriptures Daily2019",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/es19/E/wpub/es19_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "circuit-assembly-2019-co",
-        "url": "/en/publications/books/circuit-assembly-2019-co/",
-        "title": "20182019 Circuit Assembly ProgramWith Circuit Overseer",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ca-copgm19/E/wpub/CA-copgm19_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Research-Guide-for-Jehovahs-Witnesses-2018-Edition",
-        "url": "/en/publications/books/Research-Guide-for-Jehovahs-Witnesses-2018-Edition/",
-        "title": "Research Guide for Jehovahs Witnesses2018 Edition",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rsg18/E/wpub/rsg18_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "circuit-assembly-2019-br",
-        "url": "/en/publications/books/circuit-assembly-2019-br/",
-        "title": "20182019 Circuit Assembly ProgramWith Branch Representative",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ca-brpgm19/E/wpub/CA-brpgm19_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "world-without-war",
-        "url": "/en/publications/books/world-without-war/",
-        "title": "Will There Ever Be a World Without War",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wi/E/wpub/wi_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "in-gods-love",
-        "url": "/en/publications/books/in-gods-love/",
-        "title": "How to Remain in Gods Love",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lvs/E/wpub/lvs_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Watch-Tower-Publications-Index-2017",
-        "url": "/en/publications/books/Watch-Tower-Publications-Index-2017/",
-        "title": "Watch Tower Publications Index 2017",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx17/E/wpub/dx17_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-stories-lessons",
-        "url": "/en/publications/books/bible-stories-lessons/",
-        "title": "Lessons You Can Learn From the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/lfb/E/wpub/lfb_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2017-service-year-report",
-        "url": "/en/publications/books/2017-service-year-report/",
-        "title": "2017 Service Year Report of Jehovahs Witnesses Worldwide",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/syr17/E/wpub/syr17_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Watch-Tower-Publications-Index-2016",
-        "url": "/en/publications/books/Watch-Tower-Publications-Index-2016/",
-        "title": "Watch Tower Publications Index 2016",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx16/E/wpub/dx16_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2017-yearbook",
-        "url": "/en/publications/books/2017-yearbook/",
-        "title": "2017 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb17/E/wpub/yb17_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "sing-out-joyfully",
-        "url": "/en/publications/music-songs/sing-out-joyfully/",
-        "title": "Sing Out Joyfully to Jehovah",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sjjls/E/wpub/sjjls_E_lg.jpg",
-        "contextTitle": "MUSIC",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-glossary",
-        "url": "/en/publications/books/bible-glossary/",
-        "title": "Glossary",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/nwtstg/univ/wpub/nwtstg_univ_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Watch-Tower-Publications-Index-2001-2015",
-        "url": "/en/publications/books/Watch-Tower-Publications-Index-2001-2015/",
-        "title": "Watch Tower Publications Index 20012015",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/dx01-15/E/wpub/dx01-15_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "teen-questions",
-        "url": "/en/publications/books/teen-questions/",
-        "title": "Answers to 10 Questions Young People Ask",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ypq/E/wpub/ypq_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "jesus",
-        "url": "/en/publications/books/jesus/",
-        "title": "JesusThe Way the Truth the Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/m/1102014600/E/art/1102014600_E_cvr_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "return-to-jehovah",
-        "url": "/en/publications/books/return-to-jehovah/",
-        "title": "Return to Jehovah",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/rj/E/wpub/rj_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no3-2018-sep-oct",
-        "url": "/en/publications/magazines/watchtower-no3-2018-sep-oct/",
-        "title": "No 3 2018  Does God Care About You",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201809/wpub/wp_E_201809_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no2-2018-may-jun",
-        "url": "/en/publications/magazines/watchtower-no2-2018-may-jun/",
-        "title": "No 2 2018  What Does the Future Hold",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201805/wpub/wp_E_201805_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no1-2018-jan-feb",
-        "url": "/en/publications/magazines/watchtower-no1-2018-jan-feb/",
-        "title": "No 1 2018  Is the Bible Still Relevant Today",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201801/wpub/wp_E_201801_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2016-yearbook",
-        "url": "/en/publications/books/2016-yearbook/",
-        "title": "2016 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb16/E/wpub/yb16_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "bible-study",
-        "url": "/en/publications/books/bible-study/",
-        "title": "What Can the Bible Teach Us",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/bhs/E/wpub/bhs_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "An-Introduction-to-Gods-Word",
-        "url": "/en/publications/books/An-Introduction-to-Gods-Word/",
-        "title": "An Introduction to Gods Word",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/igw/E/wpub/igw_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Invitation-to-Congregation-Meetings",
-        "url": "/en/publications/books/Invitation-to-Congregation-Meetings/",
-        "title": "Invitation to Congregation Meetings",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/inv/E/wpub/inv_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2015-yearbook",
-        "url": "/en/publications/books/2015-yearbook/",
-        "title": "2015 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb15/E/wpub/yb15_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "happy-family",
-        "url": "/en/publications/books/happy-family/",
-        "title": "Your Family Can Be Happy",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hf/E/wpub/hf_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "Organized-to-Do-Jehovahs-Will",
-        "url": "/en/publications/books/Organized-to-Do-Jehovahs-Will/",
-        "title": "Organized to Do Jehovahs Will",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/od/E/wpub/od_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "kingdom-of-god-tract",
-        "url": "/en/publications/books/kingdom-of-god-tract/",
-        "title": "What Is the Kingdom of God",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-36/E/wpub/T-36_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "teach-your-children",
-        "url": "/en/publications/books/teach-your-children/",
-        "title": "Teach Your Children",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yc/E/wpub/yc_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "jworg-tract",
-        "url": "/en/publications/books/jworg-tract/",
-        "title": "Where Can We Find Answers to Lifes Big Questions",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-37/E/wpub/T-37_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "gods-kingdom",
-        "url": "/en/publications/books/gods-kingdom/",
-        "title": "Gods Kingdom Rules",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/kr/E/wpub/kr_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "gods-friend",
-        "url": "/en/publications/books/gods-friend/",
-        "title": "You Can Be Gods Friend",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/gf/E/wpub/gf_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "spirits-of-the-dead",
-        "url": "/en/publications/books/spirits-of-the-dead/",
-        "title": "Spirits of the DeadCan They Help You or Harm You Do They Really Exist",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/sp/E/wpub/sp_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "2014-yearbook",
-        "url": "/en/publications/books/2014-yearbook/",
-        "title": "2014 Yearbook of Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/yb14/E/wpub/yb14_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "true-faith",
-        "url": "/en/publications/books/true-faith/",
-        "title": "Imitate Their Faith",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/ia/E/wpub/ia_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "happy-life",
-        "url": "/en/publications/books/happy-life/",
-        "title": "How Can You Have a Happy Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/hl/E/wpub/hl_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "view-bible-tract",
-        "url": "/en/publications/books/view-bible-tract/",
-        "title": "How Do You View the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-30/E/wpub/T-30_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "view-future-tract",
-        "url": "/en/publications/books/view-future-tract/",
-        "title": "How Do You View the Future",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-31/E/wpub/T-31_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "family-life-tract",
-        "url": "/en/publications/books/family-life-tract/",
-        "title": "What Is the Key to Happy Family Life",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-32/E/wpub/T-32_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "control-world-tract",
-        "url": "/en/publications/books/control-world-tract/",
-        "title": "Who Really Controls the World",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-33/E/wpub/T-33_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "suffering-end-tract",
-        "url": "/en/publications/books/suffering-end-tract/",
-        "title": "Will Suffering Ever End",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-34/E/wpub/T-34_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "My-Bible-Lessons",
-        "url": "/en/publications/books/My-Bible-Lessons/",
-        "title": "My Bible Lessons",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/mb/E/wpub/mb_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "dead-live-again-tract",
-        "url": "/en/publications/books/dead-live-again-tract/",
-        "title": "Can the Dead Really Live Again",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-35/E/wpub/T-35_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "trust-the-creator-tract",
-        "url": "/en/publications/books/trust-the-creator-tract/",
-        "title": "You Can Trust the Creator",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/t-82/E/wpub/T-82_E_lg.jpg",
-        "contextTitle": "BOOKS amp BROCHURES",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no6-2017-november",
-        "url": "/en/publications/magazines/watchtower-no6-2017-november/",
-        "title": "No 6 2017  What Is the Best Gift of All",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201711/wpub/wp_E_201711_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no5-2017-september",
-        "url": "/en/publications/magazines/watchtower-no5-2017-september/",
-        "title": "No 5 2017  AngelsAre They Real Why It Matters",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201709/wpub/wp_E_201709_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no4-2017-july",
-        "url": "/en/publications/magazines/watchtower-no4-2017-july/",
-        "title": "No 4 2017  What Does the Bible Say About Life and Death",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201707/wpub/wp_E_201707_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no3-2017-may",
-        "url": "/en/publications/magazines/watchtower-no3-2017-may/",
-        "title": "No 3 2017  The Four HorsemenHow Their Ride Affects You",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201705/wpub/wp_E_201705_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no2-2017-march",
-        "url": "/en/publications/magazines/watchtower-no2-2017-march/",
-        "title": "No 2 2017  Will You Accept Gods Greatest Gift",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201703/wpub/wp_E_201703_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no1-2017-january",
-        "url": "/en/publications/magazines/watchtower-no1-2017-january/",
-        "title": "No 1 2017  How to Get More From Reading the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201701/wpub/wp_E_201701_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no6-2016-november",
-        "url": "/en/publications/magazines/watchtower-no6-2016-november/",
-        "title": "No 6 2016  Enlightening Visions of the Spirit Realm",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201611/wpub/wp_E_201611_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no5-2016-september",
-        "url": "/en/publications/magazines/watchtower-no5-2016-september/",
-        "title": "No 5 2016  Where Can You Find Comfort",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201609/wpub/wp_E_201609_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no4-2016-july",
-        "url": "/en/publications/magazines/watchtower-no4-2016-july/",
-        "title": "No 4 2016  The BibleA Story of Survival",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201607/wpub/wp_E_201607_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no3-2016-may",
-        "url": "/en/publications/magazines/watchtower-no3-2016-may/",
-        "title": "No 3 2016  When a Loved One Dies",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201605/wpub/wp_E_201605_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no2-2016-march",
-        "url": "/en/publications/magazines/watchtower-no2-2016-march/",
-        "title": "No 2 2016  Why Did Jesus Suffer and Die",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201603/wpub/wp_E_201603_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "watchtower-no1-2016-january",
-        "url": "/en/publications/magazines/watchtower-no1-2016-january/",
-        "title": "No 1 2016  Why Be Honest",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/201601/wpub/wp_E_201601_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20151201",
-        "url": "/en/publications/magazines/wp20151201/",
-        "title": "December 2015  You Can Understand the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151201/wpub/wp_E_20151201_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20151101",
-        "url": "/en/publications/magazines/wp20151101/",
-        "title": "November 2015  How Does God View War",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151101/wpub/wp_E_20151101_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20151001",
-        "url": "/en/publications/magazines/wp20151001/",
-        "title": "October 2015  Does It Do Any Good to Pray",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20151001/wpub/wp_E_20151001_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150901",
-        "url": "/en/publications/magazines/wp20150901/",
-        "title": "September 2015  Who Are Jehovahs Witnesses",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150901/wpub/wp_E_20150901_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150801",
-        "url": "/en/publications/magazines/wp20150801/",
-        "title": "August 2015  Life After DeathIs It Possible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150801/wpub/wp_E_20150801_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150701",
-        "url": "/en/publications/magazines/wp20150701/",
-        "title": "July 2015  How to Deal With Anxiety",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150701/wpub/wp_E_20150701_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150601",
-        "url": "/en/publications/magazines/wp20150601/",
-        "title": "June 2015  Has Science Replaced the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150601/wpub/wp_E_20150601_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150501",
-        "url": "/en/publications/magazines/wp20150501/",
-        "title": "May 2015  Is the End Near",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150501/wpub/wp_E_20150501_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150401",
-        "url": "/en/publications/magazines/wp20150401/",
-        "title": "April 2015  Would You Like to Study the Bible",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150401/wpub/wp_E_20150401_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150301",
-        "url": "/en/publications/magazines/wp20150301/",
-        "title": "March 2015  Jesus SavesFrom What",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150301/wpub/wp_E_20150301_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150201",
-        "url": "/en/publications/magazines/wp20150201/",
-        "title": "February 2015  How to Enjoy Your Work",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150201/wpub/wp_E_20150201_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "wp20150101",
-        "url": "/en/publications/magazines/wp20150101/",
-        "title": "January 2015  A Government Free of Corruption",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/wp/E/20150101/wpub/wp_E_20150101_lg.jpg",
-        "contextTitle": "THE WATCHTOWER",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no2-2019-jul-aug",
-        "url": "/en/publications/magazines/awake-no2-2019-jul-aug/",
-        "title": "No 2 2019  Six Lessons Children Need to Learn",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201907/wpub/g_E_201907_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    },
-    {
-        "id": "awake-no1-2019-mar-apr",
-        "url": "/en/publications/magazines/awake-no1-2019-mar-apr/",
-        "title": "No 1 2019  Will We Ever Feel Safe and Secure",
-        "cover": "https://assetsnffrgf-a.akamaihd.net/assets/a/g/E/201903/wpub/g_E_201903_lg.jpg",
-        "contextTitle": "AWAKE",
-        "quantity": {
-            "in": 0,
-            "onHand": 0,
-            "out": 0
-        }
-    }
-]
->>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
+},
+{
+	"id": 5001,
+	"name": "Examining the Scriptures ",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5112,
+	"name": "New Word Translations Hardcover",
+	"pubId": "Hbi12",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5140,
+	"name": "New World Translation",
+	"pubId": "nwt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5141,
+	"name": "New World Translation Large",
+	"pubId": "nwtls",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5142,
+	"name": "New World Translation Small",
+	"pubId": "nwtpkt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5108,
+	"name": "New World Translation References",
+	"pubId": "Rbi8",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5414,
+	"name": "Ministry School Book",
+	"pubId": "be",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5334,
+	"name": "Bible Teach Book",
+	"pubId": "bh",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5340,
+	"name": "Teach us Book",
+	"pubId": "bhs",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5416,
+	"name": "Bearing Witness",
+	"pubId": "bt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5231,
+	"name": "My Follower",
+	"pubId": "cf",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5331,
+	"name": "Draw Close to Jehovah",
+	"pubId": "cl",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5228,
+	"name": "Creator",
+	"pubId": "ct",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5328,
+	"name": "Daniel’s Prophecy ",
+	"pubId": "dp",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5227,
+	"name": "Family Happiness",
+	"pubId": "fy",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5225,
+	"name": "God’s Word",
+	"pubId": "gm",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5327,
+	"name": "Greatest Man",
+	"pubId": "gt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5419,
+	"name": "Imitate",
+	"pubId": "ia",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5329,
+	"name": "Isaiah’s Prophecy I",
+	"pubId": "ip-1",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5330,
+	"name": "Isaiah’s Prophecy II",
+	"pubId": "ip-1",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5411,
+	"name": "Insight",
+	"pubId": "it",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5230,
+	"name": "Jehovah’s Day",
+	"pubId": "jd",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5232,
+	"name": "Jeremiah",
+	"pubId": "jr",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5425,
+	"name": "Jesus—The Way",
+	"pubId": "jy",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5425,
+	"name": "Jesus—The Way",
+	"pubId": "jy",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5422,
+	"name": "God’s Kingdom Rules!",
+	"pubId": "kr",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5427,
+	"name": "Learn From the Bible",
+	"pubId": "lfb",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5415,
+	"name": "Teacher",
+	"pubId": "lr",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5335,
+	"name": "“God’s Love”",
+	"pubId": "lv",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5343,
+	"name": "Remain in God’s Love",
+	"pubId": "lvs",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5407,
+	"name": "Bible Stories",
+	"pubId": "my",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5332,
+	"name": "Organized",
+	"pubId": "od",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5332,
+	"name": "Organized",
+	"pubId": "od",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5410,
+	"name": "Revelation Climax",
+	"pubId": "re",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5323,
+	"name": "Reasoning",
+	"pubId": "rs",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5324,
+	"name": "Creation—Small Size",
+	"pubId": "Sce",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5326,
+	"name": "Mankind’s Search for God",
+	"pubId": "sh",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5403,
+	"name": "“All Scripture”",
+	"pubId": "si",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5341,
+	"name": "“Sing Out Joyfully”",
+	"pubId": "sjj",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5442,
+	"name": "“Sing Out Joyfully”—Lyrics Only",
+	"pubId": "sjjyls",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5322,
+	"name": "Bible Stories—Small Size",
+	"pubId": "Smy",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5339,
+	"name": "Young People Ask, Volume 1",
+	"pubId": "yp1",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5336,
+	"name": "Young People Ask, Volume 2",
+	"pubId": "yp2",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 5200,
+	"name": "Other books",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6200,
+	"name": "All large-print books",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6618,
+	"name": "Reading and Writing",
+	"pubId": "ay",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6641,
+	"name": "Book for All",
+	"pubId": "ba",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6652,
+	"name": "Bible’s Message",
+	"pubId": "bm",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6632,
+	"name": "Does God Care",
+	"pubId": "dg",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6638,
+	"name": "Education",
+	"pubId": "ed",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6659,
+	"name": "Good News",
+	"pubId": "fg",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6645,
+	"name": "God’s Friend",
+	"pubId": "gf",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6650,
+	"name": "“Good Land”",
+	"pubId": "gl",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6643,
+	"name": "Guidance of God",
+	"pubId": "gu",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6628,
+	"name": "Blood",
+	"pubId": "hb",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6665,
+	"name": "Happy Family",
+	"pubId": "hf",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6662,
+	"name": "Happy Life",
+	"pubId": "hl",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6642,
+	"name": "When We Die",
+	"pubId": "ie",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6660,
+	"name": "Jehovah’s Will",
+	"pubId": "jl",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6647,
+	"name": "Satisfying Life",
+	"pubId": "la",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6654,
+	"name": "Was Life Created?",
+	"pubId": "lc",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6658,
+	"name": "Listen to God",
+	"pubId": "ld",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6655,
+	"name": "Origin of Life",
+	"pubId": "lf",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6657,
+	"name": "Listen and Live",
+	"pubId": "ll",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6625,
+	"name": "“Look!” brochure",
+	"pubId": "Lmn",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6663,
+	"name": "My Bible Lessons",
+	"pubId": "mb",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6663,
+	"name": "My Bible Lessons",
+	"pubId": "mb",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6622,
+	"name": "Divine name",
+	"pubId": "na",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6674,
+	"name": "Nations",
+	"pubId": "np",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6648,
+	"name": "Road to Life",
+	"pubId": "ol",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6629,
+	"name": "Our Problems",
+	"pubId": "op",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6639,
+	"name": "Lasting Peace",
+	"pubId": "pc",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6653,
+	"name": "Pathway",
+	"pubId": "ph",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6636,
+	"name": "Purpose of Life",
+	"pubId": "pr",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6671,
+	"name": "Return to Jehovah",
+	"pubId": "rj",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6656,
+	"name": "Real Faith",
+	"pubId": "rk",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6630,
+	"name": "Spirits of the Dead",
+	"pubId": "sp",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6637,
+	"name": "When Someone Dies",
+	"pubId": "we",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6634,
+	"name": "World Without War",
+	"pubId": "wi",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6635,
+	"name": "Why Worship God",
+	"pubId": "wj",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6664,
+	"name": "Teach Your Children",
+	"pubId": "yc",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6684,
+	"name": "10 Questions",
+	"pubId": "ypq",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 6600,
+	"name": "Other brochures and booklets",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7305,
+	"name": "Invitation to congregation meetings",
+	"pubId": "inv",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7074,
+	"name": "Know the Truth",
+	"pubId": "kt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7071,
+	"name": "Road to Paradise",
+	"pubId": "rp",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7130,
+	"name": "View the Bible",
+	"pubId": "T-30",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7131,
+	"name": "View the Future",
+	"pubId": "T-31",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7132,
+	"name": "Happy Family Life",
+	"pubId": "T-32",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7133,
+	"name": "Who Controls the World?",
+	"pubId": "T-33",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7134,
+	"name": "Will Suffering End?",
+	"pubId": "T-34",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7135,
+	"name": "Live Again",
+	"pubId": "T-35",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7136,
+	"name": "Kingdom",
+	"pubId": "T-36",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7137,
+	"name": "Web site tract",
+	"pubId": "T-37",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7182,
+	"name": "Trust the Creator!",
+	"pubId": "T-82",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 7100,
+	"name": "Other tracts",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 9200,
+	"name": "DVDs",
+	"pubId": "",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 9305,
+	"name": "Teach Us—On DVD",
+	"pubId": "T-82",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 9280,
+	"name": "Good News—On DVD",
+	"pubId": "dvfg",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 9270,
+	"name": "Listen and Live—On DVD",
+	"pubId": "dvll",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 1540,
+	"name": "Matthew—On DV",
+	"pubId": "dvMt",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 8724,
+	"name": "Receipt ",
+	"pubId": "S-24",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 9295,
+	"name": "Questions Answered—On DVD",
+	"pubId": "dvqua7",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 8704,
+	"name": "Field Service Report Form",
+	"pubId": "S-4",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+},
+{
+	"id": 8708,
+	"name": "House-to-House Record",
+	"pubId": "S-8",
+	"contextTitle": "",
+	"cover": "",
+	"quantity": {
+		"in": 0,
+		"onHand": 0,
+		"out": 0
+	}
+}]
