@@ -3,6 +3,7 @@ import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'lita-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -14,10 +15,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     const currentUser = this.afs.isAuth;
     console.log(currentUser);
-      if (currentUser) {
-        this.afs.stateChanged();
-      } else {
-        this.router.navigate(['/']);
-    }
+    if (currentUser) {
+      this.afs.stateChanged();
+    } else {
+      this.router.navigate(['/']);
+  }
   }
 }

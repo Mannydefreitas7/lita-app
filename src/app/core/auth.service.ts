@@ -7,6 +7,8 @@ import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Console } from '@angular/core/src/console';
 
 
 interface User {
@@ -23,13 +25,15 @@ export class AuthService {
   user: Observable<User>;
   msgdialog: string;
   authState: any = null;
+  pubs: any;
 
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
     private ngZone: NgZone,
-    private form: FormBuilder
+    private form: FormBuilder,
+    private http: HttpClient
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -41,6 +45,14 @@ export class AuthService {
     }));
 
     this.afAuth.authState.subscribe(data => this.authState = data);
+
+    this.http.get('assets/literature.json').subscribe((results: Array<any>) => {
+      this.pubs = JSON.parse(JSON.stringify(results));
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < results.length; i++) {
+      console.log(JSON.parse(JSON.stringify(results[i])));
+      }
+    });
   }
 
   get authenticated(): boolean {
@@ -51,7 +63,7 @@ export class AuthService {
     return this.afAuth.auth;
   }
 
-  get firebaseFireStore(): any {
+  get firebaseFireStore() {
     return this.afs;
   }
 
@@ -82,17 +94,24 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
+  testApi() {
+    return this.http.get('assets/literature.json').subscribe(results => console.log(JSON.stringify(results)));
+  }
 
-  emailSignUp(email: string, password: string) {
+
+  emailSignUp(email: string, password: string, displayName?: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(credential => this.updateUserData(credential.user))
+    .then(credential =>
+      this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: ''})
+      .then(() => console.log('name added succesfully'))
+      .then(() => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
-      .then(user => {
+      .then(user =>
         this.afAuth.auth.currentUser.sendEmailVerification()
           .then(() => console.log('We sent you an email verification'))
-          .catch(error => console.log(error.message));
-      })
-      .catch(error => this.msgdialog = error.message);
+          .catch(error => console.log(error.message)
+          )
+      .catch(error => this.msgdialog = error.message)));
   }
 
 
@@ -122,7 +141,7 @@ export class AuthService {
   }
   microsoftLogin() {
 
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    const provider = new firebase.auth.OAuthProvider();
     return this.socialLogin(provider)
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
@@ -157,8 +176,12 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
+
+
   updateUserData(user) {
+
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    const litRef: AngularFirestoreCollection<any> = this.afs.collection('publications');
     const data: User = {
       uid: user.uid,
       email: user.email,
@@ -166,6 +189,5 @@ export class AuthService {
       photoURL: user.photoURL
     };
     return userRef.set(data, { merge: true });
-  }
-
+ }
 }

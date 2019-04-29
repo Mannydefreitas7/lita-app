@@ -18,7 +18,8 @@ import { SettingsComponent } from '../home/dashboard/settings.component';
     MaterialModule,
     HttpClientModule,
     AngularSvgIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   entryComponents: [SettingsComponent],
   exports: [
@@ -28,7 +29,8 @@ import { SettingsComponent } from '../home/dashboard/settings.component';
     MaterialModule,
     HttpClientModule,
     AngularSvgIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
