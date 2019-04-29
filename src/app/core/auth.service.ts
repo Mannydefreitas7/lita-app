@@ -8,9 +8,22 @@ import { switchMap, map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
+<<<<<<< HEAD
 import { User } from '../shared/models/user.model';
 import { Congregation, Literature, Publisher } from '../shared/models/congregation.model';
 import { HttpClient } from '@angular/common/http';
+=======
+import { HttpClient } from '@angular/common/http';
+import { Console } from '@angular/core/src/console';
+
+
+interface User {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+}
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
 
 @Injectable({
   providedIn:  'root'
@@ -21,6 +34,10 @@ export class AuthService {
   msgdialog: string;
   authState: any = null;
   pubs: any;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -39,7 +56,18 @@ export class AuthService {
     }));
 
     this.afAuth.authState.subscribe(data => this.authState = data);
+<<<<<<< HEAD
     console.log(this.pubs);
+=======
+
+    this.http.get('assets/literature.json').subscribe((results: Array<any>) => {
+      this.pubs = JSON.parse(JSON.stringify(results));
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < results.length; i++) {
+      console.log(JSON.parse(JSON.stringify(results[i])));
+      }
+    });
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
   }
 
   get authenticated(): boolean {
@@ -50,7 +78,7 @@ export class AuthService {
     return this.afAuth.auth;
   }
 
-  get firebaseFireStore(): any {
+  get firebaseFireStore() {
     return this.afs;
   }
 
@@ -81,17 +109,24 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
+  testApi() {
+    return this.http.get('assets/literature.json').subscribe(results => console.log(JSON.stringify(results)));
+  }
 
-  emailSignUp(email: string, password: string) {
+
+  emailSignUp(email: string, password: string, displayName?: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(credential => this.updateUserData(credential.user))
+    .then(credential =>
+      this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: ''})
+      .then(() => console.log('name added succesfully'))
+      .then(() => this.updateUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
-      .then(user => {
+      .then(user =>
         this.afAuth.auth.currentUser.sendEmailVerification()
           .then(() => console.log('We sent you an email verification'))
-          .catch(error => console.log(error.message));
-      })
-      .catch(error => this.msgdialog = error.message);
+          .catch(error => console.log(error.message)
+          )
+      .catch(error => this.msgdialog = error.message)));
   }
 
 
@@ -122,7 +157,7 @@ export class AuthService {
   }
   microsoftLogin() {
 
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    const provider = new firebase.auth.OAuthProvider();
     return this.socialLogin(provider)
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
@@ -157,6 +192,7 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
+<<<<<<< HEAD
 addPublications(publication) {
 
 }
@@ -168,6 +204,15 @@ addPublications(publication) {
     let congregationID = this.afs.createId();
 
 const data: User = {
+=======
+
+
+  updateUserData(user) {
+
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    const litRef: AngularFirestoreCollection<any> = this.afs.collection('publications');
+    const data: User = {
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
@@ -187,6 +232,7 @@ const data: User = {
         literature: null
       }
     };
+<<<<<<< HEAD
 
 const publications = [
   {
@@ -1473,3 +1519,8 @@ const publications = [
     }).catch(error => console.log(error));
   }
 }
+=======
+    return userRef.set(data, { merge: true });
+ }
+}
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e

@@ -19,7 +19,8 @@ import { User } from './models/user.model';
     MaterialModule,
     HttpClientModule,
     AngularSvgIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   entryComponents: [SettingsComponent],
   exports: [
@@ -29,7 +30,8 @@ import { User } from './models/user.model';
     MaterialModule,
     HttpClientModule,
     AngularSvgIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

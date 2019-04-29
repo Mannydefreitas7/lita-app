@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(25)
       ],
-    ], emailCheck: ['', [Validators.email, Validators.required]]
+    ], displayName: ['', Validators.required]
     });
 
    }
@@ -46,15 +46,12 @@ export class SignupComponent implements OnInit {
   get password() {
    return this.signUpForm.get('password');
   }
-
-  get emailCheck() {
-    return this.signUpForm.get('emailCheck');
-  }
-
-  
+  get name() {
+    return this.signUpForm.get('displayName');
+   }
 
   signUp() {
-    return this.auth.emailSignUp(this.email.value, this.password.value)
+    return this.auth.emailSignUp(this.email.value, this.password.value, this.name.value)
     .then(user => {
       if (this.signUpForm.valid) {
         this.router.navigate(['/home']);

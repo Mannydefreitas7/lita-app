@@ -18,11 +18,15 @@ import { SettingsComponent } from './settings.component';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  currentUser: any = this.auth.currentUserObservable.currentUser;
+  currentUser: any = this.auth.currentUserObservable;
+  userRef: any = this.auth.authState;
+  user: any;
   currentUserName: string;
   currentUserImage: any;
   loading = true;
+  displayName: any;
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog) {
+<<<<<<< HEAD
 
       if (this.currentUser.displayName !== null) {
         this.currentUserName = this.currentUser.displayName;
@@ -32,10 +36,14 @@ export class DashboardComponent implements OnInit {
 
       if (this.currentUser.photoURL !== null) {
         this.currentUserImage = this.currentUser.photoURL;
+=======
+      this.displayName = this.userRef.displayName;
+      if (this.userRef.photoURL != null) {
+        this.currentUserImage = this.userRef.photoURL;
+>>>>>>> ba3ec955853ae3ae3aa5bdfb68208b2f1c3dd60e
       } else {
         this.currentUserImage = '../../assets/images/profile.png';
       }
-      console.log(this.currentUser, this.currentUserImage, this.currentUserName);
       this.router.events.subscribe((event: Event) => {
         switch (true) {
           case event instanceof NavigationStart: {

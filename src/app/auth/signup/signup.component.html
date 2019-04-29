@@ -2,6 +2,13 @@
   <h3>Create an account</h3>
 
   <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+    <mat-label>Type Your Name</mat-label>
+    <input matInput placeholder="John Doe" formControlName="displayName" autocomplete="name">
+    <mat-icon matSuffix>person</mat-icon>
+    <mat-error *ngIf="emailMessage">Emails don't match.</mat-error>
+  </mat-form-field> 
+
+  <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
       <mat-label>Your Email</mat-label>
       <input matInput placeholder="example@domain.com" [formControl]="email" required autocomplete="username email">
       <mat-icon matSuffix>email</mat-icon>
