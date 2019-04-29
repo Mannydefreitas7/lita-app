@@ -21,6 +21,8 @@ export class AuthService {
   msgdialog: string;
   authState: any = null;
   pubs: any;
+  pub: any;
+
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -40,14 +42,13 @@ export class AuthService {
 
     this.afAuth.authState.subscribe(data => this.authState = data);
 
-    this.http.get('assets/literature.json').subscribe((results: Array<any>) => {
-      this.pubs = JSON.parse(JSON.stringify(results));
+    this.http.get('assets/literature.json').subscribe((results: Array<Object>) => {
       // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < results.length; i++) {
-      console.log(JSON.parse(JSON.stringify(results[i])));
-      }
-    });
+    this.pubs = JSON.parse(JSON.stringify(results));
+    console.log(this.pubs)
+  });
   }
+
 
   get authenticated(): boolean {
     return this.authState !== null;
@@ -171,9 +172,6 @@ export class AuthService {
       .catch(error => console.log(error.message));
   }
 
-addPublications(publication) {
-
-}
 
   updateUserData(user) {
     const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
@@ -198,10 +196,15 @@ addPublications(publication) {
           orderCount: null,
           order: null
         },
-        dateCreated: null,
-        literature: null
+        dateCreated: firebase.firestore.Timestamp.fromDate(new Date())
       }
     };
-    return userRef.set(data, { merge: true });
- }
+
+    return userRef.set(data, { merge: true })
+    .then(() => { 
+      this.pubs.forEach(pub => {
+       literatureRef.doc(`${pub.id}`).set(pub);
+      });
+    });
+}
 }

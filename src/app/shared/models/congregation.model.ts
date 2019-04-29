@@ -2,7 +2,7 @@ export class Congregation {
 	id?: string;
 	name?: string;
 	publishers?: Publisher;
-	dateCreated?: string;
+	dateCreated: any;
 	literature?: any;
 	}
 
