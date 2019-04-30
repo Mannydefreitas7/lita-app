@@ -7,10 +7,12 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SettingsComponent } from '../home/dashboard/settings.component';
 import { User } from './models/user.model';
+import { TutorialComponent } from '../home/dashboard/tutorial.component';
 
 @NgModule({
   declarations: [
-    SettingsComponent
+    SettingsComponent,
+    TutorialComponent
   ],
   imports: [
     CommonModule,

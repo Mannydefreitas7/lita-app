@@ -42,7 +42,7 @@ export class AuthService {
 
     this.afAuth.authState.subscribe(data => this.authState = data);
 
-    this.http.get('assets/literature.json').subscribe((results: Array<Object>) => {
+    this.http.get('assets/literature.json').subscribe(results => {
       // tslint:disable-next-line:prefer-for-of
     this.pubs = JSON.parse(JSON.stringify(results));
   });
@@ -96,6 +96,7 @@ export class AuthService {
   emailSignUp(email: string, password: string, displayName?: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(credential =>
+      // tslint:disable-next-line:max-line-length
       this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
       .then(() => console.log('name added succesfully'))
       .then(() => this.updateUserData(credential.user))
@@ -136,7 +137,7 @@ export class AuthService {
   }
   microsoftLogin() {
 
-    const provider = new firebase.auth.OAuthProvider();
+    const provider = new firebase.auth.OAuthProvider('microsoft.com');
     return this.socialLogin(provider)
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
@@ -174,15 +175,21 @@ export class AuthService {
 
   updateUserData(user) {
     const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
-    let publisherID = this.afs.createId();
-    let congregationID = this.afs.createId();
+    const publisherID = this.afs.createId();
+    const congregationID = this.afs.createId();
+    const d = new Date().toLocaleDateString().split('/');
+    const day = '0' + d[0];
+    const month = d[1];
+    const year = d[2];
 
+    const dateAll = day + month + year;
+    const date = Number(dateAll);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     const litRef: AngularFirestoreCollection<any> = this.afs.collection('publications');
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName || "",
+      displayName: user.displayName,
       photoURL: user.photoURL,
       congregation: {
         id: publisherID,
@@ -195,12 +202,12 @@ export class AuthService {
           orderCount: null,
           order: null
         },
-        dateCreated: firebase.firestore.Timestamp.fromDate(new Date())
+        dateCreated: date
       }
     };
 
     return userRef.set(data, { merge: true })
-    .then(() => { 
+    .then(() => {
       this.pubs.forEach(pub => {
        literatureRef.doc(`${pub.id}`).set(pub);
       });
