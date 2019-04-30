@@ -45,6 +45,9 @@ body {
 }
 .lita-search {
     width: 50%;
+    .mat-form-field-wrapper {
+        padding-bottom: 0 !important;
+    }
     .mat-form-field-flex {
         border-radius: 10px !important;
     }

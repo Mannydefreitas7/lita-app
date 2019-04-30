@@ -2,8 +2,7 @@ export class Congregation {
 	id?: string;
 	name?: string;
 	publishers?: Publisher;
-	dateCreated: any;
-	literature?: any;
+	language: any;
 	}
 
 export class Publisher {

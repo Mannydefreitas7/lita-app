@@ -1,9 +1,10 @@
-[{
+[
+	{
 	"id": 5000,
 	"name": "Watchtower Library",
 	"pubId": "wlcdrom",
 	"contextTitle": "CD-ROM",
-	"cover": "",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2Fwlcdrom.png?alt=media&token=890d17ee-988d-4074-8e67-24ea0a9f931f",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -12,10 +13,10 @@
 },
 {
 	"id": 5001,
-	"name": "Examining the Scriptures ",
+	"name": "Examining the Scriptures",
 	"pubId": "",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Books",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2Fdailyscriptures.png?alt=media&token=e602078e-f20c-413d-bd23-13d19d3ad9bd",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -26,8 +27,8 @@
 	"id": 5112,
 	"name": "New Word Translations Hardcover",
 	"pubId": "Hbi12",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Bible",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2FHbi12.png?alt=media&token=fb5b0b89-1bd3-42c4-827c-562a750ee9dc",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -38,8 +39,8 @@
 	"id": 5140,
 	"name": "New World Translation",
 	"pubId": "nwt",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Bible",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2Fnwt.png?alt=media&token=9d2f3d66-c572-4975-850f-8b3281dd9e36",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -50,8 +51,8 @@
 	"id": 5141,
 	"name": "New World Translation Large",
 	"pubId": "nwtls",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Bible",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2Fnwt.png?alt=media&token=9d2f3d66-c572-4975-850f-8b3281dd9e36",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -62,8 +63,8 @@
 	"id": 5142,
 	"name": "New World Translation Small",
 	"pubId": "nwtpkt",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Bible",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2Fnwt.png?alt=media&token=9d2f3d66-c572-4975-850f-8b3281dd9e36",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,
@@ -74,8 +75,8 @@
 	"id": 5108,
 	"name": "New World Translation References",
 	"pubId": "Rbi8",
-	"contextTitle": "",
-	"cover": "",
+	"contextTitle": "Bible",
+	"cover": "https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/images%2FHbi12.png?alt=media&token=fb5b0b89-1bd3-42c4-827c-562a750ee9dc",
 	"quantity": {
 		"in": 0,
 		"onHand": 0,

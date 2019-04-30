@@ -172,35 +172,30 @@ export class AuthService {
 
 
   updateUserData(user) {
-    const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
+
     const publisherID = this.afs.createId();
     const congregationID = this.afs.createId();
-    const d = new Date().toLocaleDateString().split('/');
-    const day = '0' + d[0];
-    const month = d[1];
-    const year = d[2];
 
-    const dateAll = day + '-' + month + '-' + year;
-    const date = Number(dateAll);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-    const litRef: AngularFirestoreCollection<any> = this.afs.collection('publications');
+    const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
+
     const data: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
       congregation: {
-        id: publisherID,
+        id: congregationID,
         name: null,
+        language: 'English',
         publishers: {
-          id: congregationID,
+          id: publisherID,
           name: null,
           role: null,
           photoUrl: null,
           orderCount: null,
           order: null
-        },
-        dateCreated: date
+        }
       }
     };
 

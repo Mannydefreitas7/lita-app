@@ -39,10 +39,28 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   displayName: string;
   user: User = this.userRef;
   creationTime: any = this.auth.currentUserObservable.currentUser.metadata.creationTime;
-  lastSigned: any = this.auth.currentUserObservable.currentUser.metadata.creationTime;
+  lastSigned: any = this.auth.currentUserObservable.currentUser.metadata.lastSignInTime;
 
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
- 
+
+    this.router.events.subscribe((event: Event) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.loading = true;
+          break;
+        }
+
+        case event instanceof NavigationEnd:
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError: {
+          this.loading = false;
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    });
   }
 
   ngOnInit() {
