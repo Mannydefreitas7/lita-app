@@ -24,7 +24,7 @@ import { TutorialComponent } from '../home/dashboard/tutorial.component';
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [SettingsComponent],
+  entryComponents: [SettingsComponent, TutorialComponent],
   exports: [
     CommonModule,
     FormsModule,

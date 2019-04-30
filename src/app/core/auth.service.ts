@@ -53,9 +53,11 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  get currentUserObservable(): any {
+  get currentUserObservable() {
     return this.afAuth.auth;
   }
+
+
 
   get firebaseFireStore() {
     return this.afs;
@@ -86,10 +88,6 @@ export class AuthService {
         this.router.navigate(['/home']);
       })
       .catch(error => console.log(error.message));
-  }
-
-  testApi() {
-    return this.http.get('assets/literature.json').subscribe(results => console.log(JSON.stringify(results)));
   }
 
 
@@ -137,7 +135,7 @@ export class AuthService {
   }
   microsoftLogin() {
 
-    const provider = new firebase.auth.OAuthProvider('microsoft.com');
+    const provider = new firebase.auth.OAuthProvider();
     return this.socialLogin(provider)
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
@@ -182,7 +180,7 @@ export class AuthService {
     const month = d[1];
     const year = d[2];
 
-    const dateAll = day + month + year;
+    const dateAll = day + '-' + month + '-' + year;
     const date = Number(dateAll);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
     const litRef: AngularFirestoreCollection<any> = this.afs.collection('publications');

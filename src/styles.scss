@@ -43,3 +43,15 @@ body {
         }
     }
 }
+.lita-search {
+    width: 50%;
+    .mat-form-field-flex {
+        border-radius: 10px !important;
+    }
+    .mat-form-field-underline {
+        display: none;
+    }
+}
+.lita-table {
+    box-shadow: none;
+}

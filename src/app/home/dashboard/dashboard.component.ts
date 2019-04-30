@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { AuthService } from '../../core/auth.service';
 
@@ -30,70 +30,55 @@ import { Congregation } from 'src/app/shared/models/congregation.model';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   userRef: any = this.auth.authState;
   userDoc: any;
   currentUserName: string;
   currentUserImage: any;
-  dateCreated: number;
-  today: number;
   loading = true;
   displayName: string;
+  user: User = this.userRef;
+  creationTime: any = this.auth.currentUserObservable.currentUser.metadata.creationTime;
+  lastSigned: any = this.auth.currentUserObservable.currentUser.metadata.creationTime;
+
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
-      const d = new Date().toLocaleDateString().split('/');
-      const day = '0' + d[0];
-      const month = d[1];
-      const year = d[2];
-
-      const todayAll = day + month + year;
-      this.today = Number(todayAll);
-      console.log(this.today);
-      const user: User = this.userRef;
-      // tslint:disable-next-line:no-shadowed-variable
-      this.afs.doc(`users/${user.uid}`).valueChanges()
-      // tslint:disable-next-line:no-shadowed-variable
-      .subscribe(user => {
-        console.log(user);
-        this.userDoc = user;
-        this.dateCreated  = user.congregation.dateCreated;
-        console.log(this.dateCreated);
-        }
-      );
-
-
-      if (this.userRef.photoURL != null) {
-        this.currentUserImage = this.userRef.photoURL;
-      } else {
-        // tslint:disable-next-line:max-line-length
-        this.currentUserImage = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
-      }
-
-      this.router.events.subscribe((event: Event) => {
-        switch (true) {
-          case event instanceof NavigationStart: {
-            this.loading = true;
-            break;
-          }
-          case event instanceof NavigationEnd:
-          case event instanceof NavigationCancel:
-          case event instanceof NavigationError: {
-            this.loading = false;
-            break;
-          }
-          default: {
-            break;
-          }
-        }
-      });
-   }
+ 
+  }
 
   ngOnInit() {
-    if (this.dateCreated !== this.today) {
-      console.log('No Tutorial...');
-      } else {
-        this.dialog.open(TutorialComponent);
-        console.log('Tutorial Started... :)');
+
+
+    const userId = this.auth.currentUserId
+    this.afs.doc(`users/${userId}`).valueChanges()
+    // tslint:disable-next-line:no-shadowed-variable
+    .subscribe(user => {
+      console.log(user);
+      this.userDoc = user;
       }
+    );
+
+
+    if (this.userRef.photoURL != null) {
+      this.currentUserImage = this.userRef.photoURL;
+    } else {
+      // tslint:disable-next-line:max-line-length
+      this.currentUserImage = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
+    }
+  }
+
+  ngAfterViewInit() {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    if (this.creationTime == this.lastSigned) {
+      setTimeout(() => 
+      this.dialog.open(TutorialComponent));
+      console.log('Tutorial Started... :)');
+
+    } else {
+      setTimeout(() => 
+      this.dialog.open(TutorialComponent).close());
+      console.log('No Tutorial...');
+    }
   }
   logOut() {
     return this.auth.signOut();

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 import { User } from '../../shared/models/user.model';
@@ -28,20 +28,32 @@ import { MatDialog} from '@angular/material';
   `,
   styleUrls: ['./dashboard.component.scss']
   })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit, AfterViewInit {
   userRef: any = this.auth.authState;
   currentUser: any = this.auth.currentUserObservable.currentUser;
   currentUserImage: any = this.currentUser.photoURL;
   updateForm: FormGroup;
   userDoc: any;
   constructor(private fb: FormBuilder, private auth: AuthService, private dialog: MatDialog) {
-    const user: User = this.userRef;
-
-    this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(user => this.userDoc = user)
+   
     this.updateForm = this.fb.group({
       displayName : ['', Validators.required],
       photoURL : ['']
     });
+  }
+
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    const user: User = this.userRef;
+    this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(user => this.userDoc = user)
+  }
+
+  ngAfterViewInit() {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    const user: User = this.userRef;
+    this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => this.userDoc = userDoc)
   }
 
 
