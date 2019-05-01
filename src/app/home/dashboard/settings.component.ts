@@ -49,7 +49,7 @@ import { Observable } from 'rxjs';
 export class SettingsComponent implements OnInit {
   userRef: any;
   currentUser: any = this.auth.currentUserObservable.currentUser;
-  currentUserImage: any = this.currentUser.photoURL;
+  currentUserImage: any = this.auth.currentUserObservable.currentUser.photoURL;
   updateForm: FormGroup;
   user: Observable<any>;
   userDoc: AngularFirestoreDocument<any>;
@@ -64,11 +64,9 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.currentUserObservable.onAuthStateChanged(user => {
-      this.userRef = user;
-    });
-    const userId = this.userRef.uid;
-    this.userDoc = this.afs.doc(`users/${userId}`);
+    
+    
+    this.userDoc = this.afs.doc(`users/${this.currentUser.uid}`);
 
     this.user = this.userDoc.valueChanges();
     console.log(this.user);

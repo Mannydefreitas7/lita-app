@@ -49,11 +49,6 @@ export class AuthService {
     this.pubs = JSON.parse(JSON.stringify(results));
   });
 
-    this.afAuth.auth.onAuthStateChanged(user => {
-     this.userRefreshed = user;
-     console.log(this.userRefreshed.uid);
-  });
-
   }
 
 
@@ -73,6 +68,7 @@ export class AuthService {
   stateChanged(): any {
     return this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
+        console.log(user);
         this.ngZone.run(() => this.router.navigate(['/home']));
       } else {
         this.ngZone.run(() => this.router.navigate(['/']));

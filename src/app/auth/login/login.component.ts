@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,12 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
 
-  constructor(private afs: AuthService, private router: Router) { }
-
-  ngOnInit() {
-    const currentUser = this.afs.isAuth;
+  constructor(private afs: AuthService, private router: Router) { 
+    const currentUser = this.afs.authenticated;
     console.log(currentUser);
     if (currentUser) {
       this.afs.stateChanged();
@@ -21,4 +19,12 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/']);
   }
   }
+  
+
+  ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {}
+   
 }

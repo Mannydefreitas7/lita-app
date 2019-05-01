@@ -40,16 +40,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   user: Observable<any>;
   creationTime: any;
   lastSigned: any;
-  userId: any;
+  userId = this.auth.currentUserObservable.currentUser.uid
 
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
-    this.auth.currentUserObservable.onAuthStateChanged(user => {
-      if (user) {
-        this.userDoc = this.afs.doc(`users/${user.uid}`);
-        this.user = this.userDoc.valueChanges();
-      }
-    });
- 
+
+    this.userId = this.userId
 
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -72,18 +67,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.auth.currentUserObservable.onAuthStateChanged(user => {
-      if (user) {
-        this.userDoc = this.afs.doc(`users/${user.uid}`);
+  
+        this.userDoc = this.afs.doc(`users/${this.userId}`);
         this.user = this.userDoc.valueChanges();
-      }
-    });
 
   }
 
   ngAfterViewInit() {
-    this.auth.currentUserObservable.onAuthStateChanged(user => {
 
+    this.auth.currentUserObservable.onAuthStateChanged(user => {
       this.userDoc = this.afs.doc(`users/${user.uid}`);
       this.user = this.userDoc.valueChanges();
 
@@ -94,17 +86,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.currentUserImage = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
     }
 
-      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+      if (this.auth.currentUserObservable.currentUser.metadata.creationTime === this.auth.currentUserObservable.currentUser.metadata.lastSignInTime) {
       setTimeout(() =>
       this.dialog.open(TutorialComponent));
       console.log('Tutorial Started... :)');
 
-    } else {
-      setTimeout(() =>
-      this.dialog.open(TutorialComponent).close());
-      console.log('No Tutorial...');
+    } else 
+      this.dialog.closeAll()
     }
-  });
+  );
   }
   logOut() {
     return this.auth.signOut();
