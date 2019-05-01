@@ -1,8 +1,8 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="dashboard dashboard-toolbar">
-  <h3 color="grey">Welcome <span>{{ userDoc.displayName }}</span> | {{ userDoc.congregation.name }} {{ userDoc.congregation.language }} Congregation</h3>
+  <h3 color="grey">Welcome <span>{{ ( user | async )?.displayName }}</span> | {{ ( user | async )?.congregation.name }} {{ ( user | async )?.congregation.language }} Congregation</h3>
   <button mat-button [matMenuTriggerFor]="userSettings">
     <div class="dashboard-toolbar--image">
-      <img [src]="userDoc.photoURL" alt="">
+      <img [src]="( user | async )?.photoURL" alt="">
     </div>
   </button>
 </mat-toolbar>

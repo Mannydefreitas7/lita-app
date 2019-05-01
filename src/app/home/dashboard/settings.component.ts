@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth.service';
 import { User } from '../../shared/models/user.model';
 import { MatDialog} from '@angular/material';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
 	// tslint:disable-next-line:component-selector
@@ -12,12 +14,12 @@ import { MatDialog} from '@angular/material';
 <form [formGroup]="updateForm" class="settings">
   <mat-dialog-content class="mat-typography" fxLayoutAlign="center center" fxLayout="column">
     <div class="dashboard-toolbar--image settings--image">
-      <img [src]="currentUserImage" alt="">
+      <img [src]="( user | async )?.photoURL" alt="">
     </div>
 
     <mat-form-field fxFill appearance="fill">
     <mat-label>Full Name</mat-label>
-      <input matInput required placeholder="My Name" formControlName="displayName" value="{{userDoc.displayName}}">
+      <input matInput required placeholder="My Name" formControlName="displayName" [value]="( user | async )?.displayName">
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
@@ -25,13 +27,13 @@ import { MatDialog} from '@angular/material';
 
     <mat-form-field fxFill appearance="fill">
       <mat-label>Congregation Name</mat-label>
-      <input required matInput placeholder="Congregation Name" formControlName="congregationName" value="{{userDoc.congregation.name}}">
+      <input required matInput placeholder="Congregation Name" formControlName="congregationName" [value]="( user | async )?.congregation.name">
       <mat-icon matSuffix>account_balance</mat-icon>
     </mat-form-field>
 
     <mat-form-field fxFill appearance="fill">
     <mat-label>Congregation Language</mat-label>
-    <input required matInput placeholder="Congregation Language" formControlName="congregationLanguage" value="{{userDoc.congregation.language}}">
+    <input required matInput placeholder="Congregation Language" formControlName="congregationLanguage" [value]="( user | async )?.congregation.language">
     <mat-icon matSuffix>language</mat-icon>
   </mat-form-field>
   </mat-dialog-content>
@@ -44,14 +46,15 @@ import { MatDialog} from '@angular/material';
   `,
   styleUrls: ['./dashboard.component.scss']
   })
-export class SettingsComponent implements OnInit, AfterViewInit {
-  userRef: any = this.auth.authState;
+export class SettingsComponent implements OnInit {
+  userRef: any;
   currentUser: any = this.auth.currentUserObservable.currentUser;
   currentUserImage: any = this.currentUser.photoURL;
   updateForm: FormGroup;
-  userDoc: any;
-  constructor(private fb: FormBuilder, private auth: AuthService, private dialog: MatDialog) {
- 
+  user: Observable<any>;
+  userDoc: AngularFirestoreDocument<any>;
+  constructor(private fb: FormBuilder, private auth: AuthService, private dialog: MatDialog, private afs: AngularFirestore) {
+
   this.updateForm = this.fb.group({
       displayName : ['', Validators.required],
       photoURL : [''],
@@ -60,22 +63,16 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  
-
   ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    const user: User = this.userRef;
-    this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(user => this.userDoc = user)
-  }
+    this.auth.currentUserObservable.onAuthStateChanged(user => {
+      this.userRef = user;
+    });
+    const userId = this.userRef.uid;
+    this.userDoc = this.afs.doc(`users/${userId}`);
 
-  ngAfterViewInit() {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    const user: User = this.userRef;
-    this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => this.userDoc = userDoc)
+    this.user = this.userDoc.valueChanges();
+    console.log(this.user);
   }
-
 
   updateName() {
     const user =  this.auth.authState;
@@ -83,7 +80,7 @@ export class SettingsComponent implements OnInit, AfterViewInit {
     const congName = this.updateForm.get('congregationName');
     const congLang = this.updateForm.get('congregationLanguage');
 
-    if (this.updateForm.status == 'VALID') {
+    if (this.updateForm.status === 'VALID') {
     return this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).update(
       {
         displayName: fullName.value,
@@ -91,12 +88,11 @@ export class SettingsComponent implements OnInit, AfterViewInit {
           language: congLang.value,
           name: congName.value
         }
-      
       }
       ).then(() => {
       this.dialog.closeAll();
-    })
+    });
   }
 }
 
-} 
+}

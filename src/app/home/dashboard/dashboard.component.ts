@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { AuthService } from '../../core/auth.service';
-
+import { map } from 'rxjs/operator/map';
 import { MatDialog} from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
@@ -23,6 +23,7 @@ import { User } from '../../shared/models/user.model';
 
 import 'rxjs/operator/map';
 import { Congregation } from 'src/app/shared/models/congregation.model';
+import { Observable } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -31,17 +32,24 @@ import { Congregation } from 'src/app/shared/models/congregation.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  userRef: any = this.auth.authState;
-  userDoc: any;
+  userRef: AngularFirestoreDocument<any>;
+  userDoc: AngularFirestoreDocument<any>;
   currentUserName: string;
   currentUserImage: any;
-  loading = true;
-  displayName: string;
-  user: User = this.userRef;
-  creationTime: any = this.auth.currentUserObservable.currentUser.metadata.creationTime;
-  lastSigned: any = this.auth.currentUserObservable.currentUser.metadata.lastSignInTime;
+  loading = false;
+  user: Observable<any>;
+  creationTime: any;
+  lastSigned: any;
+  userId: any;
 
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
+    this.auth.currentUserObservable.onAuthStateChanged(user => {
+      if (user) {
+        this.userDoc = this.afs.doc(`users/${user.uid}`);
+        this.user = this.userDoc.valueChanges();
+      }
+    });
+ 
 
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -64,39 +72,39 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
-
-    const userId = this.auth.currentUserId
-    this.afs.doc(`users/${userId}`).valueChanges()
-    // tslint:disable-next-line:no-shadowed-variable
-    .subscribe(user => {
-      console.log(user);
-      this.userDoc = user;
+    this.auth.currentUserObservable.onAuthStateChanged(user => {
+      if (user) {
+        this.userDoc = this.afs.doc(`users/${user.uid}`);
+        this.user = this.userDoc.valueChanges();
       }
-    );
+    });
 
+  }
 
-    if (this.userRef.photoURL != null) {
-      this.currentUserImage = this.userRef.photoURL;
+  ngAfterViewInit() {
+    this.auth.currentUserObservable.onAuthStateChanged(user => {
+
+      this.userDoc = this.afs.doc(`users/${user.uid}`);
+      this.user = this.userDoc.valueChanges();
+
+      if (user.photoURL != null) {
+      this.currentUserImage = user.photoURL;
     } else {
       // tslint:disable-next-line:max-line-length
       this.currentUserImage = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
     }
-  }
 
-  ngAfterViewInit() {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    if (this.creationTime == this.lastSigned) {
-      setTimeout(() => 
+      if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+      setTimeout(() =>
       this.dialog.open(TutorialComponent));
       console.log('Tutorial Started... :)');
 
     } else {
-      setTimeout(() => 
+      setTimeout(() =>
       this.dialog.open(TutorialComponent).close());
       console.log('No Tutorial...');
     }
+  });
   }
   logOut() {
     return this.auth.signOut();

@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { switchMap, map } from 'rxjs/operators';
 
@@ -19,9 +19,11 @@ export class AuthService {
   user: Observable<User>;
   congregation: Observable<Congregation>;
   msgdialog: string;
-  authState: any = null;
+  authState: any;
+  authStateChanged: any;
   pubs: any;
   pub: any;
+  userRefreshed: any;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -46,6 +48,12 @@ export class AuthService {
       // tslint:disable-next-line:prefer-for-of
     this.pubs = JSON.parse(JSON.stringify(results));
   });
+
+    this.afAuth.auth.onAuthStateChanged(user => {
+     this.userRefreshed = user;
+     console.log(this.userRefreshed.uid);
+  });
+
   }
 
 
@@ -57,11 +65,10 @@ export class AuthService {
     return this.afAuth.auth;
   }
 
-
-
   get firebaseFireStore() {
     return this.afs;
   }
+
 
   stateChanged(): any {
     return this.afAuth.auth.onAuthStateChanged(user => {
@@ -78,7 +85,7 @@ export class AuthService {
   }
 
   get currentUserId(): string {
-    return this.authenticated ? this.authState.uid : null;
+    return this.authenticated ? this.userRefreshed.uid : null;
   }
 
   emailSignIn(email: string, password: string) {
@@ -126,6 +133,17 @@ export class AuthService {
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
 
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Google'))
+    .catch(error => this.msgdialog = error.message);
+  }
+
+  googleSignUp() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
     return this.socialLogin(provider)
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
@@ -133,7 +151,19 @@ export class AuthService {
     .then(() => console.log('You are logged-in with Google'))
     .catch(error => this.msgdialog = error.message);
   }
+
   microsoftLogin() {
+
+    const provider = new firebase.auth.OAuthProvider();
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Microsoft'))
+    .catch(error => console.log(error.message));
+  }
+
+  microsoftSignup() {
 
     const provider = new firebase.auth.OAuthProvider();
     return this.socialLogin(provider)
@@ -147,8 +177,6 @@ export class AuthService {
   facebookLogin() {
     const provider = new firebase.auth.FacebookAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider)
-    .then((result: any) => {
-      return this.updateUserData(result.user); })
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
@@ -157,9 +185,17 @@ export class AuthService {
       this.msgdialog = error.message);
   }
 
-  twitterLogin() {
-    const provider = new firebase.auth.TwitterAuthProvider();
-    return this.socialLogin(provider);
+  facebookSignup() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then((result: any) => {
+      return this.updateUserData(result.user); })
+    .then(() => {
+      this.ngZone.run(() => this.router.navigate(['/home']));
+    })
+    .then(() => console.log('You are logged-in with Facebook'))
+    .catch(error =>
+      this.msgdialog = error.message);
   }
 
   private socialLogin(provider) {
@@ -171,7 +207,7 @@ export class AuthService {
   }
 
 
-  updateUserData(user) {
+  createUserData(user) {
 
     const publisherID = this.afs.createId();
     const congregationID = this.afs.createId();
@@ -205,5 +241,40 @@ export class AuthService {
        literatureRef.doc(`${pub.id}`).set(pub);
       });
     });
+}
+  updateUserData(user) {
+
+  const publisherID = this.afs.createId();
+  const congregationID = this.afs.createId();
+
+  const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+  const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
+
+  const data: User = {
+    uid: user.uid,
+    email: user.email,
+    displayName: user.displayName,
+    photoURL: user.photoURL,
+    congregation: {
+      id: congregationID,
+      name: null,
+      language: 'English',
+      publishers: {
+        id: publisherID,
+        name: null,
+        role: null,
+        photoUrl: null,
+        orderCount: null,
+        order: null
+      }
+    }
+  };
+
+  return userRef.set(data, { merge: true })
+  .then(() => {
+    this.pubs.forEach(pub => {
+     literatureRef.doc(`${pub.id}`).set(pub);
+    });
+  });
 }
 }
