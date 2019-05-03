@@ -1,5 +1,5 @@
 
-h2 {
+p {
     font-size: 0.9rem;
     font-weight: 300;
     text-align: center;
@@ -24,3 +24,13 @@ h2 {
 .lita-icon {
             margin-right: 1rem;
 }
+
+.mat-button {
+    &.home.active {
+        background: #0275bf;
+    }
+    &.active {
+        background: #0365a5;
+    }
+}
+

@@ -17,7 +17,7 @@ export class AppComponent {
   title = 'lita';
   loading = false;
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof NavigationStart: {

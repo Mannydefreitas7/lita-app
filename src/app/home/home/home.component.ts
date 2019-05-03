@@ -1,6 +1,10 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
-import {MatPaginator, MatTableDataSource, MatButtonToggleChange } from '@angular/material';
+import { MatSlideToggleChange, MatSlideToggle, MatDialog } from '@angular/material'
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Publisher } from 'src/app/shared/models/congregation.model';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { AddpublisherComponent  } from './addpublisher.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',
@@ -8,25 +12,46 @@ import {MatPaginator, MatTableDataSource, MatButtonToggleChange } from '@angular
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  pubs: any;
-  displayedColumns: string[] = ['id', 'name', 'pubId', 'contextTitle', 'quantityIn', 'quantityOut', 'quantityOnHand', 'quantityOut'];
-  dataSource:any;
-  toggle: boolean = true;
-  constructor(auth: AuthService) {
-    this.pubs = auth.pubs;
-    this.dataSource = new MatTableDataSource(this.pubs);
-  }
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  publisherCard: boolean = true
+  orderCard: boolean = true
+  reportCard: boolean = true
+  cards: any
+  publisher: Publisher
+  newPublisher: FormGroup
+
+
+  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {
+ 
+   this.newPublisher = this.fb.group({
+    id: ['', Validators.required],
+    name: ['', Validators.required],
+    role: [''],
+    photoUrl: [''],
+    orderCount: [''],
+    order: ['']  
+});
   }
 
+addPublisher() {
+  this.dialog.open(AddpublisherComponent);
+}
+
+  togglePub() {
+    this.publisherCard = !this.publisherCard
+  }
+
+  toggleOrder() {
+    this.orderCard = !this.orderCard
+   }
+
+  toggleReport() {
+    this.reportCard = !this.reportCard
+  }
+
+
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
   }
-  toggleView(change: MatButtonToggleChange){
-    this.toggle = change.value;
-  }
-  
+
 
 }

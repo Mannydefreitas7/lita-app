@@ -8,11 +8,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SettingsComponent } from '../home/dashboard/settings.component';
 import { User } from './models/user.model';
 import { TutorialComponent } from '../home/dashboard/tutorial.component';
+import { AddpublisherComponent } from '../home/home/addpublisher.component';
+
 
 @NgModule({
   declarations: [
     SettingsComponent,
-    TutorialComponent
+    TutorialComponent,
+    AddpublisherComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,7 @@ import { TutorialComponent } from '../home/dashboard/tutorial.component';
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [SettingsComponent, TutorialComponent],
+  entryComponents: [SettingsComponent, TutorialComponent, AddpublisherComponent],
   exports: [
     CommonModule,
     FormsModule,

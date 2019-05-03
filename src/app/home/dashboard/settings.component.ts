@@ -65,9 +65,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     
-    
     this.userDoc = this.afs.doc(`users/${this.currentUser.uid}`);
-
     this.user = this.userDoc.valueChanges();
     console.log(this.user);
   }

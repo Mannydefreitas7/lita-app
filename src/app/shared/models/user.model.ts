@@ -6,6 +6,11 @@ export class User {
 	email: string;
 	photoURL?: string;
 	displayName?: string;
+	homeView: {
+		publishers: boolean,
+		report: boolean,
+		order: boolean
+	}
 	congregation?: Congregation
   }
 const publications = [

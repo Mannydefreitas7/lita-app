@@ -216,6 +216,11 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      homeView: {
+        publishers: true,
+        report: true,
+        order: true
+      },
       congregation: {
         id: congregationID,
         name: null,
@@ -251,6 +256,11 @@ export class AuthService {
     email: user.email,
     displayName: user.displayName,
     photoURL: user.photoURL,
+    homeView: {
+      publishers: true,
+      report: true,
+      order: true
+    },
     congregation: {
       id: congregationID,
       name: null,
