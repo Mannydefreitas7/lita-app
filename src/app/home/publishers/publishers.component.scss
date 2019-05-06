@@ -1,0 +1,64 @@
+
+table {
+    width: 100%;
+}
+
+mat-icon {
+    color: #3335;
+}
+h2 {
+    color: #333;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.lita-card {
+    margin-bottom: 20px;
+}
+
+.lita-table-name {
+    font-size: 1.1rem;
+    color: #3339;
+    a {
+        text-decoration: none;
+        color: #3339;
+    }
+    .lita-last-name {
+    color: #333;
+    font-weight: bold;
+    }
+    .lita-count {
+        display: inline-block;
+        margin: 0 10px;
+        background: #01aeef;
+        color: #fff;
+        font-size: 1rem;
+        padding: 2px 5px;
+        border-radius: 35%;
+        font-weight: bold;
+    }
+}
+.lita-user-name {
+    font-size: 1.5rem;
+    color: #3339;
+    font-weight: 300 !important;
+    margin: 5px 0;
+    a {
+        text-decoration: none;
+        color: #3339;
+    }
+    .lita-last-name {
+    color: #333;
+    font-weight: bold;
+    }
+    .lita-count {
+        display: inline-block;
+        margin: 0 10px;
+        background: #01aeef;
+        color: #fff;
+        font-size: 1rem;
+        padding: 2px 5px;
+        border-radius: 35%;
+        font-weight: bold;
+    }
+}

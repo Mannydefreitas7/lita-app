@@ -14,15 +14,28 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
   <mat-dialog-content class="mat-typography" fxLayoutAlign="center center" fxLayout="column">
 
     <mat-form-field fxFill appearance="fill">
-    <mat-label>Publisher Name</mat-label>
-      <input matInput required placeholder="Charles Russell" formControlName="name">
+    <mat-label>First Name</mat-label>
+      <input matInput required placeholder="Charles" formControlName="fname">
       <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="fill">
+    <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Russell" formControlName="lname">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field fxFill appearance="fill">
+    <mat-label>Email</mat-label>
+      <input matInput placeholder="charlesrussell@jw.org" formControlName="email">
+      <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
 
    <mat-form-field fxFill appearance="fill">
     <mat-label>Publisher Role</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let role of roles" [value]="role.value">
+    <mat-select formControlName="role">
+      <mat-option value="General" selected>General</mat-option>
+      <mat-option *ngFor="let role of roles" [value]="role.value" >
         {{role.valueView}}
       </mat-option>
     </mat-select>
@@ -54,8 +67,10 @@ export class AddpublisherComponent implements OnInit {
 
     this.newPublisher = this.fb.group({
      id: ['', Validators.required],
-     name: ['', Validators.required],
-     role: [''],
+     fname: ['', Validators.required],
+     lname: ['', Validators.required],
+     email: ['', [Validators.required, Validators.email]],
+     role: ['', Validators.required],
      photoUrl: [''],
      orderCount: [''],
      order: ['']
@@ -64,15 +79,19 @@ export class AddpublisherComponent implements OnInit {
 
    addPub() {
     const user = this.auth.currentUserObservable.currentUser;
-    const name = this.newPublisher.get('name').value;
+    const fname = this.newPublisher.get('fname').value;
+    const lname = this.newPublisher.get('lname').value;
+    const email = this.newPublisher.get('email').value;
     const role = this.newPublisher.get('role').value;
     const id = this.afs.createId();
-    const congregation = this.afs.doc(`users/${user.uid}`).collection('congregation').doc('publishers');
+    const congregation = this.afs.doc(`users/${user.uid}`).collection('publishers').doc(`${id}`);
 
     return congregation.set(
         {
-              id: id,
-              name: name,
+              uid: id,
+              fname: fname,
+              lname: lname,
+              email: email,
               role: role,
               photoUrl: null,
               orderCount: 0,

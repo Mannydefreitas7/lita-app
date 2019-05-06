@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 
     <mat-form-field fxFill appearance="fill">
     <mat-label>Full Name</mat-label>
-      <input matInput required placeholder="My Name" formControlName="displayName" [value]="( user | async )?.displayName">
+      <input matInput placeholder="My Name" formControlName="displayName" [value]="( user | async )?.displayName">
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
@@ -27,13 +27,13 @@ import { Observable } from 'rxjs';
 
     <mat-form-field fxFill appearance="fill">
       <mat-label>Congregation Name</mat-label>
-      <input required matInput placeholder="Congregation Name" formControlName="congregationName" [value]="( user | async )?.congregation.name">
+      <input matInput placeholder="Congregation Name" formControlName="congregationName" [value]="( user | async )?.congregation.name">
       <mat-icon matSuffix>account_balance</mat-icon>
     </mat-form-field>
 
     <mat-form-field fxFill appearance="fill">
     <mat-label>Congregation Language</mat-label>
-    <input required matInput placeholder="Congregation Language" formControlName="congregationLanguage" [value]="( user | async )?.congregation.language">
+    <input matInput placeholder="Congregation Language" formControlName="congregationLanguage" [value]="( user | async )?.congregation.language">
     <mat-icon matSuffix>language</mat-icon>
   </mat-form-field>
   </mat-dialog-content>
@@ -80,7 +80,7 @@ export class SettingsComponent implements OnInit {
     const congName = this.updateForm.get('congregationName');
     const congLang = this.updateForm.get('congregationLanguage');
 
-    if (this.updateForm.status === 'VALID') {
+    if (congName.status === 'VALID' || congLang.status === 'VALID' || fullName.status === "VALID") {
       return this.userDoc.update(
       {
         displayName: fullName.value,

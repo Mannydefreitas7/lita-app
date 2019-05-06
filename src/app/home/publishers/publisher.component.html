@@ -1,0 +1,101 @@
+<a (click)="goBack()" mat-button>
+  <mat-icon>keyboard_arrow_left</mat-icon> Go Back
+</a>
+<p>{{ publisher.uid }}</p>
+<div fxFill fxLayoutAlign="space-between center">
+  <h1 class="lita-user-name">{{ publisher.fname }} <span class="lita-last-name">{{publisher.lname}}</span> <span
+      class="lita-count" *ngIf="publisher.orderCount > 0">{{ publisher.orderCount }}</span> </h1>
+  <button (click)="editField()" mat-button color="primary">
+    <mat-icon color="primary" class="lita-icon">edit</mat-icon>Edit
+  </button>
+</div>
+
+
+<mat-card class="lita-card" *ngIf="edit">
+    <mat-card-title>
+        Publisher's Information
+      </mat-card-title>
+    <form [formGroup]="publisherForm" class="settings" >
+        <mat-card-content class="mat-typography" fxLayoutAlign="start start" fxLayout="column">
+      <div class="dashboard-toolbar--image settings--image">
+        <img [src]="" alt="">
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [placeholder]="publisher.fname" formControlName="fname" [value]="publisher.fname">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput [placeholder]="publisher.fname" formControlName="lname" [value]="publisher.lname">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [placeholder]="publisher.email" formControlName="email" [value]="publisher.email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-card-actions align="end">
+        <button mat-button (click)="cancelEdit()">Cancel</button>
+        <button mat-raised-button (click)="updatePublisher()" color="primary">Save</button>
+      </mat-card-actions>
+
+    </mat-card-content>
+    </form>
+</mat-card>
+
+<mat-card class="lita-card" *ngIf="!edit">
+    <mat-card-title>
+        Publisher's Information
+      </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line>First Name</h4>
+        <h3 mat-line> {{ publisher.fname }}</h3>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line>Last Name</h4>
+        <h3 mat-line> {{ publisher.lname }}</h3>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>email</mat-icon>
+        <h4 mat-line>Email</h4>
+        <h3 mat-line> {{ publisher.email }}</h3>
+      </mat-list-item>
+    </mat-list>
+    </mat-card-content>
+</mat-card>
+
+
+<div fxFill fxLayoutAlign="end center">
+    <button (click)="editField()" mat-button color="primary">
+      <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>Order
+    </button>
+  </div>
+
+<mat-card class="lita-card">
+    <mat-card-title>
+      Publications Orders
+    </mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+            <mat-divider></mat-divider>
+          <mat-icon mat-list-icon>person</mat-icon>
+          <h4 mat-line>First Name</h4>
+          <h3 mat-line> {{ publisher.fname }}</h3>
+        
+        </mat-list-item>
+      </mat-list>
+      </mat-card-content>
+  </mat-card>

@@ -9,13 +9,17 @@ import { SettingsComponent } from '../home/dashboard/settings.component';
 import { User } from './models/user.model';
 import { TutorialComponent } from '../home/dashboard/tutorial.component';
 import { AddpublisherComponent } from '../home/home/addpublisher.component';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+import { PublisherComponent } from '../home/publishers/publisher.component';
+import { DeletepublisherComponent } from '../home/publishers/deletepublisher.component';
+
 
 @NgModule({
   declarations: [
     SettingsComponent,
     TutorialComponent,
-    AddpublisherComponent
+    AddpublisherComponent,
+    PublisherComponent,
+    DeletepublisherComponent
   ],
   imports: [
     CommonModule,
@@ -25,10 +29,9 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     HttpClientModule,
     AngularSvgIconModule,
     FlexLayoutModule,
-    HttpClientModule,
-    MatFileUploadModule
+    HttpClientModule
   ],
-  entryComponents: [SettingsComponent, TutorialComponent, AddpublisherComponent],
+  entryComponents: [SettingsComponent, TutorialComponent, AddpublisherComponent, DeletepublisherComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -37,8 +40,7 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     HttpClientModule,
     AngularSvgIconModule,
     FlexLayoutModule,
-    HttpClientModule,
-    MatFileUploadModule
+    HttpClientModule
   ]
 })
 export class SharedModule { }

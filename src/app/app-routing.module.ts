@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
 import { Routes, RouterModule } from '@angular/router';
 import { PublishersComponent } from './home/publishers/publishers.component';
+import { PublisherComponent } from './home/publishers/publisher.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LiteratureComponent } from './home/literature/literature.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent  },
       { path: 'literature', component: LiteratureComponent },
       { path: 'publishers', component: PublishersComponent },
+      { path: 'publishers/:uid', component: PublisherComponent },
       { path: 'order' , component: OrderComponent },
       { path: 'report', component: ReportComponent },
       { path: 'help', component: HelpComponent }

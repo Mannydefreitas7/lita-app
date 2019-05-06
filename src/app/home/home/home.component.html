@@ -25,16 +25,25 @@
 		</mat-card-header>
 	
 		<mat-card-content>
+			<h4 fxLayoutAlign="center center" fxFill>{{ totalPublishers }}</h4>
 			<mat-list role="list">
-	
-				<mat-list-item role="listitem" fxLayout="row" fxLayoutAlign="space-between center">
-					<h4>Total:</h4> <span>20</span>
+				<mat-list-item role="listitem" >
+					<div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+						<p>Publication Requests:</p> <span>{{ totalRequests }}</span>
+					</div>
+					<mat-divider></mat-divider>
+				</mat-list-item>
+				<mat-list-item role="listitem" >
+					<div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+					<p>Number of Publishers:</p> <span>{{ totalPublishers }}</span>
+				</div>
+				<mat-divider></mat-divider>
 				</mat-list-item>
 			</mat-list>
 		</mat-card-content>
 		<mat-card-actions align="end">
 			<button mat-button routerLink='/home/publishers' > <mat-icon>remove_red_eye</mat-icon> View</button>
-			<button mat-button color="primary" (click)="addPublisher()"> <mat-icon>add</mat-icon> Add Publisher</button>
+			<button mat-button color="primary" (click)="addPublisher()"> <mat-icon>person_add</mat-icon> Add Publisher</button>
 		</mat-card-actions>
 	</mat-card>
 	

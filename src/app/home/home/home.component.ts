@@ -17,26 +17,31 @@ export class HomeComponent implements OnInit {
   orderCard: boolean = true;
   reportCard: boolean = true;
   cards: any;
-  publisher: Publisher;
-  newPublisher: FormGroup;
-
+  totalPublishers: number;
+  totalRequests: number;
+  orderCount: number = 0
 
   constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {
+    const user = this.auth.currentUserObservable.currentUser;
+    this.afs.doc(`users/${user.uid}`).collection('publishers')
+    .snapshotChanges().subscribe(total => {
+      this.totalPublishers = total.length;
+    })
+    this.afs.doc(`users/${user.uid}`).collection('publishers').valueChanges()
+    .subscribe(total => {
+      total.forEach(publisher => {
+        
+        this.orderCount += publisher.orderCount
  
-   this.newPublisher = this.fb.group({
-    id: ['', Validators.required],
-    name: ['', Validators.required],
-    role: [''],
-    photoUrl: [''],
-    orderCount: [''],
-    order: ['']
-});
+      })
+      console.log(this.totalRequests = this.orderCount)
+    })
   }
 
 addPublisher() {
   this.dialog.open(AddpublisherComponent);
 }
-
+ 
   togglePub() {
     this.publisherCard = !this.publisherCard;
   }
