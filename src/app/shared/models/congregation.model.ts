@@ -1,7 +1,6 @@
 export class Congregation {
 	id?: string;
 	name?: string;
-	publishers?: Publisher;
 	language: any;
 	}
 

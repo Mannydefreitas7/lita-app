@@ -9,7 +9,7 @@ import { SettingsComponent } from '../home/dashboard/settings.component';
 import { User } from './models/user.model';
 import { TutorialComponent } from '../home/dashboard/tutorial.component';
 import { AddpublisherComponent } from '../home/home/addpublisher.component';
-
+import { MatFileUploadModule } from 'angular-material-fileupload';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { AddpublisherComponent } from '../home/home/addpublisher.component';
     HttpClientModule,
     AngularSvgIconModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFileUploadModule
   ],
   entryComponents: [SettingsComponent, TutorialComponent, AddpublisherComponent],
   exports: [
@@ -36,7 +37,8 @@ import { AddpublisherComponent } from '../home/home/addpublisher.component';
     HttpClientModule,
     AngularSvgIconModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFileUploadModule
   ]
 })
 export class SharedModule { }

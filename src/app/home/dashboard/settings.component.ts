@@ -51,8 +51,11 @@ export class SettingsComponent implements OnInit {
   currentUser: any = this.auth.currentUserObservable.currentUser;
   currentUserImage: any = this.auth.currentUserObservable.currentUser.photoURL;
   updateForm: FormGroup;
+  congID: any;
   user: Observable<any>;
   userDoc: AngularFirestoreDocument<any>;
+
+
   constructor(private fb: FormBuilder, private auth: AuthService, private dialog: MatDialog, private afs: AngularFirestore) {
 
   this.updateForm = this.fb.group({
@@ -64,28 +67,29 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.userDoc = this.afs.doc(`users/${this.currentUser.uid}`);
     this.user = this.userDoc.valueChanges();
+
     console.log(this.user);
   }
 
   updateName() {
+
     const user =  this.auth.authState;
     const fullName = this.updateForm.get('displayName');
     const congName = this.updateForm.get('congregationName');
     const congLang = this.updateForm.get('congregationLanguage');
 
     if (this.updateForm.status === 'VALID') {
-    return this.auth.firebaseFireStore.doc<User>(`users/${user.uid}`).update(
+      return this.userDoc.update(
       {
         displayName: fullName.value,
         congregation: {
-          language: congLang.value,
-          name: congName.value
+          name: congName.value,
+          language: congLang.value
         }
-      }
-      ).then(() => {
+      })
+      .then(() => {
       this.dialog.closeAll();
     });
   }

@@ -13,12 +13,12 @@ import { AddpublisherComponent  } from './addpublisher.component';
 })
 export class HomeComponent implements OnInit {
 
-  publisherCard: boolean = true
-  orderCard: boolean = true
-  reportCard: boolean = true
-  cards: any
-  publisher: Publisher
-  newPublisher: FormGroup
+  publisherCard: boolean = true;
+  orderCard: boolean = true;
+  reportCard: boolean = true;
+  cards: any;
+  publisher: Publisher;
+  newPublisher: FormGroup;
 
 
   constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     role: [''],
     photoUrl: [''],
     orderCount: [''],
-    order: ['']  
+    order: ['']
 });
   }
 
@@ -38,11 +38,11 @@ addPublisher() {
 }
 
   togglePub() {
-    this.publisherCard = !this.publisherCard
+    this.publisherCard = !this.publisherCard;
   }
 
   toggleOrder() {
-    this.orderCard = !this.orderCard
+    this.orderCard = !this.orderCard;
    }
 
   toggleReport() {

@@ -100,7 +100,7 @@ export class AuthService {
       // tslint:disable-next-line:max-line-length
       this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
       .then(() => console.log('name added succesfully'))
-      .then(() => this.updateUserData(credential.user))
+      .then(() => this.createUserData(credential.user))
       .then(() => console.log('welcome, your account has been created'))
       .then(user =>
         this.afAuth.auth.currentUser.sendEmailVerification()
@@ -185,7 +185,7 @@ export class AuthService {
     const provider = new firebase.auth.FacebookAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result: any) => {
-      return this.updateUserData(result.user); })
+      return this.createUserData(result.user); })
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
@@ -197,7 +197,7 @@ export class AuthService {
   private socialLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential: any) => {
-        return this.updateUserData(credential.user);
+        return this.createUserData(credential.user);
       })
       .catch(error => console.log(error.message));
   }
@@ -205,10 +205,11 @@ export class AuthService {
 
   createUserData(user) {
 
-    const publisherID = this.afs.createId();
     const congregationID = this.afs.createId();
 
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+
+    const publishersRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('publishers');
     const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
 
     const data: User = {
@@ -224,63 +225,23 @@ export class AuthService {
       congregation: {
         id: congregationID,
         name: null,
-        language: 'English',
-        publishers: {
-          id: publisherID,
-          name: null,
-          role: null,
-          photoUrl: null,
-          orderCount: null,
-          order: null
-        }
+        language: 'English'
       }
     };
+
+    const publisherData: Publisher = {
+      
+    }
 
     return userRef.set(data, { merge: true })
     .then(() => {
       this.pubs.forEach(pub => {
        literatureRef.doc(`${pub.id}`).set(pub);
       });
+    })
+    .then(() => {
+      return publishersRef;
     });
 }
-  updateUserData(user) {
 
-  const publisherID = this.afs.createId();
-  const congregationID = this.afs.createId();
-
-  const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-  const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
-
-  const data: User = {
-    uid: user.uid,
-    email: user.email,
-    displayName: user.displayName,
-    photoURL: user.photoURL,
-    homeView: {
-      publishers: true,
-      report: true,
-      order: true
-    },
-    congregation: {
-      id: congregationID,
-      name: null,
-      language: 'English',
-      publishers: {
-        id: publisherID,
-        name: null,
-        role: null,
-        photoUrl: null,
-        orderCount: null,
-        order: null
-      }
-    }
-  };
-
-  return userRef.set(data, { merge: true })
-  .then(() => {
-    this.pubs.forEach(pub => {
-     literatureRef.doc(`${pub.id}`).set(pub);
-    });
-  });
-}
 }

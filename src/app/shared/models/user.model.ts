@@ -1,5 +1,5 @@
 
-import { Congregation }  from './congregation.model';
+import { Congregation } from './congregation.model';
 
 export class User {
 	uid: string;
@@ -9,10 +9,15 @@ export class User {
 	homeView: {
 		publishers: boolean,
 		report: boolean,
-		order: boolean
+		order: boolean,
+	};
+	congregation: {
+		id: string;
+		name: string;
+		language: string;
 	}
-	congregation?: Congregation
-  }
+  };
+
 const publications = [
 	{
 		id: 5000,

@@ -34,17 +34,19 @@ import { Observable } from 'rxjs';
 export class DashboardComponent implements OnInit, AfterViewInit {
   userRef: AngularFirestoreDocument<any>;
   userDoc: AngularFirestoreDocument<any>;
+  congregationRef: any;
+  congregation: Observable<any>;
   currentUserName: string;
   currentUserImage: any;
   loading = false;
   user: Observable<any>;
   creationTime: any;
   lastSigned: any;
-  userId = this.auth.currentUserObservable.currentUser.uid
+  userId = this.auth.currentUserObservable.currentUser.uid;
 
   constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
 
-    this.userId = this.userId
+    this.userId = this.userId;
 
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -67,15 +69,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-  
-        this.userDoc = this.afs.doc(`users/${this.userId}`);
-        this.user = this.userDoc.valueChanges();
-
+    this.userDoc = this.afs.doc(`users/${this.userId}`);
+    this.user = this.userDoc.valueChanges();
   }
 
   ngAfterViewInit() {
 
     this.auth.currentUserObservable.onAuthStateChanged(user => {
+      this.congregationRef = this.afs.doc(`users/${user.uid}`).collection('congregation').doc('publishers');
+      this.congregation = this.congregationRef.valueChanges();
+
       this.userDoc = this.afs.doc(`users/${user.uid}`);
       this.user = this.userDoc.valueChanges();
 
@@ -91,7 +94,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.dialog.open(TutorialComponent));
       console.log('Tutorial Started... :)');
 
-    } else 
+    } else
       this.dialog.closeAll()
     }
   );
