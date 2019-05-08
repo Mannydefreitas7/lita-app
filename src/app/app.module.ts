@@ -22,6 +22,7 @@ import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
+import { PublisherService } from './home/publishers/publisher.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { SharedModule } from './shared/shared.module';
     FlexLayoutModule,
     SharedModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PublisherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

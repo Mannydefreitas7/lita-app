@@ -1,62 +1,43 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
-import { MatPaginator, MatTableDataSource, MatButtonToggleChange, MatList, MatDialog } from '@angular/material';
-import { AddpublisherComponent } from '../home/addpublisher.component';
-import { AngularFirestoreDocument } from 'angularfire2/firestore';
-import { DeletepublisherComponent } from './deletepublisher.component';
+import { Component, OnInit, AfterContentInit, AfterViewInit, AfterContentChecked } from '@angular/core';
+import { MatTableDataSource, MatButtonToggleChange } from '@angular/material';
+import { PublisherService } from './publisher.service';
+
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'lita-publishers',
-  templateUrl: './publishers.component.html',
-  styleUrls: ['./publishers.component.scss']
+  templateUrl: './html/publishers.component.html',
+  styleUrls: ['./scss/publishers.component.scss']
 })
-export class PublishersComponent {
-  displayedColumns: string[] = ['name', 'orderBtn', 'deleteBtn'];
-  dataSource:any;
-  toggle: boolean = true;
+export class PublishersComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'orderBtn'];
+  dataSource: any;
+  toggle = true;
+  title = 'Publishers';
+  loading = true;
   pubs: any;
-  title: string = 'Publishers'
-  uid: any;
-  publisher: any;
-  publisherDoc: AngularFirestoreDocument;
 
-  constructor(public auth: AuthService, private dialog: MatDialog) {
 
-    const user = this.auth.currentUserObservable.currentUser
-    this.auth.firebaseFireStore.doc(`users/${user.uid}`).collection('publishers').valueChanges()
-    .subscribe(publishers => {
-      this.pubs = JSON.parse(JSON.stringify(publishers))
-      this.dataSource = new MatTableDataSource(this.pubs)
-    })
-
-   
-  }
+  constructor(
+    public publisherService: PublisherService
+    ) {
+    }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  addPublisher() {
-    this.dialog.open(AddpublisherComponent);
-  }
 
-  deletePublisher() {
-    this.dialog.open(DeletepublisherComponent);
+  toggleView(change: MatButtonToggleChange) {
+    this.toggle = change.value;
   }
 
   ngOnInit() {
-
-    const user = this.auth.currentUserObservable.currentUser;
-    this.publisherDoc = this.auth.firebaseFireStore.doc(`users/${user.uid}`).collection('publishers').doc(`${this.uid}`)
-    this.publisherDoc.valueChanges()
-    .subscribe(result => {
-      this.publisher = result
-      console.log(this.publisher)
-    })
+    this.publisherService.publishersData.valueChanges().subscribe(publishers => {
+      this.pubs = JSON.parse(JSON.stringify(publishers));
+      this.dataSource = new MatTableDataSource(this.pubs);
+      this.loading = false;
+      });
   }
-  toggleView(change: MatButtonToggleChange){
-    this.toggle = change.value;
-  }
-  
-
 }
+

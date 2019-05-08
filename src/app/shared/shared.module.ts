@@ -8,9 +8,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SettingsComponent } from '../home/dashboard/settings.component';
 import { User } from './models/user.model';
 import { TutorialComponent } from '../home/dashboard/tutorial.component';
-import { AddpublisherComponent } from '../home/home/addpublisher.component';
+import { AddpublisherComponent } from '../home/publishers/addpublisher.component';
 import { PublisherComponent } from '../home/publishers/publisher.component';
 import { DeletepublisherComponent } from '../home/publishers/deletepublisher.component';
+import { PublisherService } from '../home/publishers/publisher.service';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DeletepublisherComponent } from '../home/publishers/deletepublisher.com
     AngularSvgIconModule,
     FlexLayoutModule,
     HttpClientModule
-  ]
+  ],
+  providers: [PublisherService]
 })
 export class SharedModule { }

@@ -4,7 +4,7 @@ import { MatSlideToggleChange, MatSlideToggle, MatDialog } from '@angular/materi
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Publisher } from 'src/app/shared/models/congregation.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { AddpublisherComponent  } from './addpublisher.component';
+import { AddpublisherComponent  } from '../publishers/addpublisher.component';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',

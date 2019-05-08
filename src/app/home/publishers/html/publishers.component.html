@@ -1,5 +1,5 @@
 <section fxFill fxLayoutAlign="space-between center"><h2>{{ title }} </h2>
-  <a mat-button color="primary" (click)="addPublisher()"> <mat-icon color="primary">person_add</mat-icon> Add Publisher</a>
+  <a mat-button color="primary" (click)="publisherService.addPublisher"> <mat-icon color="primary">person_add</mat-icon> Add Publisher</a>
 </section> 
 <div fxLayoutAlign="space-between center">
 
@@ -9,6 +9,9 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     
+    <mat-spinner *ngIf="loading else loaded"></mat-spinner>
+
+
     <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)">
         <mat-button-toggle [value]="true">
           <mat-icon>view_list</mat-icon>
@@ -18,7 +21,7 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <table *ngIf="toggle" mat-table [dataSource]="dataSource" class="lita-table">
+    <table *ngIf="toggle" #loaded mat-table [dataSource]="dataSource" class="lita-table">
     
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>First Name / Last Name</th>
@@ -30,11 +33,6 @@
         <th mat-header-cell *matHeaderCellDef>Order Publications</th>
         <td mat-cell *matCellDef="let pub"> <a mat-button color="accent"><mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>Order</a></td>
       </ng-container>
-
-      <ng-container matColumnDef="deleteBtn" stickyEnd>
-          <th mat-header-cell *matHeaderCellDef>Delete Publisher</th>
-          <td mat-cell *matCellDef="let pub"> <a (click)="deletePublisher()" mat-button><mat-icon class="lita-icon lita-icon-order">delete</mat-icon>Delete</a></td>
-        </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
