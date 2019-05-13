@@ -1,10 +1,13 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
+import { MatDialog} from '@angular/material';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { HttpClient } from '@angular/common/http';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 import { AuthService } from '../../core/auth.service';
 import { map } from 'rxjs/operator/map';
-import { MatDialog} from '@angular/material';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Congregation, Literature, Publisher } from '../../shared/models/congregation.model';
 
 import {
   Event,
@@ -16,37 +19,37 @@ import {
 } from '@angular/router';
 
 import { SettingsComponent } from './settings.component';
-import { TutorialComponent } from './tutorial.component';
 
 import { User } from '../../shared/models/user.model';
 
-
 import 'rxjs/operator/map';
-import { Congregation } from 'src/app/shared/models/congregation.model';
+
 import { Observable } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
-  userRef: AngularFirestoreDocument<any>;
-  userDoc: AngularFirestoreDocument<any>;
+export class DashboardComponent implements OnInit {
+  userDoc: Observable<User>;
+  user: any;
   congregationRef: any;
-  congregation: Observable<any>;
+  congregation: Observable<Congregation>;
   currentUserName: string;
   currentUserImage: any;
   loading = false;
-  user: Observable<any>;
-  creationTime: any;
-  lastSigned: any;
-  userId = this.auth.currentUserObservable.currentUser.uid;
+  firstLog: boolean;
+  setupGroup: FormGroup;
+  pubs: any = [];
 
-  constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore) {
+  constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore, private _formBuilder: FormBuilder, private http: HttpClient, private ngZone: NgZone) {}
 
-    this.userId = this.userId;
+  ngOnInit() {
 
     this.router.events.subscribe((event: Event) => {
       switch (true) {
@@ -55,9 +58,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           break;
         }
 
-        case event instanceof NavigationEnd:
-        case event instanceof NavigationCancel:
-        case event instanceof NavigationError: {
+        case event instanceof NavigationEnd: {
           this.loading = false;
           break;
         }
@@ -66,48 +67,96 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         }
       }
     });
+
+    
+
+    this.http.get('assets/literature.json').subscribe(results => {
+      // tslint:disable-next-line:prefer-for-of
+    this.pubs = JSON.parse(JSON.stringify(results));
+  });
+
+    this.setupGroup = this._formBuilder.group({
+      congID: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
+      congName: ['', [Validators.required, Validators.min(3)]],
+      congLanguage: ['', [Validators.required, Validators.min(3)]]
+    });
+
+
+    this.auth.currentUser.subscribe(user => {
+
+      this.user = user
+      console.log(this.user)
+      if (user.metadata.creationTime == user.metadata.lastSignInTime) {
+        this.firstLog = true;
+      } else {
+        this.firstLog = false;
+      }
+
+      this.userDoc = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+
+      this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
+        console.log(userDoc.congregation)
+        this.congregationRef = userDoc.congregation;
+        this.congregation = this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).valueChanges();
+        console.log(this.congregation)
+      });
+    });
+
+    // if (this.user.photoURL != null) {
+    //   this.user.photoURL = this.user.photoURL;
+    // } else {
+    //   // tslint:disable-next-line:max-line-length
+    //   this.user.photoURL = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
+    // }
+
+
+   
+
   }
 
-  ngOnInit() {
-    this.userDoc = this.afs.doc(`users/${this.userId}`);
-    this.user = this.userDoc.valueChanges();
-  }
 
-  ngAfterViewInit() {
-
-    this.auth.currentUserObservable.onAuthStateChanged(user => {
-      this.congregationRef = this.afs.doc(`users/${user.uid}`).collection('congregation').doc('publishers');
-      this.congregation = this.congregationRef.valueChanges();
-
-      this.userDoc = this.afs.doc(`users/${user.uid}`);
-      this.user = this.userDoc.valueChanges();
-
-      if (user.photoURL != null) {
-      this.currentUserImage = user.photoURL;
-    } else {
-      // tslint:disable-next-line:max-line-length
-      this.currentUserImage = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
-    }
-
-      if (this.auth.currentUserObservable.currentUser.metadata.creationTime === this.auth.currentUserObservable.currentUser.metadata.lastSignInTime) {
-      setTimeout(() =>
-      this.dialog.open(TutorialComponent));
-      console.log('Tutorial Started... :)');
-
-    } else
-      this.dialog.closeAll()
-    }
-  );
-  }
   logOut() {
     return this.auth.signOut();
   }
 
+
   updateProfile() {
     const dialogRef = this.dialog.open(SettingsComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  createCongregation() {
+    const congID = this.setupGroup.get('congID');
+    const congName = this.setupGroup.get('congName');
+    const congLanguage = this.setupGroup.get('congLanguage');
+    const user = this.auth.currentUserObservable.currentUser;
+    const currentUser = this.afs.doc(`users/${user.uid}`);
+    const congregation: AngularFirestoreCollection<Congregation> = this.afs.collection('congregations');
+    const publishersRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('publishers');
+    const literatureRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('literature');
+    this.loading = true;
+    return congregation.doc(`${congID.value}`).set(
+      {
+        id: congID.value,
+        name: congName.value,
+        language: congLanguage.value
+      }, { merge: true }
+    ).then(() => {
+      return publishersRef
+    })
+    .then(() => {
+      this.pubs.forEach(pub => {
+       literatureRef.doc(`${pub.id}`).set(pub);
+      });
+    })
+    .then(() => {
+      return currentUser.update({
+        congregation: congID.value
+      })
+    })
+    .then(() => this.firstLog = false)
+    .then(() => this.loading = false)
   }
 }

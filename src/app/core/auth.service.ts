@@ -2,26 +2,27 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { switchMap, map } from 'rxjs/operators';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
 import { User } from '../shared/models/user.model';
-import { Congregation, Literature, Publisher } from '../shared/models/congregation.model';
-import { HttpClient } from '@angular/common/http';
+import { Literature } from '../shared/models/congregation.model';
+
+
 
 @Injectable({
   providedIn:  'root'
 })
 export class AuthService {
   user: Observable<User>;
-  congregation: Observable<Congregation>;
   msgdialog: string;
   authState: any;
   authStateChanged: any;
-  pubs: any;
+  congregationID: Observable<number>;
+  pubs: Observable<Literature[]>;
   pub: any;
   userRefreshed: any;
 
@@ -30,8 +31,7 @@ export class AuthService {
     private afs: AngularFirestore,
     private router: Router,
     private ngZone: NgZone,
-    private form: FormBuilder,
-    private http: HttpClient
+    private form: FormBuilder
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -44,11 +44,6 @@ export class AuthService {
 
     this.afAuth.authState.subscribe(data => this.authState = data);
 
-    this.http.get('assets/literature.json').subscribe(results => {
-      // tslint:disable-next-line:prefer-for-of
-    this.pubs = JSON.parse(JSON.stringify(results));
-  });
-
   }
 
 
@@ -58,6 +53,10 @@ export class AuthService {
 
   get currentUserObservable() {
     return this.afAuth.auth;
+  }
+
+  get currentUser() {
+    return this.afAuth.user;
   }
 
   get firebaseFireStore() {
@@ -205,43 +204,23 @@ export class AuthService {
 
   createUserData(user) {
 
-    const congregationID = this.afs.createId();
-
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-
-    const publishersRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('publishers');
-    const literatureRef: AngularFirestoreCollection<any> = this.afs.doc(`users/${user.uid}`).collection('literature');
 
     const data: User = {
       uid: user.uid,
       email: user.email,
+      congregation: null,
       displayName: user.displayName,
       photoURL: user.photoURL,
       homeView: {
         publishers: true,
         report: true,
-        order: true
-      },
-      congregation: {
-        id: congregationID,
-        name: null,
-        language: 'English'
+        order: true,
+        firstLog: true
       }
     };
-
-    const publisherData: Publisher = {
-      
-    }
-
     return userRef.set(data, { merge: true })
-    .then(() => {
-      this.pubs.forEach(pub => {
-       literatureRef.doc(`${pub.id}`).set(pub);
-      });
-    })
-    .then(() => {
-      return publishersRef;
-    });
 }
+
 
 }

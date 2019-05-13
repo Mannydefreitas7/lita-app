@@ -21,22 +21,7 @@ export class HomeComponent implements OnInit {
   totalRequests: number;
   orderCount: number = 0
 
-  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {
-    const user = this.auth.currentUserObservable.currentUser;
-    this.afs.doc(`users/${user.uid}`).collection('publishers')
-    .snapshotChanges().subscribe(total => {
-      this.totalPublishers = total.length;
-    })
-    this.afs.doc(`users/${user.uid}`).collection('publishers').valueChanges()
-    .subscribe(total => {
-      total.forEach(publisher => {
-        
-        this.orderCount += publisher.orderCount
- 
-      })
-      console.log(this.totalRequests = this.orderCount)
-    })
-  }
+  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {}
 
 addPublisher() {
   this.dialog.open(AddpublisherComponent);
@@ -56,6 +41,20 @@ addPublisher() {
 
 
   ngOnInit() {
+    const user = this.auth.currentUserObservable.currentUser;
+    this.afs.doc(`users/${user.uid}`).collection('publishers')
+    .snapshotChanges().subscribe(total => {
+      this.totalPublishers = total.length;
+    })
+    this.afs.doc(`users/${user.uid}`).collection('publishers').valueChanges()
+    .subscribe(total => {
+      total.forEach(publisher => {
+        
+        this.orderCount += publisher.orderCount
+ 
+      })
+      console.log(this.totalRequests = this.orderCount)
+    })
   }
 
 

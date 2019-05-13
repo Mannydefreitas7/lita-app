@@ -5,17 +5,14 @@ export class User {
 	uid: string;
 	email: string;
 	photoURL?: string;
+	congregation?: number;
 	displayName?: string;
 	homeView: {
 		publishers: boolean,
 		report: boolean,
 		order: boolean,
+		firstLog: boolean
 	};
-	congregation: {
-		id: string;
-		name: string;
-		language: string;
-	}
   };
 
 const publications = [
