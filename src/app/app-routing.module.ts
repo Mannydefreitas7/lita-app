@@ -10,6 +10,7 @@ import { OrderComponent } from './home/order/order.component';
 import { ReportComponent } from './home/report/report.component';
 import { HelpComponent } from './home/help/help.component';
 import { HomeComponent } from './home/home/home.component';
+import { SettingsComponent } from './home/dashboard/settings.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     component: DashboardComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent  },
+      { path: 'settings', component: SettingsComponent },
       { path: 'literature', component: LiteratureComponent },
       { path: 'publishers', component: PublishersComponent },
       { path: 'publishers/:uid', component: PublisherComponent },

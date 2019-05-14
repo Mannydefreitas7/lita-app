@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
-import { MatDialog} from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
@@ -9,22 +8,14 @@ import { AuthService } from '../../core/auth.service';
 import { map } from 'rxjs/operator/map';
 import { Congregation, Literature, Publisher } from '../../shared/models/congregation.model';
 
-import {
-  Event,
-  NavigationCancel,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router
-} from '@angular/router';
-
-import { SettingsComponent } from './settings.component';
+import { Router } from '@angular/router';
 
 import { User } from '../../shared/models/user.model';
 
 import 'rxjs/operator/map';
 
 import { Observable } from 'rxjs';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -42,34 +33,23 @@ export class DashboardComponent implements OnInit {
   congregation: Observable<Congregation>;
   currentUserName: string;
   currentUserImage: any;
-  loading = false;
   firstLog: boolean;
   setupGroup: FormGroup;
   pubs: any = [];
 
-  constructor(private auth: AuthService, private router: Router, private dialog: MatDialog, private afs: AngularFirestore, private _formBuilder: FormBuilder, private http: HttpClient, private ngZone: NgZone) {}
+  constructor(
+    private auth: AuthService,
+    public load: DashboardService,
+    private router: Router,
+    private afs: AngularFirestore,
+    private _formBuilder: FormBuilder,
+    private http: HttpClient,
+    private ngZone: NgZone) {
+      this.load.loading = true;
+    }
 
   ngOnInit() {
-
-    this.router.events.subscribe((event: Event) => {
-      switch (true) {
-        case event instanceof NavigationStart: {
-          this.loading = true;
-          break;
-        }
-
-        case event instanceof NavigationEnd: {
-          this.loading = false;
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    });
-
-    
-
+    this.load.loading = false;
     this.http.get('assets/literature.json').subscribe(results => {
       // tslint:disable-next-line:prefer-for-of
     this.pubs = JSON.parse(JSON.stringify(results));
@@ -95,10 +75,10 @@ export class DashboardComponent implements OnInit {
       this.userDoc = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
 
       this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
-        console.log(userDoc.congregation)
+        console.log(userDoc.congregation);
         this.congregationRef = userDoc.congregation;
         this.congregation = this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).valueChanges();
-        console.log(this.congregation)
+        console.log(this.congregation);
       });
     });
 
@@ -120,13 +100,6 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  updateProfile() {
-    const dialogRef = this.dialog.open(SettingsComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
   createCongregation() {
     const congID = this.setupGroup.get('congID');
     const congName = this.setupGroup.get('congName');
@@ -136,7 +109,7 @@ export class DashboardComponent implements OnInit {
     const congregation: AngularFirestoreCollection<Congregation> = this.afs.collection('congregations');
     const publishersRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('publishers');
     const literatureRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('literature');
-    this.loading = true;
+    this.load.loading = true;
     return congregation.doc(`${congID.value}`).set(
       {
         id: congID.value,
@@ -157,6 +130,6 @@ export class DashboardComponent implements OnInit {
       })
     })
     .then(() => this.firstLog = false)
-    .then(() => this.loading = false)
+    .then(() => this.load.loading = false);
   }
 }
