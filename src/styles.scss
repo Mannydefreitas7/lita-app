@@ -21,6 +21,7 @@ p {
     font-size: 18px;
 }
 .mat-form-field-underline {  display: none; }
+.mat-form-field-appearance-fill .mat-form-field-flex { border-radius: 10px !important; }
 .column { 
     flex-direction: column;
 }

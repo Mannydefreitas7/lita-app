@@ -46,7 +46,11 @@ section {
 }
 .settings {
 	width: 300px;
-
+	.mat-progress-bar {
+		margin-bottom: 20px;
+		   border-radius: 50px;
+		   height: 7px;
+	}
 }
 .lita-setup {
 	background: #f5f5f5;

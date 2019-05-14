@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 
 import { AuthService } from '../../core/auth.service';
@@ -28,13 +28,19 @@ import { finalize } from 'rxjs/operators';
       <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
     </div>
     <div *ngIf="photoEdit" class="dashboard-toolbar--image settings--image">
-      <img [src]="photo | async" alt="">
-      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-spinner mode="determinate" [value]="(uploadProgress | async)"><mat-icon>edit</mat-icon></mat-spinner></button>
+      <img [src]="photoUrl" alt="">
+      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
     </div>
+    <mat-progress-bar *ngIf="photoEdit" mode="determinate" [value]="(uploadProgress | async)"></mat-progress-bar>
+    <mat-form-field fxFill appearance="fill">
+    <mat-label>File Url</mat-label>
 
-    <input formControlName="photoURL" (change)="upload($event)" id="fileUpload" hidden type="file" accept=".png,.jpg" #fileInput/>
+      <input hidden (change)="upload($event)" id="fileUpload" type="file" accept=".png,.jpg" #fileInput/>
+      <input matInput formControlName="photoURL" [value]="photoUrl">
+      <mat-icon matSuffix>cloud_upload</mat-icon>
+    </mat-form-field>
+ 
     
-
     <mat-form-field fxFill appearance="fill">
     <mat-label>Full Name</mat-label>
       <input matInput placeholder="My Name" formControlName="displayName" [value]="( userDoc | async )?.displayName">
@@ -56,7 +62,7 @@ import { finalize } from 'rxjs/operators';
   </mat-form-field>
 
     <button mat-button (click)="load.goBack()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="updateProfile()">Save</button>
+    <button mat-flat-button color="primary" (click)="updateProfile()">Save</button>
 
 </form>
   `,
@@ -72,8 +78,9 @@ export class SettingsComponent implements OnInit {
   task: any;
   photo: Observable<any>;
   photoEdit = false;
+
   uploadProgress: Observable<number>;
-  downloadURL: Observable<string>;
+  photoUrl: any;
 
   constructor(
     private auth: AuthService,
@@ -102,14 +109,29 @@ export class SettingsComponent implements OnInit {
 
     this.updateForm = this._formBuilder.group({
       photoURL: '',
-      displayName: ['', Validators.required],
-      congregationName: ['', Validators.required],
-      congregationLanguage: ['', Validators.required]
+      displayName: '',
+      congregationName: '',
+      congregationLanguage: ''
       });
 
   }
 
-updateProfile() {
+
+
+upload(event) {
+  const file = event.target.files[0];
+  const filePath = this.auth.currentUserObservable.currentUser.uid ;
+  const fileRef = this.afStorage.ref(filePath);
+  const fileTask = fileRef.put(file)
+  this.photoEdit = true;
+  this.uploadProgress = fileTask.percentageChanges();
+  fileTask.snapshotChanges().subscribe(data => {
+    this.photoUrl = data.downloadURL
+  })
+
+  }
+
+  updateProfile() {
     const photoURL = this.updateForm.get('photoURL');
     const fullName = this.updateForm.get('displayName');
     const congName = this.updateForm.get('congregationName');
@@ -140,21 +162,7 @@ updateProfile() {
         this.ngZone.run(() => this.router.navigate(['/']));
       });
   });
+
 }
-
-upload(event) {
-
-  const file = event.target.files[0];
-  const filePath = 'images';
-  const fileRef = this.afStorage.ref(filePath);
-  const task = this.afStorage.upload(filePath, file);
-  this.photoEdit = true;
-  this.uploadProgress = task.percentageChanges();
-    // get notified when the download URL is available
-  task.snapshotChanges().pipe(
-        finalize(() => this.photo = fileRef.getDownloadURL() )
-     )
-    .subscribe();
-  }
 }
 
