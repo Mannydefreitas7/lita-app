@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { MatSlideToggleChange, MatSlideToggle, MatDialog } from '@angular/material'
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Publisher } from 'src/app/shared/models/congregation.model';
+import { Publisher, Congregation } from 'src/app/shared/models/congregation.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AddpublisherComponent  } from '../publishers/addpublisher.component';
+import { Observable } from 'rxjs';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',

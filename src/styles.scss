@@ -10,11 +10,11 @@ body {
 
 h2 {
     font-weight: 300;
-    color: #000000;
-    border-bottom: 2px solid #01aeef;
+    color: #333;
     display: inline-block;
     padding-bottom: 5px;
     margin: 0 0 20px 0;
+    text-transform: uppercase;
 }
 p {
     color: #3337;
@@ -77,7 +77,6 @@ p {
 .mat-card {
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
     border-radius: 5px;
-    border-top: 5px solid #0275bf;
     box-shadow: 2px 2px 10px #3331 !important;
     color: #3338 !important;
     &-header {

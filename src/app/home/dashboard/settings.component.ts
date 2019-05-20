@@ -10,10 +10,8 @@ import { Congregation, Literature, Publisher } from '../../shared/models/congreg
 import { User } from 'src/app/shared/models/user.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { async } from 'q';
-import { DashboardComponent } from './dashboard.component';
 import { DashboardService } from './dashboard.service';
-import { finalize } from 'rxjs/operators';
+import { finalize, merge } from 'rxjs/operators';
 
 @Component({
 	// tslint:disable-next-line:component-selector
@@ -28,18 +26,12 @@ import { finalize } from 'rxjs/operators';
       <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
     </div>
     <div *ngIf="photoEdit" class="dashboard-toolbar--image settings--image">
-      <img [src]="photoUrl" alt="">
-      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
+      <img [src]="uploadUrl | async" alt="">
+      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon>Edit</button>
     </div>
     <mat-progress-bar *ngIf="photoEdit" mode="determinate" [value]="(uploadProgress | async)"></mat-progress-bar>
-    <mat-form-field fxFill appearance="fill">
-    <mat-label>File Url</mat-label>
-
-      <input hidden (change)="upload($event)" id="fileUpload" type="file" accept=".png,.jpg" #fileInput/>
-      <input matInput formControlName="photoURL" [value]="photoUrl">
-      <mat-icon matSuffix>cloud_upload</mat-icon>
-    </mat-form-field>
- 
+    <input hidden (change)="upload($event)" id="fileUpload" type="file" accept=".png,.jpg" #fileInput />
+  
     
     <mat-form-field fxFill appearance="fill">
     <mat-label>Full Name</mat-label>
@@ -80,7 +72,7 @@ export class SettingsComponent implements OnInit {
   photoEdit = false;
 
   uploadProgress: Observable<number>;
-  photoUrl: any;
+  uploadUrl: Observable<string>;
 
   constructor(
     private auth: AuthService,
@@ -117,25 +109,22 @@ export class SettingsComponent implements OnInit {
   }
 
 
-
 upload(event) {
   const file = event.target.files[0];
-  const filePath = this.auth.currentUserObservable.currentUser.uid ;
+  const filePath = this.auth.currentUserObservable.currentUser.uid;
   const fileRef = this.afStorage.ref(filePath);
   const fileTask = fileRef.put(file)
   this.photoEdit = true;
   this.uploadProgress = fileTask.percentageChanges();
-  fileTask.snapshotChanges().subscribe(data => {
-    this.photoUrl = data.downloadURL
-  })
-
+  this.uploadUrl = fileRef.getDownloadURL();
   }
 
   updateProfile() {
-    const photoURL = this.updateForm.get('photoURL');
     const fullName = this.updateForm.get('displayName');
     const congName = this.updateForm.get('congregationName');
     const congLang = this.updateForm.get('congregationLanguage');
+    const filePath = this.auth.currentUserObservable.currentUser.uid;
+    const fileRef = this.afStorage.ref(filePath);
 
     const user = this.auth.currentUserObservable.currentUser;
 
@@ -146,10 +135,11 @@ upload(event) {
     congregation.valueChanges().subscribe(congregationData => {
 
       this.load.loading = true;
+      fileRef.getDownloadURL().subscribe(url => {
       return currentUser.update(
         {
           displayName: fullName.value || user.displayName,
-          photoURL: photoURL.value
+          photoURL: url || user.photoURL
         })
         .then(() => {
         return congregation.update({
@@ -162,7 +152,7 @@ upload(event) {
         this.ngZone.run(() => this.router.navigate(['/']));
       });
   });
-
+})
 }
 }
 
