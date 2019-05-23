@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PublisherService } from './publisher.service';
+import { AuthService } from 'src/app/core/auth.service';
+import { Publisher } from 'src/app/shared/models/congregation.model';
+import { Observable } from 'rxjs';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'lita-delete-publisher',
@@ -14,19 +17,23 @@ import { PublisherService } from './publisher.service';
       <mat-divider></mat-divider>
       <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-raised-button color="accent" (click)="ps.deletePub">Delete Publisher</button>
+        <button mat-raised-button color="accent" (click)="publisherService.deletePub">Delete Publisher</button>
       </mat-dialog-actions>
     `,
     styleUrls: ['./scss/publishers.component.scss']
   })
 
 export class DeletepublisherComponent implements OnInit {
-  publisher: any;
-  constructor(private ps: PublisherService) {
-  }
+  publisher: Observable<Publisher>;
+  constructor(private publisherService: PublisherService, private auth: AuthService) {}
 
   ngOnInit() {
-    this.ps.publishersData.doc(`${this.ps.uid}`).valueChanges()
-    .subscribe(publisher => { console.log(publisher); });
+    this.auth.user.subscribe(user => {
+      this.publisher
+       
+     
+    })
+
   }
+
   }

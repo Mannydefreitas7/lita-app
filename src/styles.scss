@@ -8,6 +8,10 @@ body {
     width: 100%;
 }
 
+lita-* {
+    width: 100% !important;
+}
+
 h2 {
     font-weight: 300;
     color: #333;
@@ -98,4 +102,7 @@ p {
 .mat-menu-panel {
     border-radius: 7px !important;
     box-shadow: 2px 2px 10px #3332 !important;
+}
+.lita-spinner {
+    padding: 10pc 0 0 0 !important;
 }

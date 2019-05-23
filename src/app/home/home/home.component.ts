@@ -6,6 +6,8 @@ import { Publisher, Congregation } from 'src/app/shared/models/congregation.mode
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AddpublisherComponent  } from '../publishers/addpublisher.component';
 import { Observable } from 'rxjs';
+import { DashboardService } from '../dashboard/dashboard.service';
+import { User } from 'src/app/shared/models/user.model';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',
@@ -22,7 +24,7 @@ export class HomeComponent implements OnInit {
   totalRequests: number;
   orderCount: number = 0
 
-  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog) {}
+  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog, private dash: DashboardService) {}
 
 addPublisher() {
   this.dialog.open(AddpublisherComponent);
@@ -42,21 +44,21 @@ addPublisher() {
 
 
   ngOnInit() {
-    const user = this.auth.currentUserObservable.currentUser;
-    this.afs.doc(`users/${user.uid}`).collection('publishers')
-    .snapshotChanges().subscribe(total => {
-      this.totalPublishers = total.length;
-    })
-    this.afs.doc(`users/${user.uid}`).collection('publishers').valueChanges()
-    .subscribe(total => {
-      total.forEach(publisher => {
-        
-        this.orderCount += publisher.orderCount
- 
+    this.auth.user.subscribe(user => {
+      this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
+        this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).collection('publishers')
+      .snapshotChanges().subscribe(total => {
+        this.totalPublishers = total.length;
       })
-      console.log(this.totalRequests = this.orderCount)
+      this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).collection('publishers').valueChanges()
+      .subscribe(total => {
+        total.forEach(publisher => {
+          this.orderCount += publisher.orderCount
+        })
+        console.log(this.totalRequests = this.orderCount)
+      })
     })
+  })
+
   }
-
-
 }

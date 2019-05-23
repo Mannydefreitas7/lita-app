@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatListModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule, MatDialogModule, MatProgressBarModule, MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatSlideToggle, MatSlideToggleModule, MatSelectModule, MatStepperModule } from '@angular/material';
+import { MatListModule, MatIconModule, MatButtonModule, MatInputModule, MatMenuModule, MatDialogModule, MatProgressBarModule, MatTableModule, MatPaginatorModule, MatButtonToggleModule, MatSlideToggle, MatSlideToggleModule, MatSelectModule, MatStepperModule, MatSnackBarModule, MatBadgeModule } from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
@@ -31,7 +31,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonToggleModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule,
+    MatBadgeModule
   ],
   exports: [
     MatIconModule,
@@ -53,7 +55,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonToggleModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

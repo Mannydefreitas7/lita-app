@@ -2,16 +2,16 @@
 import { Congregation } from './congregation.model';
 
 export class User {
-	uid: string;
-	email: string;
+	uid?: string;
+	email?: string;
 	photoURL?: string;
-	congregation?: number;
+	congregation?: any;
 	displayName?: string;
-	homeView: {
-		publishers: boolean,
-		report: boolean,
-		order: boolean,
-		firstLog: boolean
+	homeView?: {
+		publishers?: boolean,
+		report?: boolean,
+		order?: boolean,
+		firstLog?: boolean
 	};
   };
 

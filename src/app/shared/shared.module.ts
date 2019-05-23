@@ -12,6 +12,9 @@ import { DeletepublisherComponent } from '../home/publishers/deletepublisher.com
 import { PublisherService } from '../home/publishers/publisher.service';
 import { SettingsComponent } from '../home/dashboard/settings.component';
 import { DashboardService } from '../home/dashboard/dashboard.service';
+import { CongregationsComponent } from '../home/admin/congregations/congregations.component';
+import { UsersComponent } from '../home/admin/users/users.component';
+import { NewsComponent } from '../home/admin/news/news.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { DashboardService } from '../home/dashboard/dashboard.service';
     AddpublisherComponent,
     PublisherComponent,
     DeletepublisherComponent,
-    SettingsComponent
+    SettingsComponent,
+    CongregationsComponent,
+    UsersComponent,
+    NewsComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,7 @@ import { DashboardService } from '../home/dashboard/dashboard.service';
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [AddpublisherComponent, DeletepublisherComponent],
+  entryComponents: [DeletepublisherComponent],
   exports: [
     CommonModule,
     FormsModule,

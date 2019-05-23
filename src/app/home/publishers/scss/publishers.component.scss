@@ -15,6 +15,35 @@ h2 {
 .lita-card {
     margin-bottom: 20px;
 }
+.lita-cards {
+    text-align: center;
+    .mat-card {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 15px;
+        .lita-count {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            height: 25px;
+            width: 25px;
+            background: #01aeef;
+            border-radius: 50%;
+            color: #fff;
+            line-height: 25px;
+            font-weight: bold;
+        }
+    }
+    .mat-card-image {
+        background: #3331;
+    }
+    .mat-card-title {
+        color: #333;
+    } 
+    .mat-card-subtitle {
+        margin-bottom: 5px;
+    }
+}
 
 .lita-table-name {
     font-size: 1.1rem;
@@ -33,9 +62,12 @@ h2 {
         background: #01aeef;
         color: #fff;
         font-size: 1rem;
-        padding: 2px 5px;
-        border-radius: 35%;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 50%;
         font-weight: bold;
+        text-align: center;
     }
 }
 .lita-user-name {
@@ -61,4 +93,10 @@ h2 {
         border-radius: 35%;
         font-weight: bold;
     }
+}
+.lita-add-publisher {
+    width: 350px;
+}
+.lita-cards {
+    margin-top: 2pc;
 }

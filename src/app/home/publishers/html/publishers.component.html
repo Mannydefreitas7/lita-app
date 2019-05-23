@@ -1,31 +1,38 @@
+<section class="lita-section">
 <section fxFill fxLayoutAlign="space-between center"><h2>{{ title }} </h2>
-  <a mat-button color="primary" (click)="publisherService.addPublisher"> <mat-icon color="primary">person_add</mat-icon> Add Publisher</a>
+  <a mat-button color="primary" routerLink="/home/add-publisher" routerLinkActive="router-link-active" > <mat-icon color="primary">person_add</mat-icon> Add Publisher</a>
 </section> 
 <div fxLayoutAlign="space-between center">
 
     <mat-form-field appearance="fill" class="lita-search">
         <mat-label>Search Publishers</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="ex: John Doe, Charles Russell,...">
+      <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     
-    <mat-spinner *ngIf="loading else loaded"></mat-spinner>
-
 
     <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)">
         <mat-button-toggle [value]="true">
-          <mat-icon>view_list</mat-icon>
+            <mat-icon>view_module</mat-icon>
         </mat-button-toggle>
         <mat-button-toggle [value]="false">
-          <mat-icon>view_module</mat-icon>
+            <mat-icon>view_list</mat-icon>
+          
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <table *ngIf="toggle" #loaded mat-table [dataSource]="dataSource" class="lita-table">
+
+    <section class="lita-spinner" fxLayout="col" fxLayoutAlign="center center" fxFill *ngIf="loading else loaded">
+      <mat-spinner ></mat-spinner>
+    </section>
+
+<ng-template #loaded>
+  
+    <table *ngIf="!toggle" mat-table [dataSource]="dataSource" class="lita-table">
     
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>First Name / Last Name</th>
-        <td mat-cell *matCellDef="let pub" class="lita-table-name" ><a [routerLink]="['/home/publishers', pub.uid]" routerLinkActive="active">  {{ pub.fname }} <span class="lita-last-name">{{pub.lname}}</span>   <span class="lita-count" *ngIf="pub.orderCount > 0">{{ pub.orderCount }}</span></a></td>
+        <td mat-cell *matCellDef="let pub" class="lita-table-name" ><a [routerLink]="['/home/publishers', pub.id]" routerLinkActive="active">  {{ pub.fname }} <span class="lita-last-name">{{pub.lname}}</span>   <span class="lita-count" *ngIf="pub.orderCount > 0">{{ pub.orderCount }}</span></a></td>
       </ng-container>
     
 
@@ -38,4 +45,22 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <h3 *ngIf="!toggle">Block!</h3>
+
+<section *ngIf="toggle" class="lita-section lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
+        <mat-card *ngFor="let pub of pubs | filter : searchText" fxFlex="170px">
+            <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
+            <a [routerLink]="['/home/publishers', pub.id]">
+              <img mat-card-image src='https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'>
+            </a>
+            <mat-card-subtitle>{{ pub.lname }}</mat-card-subtitle>
+            <mat-card-title>{{ pub.fname }}</mat-card-title>
+            <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions align="center">
+            <button mat-button  color="accent"><mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>Order</button>
+          </mat-card-actions>
+        </mat-card> 
+</section>
+
+   </ng-template>
+  </section>

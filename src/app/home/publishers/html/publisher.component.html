@@ -1,10 +1,10 @@
 <a (click)="goBack()" mat-button>
   <mat-icon>keyboard_arrow_left</mat-icon> Go Back
 </a>
-<p>{{ publisher.uid }}</p>
+<p>{{ (publisher | async ).id }}</p>
 <div fxFill fxLayoutAlign="space-between center">
-  <h1 class="lita-user-name">{{ publisher.fname }} <span class="lita-last-name">{{publisher.lname}}</span> <span
-      class="lita-count" *ngIf="publisher.orderCount > 0">{{ publisher.orderCount }}</span> </h1>
+  <h1 class="lita-user-name">{{ (publisher | async ).fname }} <span class="lita-last-name">{{(publisher | async ).lname}}</span> <span
+      class="lita-count" *ngIf="publisher.orderCount > 0">{{ (publisher | async ).orderCount }}</span> </h1>
   <button (click)="editField()" mat-button color="primary">
     <mat-icon color="primary" class="lita-icon">edit</mat-icon>Edit
   </button>
@@ -24,20 +24,20 @@
 
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
-        <input matInput [placeholder]="publisher.fname" formControlName="fname" [value]="publisher.fname">
+        <input matInput [placeholder]="(publisher | async ).fname" formControlName="fname" [value]="(publisher | async ).fname">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
 
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
-        <input matInput [placeholder]="publisher.fname" formControlName="lname" [value]="publisher.lname">
+        <input matInput [placeholder]="(publisher | async ).fname" formControlName="lname" [value]="(publisher | async ).lname">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput [placeholder]="publisher.email" formControlName="email" [value]="publisher.email">
+        <input matInput [placeholder]="(publisher | async ).email" formControlName="email" [value]="(publisher | async ).email">
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
 
@@ -59,19 +59,19 @@
       <mat-list-item>
         <mat-icon mat-list-icon>person</mat-icon>
         <h4 mat-line>First Name</h4>
-        <h3 mat-line> {{ publisher.fname }}</h3>
+        <h3 mat-line> {{ (publisher | async ).fname }}</h3>
         <mat-divider></mat-divider>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>person</mat-icon>
         <h4 mat-line>Last Name</h4>
-        <h3 mat-line> {{ publisher.lname }}</h3>
+        <h3 mat-line> {{ (publisher | async ).lname }}</h3>
         <mat-divider></mat-divider>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>email</mat-icon>
         <h4 mat-line>Email</h4>
-        <h3 mat-line> {{ publisher.email }}</h3>
+        <h3 mat-line> {{ (publisher | async ).email }}</h3>
       </mat-list-item>
     </mat-list>
     </mat-card-content>
@@ -94,7 +94,7 @@
             <mat-divider></mat-divider>
           <mat-icon mat-list-icon>person</mat-icon>
           <h4 mat-line>First Name</h4>
-          <h3 mat-line> {{ publisher.fname }}</h3>
+          <h3 mat-line> {{ (publisher | async ).fname }}</h3>
         
         </mat-list-item>
       </mat-list>

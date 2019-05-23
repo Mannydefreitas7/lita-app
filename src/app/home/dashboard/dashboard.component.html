@@ -1,71 +1,72 @@
-
-
 <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="dashboard dashboard-toolbar">
-  <h3 color="grey">Welcome <span>{{ ( userDoc | async )?.displayName }}</span> | {{ ( congregation | async )?.name }} {{ ( congregation | async )?.language }} Congregation</h3>
+  <h3 color="grey">Welcome <span>{{ ( userDoc | async )?.displayName }}</span> | {{ ( congregation | async )?.name }}
+    {{ ( congregation | async )?.language }} Congregation</h3>
   <button mat-button [matMenuTriggerFor]="userSettings">
     <div class="dashboard-toolbar--image">
       <img [src]="( userDoc | async )?.photoURL" alt="">
     </div>
   </button>
 </mat-toolbar>
-<mat-progress-bar *ngIf="load.loading" color="primary" mode="indeterminate" ></mat-progress-bar>
 <mat-menu #userSettings="matMenu" xPosition="before">
-    <button mat-menu-item routerLink="/home/settings" style="cursor: pointer;">
-      <mat-icon >settings</mat-icon> 
-      Settings
-    </button>
-    <button style="cursor: pointer;" mat-menu-item (click)="logOut()">
-      <mat-icon>exit_to_app</mat-icon> 
-      Log Out
-    </button>
+  <button mat-menu-item routerLink="/home/settings" style="cursor: pointer;">
+    <mat-icon>settings</mat-icon>
+    Settings
+  </button>
+  <button style="cursor: pointer;" mat-menu-item (click)="logOut()">
+    <mat-icon>exit_to_app</mat-icon>
+    Log Out
+  </button>
 </mat-menu>
 
 <section class="lita-welcome" *ngIf="firstLog">
 
-    <h1>Welcome to Lita!</h1>
-    <p>Lita is an web application to manage Jehovah's Witnesses Literature orders and reports.</p>
-    <p>To start, please enter your congregation information:</p>
+  <h1>Welcome to Lita!</h1>
+  <p>Lita is an web application to manage Jehovah's Witnesses Literature orders and reports.</p>
+  <p>To start, please enter your congregation information:</p>
 
-    <form [formGroup]="setupGroup" (ngSubmit)="createCongregation()">
+  <form [formGroup]="setupGroup" (ngSubmit)="createCongregation()">
 
     <mat-vertical-stepper #stepper class="lita-setup">
-    
+
       <mat-step [completed]="this.setupGroup.get('congID').valid" label="Enter Your Congregation Number">
- 
-          <mat-form-field appearance="fill">
-            <mat-label>Cong. Number</mat-label>
-            <input matInput placeholder="100987" formControlName="congID" required minlength="6" maxlength="6">
-          </mat-form-field>
-          <div>
-            <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congID').valid" color="primary">Next</button>
-          </div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Cong. Number</mat-label>
+          <input matInput placeholder="100987" formControlName="congID" required minlength="6" maxlength="6">
+        </mat-form-field>
+        <div>
+          <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congID').valid"
+            color="primary">Next</button>
+        </div>
       </mat-step>
-    
+
       <mat-step [completed]="this.setupGroup.get('congName').valid" label="Enter Your Congregation Name">
-        
-          <mat-form-field appearance="fill">
-              <mat-label>Congregation Name</mat-label>
-            <input matInput placeholder="Brooklyn Congregation" formControlName="congName" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious type="button">Back</button>
-            <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congName').valid" color="primary">Next</button>
-          </div>
-    
+
+        <mat-form-field appearance="fill">
+          <mat-label>Congregation Name</mat-label>
+          <input matInput placeholder="Brooklyn Congregation" formControlName="congName" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congName').valid"
+            color="primary">Next</button>
+        </div>
+
       </mat-step>
-    
+
       <mat-step [completed]="this.setupGroup.get('congLanguage').valid" label="Enter Your Congregation Language">
 
-      <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill">
           <mat-label>Congregation Language</mat-label>
-        <input matInput placeholder="English" formControlName="congLanguage" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious type="button">Back</button>
-        <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congLanguage').valid" color="primary">Next</button>
-      </div>
-    </mat-step>
-    
+          <input matInput placeholder="English" formControlName="congLanguage" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-flat-button matStepperNext type="button" [disabled]="!this.setupGroup.get('congLanguage').valid"
+            color="primary">Next</button>
+        </div>
+      </mat-step>
+
       <mat-step [completed]="this.setupGroup.valid">
         <ng-template matStepLabel>Verify Your Information</ng-template>
 
@@ -74,36 +75,39 @@
             Your Congregation Information:
           </mat-card-header>
           <mat-list>
-              <mat-list-item>
-                <mat-icon mat-list-icon>account_balance</mat-icon>
-                <h4 mat-line>Congregation Number</h4>
-                <h3 mat-line> {{ this.setupGroup.get('congID').value }}</h3>
-                <mat-divider></mat-divider>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon mat-list-icon>account_balance</mat-icon>
-                <h4 mat-line>Congregation Name</h4>
-                <h3 mat-line> {{ this.setupGroup.get('congName').value }}</h3>
-                <mat-divider></mat-divider>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon mat-list-icon>language</mat-icon>
-                <h4 mat-line>Congregation Language</h4>
-                <h3 mat-line> {{ this.setupGroup.get('congLanguage').value }}</h3>
-              </mat-list-item>
-            </mat-list>
+            <mat-list-item>
+              <mat-icon mat-list-icon>account_balance</mat-icon>
+              <h4 mat-line>Congregation Number</h4>
+              <h3 mat-line> {{ this.setupGroup.get('congID').value }}</h3>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>account_balance</mat-icon>
+              <h4 mat-line>Congregation Name</h4>
+              <h3 mat-line> {{ this.setupGroup.get('congName').value }}</h3>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>language</mat-icon>
+              <h4 mat-line>Congregation Language</h4>
+              <h3 mat-line> {{ this.setupGroup.get('congLanguage').value }}</h3>
+            </mat-list-item>
+          </mat-list>
         </mat-card>
 
         <div>
-          <button mat-button matStepperPrevious >Back</button>
+          <button mat-button matStepperPrevious>Back</button>
           <button mat-flat-button color="primary" type="submit">Submit</button>
         </div>
       </mat-step>
-    
+
     </mat-vertical-stepper>
-    </form>
+  </form>
 </section>
 
 <section *ngIf="!firstLog">
-  <router-outlet></router-outlet> 
+  <router-outlet *ngIf="!dash.loading"></router-outlet>
+  <div *ngIf="dash.loading" class="lita-spinner" fxLayout="col" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
 </section>

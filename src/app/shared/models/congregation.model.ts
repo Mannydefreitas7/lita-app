@@ -1,12 +1,15 @@
 export class Congregation {
-	id?: string;
+	id?: any;
 	name?: string;
 	language?: any;
+	publishers?: [Publisher]
 	}
 
 export class Publisher {
-	id?: string;
-	name?: string;
+	id?: any;
+	fname?: string;
+	lname?: string;
+	email?: string;
 	role?: string;
 	photoUrl?: string;
 	orderCount?: number;

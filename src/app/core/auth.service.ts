@@ -9,8 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
 import { User } from '../shared/models/user.model';
-import { Literature } from '../shared/models/congregation.model';
-
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -18,20 +17,15 @@ import { Literature } from '../shared/models/congregation.model';
 })
 export class AuthService {
   user: Observable<User>;
-  msgdialog: string;
   authState: any;
-  authStateChanged: any;
-  congregationID: Observable<number>;
-  pubs: Observable<Literature[]>;
-  pub: any;
-  userRefreshed: any;
 
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
     private ngZone: NgZone,
-    private form: FormBuilder
+    private form: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -59,9 +53,10 @@ export class AuthService {
     return this.afAuth.user;
   }
 
-  get firebaseFireStore() {
-    return this.afs;
+  get currentUserID() {
+    return this.currentUser.subscribe(user => user.uid);
   }
+
 
 
   stateChanged(): any {
@@ -80,16 +75,16 @@ export class AuthService {
   }
 
   get currentUserId(): string {
-    return this.authenticated ? this.userRefreshed.uid : null;
+    return this.authenticated ? this.currentUserObservable.currentUser.uid : null;
   }
 
   emailSignIn(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(() => console.log('you have successfully signed in'))
       .then(() => {
         this.router.navigate(['/home']);
       })
-      .catch(error => console.log(error.message));
+      .then(() => this.snackBar.open('you have successfully signed in','', { duration: 3000}))
+      .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
 
@@ -98,29 +93,24 @@ export class AuthService {
     .then(credential =>
       // tslint:disable-next-line:max-line-length
       this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
-      .then(() => console.log('name added succesfully'))
       .then(() => this.createUserData(credential.user))
-      .then(() => console.log('welcome, your account has been created'))
-      .then(user =>
-        this.afAuth.auth.currentUser.sendEmailVerification()
-          .then(() => console.log('We sent you an email verification'))
-          .catch(error => console.log(error.message)
-          )
-      .catch(error => this.msgdialog = error.message)));
+      .then(() => this.snackBar.open('welcome, your account has been created','', { duration: 3000}))
+      .catch(error => this.snackBar.open(error.message,'', { duration: 3000})));
   }
 
 
 
   resetPassword(email: string) {
     return firebase.auth().sendPasswordResetEmail(email)
-      .then(() => console.log('We\'ve sent you a password reset link'))
-      .catch(error => console.log(error.message));
+      .then(() => this.snackBar.open('We\'ve sent you a password reset link','', { duration: 3000}))
+      .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   signOut() {
     return this.afAuth.auth.signOut()
       .then(() => {
         this.router.navigate(['/']);
+        this.snackBar.open('Logged Out Succesfully','', { duration: 3000})
       });
   }
 
@@ -130,10 +120,10 @@ export class AuthService {
 
     return this.afAuth.auth.signInWithPopup(provider)
     .then(() => {
-      this.ngZone.run(() => this.router.navigate(['/home']));
+      this.ngZone.run(() => this.router.navigate(['/home']))
+      this.snackBar.open('You are logged-in with Google','', { duration: 3000})
     })
-    .then(() => console.log('You are logged-in with Google'))
-    .catch(error => this.msgdialog = error.message);
+    .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   googleSignUp() {
@@ -143,8 +133,8 @@ export class AuthService {
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
-    .then(() => console.log('You are logged-in with Google'))
-    .catch(error => this.msgdialog = error.message);
+    .then(() => this.snackBar.open('You are logged-in with Google','', { duration: 3000}))
+    .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   microsoftLogin() {
@@ -154,8 +144,8 @@ export class AuthService {
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
-    .then(() => console.log('You are logged-in with Microsoft'))
-    .catch(error => console.log(error.message));
+    .then(() => this.snackBar.open('You are logged-in with Microsoft','', { duration: 3000}))
+    .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   microsoftSignup() {
@@ -165,8 +155,8 @@ export class AuthService {
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
-    .then(() => console.log('You are logged-in with Microsoft'))
-    .catch(error => console.log(error.message));
+    .then(() => this.snackBar.open('You signed up with Microsoft successfully','', { duration: 3000}))
+    .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   facebookLogin() {
@@ -175,10 +165,11 @@ export class AuthService {
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
-    .then(() => console.log('You are logged-in with Facebook'))
+    .then(() => this.snackBar.open('You are logged-in with Facebook','', { duration: 3000}))
     .catch(error =>
-      this.msgdialog = error.message);
+      this.snackBar.open(error.message,'', { duration: 3000}));
   }
+
 
   facebookSignup() {
     const provider = new firebase.auth.FacebookAuthProvider();
@@ -188,9 +179,9 @@ export class AuthService {
     .then(() => {
       this.ngZone.run(() => this.router.navigate(['/home']));
     })
-    .then(() => console.log('You are logged-in with Facebook'))
+    .then(() => this.snackBar.open('You signed up with Facebook successfully','', { duration: 3000}))
     .catch(error =>
-      this.msgdialog = error.message);
+      this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
   private socialLogin(provider) {
@@ -198,7 +189,7 @@ export class AuthService {
       .then((credential: any) => {
         return this.createUserData(credential.user);
       })
-      .catch(error => console.log(error.message));
+      .catch(error => this.snackBar.open(error.message,'', { duration: 3000}));
   }
 
 

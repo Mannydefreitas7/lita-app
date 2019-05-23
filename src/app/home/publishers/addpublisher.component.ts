@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PublisherService } from './publisher.service';
+import { Router } from '@angular/router';
+import { DashboardService } from '../dashboard/dashboard.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-addpublisher',
   template: `
+  <section class="lita-section" [className]="url ? 'lita-section lita-add-publisher' : 'lita-section'">
   <h2 fxLayout="row" mat-dialog-title fxLayoutAlign="left center"><mat-icon class="lita-icon">person</mat-icon>Add Publisher</h2>
 <form [formGroup]="publisherService.newPublisher" class="settings">
   <mat-dialog-content class="mat-typography" fxLayoutAlign="center center" fxLayout="column">
@@ -29,33 +32,42 @@ import { PublisherService } from './publisher.service';
 
    <mat-form-field fxFill appearance="fill">
     <mat-label>Publisher Role</mat-label>
-    <mat-select formControlName="role">
-      <mat-option value="General" selected>General</mat-option>
-      <mat-option *ngFor="let role of roles" [value]="role.value" >
+    <mat-select formControlName="role" [value]='selected'>
+      <mat-option autofilled value="publisher">Publisher</mat-option>
+      <mat-option *ngFor="let role of roles" [value]="role.value">
         {{role.valueView}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   </mat-dialog-content>
-  <mat-divider></mat-divider>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button color="primary" (click)="publisherService.addPub">Save</button>
+
+    <button mat-button mat-dialog-close *ngIf="!url">Cancel</button>
+    <button mat-button (click)="dash.goBack()" *ngIf="url">Cancel</button>
+    <button mat-flat-button color="primary" (click)="publisherService.addPub()">Save</button>
   </mat-dialog-actions>
 </form>
+</section>
   `,
   styleUrls: ['./scss/publishers.component.scss']
 })
-export class AddpublisherComponent {
-
+export class AddpublisherComponent implements OnInit {
+  url: boolean;
+  selected = 'publisher';
   roles = [
     {value: 'admin', valueView: 'Admin'},
-    {value: 'editor', valueView: 'Editor'},
-    {value: 'view', valueView: 'View Only'}
+    {value: 'editor', valueView: 'Editor'}
   ];
 
   // tslint:disable-next-line:max-line-length
-  constructor(private publisherService: PublisherService) {}
+  constructor(private publisherService: PublisherService, private route: Router, private dash: DashboardService) {}
 
+  ngOnInit() {
+    if (this.route.url == '/home/add-publisher')  {
+      this.url = true 
+    } else {
+      this.url = false
+    }
+  }
 }

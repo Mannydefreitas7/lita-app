@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 import { AuthService } from '../../core/auth.service';
@@ -39,17 +40,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    public load: DashboardService,
+    public dash: DashboardService,
     private router: Router,
     private afs: AngularFirestore,
     private _formBuilder: FormBuilder,
     private http: HttpClient,
-    private ngZone: NgZone) {
-      this.load.loading = true;
-    }
+    private ngZone: NgZone,
+    private snackBar: MatSnackBar
+    ) {  }
 
   ngOnInit() {
-    this.load.loading = false;
     this.http.get('assets/literature.json').subscribe(results => {
       // tslint:disable-next-line:prefer-for-of
     this.pubs = JSON.parse(JSON.stringify(results));
@@ -61,38 +61,21 @@ export class DashboardComponent implements OnInit {
       congLanguage: ['', [Validators.required, Validators.min(3)]]
     });
 
-
-    this.auth.currentUser.subscribe(user => {
-
-      this.user = user
-      console.log(this.user)
-      if (user.metadata.creationTime == user.metadata.lastSignInTime) {
-        this.firstLog = true;
-      } else {
-        this.firstLog = false;
-      }
-
-      this.userDoc = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-
-      this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
-        console.log(userDoc.congregation);
-        this.congregationRef = userDoc.congregation;
-        this.congregation = this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).valueChanges();
-        console.log(this.congregation);
-      });
-    });
-
-    // if (this.user.photoURL != null) {
-    //   this.user.photoURL = this.user.photoURL;
-    // } else {
-    //   // tslint:disable-next-line:max-line-length
-    //   this.user.photoURL = 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06';
-    // }
-
-
-   
+      this.auth.user.subscribe(user => {
+        
+        this.userDoc = this.dash.getUserDoc(user.uid).valueChanges();
+        this.userDoc.subscribe(user => {
+          if (user.homeView.firstLog == true) {
+            this.firstLog = true;
+          } else {
+            this.firstLog = false;
+          }
+          this.congregation = this.dash.getCongregationDoc(user.congregation).valueChanges();
+        });
+      })
 
   }
+
 
 
   logOut() {
@@ -105,31 +88,49 @@ export class DashboardComponent implements OnInit {
     const congName = this.setupGroup.get('congName');
     const congLanguage = this.setupGroup.get('congLanguage');
     const user = this.auth.currentUserObservable.currentUser;
-    const currentUser = this.afs.doc(`users/${user.uid}`);
-    const congregation: AngularFirestoreCollection<Congregation> = this.afs.collection('congregations');
-    const publishersRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('publishers');
-    const literatureRef: AngularFirestoreCollection<any> = congregation.doc(`${congID.value}`).collection('literature');
-    this.load.loading = true;
-    return congregation.doc(`${congID.value}`).set(
+    const currentUser = this.dash.getUserDoc(user.uid);
+    let date = new Date();
+    const month = date.getMonth()+1;
+    console.log(month);
+    const publishersRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('publishers');
+    this.dash.loading = true;
+
+    return this.dash.getCongregationDoc(congID.value).set(
       {
         id: congID.value,
         name: congName.value,
         language: congLanguage.value
       }, { merge: true }
-    ).then(() => {
-      return publishersRef
-    })
+    )
     .then(() => {
-      this.pubs.forEach(pub => {
-       literatureRef.doc(`${pub.id}`).set(pub);
-      });
-    })
-    .then(() => {
-      return currentUser.update({
-        congregation: congID.value
+      return publishersRef.doc<Publisher>(`${user.uid}`).set({
+        id: user.uid,
+        fname: user.displayName.split(' ')[0],
+        lname: user.displayName.split(' ')[1] || '',
+        email: user.email,
+        role: 'Admin',
+        photoUrl: user.photoURL,
+        orderCount: 0
       })
     })
-    .then(() => this.firstLog = false)
-    .then(() => this.load.loading = false);
+    .then(() => {
+          const literatureRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection(`${month}`);
+          this.pubs.forEach(pub => {
+            literatureRef.doc(`${pub.id}`).set(pub);
+           });
+      })
+    .then(() => {
+      return currentUser.set(
+        {
+        congregation: congID.value,
+        homeView: {
+          firstLog: false
+        }
+      }, {merge: true})
+    })
+    .then(() => {
+      this.snackBar.open('Congregation Created Successfully','', {duration: 2000})
+    })
+    .catch(error => this.snackBar.open(error.message,'', {duration: 2000})).then(() => this.dash.loading = false)
   }
 }

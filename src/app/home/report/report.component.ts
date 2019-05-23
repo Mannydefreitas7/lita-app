@@ -13,7 +13,6 @@ export class ReportComponent implements OnInit {
   dataSource:any;
   toggle: boolean = true;
   constructor(auth: AuthService) {
-    this.pubs = auth.pubs;
     this.dataSource = new MatTableDataSource(this.pubs);
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;

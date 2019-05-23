@@ -26,13 +26,12 @@ import { finalize, merge } from 'rxjs/operators';
       <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
     </div>
     <div *ngIf="photoEdit" class="dashboard-toolbar--image settings--image">
-      <img [src]="uploadUrl | async" alt="">
-      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon>Edit</button>
+      <img [src]="uploadUrl" alt="">
+      <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
     </div>
     <mat-progress-bar *ngIf="photoEdit" mode="determinate" [value]="(uploadProgress | async)"></mat-progress-bar>
     <input hidden (change)="upload($event)" id="fileUpload" type="file" accept=".png,.jpg" #fileInput />
   
-    
     <mat-form-field fxFill appearance="fill">
     <mat-label>Full Name</mat-label>
       <input matInput placeholder="My Name" formControlName="displayName" [value]="( userDoc | async )?.displayName">
@@ -40,6 +39,12 @@ import { finalize, merge } from 'rxjs/operators';
     </mat-form-field>
 
     <h3>Congregation</h3>
+
+    <mat-form-field fxFill appearance="fill" disabled>
+    <mat-label>Congregation ID</mat-label>
+    <input matInput placeholder="Congregation ID"  disabled [value]="( congregation | async )?.id">
+    <mat-icon matSuffix>account_balance</mat-icon>
+  </mat-form-field>
 
     <mat-form-field fxFill appearance="fill">
       <mat-label>Congregation Name</mat-label>
@@ -70,6 +75,7 @@ export class SettingsComponent implements OnInit {
   task: any;
   photo: Observable<any>;
   photoEdit = false;
+
 
   uploadProgress: Observable<number>;
   uploadUrl: Observable<string>;
@@ -116,7 +122,7 @@ upload(event) {
   const fileTask = fileRef.put(file)
   this.photoEdit = true;
   this.uploadProgress = fileTask.percentageChanges();
-  this.uploadUrl = fileRef.getDownloadURL();
+  fileRef.getDownloadURL().subscribe(url => this.uploadUrl = url)
   }
 
   updateProfile() {
@@ -139,7 +145,7 @@ upload(event) {
       return currentUser.update(
         {
           displayName: fullName.value || user.displayName,
-          photoURL: url || user.photoURL
+          photoURL: url
         })
         .then(() => {
         return congregation.update({

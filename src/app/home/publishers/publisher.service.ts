@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/core/auth.service';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { DashboardService } from '../dashboard/dashboard.service';
+import { Publisher, Congregation } from 'src/app/shared/models/congregation.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,28 +17,26 @@ export class PublisherService {
 
   pubs: any;
   uid: any;
-  publisher: any;
+  publisher: Publisher;
   newPublisher: FormGroup;
   publisherForm: FormGroup;
   publisherDoc: any;
   pubRoute: any;
   edit: boolean;
   publishers: any;
+  congregation: Observable<Congregation>
 
 
   constructor(
     public auth: AuthService,
+    private dashService: DashboardService,
     public fb: FormBuilder,
     public dialog: MatDialog,
     public location: Location,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private router: Router,
+    private snackBar: MatSnackBar
     ) {
-
-    // -- Grab current Authenticated User Data Object ----- //
-    const user = this.auth.currentUserObservable.currentUser;
-
-    // -- Grab current Publishers Object Collection --- //
-    this.publishers = this.auth.firebaseFireStore.doc(`users/${user.uid}`).collection('publishers').valueChanges();
 
 // --- Edit or update Form Group for existing Publisher ---- //
     this.publisherForm = this.fb.group({
@@ -59,15 +59,18 @@ export class PublisherService {
 
     this.pubRoute = this.route.params.subscribe(params => {
       // tslint:disable-next-line:no-string-literal
-      this.uid = params['uid'];
+      return this.uid = params['uid'];
     });
 
 
   }
 
-  get publishersData() {
-    const user = this.auth.currentUserObservable.currentUser;
-    return this.publishers = this.auth.firebaseFireStore.doc(`users/${user.uid}`).collection('publishers');
+  publisherDocument(congID, pubID) {
+    return this.dashService.getCongregationDoc(congID).collection('publishers').doc<Publisher>(pubID);
+  }
+
+  publishersCollection(congID) {
+    return this.dashService.getCongregationDoc(congID).collection('publishers');
   }
 
   // Go back to previous page //
@@ -75,45 +78,61 @@ export class PublisherService {
     this.location.back();
   }
 
-  // Add new publisher functon //
-  get addPub() {
+  // Add new publisher functIon //
+  addPub() {
 
-    const user = this.auth.currentUserObservable.currentUser;
     const fname = this.newPublisher.get('fname').value;
     const lname = this.newPublisher.get('lname').value;
     const email = this.newPublisher.get('email').value;
     const role = this.newPublisher.get('role').value;
-    const id = this.auth.firebaseFireStore.createId();
-    const congregation = this.auth.firebaseFireStore.doc(`users/${user.uid}`).collection('publishers').doc(`${id}`);
+    const newID = this.dashService.fireStore.createId();
 
-   // tslint:disable:object-literal-shorthand
-    return congregation.set(
-        {
-            uid: id,
+    if (this.newPublisher.valid) {
+    this.auth.user.subscribe(user => {
+      this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
+       const congID = res.congregation
+       const publisher = this.publisherDocument(congID, newID)
+       //if (this.newPublisher.valid) 
+       return publisher.set({
+            id: newID,
             fname: fname,
             lname: lname,
             email: email,
             role: role,
             photoUrl: null,
-            orderCount: 0,
-            order: null
-        }).then(() => {
-          this.dialog.closeAll();
+            orderCount: 0
+            }).then(() => {
+              this.dialog.closeAll();
+              this.router.navigateByUrl('/home/publishers');
+              this.newPublisher.reset();
+          }).then(() => {
+            this.snackBar.open('Publisher Added Successfully!', '', {duration: 2000});
+          }).catch(err => this.snackBar.open(err.message, '', {duration: 2000}))
         });
+    });
     }
+  }
 
 // -- Delete Publisher Open Modal -- //
    get openDialog() {
     return this.dialog;
     }
+
 // -- Delete Publisher function -- //
-   get deletePub() {
-      return this.publishersData.doc(`${this.uid}`).delete()
-      .then(() => console.log('publisher Deleted'))
-      .then(() => {
-        this.goBack();
-      });
-    }
+   deletePub() {
+       this.auth.user.subscribe(user => {
+         this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
+          const congID = res.congregation
+          this.route.params.subscribe(params => { 
+            return this.publisherDocument(congID, params['uid']).delete()
+            .then(() => this.snackBar.open('Publisher Deleted Successfully', '', {duration: 2000}))
+            .then(() => {
+              this.goBack();
+            });
+          });
+       });
+    });
+  }
 
     // -- Update current Publisher -- //
     public updatePublisher() {
@@ -121,12 +140,20 @@ export class PublisherService {
       const lname = this.publisherForm.get('lname');
       const email = this.publisherForm.get('email');
 
-      return this.publisherDoc.update(
-        {
-          fname: fname.value,
-          lname: lname.value,
-          email: email.value
-        }).then(() => this.edit = false);
+      this.auth.user.subscribe(user => {
+        this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
+         const congID = res.congregation
+         this.route.params.subscribe(params => { 
+          return this.publisherDocument(congID, params['uid']).update(
+            {
+              fname: fname.value,
+              lname: lname.value,
+              email: email.value
+            }).then(() => this.edit = false);
+          });
+        });    
+      });
     }
+
 
 }

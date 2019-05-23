@@ -23,7 +23,8 @@ import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 import { PublisherService } from './home/publishers/publisher.service';
-
+import { DashboardService } from './home/dashboard/dashboard.service';
+import { ListFilterPipe } from './components/pipes/list-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PublisherService } from './home/publishers/publisher.service';
     HelpComponent,
     OrderComponent,
     ReportComponent,
-    HomeComponent
+    HomeComponent,
+    ListFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { PublisherService } from './home/publishers/publisher.service';
     FlexLayoutModule,
     SharedModule
   ],
-  providers: [AuthService, PublisherService],
+  providers: [AuthService, PublisherService, DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
