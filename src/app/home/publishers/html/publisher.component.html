@@ -6,7 +6,7 @@
       class="lita-last-name">{{(publisher | async )?.lname}}</span> <span class="lita-count"
       *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span> 
     </h1>
-  <p>{{ (publisher | async )?.id }}</p>
+  <p><strong>Publisher ID:</strong> {{ (publisher | async )?.id }}</p>
 
 </div>
 

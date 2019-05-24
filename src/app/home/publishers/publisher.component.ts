@@ -122,18 +122,22 @@ export class PublisherComponent implements OnInit {
   }
 
   adminInvite(email: string) {
+    this.auth.user.subscribe(user => {
+      this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
+    this.route.params.subscribe(params => { 
     const actionCodeSettings = {
       // Your redirect URL
-      url: 'http://localhost:4200/',
+      url: 'http://localhost:4200/signup/'+ user.congregation + '/' +  params['id'],
       handleCodeInApp: true
     };
+
      this.auth.afAuth.auth.sendSignInLinkToEmail(
         email,
         actionCodeSettings
-      );
-      window.localStorage.setItem('emailForSignIn', email);
-      this.emailSent = true;
-    } 
-
+      ); 
+                 })
+            })
+        })
+  }
 
 }

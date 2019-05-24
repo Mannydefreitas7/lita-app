@@ -10,7 +10,7 @@ import { EmailsignupComponent } from './emailsignup/emailsignup.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'signup', component: EmailsignupComponent },
+  { path: 'signup/:cid/:id', component: EmailsignupComponent },
   { path: 'reset-password', component: ResetPasswordComponent }
 ];
 

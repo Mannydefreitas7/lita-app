@@ -58,8 +58,8 @@ import { finalize, merge } from 'rxjs/operators';
     <mat-icon matSuffix>language</mat-icon>
   </mat-form-field>
 
-    <button mat-button (click)="load.goBack()">Cancel</button>
-    <button mat-flat-button color="primary" (click)="updateProfile()">Save</button>
+    <button mat-button (click)="load.goBack()"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+    <button mat-button color="primary" (click)="updateProfile()"><mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE</button>
 
 </form>
   `,

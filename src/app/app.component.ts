@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/auth.service';
 import {
   Event,
@@ -13,11 +13,15 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'lita';
   loading = false;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, private auth: AuthService) {
+   
+  }
+
+  ngOnInit() {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof NavigationStart: {
@@ -36,6 +40,8 @@ export class AppComponent {
         }
       }
     });
+
+    console.log(this.auth.authenticated, this.router.url)
   }
 }
 
