@@ -1,0 +1,47 @@
+<section class="section section-login" fxLayoutAlign="center center">
+    <mat-card>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <svg-icon src="../../assets/images/Logo.svg" [svgStyle]="{ 'width.px':140 }"></svg-icon>
+      </div>
+      <div>
+        <mat-card-subtitle fxLayout="row" fxLayoutAlign="center">	
+          <p>Congregation Literature Management App</p>
+        </mat-card-subtitle>
+      </div>
+      <div>
+        <mat-card-content>
+            <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                <h3>Create an account</h3>
+              
+                <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+                  <mat-label>Type Your Name</mat-label>
+                  <input matInput placeholder="John Doe" formControlName="displayName" disabled autocomplete="name">
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="emailMessage">Emails don't match.</mat-error>
+                </mat-form-field> 
+              
+                <mat-form-field [formGroup]="signUpForm" appearance="fill" fxFill>
+                    <mat-label>Your Email</mat-label>
+                    <input matInput placeholder="example@domain.com" [formControl]="email" autocomplete="username email">
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="email.invalid">Not a valid email</mat-error>
+                  </mat-form-field>
+              
+                <mat-form-field [formGroup]="signUpForm" appearance="fill"
+                  [hintLabel]="" fxFill>
+                  <mat-label>Create Password</mat-label>
+                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="password"
+                    required autocomplete="current-password">
+                  <mat-icon matSuffix matSuffix style="cursor: pointer;" (click)="hide = !hide">{{ hide ? 'visibility ' : 'visibility_off'}}</mat-icon>
+                  <mat-error *ngIf="!password.valid">Password must contain letters and numbers</mat-error>
+                </mat-form-field>
+              
+                <div fxLayout="row">
+                  <button mat-flat-button class="lita-button" type="submit" color="primary">SIGN UP</button>
+                </div>
+              
+              </form>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </section>

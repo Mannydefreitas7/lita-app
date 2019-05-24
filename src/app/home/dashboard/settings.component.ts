@@ -42,7 +42,7 @@ import { finalize, merge } from 'rxjs/operators';
 
     <mat-form-field fxFill appearance="fill" disabled>
     <mat-label>Congregation ID</mat-label>
-    <input matInput placeholder="Congregation ID"  disabled [value]="( congregation | async )?.id">
+    <input matInput placeholder="Congregation ID" disabled [value]="( congregation | async )?.id">
     <mat-icon matSuffix>account_balance</mat-icon>
   </mat-form-field>
 
@@ -145,7 +145,7 @@ upload(event) {
       return currentUser.update(
         {
           displayName: fullName.value || user.displayName,
-          photoURL: url
+          photoURL: url || user.photoURL
         })
         .then(() => {
         return congregation.update({

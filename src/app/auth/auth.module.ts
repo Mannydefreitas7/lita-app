@@ -6,14 +6,16 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { LoginComponent } from './login/login.component';
+import { EmailsignupComponent } from './emailsignup/emailsignup.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'signup', component: EmailsignupComponent },
   { path: 'reset-password', component: ResetPasswordComponent }
 ];
 
 @NgModule({
-  declarations: [SigninComponent, SignupComponent, ResetPasswordComponent, LoginComponent],
+  declarations: [SigninComponent, SignupComponent, ResetPasswordComponent, LoginComponent, EmailsignupComponent],
   imports: [RouterModule.forChild(routes), SharedModule]
 })
 export class AuthModule { }

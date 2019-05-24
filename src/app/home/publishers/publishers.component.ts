@@ -27,8 +27,6 @@ export class PublishersComponent implements OnInit {
     private auth: AuthService
     ) {this.loading = true;}
 
-
-
   applyFilter(filterValue: string) {
     if (!this.toggle) {
       this.dataSource.filter = filterValue.trim().toLowerCase();

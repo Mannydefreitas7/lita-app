@@ -42,12 +42,13 @@ export class PublisherService {
     this.publisherForm = this.fb.group({
       fname : [''],
       lname : [''],
-      email: ['', Validators.email]
+      email: ['', Validators.email],
+      role: ['', Validators.required]
     });
+
 
 // --------- Create new Publisher Form Group ---------------- //
     this.newPublisher = this.fb.group({
-        id: ['', Validators.required],
         fname: ['', Validators.required],
         lname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
@@ -59,7 +60,7 @@ export class PublisherService {
 
     this.pubRoute = this.route.params.subscribe(params => {
       // tslint:disable-next-line:no-string-literal
-      return this.uid = params['uid'];
+      return this.uid = params['id'];
     });
 
 
@@ -92,7 +93,6 @@ export class PublisherService {
       this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
        const congID = res.congregation
        const publisher = this.publisherDocument(congID, newID)
-       //if (this.newPublisher.valid) 
        return publisher.set({
             id: newID,
             fname: fname,
@@ -119,23 +119,20 @@ export class PublisherService {
     }
 
 // -- Delete Publisher function -- //
-   deletePub() {
+   deletePub(id:string) {
        this.auth.user.subscribe(user => {
          this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
-          const congID = res.congregation
-          this.route.params.subscribe(params => { 
-            return this.publisherDocument(congID, params['uid']).delete()
-            .then(() => this.snackBar.open('Publisher Deleted Successfully', '', {duration: 2000}))
+            return this.publisherDocument(res.congregation, id).delete()
             .then(() => {
               this.goBack();
-            });
-          });
+            })
+            .then(() => this.snackBar.open('Publisher Deleted Successfully', '', {duration: 2000}))
        });
     });
   }
 
     // -- Update current Publisher -- //
-    public updatePublisher() {
+    updatePublisher() {
       const fname = this.publisherForm.get('fname');
       const lname = this.publisherForm.get('lname');
       const email = this.publisherForm.get('email');
@@ -143,13 +140,18 @@ export class PublisherService {
       this.auth.user.subscribe(user => {
         this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
          const congID = res.congregation
+         console.log(congID)
          this.route.params.subscribe(params => { 
-          return this.publisherDocument(congID, params['uid']).update(
+          console.log(params)
+          return this.publisherDocument(congID, params['id']).set(
             {
               fname: fname.value,
               lname: lname.value,
               email: email.value
-            }).then(() => this.edit = false);
+            }, { merge: true}).then(() => {
+              this.publisherForm.disable();
+              this.edit = false
+            });
           });
         });    
       });

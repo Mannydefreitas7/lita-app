@@ -1,102 +1,90 @@
-<a (click)="goBack()" mat-button>
-  <mat-icon>keyboard_arrow_left</mat-icon> Go Back
+<a (click)="publisherService.goBack()" mat-button>
+  <mat-icon>keyboard_arrow_left</mat-icon> GO BACK
 </a>
-<p>{{ (publisher | async ).id }}</p>
-<div fxFill fxLayoutAlign="space-between center">
-  <h1 class="lita-user-name">{{ (publisher | async ).fname }} <span class="lita-last-name">{{(publisher | async ).lname}}</span> <span
-      class="lita-count" *ngIf="publisher.orderCount > 0">{{ (publisher | async ).orderCount }}</span> </h1>
-  <button (click)="editField()" mat-button color="primary">
-    <mat-icon color="primary" class="lita-icon">edit</mat-icon>Edit
-  </button>
-  <button (click)="openDeleteModal()" mat-button><mat-icon class="lita-icon lita-icon-order">delete</mat-icon>Delete</button>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+    <h1 class="lita-user-name">{{ (publisher | async )?.fname }} <span
+      class="lita-last-name">{{(publisher | async )?.lname}}</span> <span class="lita-count"
+      *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span> 
+    </h1>
+  <p>{{ (publisher | async )?.id }}</p>
+
 </div>
 
 
-<mat-card class="lita-card" *ngIf="edit">
-    <mat-card-title>
-        Publisher's Information
-      </mat-card-title>
-    <form [formGroup]="publisherForm" class="settings" >
-        <mat-card-content class="mat-typography" fxLayoutAlign="start start" fxLayout="column">
+<mat-card class="lita-card">
+  <mat-card-title>Publisher's Information</mat-card-title>
+  <form [formGroup]="publisherForm" class="settings">
+    <mat-card-content class="mat-typography" fxLayoutAlign="start start" fxLayout="column">
       <div class="dashboard-toolbar--image settings--image">
         <img [src]="" alt="">
       </div>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" fxFill>
         <mat-label>First Name</mat-label>
-        <input matInput [placeholder]="(publisher | async ).fname" formControlName="fname" [value]="(publisher | async ).fname">
+        <input matInput [placeholder]="(publisher | async )?.fname" formControlName="fname"
+          [value]="(publisher | async )?.fname">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" fxFill>
         <mat-label>Last Name</mat-label>
-        <input matInput [placeholder]="(publisher | async ).fname" formControlName="lname" [value]="(publisher | async ).lname">
+        <input matInput [placeholder]="(publisher | async )?.lname" formControlName="lname"
+          [value]="(publisher | async )?.lname">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" fxFill >
         <mat-label>Email</mat-label>
-        <input matInput [placeholder]="(publisher | async ).email" formControlName="email" [value]="(publisher | async ).email">
+        <input matInput  [placeholder]="(publisher | async )?.email" formControlName="email"
+          [value]="(publisher | async )?.email">
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
+      <mat-form-field fxFill appearance="fill">
+          <mat-label>Publisher Role</mat-label>
+          <mat-select formControlName="role" [value]='selected'>
+            <mat-option autofilled value="publisher">Publisher</mat-option>
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.valueView}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </mat-card-content>
+  </form>
+    <mat-card-actions align="end">
 
-      <mat-card-actions align="end">
-        <button mat-button (click)="cancelEdit()">Cancel</button>
-        <button mat-raised-button (click)="updatePublisher()" color="primary">Save</button>
+        <button *ngIf="edit" mat-button (click)="cancelEdit()"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+
+        <button *ngIf="edit" mat-button (click)="updatePublisher()" color="primary"><mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE</button>
+
+       
+
+          <button *ngIf="!edit" (click)="editField()" mat-button color="primary">
+            <mat-icon color="primary" class="lita-icon">edit</mat-icon>EDIT
+          </button>
+
+          <button *ngIf="!edit" (click)="openDeleteModal()" mat-button>
+              <mat-icon class="lita-icon lita-icon-order">delete</mat-icon>DELETE
+            </button>
+
       </mat-card-actions>
 
-    </mat-card-content>
-    </form>
 </mat-card>
 
-<mat-card class="lita-card" *ngIf="!edit">
-    <mat-card-title>
-        Publisher's Information
-      </mat-card-title>
+
+<mat-card class="lita-card">
+  <mat-card-title>
+    Publications Orders
+  </mat-card-title>
   <mat-card-content>
     <mat-list>
       <mat-list-item>
-        <mat-icon mat-list-icon>person</mat-icon>
-        <h4 mat-line>First Name</h4>
-        <h3 mat-line> {{ (publisher | async ).fname }}</h3>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>person</mat-icon>
-        <h4 mat-line>Last Name</h4>
-        <h3 mat-line> {{ (publisher | async ).lname }}</h3>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon>email</mat-icon>
-        <h4 mat-line>Email</h4>
-        <h3 mat-line> {{ (publisher | async ).email }}</h3>
       </mat-list-item>
     </mat-list>
-    </mat-card-content>
-</mat-card>
-
-
-<div fxFill fxLayoutAlign="end center">
-    <button (click)="editField()" mat-button color="primary">
-      <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>Order
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary">
+      <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>ORDER
     </button>
-  </div>
-
-<mat-card class="lita-card">
-    <mat-card-title>
-      Publications Orders
-    </mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item>
-            <mat-divider></mat-divider>
-          <mat-icon mat-list-icon>person</mat-icon>
-          <h4 mat-line>First Name</h4>
-          <h3 mat-line> {{ (publisher | async ).fname }}</h3>
-        
-        </mat-list-item>
-      </mat-list>
-      </mat-card-content>
-  </mat-card>
+  </mat-card-actions>
+</mat-card>

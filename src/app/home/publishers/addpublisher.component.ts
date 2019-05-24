@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PublisherService } from './publisher.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../dashboard/dashboard.service';
+import { AuthService } from 'src/app/core/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -43,9 +45,9 @@ import { DashboardService } from '../dashboard/dashboard.service';
   </mat-dialog-content>
   <mat-dialog-actions align="end">
 
-    <button mat-button mat-dialog-close *ngIf="!url">Cancel</button>
-    <button mat-button (click)="dash.goBack()" *ngIf="url">Cancel</button>
-    <button mat-flat-button color="primary" (click)="publisherService.addPub()">Save</button>
+    <button mat-button mat-dialog-close *ngIf="!url"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+    <button mat-button (click)="dash.goBack()" *ngIf="url"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+    <button mat-button color="primary" (click)="publisherService.addPub()"><mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE</button>
   </mat-dialog-actions>
 </form>
 </section>
@@ -61,13 +63,13 @@ export class AddpublisherComponent implements OnInit {
   ];
 
   // tslint:disable-next-line:max-line-length
-  constructor(private publisherService: PublisherService, private route: Router, private dash: DashboardService) {}
+  constructor(private publisherService: PublisherService, private route: Router) {}
 
   ngOnInit() {
-    if (this.route.url == '/home/add-publisher')  {
-      this.url = true 
+    if (this.route.url === '/home/add-publisher')  {
+      this.url = true;
     } else {
-      this.url = false
+      this.url = false;
     }
   }
 }

@@ -18,9 +18,10 @@ import { MatSnackBar } from '@angular/material';
 export class AuthService {
   user: Observable<User>;
   authState: any;
+  
 
   constructor(
-    private afAuth: AngularFireAuth,
+    public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
     private ngZone: NgZone,
@@ -88,11 +89,14 @@ export class AuthService {
   }
 
 
+
   emailSignUp(email: string, password: string, displayName?: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(credential =>
       // tslint:disable-next-line:max-line-length
-      this.afAuth.auth.currentUser.updateProfile({displayName: `${displayName}`, photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
+      this.afAuth.auth.currentUser.updateProfile({
+        displayName: `${displayName}`,
+        photoURL: 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=6aa1a87c-1d1e-4e0e-ae34-bb1ea8b34a06'})
       .then(() => this.createUserData(credential.user))
       .then(() => this.snackBar.open('welcome, your account has been created','', { duration: 3000}))
       .catch(error => this.snackBar.open(error.message,'', { duration: 3000})));
