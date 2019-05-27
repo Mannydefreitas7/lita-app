@@ -6,7 +6,7 @@
 <mat-divider></mat-divider>
 <div fxLayout="row" fxLayoutAlign="end center">
 	<a
-		[matMenuTriggerFor]="homeSettings" style="cursor: pointer;"><mat-icon>more_horiz</mat-icon></a>
+		[matMenuTriggerFor]="homeSettings" style="cursor: pointer;"><mat-icon class="lita-icon">more_horiz</mat-icon></a>
 </div>
 <mat-menu #homeSettings="matMenu" xPosition="before">
 	<mat-list role="list">
@@ -15,12 +15,12 @@
 			<mat-list-item role="listitem"><mat-slide-toggle [checked]="reportCard" (change)="toggleReport()">Report</mat-slide-toggle></mat-list-item>
 	</mat-list>
 </mat-menu>
-<section fxLayoutAlign="space-between start" fxLayoutGap="10px" fxLayout="row" class="lita-section">
+<section fxLayoutAlign="start start" fxLayoutGap="10px" fxLayout="row wrap" class="lita-section">
 	<mat-card *ngIf="publisherCard">
 		<mat-card-header fxLayout="row">
 			<mat-card-title fxLayout="row">
 				<mat-icon class="lita-icon">people</mat-icon>
-				Publishers
+				PUBLISHERS
 			</mat-card-title>
 		</mat-card-header>
 	
@@ -42,8 +42,8 @@
 			</mat-list>
 		</mat-card-content>
 		<mat-card-actions align="end">
-			<button mat-button routerLink='/home/publishers' > <mat-icon>remove_red_eye</mat-icon> View</button>
-			<button mat-button color="primary" (click)="addPublisher()"> <mat-icon>person_add</mat-icon> Add Publisher</button>
+			<button mat-button routerLink='/home/publishers' > <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
+			<button mat-button color="primary" (click)="addPublisher()"> <mat-icon class="lita-icon">person_add</mat-icon> ADD PUBLISHER</button>
 		</mat-card-actions>
 	</mat-card>
 	
@@ -51,19 +51,17 @@
 		<mat-card-header fxLayout="row">
 			<mat-card-title fxLayout="row">
 				<mat-icon class="lita-icon">content_paste</mat-icon>
-				Order
+				INVENTORY
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content>
 			<p>
-				The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-				A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-				bred for hunting.
+				
 			</p>
 		</mat-card-content>
 		<mat-card-actions align="end">
-			<button mat-button routerLink='/home/order'> <mat-icon>remove_red_eye</mat-icon> View</button>
-			<button mat-button color="primary"> <mat-icon>add</mat-icon>Create Order</button>
+			<button mat-button routerLink='/home/order'> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
+			<button mat-button color="primary"> <mat-icon class="lita-icon">add</mat-icon>CREATE ORDER</button>
 		</mat-card-actions>
 	</mat-card>
 	
@@ -71,19 +69,28 @@
 		<mat-card-header fxLayout="row">
 			<mat-card-title fxLayout="row">
 				<mat-icon class="lita-icon">poll</mat-icon>
-				Report
+				REPORT
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content>
 			<p>
-				The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-				A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-				bred for hunting.
+			
 			</p>
 		</mat-card-content>
 		<mat-card-actions align="end">
-			<button routerLink='/home/report' mat-button> <mat-icon>remove_red_eye</mat-icon> View</button>
+			<button routerLink='/home/report' mat-button> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
 		</mat-card-actions>
+	</mat-card>
+	<mat-card >
+		<mat-card-header fxLayout="row">
+			<mat-card-title fxLayout="row">
+				<mat-icon class="lita-icon">calendar_today</mat-icon>
+				CALENDAR
+			</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<mat-datepicker></mat-datepicker>
+		</mat-card-content>
 	</mat-card>
 </section>
 </mat-list>

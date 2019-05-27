@@ -7,9 +7,9 @@
       *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span> 
     </h1>
   <p><strong>Publisher ID:</strong> {{ (publisher | async )?.id }}</p>
-
 </div>
 
+<section class="lita-section" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px">
 
 <mat-card class="lita-card">
   <mat-card-title>Publisher's Information</mat-card-title>
@@ -45,25 +45,25 @@
   </form>
     <mat-card-actions align="end">
 
-        <button *ngIf="edit" mat-button (click)="cancelEdit()"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+        <button *ngIf="edit" mat-button (click)="cancelEdit()"><mat-icon class="lita-icon" color="disabled">clear</mat-icon>CANCEL</button>
 
         <button *ngIf="edit" mat-button (click)="updatePublisher()" color="primary"><mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE</button>
 
 
        
-       
+    <div *ngIf="!edit">
         <button *ngIf="!admin" (click)="adminInvite()" mat-button >
-            <mat-icon class="lita-icon">how_to_reg</mat-icon>INVITE AS ADMIN
+            <mat-icon class="lita-icon" color="disabled">how_to_reg</mat-icon>INVITE AS ADMIN
           </button>
           <button *ngIf="admin" (click)="cancelAdmin()" mat-button>
-              <mat-icon class="lita-icon">person_add_disabled
+              <mat-icon class="lita-icon" color="disabled">person_add_disabled
                 </mat-icon>REVOKE ADMIN
             </button>
-
+      </div>  
 
 
           <button *ngIf="!edit" (click)="openDeleteModal()" mat-button>
-              <mat-icon class="lita-icon lita-icon-order">delete</mat-icon>DELETE
+              <mat-icon class="lita-icon lita-icon-order" color="disabled">delete</mat-icon>DELETE
             </button>
 
             <button *ngIf="!edit" (click)="editField()" mat-button color="primary">
@@ -71,9 +71,7 @@
               </button>
 
       </mat-card-actions>
-
 </mat-card>
-
 
 <mat-card class="lita-card">
   <mat-card-title>
@@ -91,3 +89,4 @@
     </button>
   </mat-card-actions>
 </mat-card>
+</section>

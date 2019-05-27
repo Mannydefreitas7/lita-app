@@ -48,7 +48,7 @@ export class AddpublisherComponent implements OnInit {
   url: boolean;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private publisherService: PublisherService, private route: Router) {}
+  constructor(private route: Router, public publisherService: PublisherService, private dash: DashboardService) {}
 
   ngOnInit() {
     if (this.route.url === '/home/add-publisher')  {

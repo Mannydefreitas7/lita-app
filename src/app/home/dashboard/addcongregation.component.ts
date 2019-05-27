@@ -1,45 +1,23 @@
-import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
+import { DashboardService } from './dashboard.service';
+import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-
-import { AuthService } from '../../core/auth.service';
-import { map } from 'rxjs/operator/map';
-import { Congregation, Literature, Publisher } from '../../shared/models/congregation.model';
-
-import { Router } from '@angular/router';
-
-import { User } from '../../shared/models/user.model';
-
-import 'rxjs/operator/map';
-
-import { Observable } from 'rxjs';
-import { DashboardService } from './dashboard.service';
+import { Publisher } from 'src/app/shared/models/congregation.model';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'lita-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
-  }]
+  selector: 'lita-addcongregation',
+  templateUrl: './addcongregation.component.html',
+  styleUrls: ['./addcongregation.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  userDoc: Observable<User>;
-  user: any;
-  congregationRef: any;
-  congregation: Observable<Congregation>;
-  currentUserName: string;
-  currentUserImage: any;
-  firstLog: boolean;
+export class AddcongregationComponent implements OnInit {
   setupGroup: FormGroup;
   pubs: any = [];
   date = new Date();
   month = this.date.getMonth()+1;
-
   constructor(
     private auth: AuthService,
     public dash: DashboardService,
@@ -49,42 +27,15 @@ export class DashboardComponent implements OnInit {
     private http: HttpClient,
     private ngZone: NgZone,
     private snackBar: MatSnackBar
-    ) {     }
+  ) { }
 
   ngOnInit() {
-
-    this.http.get('assets/literature-quantity.json').subscribe(results => {
-
-    this.pubs = JSON.parse(JSON.stringify(results));
-  });
-
-
     this.setupGroup = this._formBuilder.group({
       congID: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       congName: ['', [Validators.required, Validators.min(3)]],
       congLanguage: ['', [Validators.required, Validators.min(3)]]
     });
-
-      this.auth.user.subscribe(user => {
-        
-        this.userDoc = this.dash.getUserDoc(user.uid).valueChanges();
-        this.userDoc.subscribe(user => {
-          if (user.homeView.firstLog == true) {
-            this.firstLog = true;
-          } else {
-            this.firstLog = false;
-          }
-          this.congregation = this.dash.getCongregationDoc(user.congregation).valueChanges();
-        });
-      })
-
   }
-
-
-  logOut() {
-    return this.auth.signOut();
-  }
-
 
   createCongregation() {
     const congID = this.setupGroup.get('congID');
@@ -136,4 +87,5 @@ export class DashboardComponent implements OnInit {
     })
     .catch(error => this.snackBar.open(error.message,'', {duration: 2000})).then(() => this.dash.loading = false)
   }
+
 }

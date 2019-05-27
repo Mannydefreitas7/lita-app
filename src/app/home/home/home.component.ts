@@ -44,6 +44,7 @@ addPublisher() {
 
 
   ngOnInit() {
+    
     this.auth.user.subscribe(user => {
       this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
         this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).collection('publishers')

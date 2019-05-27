@@ -12,9 +12,6 @@ h2 {
     text-transform: uppercase;
 }
 
-.lita-card {
-    margin-bottom: 20px;
-}
 .lita-cards {
     text-align: center;
     .mat-card {
@@ -106,6 +103,8 @@ h2 {
 }
 
 .lita-add-pub {
+    box-shadow: none !important;
+    background: #0276bf1a;
     a {
         text-decoration: none;
     }

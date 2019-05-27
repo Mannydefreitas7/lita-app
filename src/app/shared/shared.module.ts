@@ -15,6 +15,7 @@ import { DashboardService } from '../home/dashboard/dashboard.service';
 import { CongregationsComponent } from '../home/admin/congregations/congregations.component';
 import { UsersComponent } from '../home/admin/users/users.component';
 import { NewsComponent } from '../home/admin/news/news.component';
+import { AddcongregationComponent } from '../home/dashboard/addcongregation.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { NewsComponent } from '../home/admin/news/news.component';
     SettingsComponent,
     CongregationsComponent,
     UsersComponent,
-    NewsComponent
+    NewsComponent,
+    AddcongregationComponent
   ],
   imports: [
     CommonModule,
