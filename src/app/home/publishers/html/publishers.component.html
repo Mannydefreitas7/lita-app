@@ -60,6 +60,18 @@
             <button mat-button  color="accent"><mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>Order</button>
           </mat-card-actions>
         </mat-card> 
+
+        <mat-card fxFlex="170px" class="lita-card lita-add-pub">
+          <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" >
+          <mat-card-content fxLayoutAlign="center center" fxLayout="column"  fxFill="306px">
+            <mat-icon color="primary">
+                add_circle
+            </mat-icon>
+            <h4 color="primary">ADD PUBLISHER</h4>
+
+          </mat-card-content>
+        </a>
+        </mat-card> 
 </section>
 
    </ng-template>

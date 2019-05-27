@@ -32,16 +32,6 @@ import { MatSnackBar } from '@angular/material';
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
 
-   <mat-form-field fxFill appearance="fill">
-    <mat-label>Publisher Role</mat-label>
-    <mat-select formControlName="role" [value]='selected'>
-      <mat-option autofilled value="publisher">Publisher</mat-option>
-      <mat-option *ngFor="let role of roles" [value]="role.value">
-        {{role.valueView}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
   </mat-dialog-content>
   <mat-dialog-actions align="end">
 
@@ -56,11 +46,6 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AddpublisherComponent implements OnInit {
   url: boolean;
-  selected = 'publisher';
-  roles = [
-    {value: 'admin', valueView: 'Admin'},
-    {value: 'editor', valueView: 'Editor'}
-  ];
 
   // tslint:disable-next-line:max-line-length
   constructor(private publisherService: PublisherService, private route: Router) {}

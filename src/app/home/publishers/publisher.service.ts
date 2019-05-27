@@ -35,15 +35,14 @@ export class PublisherService {
     public location: Location,
     public route: ActivatedRoute,
     private router: Router,
-    private snackBar: MatSnackBar
+    public snackBar: MatSnackBar
     ) {
 
 // --- Edit or update Form Group for existing Publisher ---- //
     this.publisherForm = this.fb.group({
       fname : [''],
       lname : [''],
-      email: ['', Validators.email],
-      role: ['', Validators.required]
+      email: ['', Validators.email]
     });
 
 
@@ -52,7 +51,6 @@ export class PublisherService {
         fname: ['', Validators.required],
         lname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        role: ['', Validators.required],
         photoUrl: [''],
         orderCount: [''],
         order: ['']
@@ -85,7 +83,6 @@ export class PublisherService {
     const fname = this.newPublisher.get('fname').value;
     const lname = this.newPublisher.get('lname').value;
     const email = this.newPublisher.get('email').value;
-    const role = this.newPublisher.get('role').value;
     const newID = this.dashService.fireStore.createId();
 
     if (this.newPublisher.valid) {
@@ -98,7 +95,7 @@ export class PublisherService {
             fname: fname,
             lname: lname,
             email: email,
-            role: role,
+            role: 'publisher',
             photoUrl: null,
             orderCount: 0
             }).then(() => {

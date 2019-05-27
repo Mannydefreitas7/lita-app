@@ -27,11 +27,7 @@ export class PublisherComponent implements OnInit {
   email: string;
   emailSent = false;
   errorMessage: string;
-  roles = [
-    {value: 'admin', valueView: 'Admin'},
-    {value: 'editor', valueView: 'Editor'}
-  ];
-  selected = 'publisher';
+  admin: boolean = false;
 
 
   constructor(
@@ -57,7 +53,6 @@ export class PublisherComponent implements OnInit {
         const fname = this.publisherForm.get('fname');
         const lname = this.publisherForm.get('lname');
         const email = this.publisherForm.get('email');
-        const role = this.publisherForm.get('role');
   
         this.auth.user.subscribe(user => {
           this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
@@ -72,15 +67,10 @@ export class PublisherComponent implements OnInit {
                     fname: fname.value || pub.fname,
                     lname: lname.value || pub.lname,
                     email: email.value || pub.email,
-                    role: role.value || pub.role
+                    role: pub.role
                   }).then(() => {
                     this.publisherForm.disable();
                     this.edit = false
-                  })
-                  .then(() => {
-                    if (role.value == 'admin') {
-                      return this.adminInvite(email.value || pub.email)
-                    }
                   })
               });
             
@@ -116,28 +106,58 @@ export class PublisherComponent implements OnInit {
        const congID = res.congregation
        this.route.params.subscribe(params => { 
       this.publisher = this.publisherService.publisherDocument(congID, params['id']).valueChanges();
+      this.publisherService.publisherDocument(congID, params['id']).valueChanges().subscribe(pub => {
+        if (pub.role === 'publisher') {
+          this.admin = false;
+        } else {
+          this.admin = true;
+        }
+      })
         });
       });
     });
   }
 
-  adminInvite(email: string) {
+  adminInvite() {
     this.auth.user.subscribe(user => {
       this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
     this.route.params.subscribe(params => { 
-    const actionCodeSettings = {
-      // Your redirect URL
-      url: 'http://localhost:4200/signup/'+ user.congregation + '/' +  params['id'],
-      handleCodeInApp: true
-    };
-
-     this.auth.afAuth.auth.sendSignInLinkToEmail(
-        email,
-        actionCodeSettings
-      ); 
+      this.publisherService.publisherDocument(user.congregation, params['id']).valueChanges().subscribe(pub => {
+        const actionCodeSettings = {
+          // Your redirect URL
+          url: 'http://localhost:4200/signup/'+ user.congregation + '/' +  params['id'],
+          handleCodeInApp: true
+        };
+    
+       return  this.auth.afAuth.auth.sendSignInLinkToEmail(
+            pub.email,
+            actionCodeSettings
+          ).then(() => {
+            this.publisherService.snackBar.open('Admin Invitation Email Sent', '', { duration: 3000})
+          }).then(() => {
+            this.publisherService.publisherDocument(user.congregation, params['id']).update({
+              role: 'admin'
+            })
+          })
+      })
                  })
             })
         })
   }
+
+  cancelAdmin() {
+    this.auth.user.subscribe(user => {
+      this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
+       const congID = res.congregation
+       this.route.params.subscribe(params => { 
+    return this.publisherService.publisherDocument(congID, params['id']).update({
+        role: 'publisher'
+        }).then(() => {
+          this.publisherService.snackBar.open('Admin privileges revoked')
+        })
+      })
+    })
+  })
+}
 
 }
