@@ -7,7 +7,10 @@
     <mat-form-field appearance="fill" class="lita-search">
         <mat-label>Search Publishers</mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
-      <mat-icon matSuffix>search</mat-icon>
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-icon matSuffix *ngIf="!value">search</mat-icon>
     </mat-form-field>
     
 

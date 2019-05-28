@@ -2,7 +2,8 @@ export class Congregation {
 	id?: any;
 	name?: string;
 	language?: any;
-	publishers?: [Publisher]
+	publishers?: [Publisher];
+	literature?: any;
 	}
 
 export class Publisher {
@@ -19,14 +20,18 @@ export class Publisher {
 export class Literature {
 	id?: string;
 	cover?: string;
-	url?: string;
-	title?: string;
+	pubId?: string;
+	name?: string;
 	contextTitle?: string;
-	quantity?: {
+}
+
+export class CongLiterature {
+	id?: string;
+	months?: [{
 		in: number;
 		onHand: number;
 		out: number;
-	}
+	}]
 }
 
 

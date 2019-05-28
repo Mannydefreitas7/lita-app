@@ -31,7 +31,7 @@ export class PublisherComponent implements OnInit {
 
 
   constructor(
-    private publisherService: PublisherService,
+    public publisherService: PublisherService,
     private route: ActivatedRoute,
     private auth: AuthService,
     private router: Router,

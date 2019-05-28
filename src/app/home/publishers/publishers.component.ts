@@ -44,6 +44,7 @@ export class PublishersComponent implements OnInit {
           this.pubs = JSON.parse(JSON.stringify(publishers));
           this.dataSource = new MatTableDataSource(this.pubs)
           this.loading = false;
+          console.log(this.pubs)
           });
       });
     }
