@@ -1,16 +1,13 @@
 <section class="lita-section">
   <section fxFill fxLayoutAlign="space-between center">
     <h2>{{ title }} </h2>
-    <a mat-button color="primary" routerLink="/home/add-publisher">
-      <mat-icon class="lita-icon" color="primary">person_add</mat-icon> ADD PUBLISHER
-    </a>
   </section>
   <div fxLayoutAlign="space-between center">
 
     <mat-form-field appearance="fill" class="lita-search">
-      <mat-label>Search Publishers</mat-label>
+      <mat-label>Search Publications</mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
-        placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
+        placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="searchText">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
@@ -42,7 +39,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let pub"> {{ pubname }} </td>
+        <td mat-cell *matCellDef="let pub"> {{ pub.name }} </td>
       </ng-container>
 
       <!-- Weight Column -->
@@ -76,21 +73,33 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <section *ngIf="toggle" class="lita-section lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
-      <mat-card *ngFor="let pub of publications" fxFlex="200px">
-        <a [routerLink]="['/home/publishers', pub.id]">
-          <img mat-card-image
-            [src]='pub.cover' height="150px">
-        </a>
-        <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
-        <mat-card-title>{{ pub.name }}</mat-card-title>
-        <mat-card-content>
-        </mat-card-content>
-        <mat-card-actions align="center">
-          <button mat-button color="accent">
-            <mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER
-          </button>
-        </mat-card-actions>
+
+    <section *ngIf="toggle" class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="15px">
+      <mat-card *ngFor="let pub of publications | pubfilter : searchText" fxFlex="45%">
+        <mat-card-header> 
+        <img mat-card-avatar [src]="pub.cover" class="lita-pub--avatar"> 
+          <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
+          <mat-card-title>{{ pub.name }}</mat-card-title>
+        </mat-card-header>
+          <mat-card-content>
+              <h3>Quantity</h3>
+              <mat-list fxLayout="row" fxLayoutAlign="space-between start">
+                  <mat-list-item>
+                      <h4 mat-line>In:</h4> 
+                      <span mat-line> {{pub.in}}</span>
+                  </mat-list-item>
+                  <mat-list-item>
+                      <h4 mat-line>On Hand:</h4>
+                      <span mat-line>  {{pub.onHand}}</span>
+           
+                  </mat-list-item>
+                  <mat-list-item>
+                      <h4 mat-line>Out:</h4> 
+                      <span mat-line> {{pub.out}}</span>
+                  </mat-list-item>
+              
+                </mat-list>
+          </mat-card-content>
       </mat-card>
     </section>
 

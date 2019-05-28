@@ -53,7 +53,7 @@
         <mat-card *ngFor="let pub of pubs | filter : searchText" fxFlex="170px">
             <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
             <a [routerLink]="['/home/publishers', pub.id]">
-              <img mat-card-image src='https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'>
+              <img mat-card-image [src]="pub.photoUrl ? pub.photoUrl : 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'">
             </a>
             <mat-card-subtitle>{{ pub.lname }}</mat-card-subtitle>
             <mat-card-title>{{ pub.fname }}</mat-card-title>

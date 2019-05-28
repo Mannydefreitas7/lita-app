@@ -20,12 +20,12 @@ export class OrderComponent implements OnInit {
   publications:any = [];
   month: number;
   dataSource: any;
-  searchText: string = '';
+  searchText: string = "";
   displayedColumns: string[] = ['id', 'name', 'pubId', 'contextTitle', 'quantityIn', 'quantityOnHand', 'quantityOut'];
   congLiteratures: Observable<any>
   literature: Observable<any>;
   pubData: any;
-
+  title = "Inventory";
   constructor(
     private auth: AuthService,
     private dash: DashboardService,
@@ -55,7 +55,6 @@ export class OrderComponent implements OnInit {
             })).subscribe(data => {
               this.publications.push(data)
               this.dataSource = new MatTableDataSource(this.publications)
-              console.log(this.publications)
               this.loading = false;
               })
           })

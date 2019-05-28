@@ -25,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
 import { PublisherService } from './home/publishers/publisher.service';
 import { DashboardService } from './home/dashboard/dashboard.service';
 import { ListFilterPipe } from './components/pipes/list-filter.pipe';
+import { PubFilterPipe } from './components/pipes/pub-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ListFilterPipe } from './components/pipes/list-filter.pipe';
     OrderComponent,
     ReportComponent,
     HomeComponent,
-    ListFilterPipe
+    ListFilterPipe,
+    PubFilterPipe
   ],
   imports: [
     BrowserModule,

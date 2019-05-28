@@ -113,3 +113,15 @@ h2 {
         color: #3333;
     }
 }
+.lita-publication .mat-card {
+    text-align: left;
+    .lita-pub--avatar {
+        border-radius: 2px;
+        background: #3331;
+        margin-right: 10px;
+    }
+
+}
+.mat-list-item-content {
+    padding: 0 !important;
+}
