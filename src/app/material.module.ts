@@ -35,7 +35,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSnackBarModule,
     MatBadgeModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule
   ],
   exports: [
     MatIconModule,

@@ -1,7 +1,15 @@
 <section class="lita-section">
   <section fxFill fxLayoutAlign="space-between center">
-    <h2>{{ title }} </h2>
+    <h2>{{ title }}</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Current Month</mat-label>
+      <mat-select [(value)]="month" (selectionChange)="monthDisplay($event)">
+        <mat-option *ngFor="let mon of order.months" [value]="mon.value">{{ mon.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </section>
+
+  {{ month }}
   <div fxLayoutAlign="space-between center">
 
     <mat-form-field appearance="fill" class="lita-search">
