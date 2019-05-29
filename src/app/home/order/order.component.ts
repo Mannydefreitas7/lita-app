@@ -100,10 +100,10 @@ export class OrderComponent implements OnInit {
   })
   }
 
-  monthDisplay(change: MatSelectChange) {
+  monthDisplay(event: MatSelectChange) {
     this.loading = true;
-    this.month = change.value;
-    this.showInventory(this.month);
+    this.showInventory(event.value);
+    console.log(event.value)
   }
 
   toggleView(change: MatButtonToggleChange) {
