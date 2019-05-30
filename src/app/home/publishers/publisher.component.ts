@@ -156,7 +156,15 @@ export class PublisherComponent implements OnInit {
           return this.publisherService.publisherDocument(congID, params['id']).update({
             role: 'publisher'
           }).then(() => {
-            this.publisherService.snackBar.open('Admin privileges revoked')
+            this.publisherService.snackBar.open('Admin privileges revoked', '', { duration: 3000 })
+          }).then(() => {
+            this.dashService.fireStore.collection('users').doc(`${params['id']}`).delete();
+          }).then(() => {
+            if (user.uid == params['id']) {
+              this.auth.afAuth.auth.currentUser.delete();
+            } else {
+              this.router.navigateByUrl('/home');
+            }
           })
         })
       })

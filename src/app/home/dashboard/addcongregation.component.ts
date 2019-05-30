@@ -43,9 +43,7 @@ export class AddcongregationComponent implements OnInit {
     const congLanguage = this.setupGroup.get('congLanguage');
     const user = this.auth.currentUserObservable.currentUser;
     const currentUser = this.dash.getUserDoc(user.uid);
-    let date = new Date();
-    const month = date.getMonth()+1;
-    console.log(month);
+
     const publishersRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('publishers');
     this.dash.loading = true;
 
@@ -62,8 +60,8 @@ export class AddcongregationComponent implements OnInit {
         fname: user.displayName.split(' ')[0],
         lname: user.displayName.split(' ')[1] || '',
         email: user.email,
-        role: 'Admin',
-        photoUrl: user.photoURL,
+        role: 'editor',
+        photoUrl: user.photoURL || 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/publications%2Fprofile.png?alt=media&token=86287c07-526f-447a-acbf-7161c007ff1e',
         orderCount: 0
       })
     })

@@ -5,8 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from '../../core/auth.service';
 import { faGoogle, faFacebook, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatTabLink, MatTabNav} from '@angular/material';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { DashboardService } from 'src/app/home/dashboard/dashboard.service';
+import { PublisherService } from 'src/app/home/publishers/publisher.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-signin',
@@ -19,12 +21,15 @@ export class SigninComponent implements OnInit {
   faGoogle = faGoogle;
   faFacebook = faFacebook;
   faMicrosoft = faMicrosoft;
+  tab: MatTabNav
 
   constructor(
     public fb: FormBuilder,
     public auth: AuthService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private dash: DashboardService,
+    private publisher: PublisherService
   ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -47,19 +52,22 @@ export class SigninComponent implements OnInit {
   }
 
   openPasswordDialog() {
-    const dialogRef = this.dialog.open(ResetPasswordComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    return this.dialog.open(ResetPasswordComponent);
   }
 
   signIn() {
-    return this.auth.emailSignIn(this.email.value, this.password.value)
-    .then(user => {
-      if (this.signInForm.valid) {
-        this.router.navigate(['/home']);
-      }
+    const email = this.signInForm.get('email');
+    const pwd = this.signInForm.get('password');
+    return this.auth.emailSignIn(email.value, pwd.value)
+    .then(() => {
+      this.auth.user.subscribe(user => {
+        if (this.signInForm.valid && this.email.value == user.email) {
+          this.router.navigate(['/home']);
+        } else {
+          this.publisher.snackBar.open('User Account Don\'t Exist. Please Sign Up','', {duration: 4000 });
+        }
+      })
+ 
     });
   }
 }

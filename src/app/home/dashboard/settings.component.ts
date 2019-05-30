@@ -14,13 +14,12 @@ import { DashboardService } from './dashboard.service';
 import { finalize, merge } from 'rxjs/operators';
 
 @Component({
-	// tslint:disable-next-line:component-selector
-	selector: 'lita-update-profile',
-  	template: `
+  // tslint:disable-next-line:component-selector
+  selector: 'lita-update-profile',
+  template: `
     <h2 fxLayout="row" mat-dialog-title fxLayoutAlign="left center"><mat-icon class="lita-icon">settings</mat-icon>Update My Profile</h2>
 <form [formGroup]="updateForm" class="settings">
 
-  
     <div *ngIf="!photoEdit" class="dashboard-toolbar--image settings--image">
       <img [src]="( userDoc | async)?.photoURL" alt="">
       <button mat-button (click)="fileInput.click()" for="fileUpload"><mat-icon>edit</mat-icon></button>
@@ -64,7 +63,7 @@ import { finalize, merge } from 'rxjs/operators';
 </form>
   `,
   styleUrls: ['./dashboard.component.scss']
-  })
+})
 export class SettingsComponent implements OnInit {
   userDoc: Observable<User>;
   updateForm: FormGroup;
@@ -87,49 +86,47 @@ export class SettingsComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private ngZone: NgZone,
     private load: DashboardService,
-    private afStorage: AngularFireStorage) {}
+    private afStorage: AngularFireStorage) { }
 
 
   ngOnInit() {
 
     this.auth.currentUser.subscribe(user => {
 
-        this.user = user;
-        this.userDoc = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+      this.user = user;
+      this.userDoc = this.afs.doc<User>(`users/${user.uid}`).valueChanges();
 
-        this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
-          console.log(userDoc.congregation);
-          this.congregationRef = userDoc.congregation;
-          this.congregation = this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).valueChanges();
-          console.log(this.congregation);
-        });
-        });
+      this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(u => {
+        this.congregationRef = u.congregation;
+        this.congregation = this.afs.doc<Congregation>(`congregations/${u.congregation}`).valueChanges();
+      });
+    });
 
     this.updateForm = this._formBuilder.group({
       photoURL: '',
       displayName: '',
       congregationName: '',
       congregationLanguage: ''
-      });
+    });
 
   }
 
 
-upload(event) {
-  const file = event.target.files[0];
-  const filePath = this.auth.currentUserObservable.currentUser.uid;
-  const fileRef = this.afStorage.ref(filePath);
-  const fileTask = fileRef.put(file)
-  this.photoEdit = true;
-  this.uploadProgress = fileTask.percentageChanges();
-  fileTask.snapshotChanges().pipe(
-  finalize(() => {
-    fileRef.getDownloadURL().subscribe(url => {
-      this.uploadUrl = url
-      console.log(url)
-    });
-  })
-).subscribe();
+  upload(event) {
+    const file = event.target.files[0];
+    const filePath = this.auth.currentUserObservable.currentUser.uid;
+    const fileRef = this.afStorage.ref(filePath);
+    const fileTask = fileRef.put(file)
+    this.photoEdit = true;
+    this.uploadProgress = fileTask.percentageChanges();
+    fileTask.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe(url => {
+          this.uploadUrl = url
+          console.log(url)
+        });
+      })
+    ).subscribe();
   }
 
   updateProfile() {
@@ -141,31 +138,36 @@ upload(event) {
 
     const user = this.auth.currentUserObservable.currentUser;
 
-    const currentUser = this.afs.doc(`users/${user.uid}`);
+    const currentUser = this.afs.doc<User>(`users/${user.uid}`)
 
     const congregation: AngularFirestoreDocument<Congregation> = this.afs.collection('congregations').doc(`${this.congregationRef}`);
 
-    congregation.valueChanges().subscribe(congregationData => {
 
-      this.load.loading = true;
-      fileRef.getDownloadURL().subscribe(url => {
-      return currentUser.update(
-        {
-          displayName: fullName.value || user.displayName,
-          photoURL: url || user.photoURL
-        })
-        .then(() => {
-        return congregation.update({
-          name: congName.value || congregationData.name,
-          language: congLang.value || congregationData.language
+      currentUser.valueChanges().subscribe(current => {
+
+        const congregation: AngularFirestoreDocument<Congregation> = this.afs.collection('congregations').doc(`${current.congregation}`);
+        
+        congregation.valueChanges().subscribe(congregationData => {
+        fileRef.getDownloadURL().subscribe(url => {
+          return currentUser.update(
+            {
+              displayName: fullName.value || current.displayName,
+              photoURL: url || user.photoURL
+            })
+            .then(() => {
+              return congregation.update({
+                name: congName.value || congregationData.name,
+                language: congLang.value || congregationData.language
+              });
+            })
+            .then(() => {
+              this.load.loading = false;
+              this.ngZone.run(() => this.router.navigate(['/']));
+            });
         });
       })
-      .then(() => {
-        this.load.loading = false;
-        this.ngZone.run(() => this.router.navigate(['/']));
-      });
-  });
-})
-}
+      this.load.loading = true;
+    })
+  }
 }
 

@@ -31,12 +31,12 @@
 
   <section class="lita-spinner" *ngIf="loading else loaded">
     <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-      <mat-spinner></mat-spinner>
+      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-      <h3>Publishers Loading...</h3>
+      <p>LOADING...</p>
     </div>
-  </section>
+</section>
 
   <ng-template #loaded>
 
@@ -67,7 +67,7 @@
         <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
         <a [routerLink]="['/home/publishers', pub.id]">
           <img mat-card-image
-            [src]="pub.photoUrl ? pub.photoUrl : 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'">
+            [src]="pub.photoUrl ? pub.photoUrl : 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/publications%2Fprofile.png?alt=media&token=86287c07-526f-447a-acbf-7161c007ff1e'">
         </a>
         <mat-card-subtitle>{{ pub.lname }}</mat-card-subtitle>
         <mat-card-title>{{ pub.fname }}</mat-card-title>

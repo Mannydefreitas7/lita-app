@@ -32,14 +32,14 @@
     </mat-button-toggle-group>
   </div>
 
-  <section class="lita-spinner"  *ngIf="loading else loaded">
+  <section class="lita-spinner" *ngIf="loading else loaded">
     <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-      <mat-spinner></mat-spinner>
+      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-      <h3>Inventory is Loading...</h3>
+      <p>LOADING...</p>
     </div>
-  </section>
+</section>
 
   <ng-template #loaded>
 
@@ -52,7 +52,6 @@
         </mat-card-title-group>
         <mat-card-content>
           <mat-list role="list">
-              <h3 mat-subheader>Details</h3>
               <mat-list-item role="listitem">
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
                   <p>Item Number</p>

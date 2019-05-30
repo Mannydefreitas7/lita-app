@@ -50,7 +50,7 @@ export class OrderComponent implements OnInit {
   }
 
  mapInventory(congID: number, litID) {
-    return this.dash.getCongregationDoc(congID).collection(`${5}`).doc<CongLiterature>(`${litID}`).valueChanges()
+    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).valueChanges()
   }
 
 showInventory(selected: number) {
