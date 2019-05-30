@@ -1,30 +1,27 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
-import { MatButtonToggleChange, MatTableDataSource, MatMonthView, MatSelectChange } from '@angular/material';
+import { MatButtonToggleChange, MatTableDataSource, MatSelectChange, MatButtonToggleGroup } from '@angular/material';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { OrderService } from './order.service';
-import { map, publish} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CongLiterature, Literature } from 'src/app/shared/models/congregation.model';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'lita-order',
   templateUrl: './order.component.html',
-  styleUrls: ['../publishers/scss/publishers.component.scss']
+  styleUrls: ['../publishers/scss/publishers.component.scss', './order.component.scss']
 })
-export class OrderComponent implements OnInit, AfterViewInit {
+export class OrderComponent implements OnInit {
   loading: boolean;
   toggle: boolean = true;
+  toggleGroup: MatButtonToggleGroup
   publications:any = [];
   currentMonth: number;
   month: number;
   dataSource: any;
-  searchText: string = '';
+  pubText:string = '';
   displayedColumns: string[] = ['id', 'name', 'pubId', 'contextTitle', 'quantityIn', 'quantityOnHand', 'quantityOut'];
-  congLiteratures: Observable<any>
-  literature: Observable<any>;
-  pubData: any;
 
   title = "Inventory";
   constructor(
@@ -41,13 +38,10 @@ export class OrderComponent implements OnInit, AfterViewInit {
     this.month = this.currentMonth;
     setTimeout(() => {
       this.showInventory(this.currentMonth)
-    }, 1000)
+    }, 3000)
+    console.log(this.publications);
   }
   
-
-  ngAfterViewInit() {
-  // this.showInventory(this.month).unsubscribe();
-  }
 
   applyFilter(filterValue: string) {
     if (!this.toggle) {
@@ -60,6 +54,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
   }
 
 showInventory(selected: number) {
+
  this.afs.collection<Literature>('literature').valueChanges().subscribe(lits => {
       this.auth.user.subscribe(user => {
       lits.forEach(lit => {
@@ -76,7 +71,7 @@ showInventory(selected: number) {
                out: pubs.months[selected].out
              }
           })).subscribe(data => {
-            this.publications.push(data)
+            this.publications.push(JSON.parse(JSON.stringify(data)));
             this.dataSource = new MatTableDataSource(this.publications);
             this.loading = false;
           })

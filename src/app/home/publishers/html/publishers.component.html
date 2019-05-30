@@ -1,47 +1,60 @@
 <section class="lita-section">
-<section fxFill fxLayoutAlign="space-between center"><h2>{{ title }} </h2>
-  <a mat-button color="primary" routerLink="/home/add-publisher"> <mat-icon class="lita-icon" color="primary">person_add</mat-icon> ADD PUBLISHER</a>
-</section> 
-<div fxLayoutAlign="space-between center">
+  <section fxFill fxLayoutAlign="space-between center">
+    <h2>{{ title }} </h2>
+    <a mat-button color="primary" routerLink="/home/add-publisher">
+      <mat-icon class="lita-icon" color="primary">person_add</mat-icon> ADD PUBLISHER
+    </a>
+  </section>
+  <div fxLayoutAlign="space-between center">
 
     <mat-form-field appearance="fill" class="lita-search">
-        <mat-label>Search Publishers</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
-      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-label>Search Publishers</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
+        placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
         <mat-icon>close</mat-icon>
       </button>
-      <mat-icon matSuffix *ngIf="!value">search</mat-icon>
+      <mat-icon matSuffix *ngIf="!searchText">search</mat-icon>
     </mat-form-field>
-    
 
-    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)">
-        <mat-button-toggle [value]="true">
-            <mat-icon>view_module</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle [value]="false">
-            <mat-icon>view_list</mat-icon>
-          
-        </mat-button-toggle>
-      </mat-button-toggle-group>
+
+    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)" [value]="true">
+      <mat-button-toggle [value]="true">
+        <mat-icon>view_module</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle [value]="false">
+        <mat-icon>view_list</mat-icon>
+
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <section class="lita-spinner" *ngIf="loading else loaded">
+    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
+      <mat-spinner></mat-spinner>
     </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+      <h3>Publishers Loading...</h3>
+    </div>
+  </section>
 
-    <section class="lita-spinner" fxLayout="col" fxLayoutAlign="center center" fxFill *ngIf="loading else loaded">
-      <mat-spinner ></mat-spinner>
-    </section>
+  <ng-template #loaded>
 
-<ng-template #loaded>
-  
     <table *ngIf="!toggle" mat-table [dataSource]="dataSource" class="lita-table">
-    
+
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>First Name / Last Name</th>
-        <td mat-cell *matCellDef="let pub" class="lita-table-name" ><a [routerLink]="['/home/publishers', pub.id]" routerLinkActive="active">  {{ pub.fname }} <span class="lita-last-name">{{pub.lname}}</span>   <span class="lita-count" *ngIf="pub.orderCount > 0">{{ pub.orderCount }}</span></a></td>
+        <td mat-cell *matCellDef="let pub" class="lita-table-name"><a [routerLink]="['/home/publishers', pub.id]"
+            routerLinkActive="active"> {{ pub.fname }} <span class="lita-last-name">{{pub.lname}}</span> <span
+              class="lita-count" *ngIf="pub.orderCount > 0">{{ pub.orderCount }}</span></a></td>
       </ng-container>
-    
+
 
       <ng-container matColumnDef="orderBtn" stickyEnd>
         <th mat-header-cell *matHeaderCellDef>Order Publications</th>
-        <td mat-cell *matCellDef="let pub"> <a mat-button color="accent"><mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER</a></td>
+        <td mat-cell *matCellDef="let pub"> <a mat-button color="accent">
+            <mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER
+          </a></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -49,31 +62,34 @@
     </table>
 
 
-<section *ngIf="toggle" class="lita-section lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
-        <mat-card *ngFor="let pub of pubs | filter : searchText" fxFlex="170px">
-            <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
-            <a [routerLink]="['/home/publishers', pub.id]">
-              <img mat-card-image [src]="pub.photoUrl ? pub.photoUrl : 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'">
-            </a>
-            <mat-card-subtitle>{{ pub.lname }}</mat-card-subtitle>
-            <mat-card-title>{{ pub.fname }}</mat-card-title>
-            <mat-card-content>
-          </mat-card-content>
-          <mat-card-actions align="center">
-            <button mat-button  color="accent"><mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER</button>
-          </mat-card-actions>
-        </mat-card> 
+    <section *ngIf="toggle" class="lita-section lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
+      <mat-card *ngFor="let pub of pubs | filter : searchText" fxFlex="170px">
+        <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
+        <a [routerLink]="['/home/publishers', pub.id]">
+          <img mat-card-image
+            [src]="pub.photoUrl ? pub.photoUrl : 'https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd'">
+        </a>
+        <mat-card-subtitle>{{ pub.lname }}</mat-card-subtitle>
+        <mat-card-title>{{ pub.fname }}</mat-card-title>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions align="center">
+          <button mat-button color="accent">
+            <mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER
+          </button>
+        </mat-card-actions>
+      </mat-card>
 
-        <mat-card fxFlex="170px" class="lita-card lita-add-pub">
-          <a routerLink="/home/add-publisher">
-          <mat-card-content fxLayoutAlign="center center" fxLayout="column"  fxFill="306px">
+      <mat-card fxFlex="170px" class="lita-card lita-add-pub">
+        <a routerLink="/home/add-publisher">
+          <mat-card-content fxLayoutAlign="center center" fxLayout="column" fxFill="306px">
             <mat-icon color="primary">
-                add_circle
+              add_circle
             </mat-icon>
           </mat-card-content>
         </a>
-        </mat-card> 
-</section>
+      </mat-card>
+    </section>
 
-   </ng-template>
-  </section>
+  </ng-template>
+</section>

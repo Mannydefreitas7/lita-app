@@ -122,7 +122,14 @@ upload(event) {
   const fileTask = fileRef.put(file)
   this.photoEdit = true;
   this.uploadProgress = fileTask.percentageChanges();
-  fileRef.getDownloadURL().subscribe(url => this.uploadUrl = url)
+  fileTask.snapshotChanges().pipe(
+  finalize(() => {
+    fileRef.getDownloadURL().subscribe(url => {
+      this.uploadUrl = url
+      console.log(url)
+    });
+  })
+).subscribe();
   }
 
   updateProfile() {

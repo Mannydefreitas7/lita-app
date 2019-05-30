@@ -1,9 +1,20 @@
-<mat-list>
+
 <section class="lita-section">
 	<h2>What's New</h2>
 	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, ut harum quasi recusandae cum odit, aliquam beatae ea illo doloribus corporis quo iste hic ducimus, quia dicta atque non nostrum?</p>
 </section>
 <mat-divider></mat-divider>
+<section class="lita-spinner" *ngIf="loading else loaded">
+        <div fxLayout="col" fxLayoutAlign="center center" fxFill>
+          <mat-spinner></mat-spinner>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+          <h3>Dashboard is Loading...</h3>
+        </div>
+</section>
+
+<ng-template #loaded>
+	
 <div fxLayout="row" fxLayoutAlign="end center">
 	<a
 		[matMenuTriggerFor]="homeSettings" style="cursor: pointer;"><mat-icon class="lita-icon">more_horiz</mat-icon></a>
@@ -93,4 +104,5 @@
 		</mat-card-content>
 	</mat-card>
 </section>
-</mat-list>
+
+</ng-template>

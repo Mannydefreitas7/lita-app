@@ -28,6 +28,7 @@ export class PublisherComponent implements OnInit {
   emailSent = false;
   errorMessage: string;
   admin: boolean;
+  pub: any;
 
 
   constructor(
@@ -108,6 +109,7 @@ export class PublisherComponent implements OnInit {
           this.publisher = this.publisherService.publisherDocument(congID, params['id']).valueChanges();
           this.publisherService.publisherDocument(congID, params['id']).valueChanges().subscribe(pub => {
             if (pub.role === 'publisher') {
+              this.pub = pub;
               this.admin = false;
             } else {
               this.admin = true;

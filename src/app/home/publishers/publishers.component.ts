@@ -38,7 +38,7 @@ export class PublishersComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    setTimeout(() => {
     this.auth.user.subscribe(user => {
       this.publisherService.publishersCollection(user.congregation).valueChanges().subscribe(publishers => {
           this.pubs = JSON.parse(JSON.stringify(publishers));
@@ -47,5 +47,6 @@ export class PublishersComponent implements OnInit {
           console.log(this.pubs)
           });
       });
-    }
+    }, 1000)
+  }
 }

@@ -2,91 +2,97 @@
   <mat-icon>keyboard_arrow_left</mat-icon> GO BACK
 </a>
 <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-    <h1 class="lita-user-name">{{ (publisher | async )?.fname }} <span
+  <h1 class="lita-user-name">{{ (publisher | async )?.fname }} <span
       class="lita-last-name">{{(publisher | async )?.lname}}</span> <span class="lita-count"
-      *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span> 
-    </h1>
-  <p><strong>Publisher ID:</strong> {{ (publisher | async )?.id }}</p>
+      *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span>
+  </h1>
 </div>
 
 <section class="lita-section" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px">
 
-<mat-card class="lita-card">
-  <mat-card-title>Publisher's Information</mat-card-title>
-  <form [formGroup]="publisherForm" class="settings">
-    <mat-card-content class="mat-typography" fxLayoutAlign="start start" fxLayout="column">
-      <div class="dashboard-toolbar--image settings--image">
-        <img [src]="" alt="">
-      </div>
+  <mat-card class="lita-card">
+    <mat-card-header>
+      <img mat-card-avatar
+        src="https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/profile.png?alt=media&token=3e64e22a-dfdc-4329-8fc1-160744dd12dd">
+      <mat-card-title>Publisher Information</mat-card-title>
+      <mat-card-subtitle><strong>Publisher ID:</strong> {{ (publisher | async )?.id }}</mat-card-subtitle>
+    </mat-card-header>
 
-      <mat-form-field appearance="fill" fxFill>
-        <mat-label>First Name</mat-label>
-        <input matInput [placeholder]="(publisher | async )?.fname" formControlName="fname"
-          [value]="(publisher | async )?.fname">
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
+    <form [formGroup]="publisherForm" class="settings">
+      <mat-card-content class="mat-typography" fxLayoutAlign="start start" fxLayout="column">
+
+        <mat-form-field appearance="fill" fxFill>
+          <mat-label>First Name</mat-label>
+          <input matInput [placeholder]="(publisher | async )?.fname" formControlName="fname"
+            [value]="(publisher | async )?.fname">
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
 
 
-      <mat-form-field appearance="fill" fxFill>
-        <mat-label>Last Name</mat-label>
-        <input matInput [placeholder]="(publisher | async )?.lname" formControlName="lname"
-          [value]="(publisher | async )?.lname">
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
+        <mat-form-field appearance="fill" fxFill>
+          <mat-label>Last Name</mat-label>
+          <input matInput [placeholder]="(publisher | async )?.lname" formControlName="lname"
+            [value]="(publisher | async )?.lname">
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" fxFill >
-        <mat-label>Email</mat-label>
-        <input matInput  [placeholder]="(publisher | async )?.email" formControlName="email"
-          [value]="(publisher | async )?.email">
-        <mat-icon matSuffix>email</mat-icon>
-      </mat-form-field>
+        <mat-form-field appearance="fill" fxFill>
+          <mat-label>Email</mat-label>
+          <input matInput [placeholder]="(publisher | async )?.email" formControlName="email"
+            [value]="(publisher | async )?.email">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
 
-    </mat-card-content>
-  </form>
+      </mat-card-content>
+    </form>
     <mat-card-actions align="end">
 
-        <button *ngIf="edit" mat-button (click)="cancelEdit()"><mat-icon class="lita-icon" color="disabled">clear</mat-icon>CANCEL</button>
+      <button *ngIf="edit" mat-button (click)="cancelEdit()">
+        <mat-icon class="lita-icon" color="disabled">clear</mat-icon>CANCEL
+      </button>
 
-        <button *ngIf="edit" mat-button (click)="updatePublisher()" color="primary"><mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE</button>
-
-
-       
-    <div *ngIf="!edit">
-        <button *ngIf="!admin" (click)="adminInvite()" mat-button >
-            <mat-icon class="lita-icon" color="disabled">how_to_reg</mat-icon>INVITE AS ADMIN
-          </button>
-          <button *ngIf="admin" (click)="cancelAdmin()" mat-button>
-              <mat-icon class="lita-icon" color="disabled">person_add_disabled
-                </mat-icon>REVOKE ADMIN
-            </button>
-      </div>  
+      <button *ngIf="edit" mat-button (click)="updatePublisher()" color="primary">
+        <mat-icon class="lita-icon" color="primary">done</mat-icon>SAVE
+      </button>
 
 
-          <button *ngIf="!edit" (click)="openDeleteModal()" mat-button>
-              <mat-icon class="lita-icon lita-icon-order" color="disabled">delete</mat-icon>DELETE
-            </button>
 
-            <button *ngIf="!edit" (click)="editField()" mat-button color="primary">
-                <mat-icon color="primary" class="lita-icon">edit</mat-icon>EDIT
-              </button>
+      <div *ngIf="!edit">
+        <button *ngIf="!admin" (click)="adminInvite()" mat-button>
+          <mat-icon class="lita-icon" color="disabled">how_to_reg</mat-icon>INVITE AS ADMIN
+        </button>
+        <button *ngIf="admin" (click)="cancelAdmin()" mat-button>
+          <mat-icon class="lita-icon" color="disabled">person_add_disabled
+          </mat-icon>REVOKE ADMIN
+        </button>
+      </div>
 
-      </mat-card-actions>
-</mat-card>
 
-<mat-card class="lita-card">
-  <mat-card-title>
-    Publications Orders
-  </mat-card-title>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-button color="primary">
-      <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>ORDER
-    </button>
-  </mat-card-actions>
-</mat-card>
+      <button *ngIf="!edit" (click)="openDeleteModal()" mat-button>
+        <mat-icon class="lita-icon lita-icon-order" color="disabled">delete</mat-icon>DELETE
+      </button>
+
+      <button *ngIf="!edit" (click)="editField()" mat-button color="primary">
+        <mat-icon color="primary" class="lita-icon">edit</mat-icon>EDIT
+      </button>
+
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="lita-card">
+    <mat-card-title>
+      Publications Orders
+    </mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button color="primary">
+        <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>ORDER
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </section>

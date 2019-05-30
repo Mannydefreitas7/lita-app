@@ -78,6 +78,12 @@ p {
     box-shadow: none;
 }
 
+.lita-spinner {
+    h3 { 
+        font-weight: 300;
+     }
+}
+
 .mat-card {
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
     border-radius: 5px;

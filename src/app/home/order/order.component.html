@@ -13,12 +13,15 @@
     <mat-form-field appearance="fill" class="lita-search">
       <mat-label>Search Publications</mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
-        placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="searchText">
-      <mat-icon matSuffix>search</mat-icon>
+        placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="pubText">
+      <button mat-button *ngIf="pubText" matSuffix mat-icon-button aria-label="Clear" (click)="pubText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-icon matSuffix *ngIf="!pubText">search</mat-icon>
     </mat-form-field>
 
 
-    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)">
+    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)" [value]="true">
       <mat-button-toggle [value]="true">
         <mat-icon>view_module</mat-icon>
       </mat-button-toggle>
@@ -29,11 +32,53 @@
     </mat-button-toggle-group>
   </div>
 
-  <section class="lita-spinner" fxLayout="col" fxLayoutAlign="center center" fxFill *ngIf="loading else loaded">
-    <mat-spinner></mat-spinner>
+  <section class="lita-spinner"  *ngIf="loading else loaded">
+    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
+      <mat-spinner></mat-spinner>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+      <h3>Inventory is Loading...</h3>
+    </div>
   </section>
 
   <ng-template #loaded>
+
+    <section *ngIf="toggle" class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="15px">
+      <mat-card *ngFor="let pub of publications" fxFlex="400px">
+        <mat-card-title-group>
+          <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
+          <mat-card-title>{{ pub.name }}</mat-card-title>
+          <img mat-card-sm-image [src]="pub.cover" class="lita-pub--avatar">
+        </mat-card-title-group>
+        <mat-card-content>
+          <mat-list role="list">
+              <h3 mat-subheader>Details</h3>
+              <mat-list-item role="listitem">
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+                  <p>Item Number</p>
+                  <span>{{ pub.id }}</span>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-item>
+      
+              <mat-list-item role="listitem">
+                  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+                  <p>Publication ID</p>
+                  <span>{{ pub.pubId }}</span>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-item>
+            
+              <mat-list-item role="listitem">
+                  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
+                  <p>Quantity On Hand</p>
+                  <span style="color: #00aeef;">{{ pub.onHand }}</span>
+                </div>
+              </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </section>
 
     <table *ngIf="!toggle" mat-table [dataSource]="dataSource" class="lita-table">
       <!-- Position Column -->
@@ -79,35 +124,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-
-    <section *ngIf="toggle" class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="15px">
-      <mat-card *ngFor="let pub of publications | pubfilter : searchText" fxFlex="45%">
-        <mat-card-header> 
-        <img mat-card-avatar [src]="pub.cover" class="lita-pub--avatar"> 
-          <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
-          <mat-card-title>{{ pub.name }}</mat-card-title>
-        </mat-card-header>
-          <mat-card-content>
-              <h3>Quantity</h3>
-              <mat-list fxLayout="row" fxLayoutAlign="space-between start">
-                  <mat-list-item>
-                      <h4 mat-line>In:</h4> 
-                      <span mat-line> {{pub.in}}</span>
-                  </mat-list-item>
-                  <mat-list-item>
-                      <h4 mat-line>On Hand:</h4>
-                      <span mat-line>  {{pub.onHand}}</span>
-           
-                  </mat-list-item>
-                  <mat-list-item>
-                      <h4 mat-line>Out:</h4> 
-                      <span mat-line> {{pub.out}}</span>
-                  </mat-list-item>
-              
-                </mat-list>
-          </mat-card-content>
-      </mat-card>
-    </section>
 
   </ng-template>
 </section>
