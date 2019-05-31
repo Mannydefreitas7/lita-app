@@ -45,6 +45,7 @@
 
     <section *ngIf="toggle" class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="15px">
       <mat-card *ngFor="let pub of publications" fxFlex="400px">
+        <a [routerLink]="['/home/add-publication', congregation, pub.id]">
         <mat-card-title-group>
           <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
           <mat-card-title>{{ pub.name }}</mat-card-title>
@@ -76,6 +77,7 @@
               </mat-list-item>
             </mat-list>
         </mat-card-content>
+      </a>
       </mat-card>
     </section>
 

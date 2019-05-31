@@ -3,7 +3,7 @@ export class Congregation {
 	name?: string;
 	language?: any;
 	publishers?: [Publisher];
-	literature?: any;
+	order?: any;
 	}
 
 export class Publisher {

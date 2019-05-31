@@ -15,6 +15,7 @@ import { AddpublisherComponent } from './home/publishers/addpublisher.component'
 import { UsersComponent } from './home/admin/users/users.component';
 import { CongregationsComponent } from './home/admin/congregations/congregations.component';
 import { NewsComponent } from './home/admin/news/news.component';
+import { OrderPublicationComponent } from './home/order/order-publication/order-publication.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'publishers/:id', component: PublisherComponent },
       { path: 'add-publisher', component: AddpublisherComponent },
       { path: 'order' , component: OrderComponent },
+      { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent },
       { path: 'report', component: ReportComponent },
       { path: 'help', component: HelpComponent }
     ]

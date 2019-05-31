@@ -1,0 +1,16 @@
+<!-- <form [formGroup]="orderForm" class="settings"> -->
+    <div class="dashboard-toolbar--image settings--image">
+        <img [src]="pub" alt="">
+    </div>
+    <h3></h3>
+    <span></span>
+
+    <span>Order for:</span>
+    <p>{{ name }}</p>
+
+    <span>Select Quantity:</span>
+    <h3></h3>
+    <mat-slider></mat-slider>
+    <button mat-button (click)="load.goBack()"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
+    <button mat-button color="primary" (click)="updateProfile()"><mat-icon class="lita-icon" color="primary">done</mat-icon>SUBMIT</button>
+<!-- </form> -->

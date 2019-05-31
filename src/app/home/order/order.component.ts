@@ -4,7 +4,7 @@ import { MatButtonToggleChange, MatTableDataSource, MatSelectChange, MatButtonTo
 import { DashboardService } from '../dashboard/dashboard.service';
 import { OrderService } from './order.service';
 import { map } from 'rxjs/operators';
-import { CongLiterature, Literature } from 'src/app/shared/models/congregation.model';
+import { CongLiterature, Literature, Congregation } from 'src/app/shared/models/congregation.model';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
   dataSource: any;
   pubText:string = '';
   displayedColumns: string[] = ['id', 'name', 'pubId', 'contextTitle', 'quantityIn', 'quantityOnHand', 'quantityOut'];
+  congregation: any;
 
   title = "Inventory";
   constructor(
@@ -34,6 +35,9 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     const date = new Date()
+    this.auth.user.subscribe(user => {
+    this.congregation = user.congregation
+    })
     this.currentMonth = date.getMonth();
     this.month = this.currentMonth;
     setTimeout(() => {

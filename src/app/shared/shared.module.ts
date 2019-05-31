@@ -16,6 +16,7 @@ import { CongregationsComponent } from '../home/admin/congregations/congregation
 import { UsersComponent } from '../home/admin/users/users.component';
 import { NewsComponent } from '../home/admin/news/news.component';
 import { AddcongregationComponent } from '../home/dashboard/addcongregation.component';
+import { OrderPublicationComponent } from '../home/order/order-publication/order-publication.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AddcongregationComponent } from '../home/dashboard/addcongregation.comp
     CongregationsComponent,
     UsersComponent,
     NewsComponent,
-    AddcongregationComponent
+    AddcongregationComponent,
+    OrderPublicationComponent
   ],
   imports: [
     CommonModule,
