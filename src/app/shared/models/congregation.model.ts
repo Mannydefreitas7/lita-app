@@ -3,7 +3,6 @@ export class Congregation {
 	name?: string;
 	language?: any;
 	publishers?: [Publisher];
-	order?: any;
 	}
 
 export class Publisher {
@@ -14,7 +13,7 @@ export class Publisher {
 	role?: string;
 	photoUrl?: string;
 	orderCount?: number;
-	order?: [Literature]
+	order?: any;
 }
 
 export class Literature {
@@ -32,6 +31,12 @@ export class CongLiterature {
 		onHand: number;
 		out: number;
 	}]
+}
+
+export class Orders {
+	id?: string;
+	name?: string;
+	quantity: string;
 }
 
 

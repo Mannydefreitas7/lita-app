@@ -111,3 +111,10 @@ p {
 .lita-spinner {
     padding: 10pc 0 0 0 !important;
 }
+
+
+.lita-button {
+    &--goback {
+        margin-bottom: 15px;
+    }
+}

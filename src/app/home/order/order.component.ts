@@ -42,7 +42,7 @@ export class OrderComponent implements OnInit {
     this.month = this.currentMonth;
     setTimeout(() => {
       this.showInventory(this.currentMonth)
-    }, 3000)
+    }, 1000)
     console.log(this.publications);
   }
   

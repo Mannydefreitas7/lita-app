@@ -51,8 +51,7 @@ export class AddcongregationComponent implements OnInit {
       {
         id: congID.value,
         name: congName.value,
-        language: congLanguage.value,
-        order: []
+        language: congLanguage.value
       }, { merge: true }
     )
     .then(() => {

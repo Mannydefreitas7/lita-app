@@ -1,16 +1,50 @@
-<!-- <form [formGroup]="orderForm" class="settings"> -->
-    <div class="dashboard-toolbar--image settings--image">
-        <img [src]="pub" alt="">
+<a (click)="load.goBack()" mat-button class="lita-button lita-button--goback">
+    <mat-icon>keyboard_arrow_left</mat-icon> GO BACK
+</a>
+
+<form [formGroup]="orderForm">
+    <div class="lita-publication">
+        <div fxLayout="row wrap" fxLayoutAlign="start start">
+            <div class="lita-publication--image">
+                <img [src]="(pub | async)?.cover" alt="">
+            </div>
+
+            <div>
+                <span>{{ (pub | async)?.contextTitle }}</span>
+                <h3>{{ (pub | async)?.name }}</h3>
+                <mat-divider></mat-divider>
+                <br>
+                <div *ngIf="(pub | async)?.pubId as pubID">
+                    <span>Publication ID</span>
+                    <h4>{{ pubID }}</h4>
+                </div>
+                <span>Item Number</span>
+                <h4>{{ (pub | async)?.id }}</h4>
+            </div>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Order for:</mat-label>
+            <mat-select [value]="id" formControlName="order" (selectionChange)="onSelectChange()">
+            <mat-option [value]="id">
+                {{ name }}
+            </mat-option>
+            <mat-option *ngFor="let publi of publishers" [value]="publi.id">
+                {{ publi.fname }}  {{ publi.lname }}
+            </mat-option>
+         </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br>
+        <h3 class="lita-publication--quantity">{{ quantity }}</h3>
+        <span>Select Quantity:</span>
+       
+         <mat-slider color="primary" style="display: block; width: 50%;" min="0" max="50" [value]="quantity" [(ngModel)]="quantity" formControlName="quantity"
+                thumbLabel></mat-slider>
+        <button mat-button (click)="load.goBack()">
+            <mat-icon class="lita-icon">clear</mat-icon>CANCEL
+        </button>
+        <button mat-button color="primary" (click)="orderPub()">
+            <mat-icon class="lita-icon" color="primary">done</mat-icon>SUBMIT
+        </button>
     </div>
-    <h3></h3>
-    <span></span>
-
-    <span>Order for:</span>
-    <p>{{ name }}</p>
-
-    <span>Select Quantity:</span>
-    <h3></h3>
-    <mat-slider></mat-slider>
-    <button mat-button (click)="load.goBack()"><mat-icon class="lita-icon">clear</mat-icon>CANCEL</button>
-    <button mat-button color="primary" (click)="updateProfile()"><mat-icon class="lita-icon" color="primary">done</mat-icon>SUBMIT</button>
-<!-- </form> -->
+</form>
