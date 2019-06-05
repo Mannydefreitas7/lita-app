@@ -23,13 +23,17 @@ export class OrderPublicationComponent implements OnInit {
   name: any;
   quantity: any;
   pub: Observable<any>;
-  collection:any;
+  collection: any;
   orderForm: FormGroup;
   slider: MatSliderChange;
   selected: any;
   publishers: any;
   currentQuantity: any;
+  pubQuantity: any;
   select: MatSelect;
+  congID: any;
+  congName: any;
+  congLang: any;
 
   constructor(
     private auth: AuthService,
@@ -39,11 +43,11 @@ export class OrderPublicationComponent implements OnInit {
     private ngZone: NgZone,
     private load: DashboardService,
     private service: PublisherService
-    ) { }
+  ) { }
 
   ngOnInit() {
 
-   this.orderForm = this.formBuilder.group({
+    this.orderForm = this.formBuilder.group({
       quantity: ['', Validators.max(3)],
       order: ['']
     })
@@ -54,10 +58,41 @@ export class OrderPublicationComponent implements OnInit {
       this.pubId = par['pubid']
       console.log(this.id, this.pubId)
 
-      this.load.fireStore.collection('congregations').doc(`${par['id']}`).collection('orders').doc<Orders>(`${par['pubid']}`).valueChanges().subscribe(c => {
-        this.currentQuantity = c.quantity;
+      this.auth.user.subscribe(user => {
+
+        this.load.fireStore.collection('congregations').doc<Congregation>(`${user.congregation}`).valueChanges().subscribe(cong => {
+          this.congID = cong.id;
+          this.congName = cong.name;
+          this.congLang = cong.language;
+        })
+        this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').valueChanges().subscribe(publis => {
+          this.publishers = publis;
+        })
       })
-    
+
+      this.pub = this.load.fireStore.collection('literature').doc<Literature>(`${this.pubId}`).valueChanges();
+
+
+    })
+
+    if (this.orderForm.get('quantity').touched) {
+      this.quantity = this.orderForm.get('quantity').value;
+    } else {
+      this.quantity = 0;
+
+    }
+
+  }
+
+  private goBack() {
+    return this.url.navigateByUrl('/home/order');
+  }
+
+  onSelectChange() {
+    this.router.params.subscribe(par => {
+
+      this.url.navigateByUrl(`/home/add-publication/${this.orderForm.get('order').value}/${par['pubid']}`)
+      this.id = par['id'];
 
       if (par['id'].length > 6) {
         this.auth.user.subscribe(user => {
@@ -65,70 +100,43 @@ export class OrderPublicationComponent implements OnInit {
             this.name = res.fname + ' ' + res.lname;
           })
         })
-     
+
       } else {
 
-        this.load.fireStore.collection('congregations').doc<Congregation>(`${this.id}`).valueChanges().subscribe(res => {
+        this.load.fireStore.collection('congregations').doc<Congregation>(`${par['id']}`).valueChanges().subscribe(res => {
           this.name = res.name + ` ` + res.language;
-    
-       })
-
-      }
-      this.auth.user.subscribe(user => { 
-        this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').valueChanges().subscribe(publis => {
-          this.publishers = publis;
         })
-      })
-      
-
-      this.pub = this.load.fireStore.collection('literature').doc<Literature>(`${this.pubId}`).valueChanges();
-
-   
-    })
-
-    if (this.orderForm.get('quantity').touched) {
-      this.quantity = this.orderForm.get('quantity').value;
-    } else {
-      this.quantity = 0;
-      
-    }
-   
-  }
-
-  onSelectChange() {
-    this.router.params.subscribe(par => {
-      if (this.orderForm.get('order').value != par['id']) {
-        return this.url.navigateByUrl(`/home/add-publication/${this.orderForm.get('order').value}/${par['pubid']}`)
       }
     })
+
   }
 
   orderPub() {
-    this.load.fireStore.collection('literature').doc<Literature>(`${this.pubId}`).valueChanges().subscribe(pub => {
-      this.router.params.subscribe(par => { 
-        if (par['id'].length == 6) {
-         
-            this.load.fireStore.collection('congregations').doc(`${par['id']}`).collection('orders').doc(`${par['pubid']}`).set({
+    this.router.params.subscribe(par => {
+      this.load.fireStore.collection('literature').doc<Literature>(`${par['pubid']}`).valueChanges().subscribe(pub => {
+
+        this.auth.user.subscribe(user => {
+
+          if (par['id'].length == 6) {
+
+            return this.load.fireStore.collection('congregations').doc(`${par['id']}`).collection('orders').doc(`${par['pubid']}`).set({
               id: par['pubid'],
               name: pub.name,
-              quantity: this.currentQuantity + this.orderForm.get('quantity').value || this.orderForm.get('quantity').value
-            }, {merge: false })
-        } else {
-          this.auth.user.subscribe(user => { 
-            this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').doc<Publisher>(`${par['id']}`).collection('orders').doc(`${par['pubid']}`).set({
-              order: [{
-                id: par['pubid'],
-                name: pub.name,
-                quantity: this.orderForm.get('quantity').value
-              }],
-              orderCount: this.orderForm.get('quantity').value
-            })
-          })
-        }
+              quantity: this.orderForm.get('quantity').value
+            }, { merge: false })
+          } else {
+            return this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').doc<Publisher>(`${par['id']}`).collection('orders').doc(`${par['pubid']}`).set({
+              id: par['pubid'],
+              name: pub.name,
+              quantity: this.orderForm.get('quantity').value
+            }, { merge: false })
+          }
+        })
       })
     })
-    this.load.goBack();
-    return this.service.snackBar.open('Publication order is added successfully','', { duration: 5000 })
+
+    this.url.navigateByUrl('/home/order');
+    return this.service.snackBar.open('Publication order is added successfully', '', { duration: 5000 })
   }
 
 }

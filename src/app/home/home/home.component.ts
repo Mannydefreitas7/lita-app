@@ -19,11 +19,14 @@ export class HomeComponent implements OnInit {
   publisherCard: boolean = true;
   orderCard: boolean = true;
   reportCard: boolean = true;
+  calendarCard: boolean = true;
+  orderSource: any;
   cards: any;
   totalPublishers: number;
   totalRequests: number;
   orderCount: number = 0;
   loading: boolean;
+  displayedColumns: string[] = ['user', 'pub', 'actions']
 
   constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog, private dash: DashboardService) { }
 
@@ -34,6 +37,10 @@ export class HomeComponent implements OnInit {
   togglePub() {
     this.publisherCard = !this.publisherCard;
   }
+  toggleCal() {
+    this.calendarCard = !this.calendarCard
+  }
+
 
   toggleOrder() {
     this.orderCard = !this.orderCard;
@@ -50,6 +57,8 @@ export class HomeComponent implements OnInit {
 
       this.auth.user.subscribe(user => {
         this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
+
+
           this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).collection('publishers')
             .snapshotChanges().subscribe(total => {
               this.totalPublishers = total.length;

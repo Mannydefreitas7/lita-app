@@ -21,12 +21,53 @@
 </div>
 <mat-menu #homeSettings="matMenu" xPosition="before">
 	<mat-list role="list">
-			<mat-list-item role="listitem"><mat-slide-toggle [checked]="publisherCard" (change)="togglePub()">Publishers</mat-slide-toggle></mat-list-item>
-			<mat-list-item role="listitem"><mat-slide-toggle [checked]="orderCard" (change)="toggleOrder()">Order</mat-slide-toggle></mat-list-item>
-			<mat-list-item role="listitem"><mat-slide-toggle [checked]="reportCard" (change)="toggleReport()">Report</mat-slide-toggle></mat-list-item>
+		<mat-list-item role="listitem"><mat-slide-toggle [checked]="publisherCard" (change)="togglePub()">Publishers</mat-slide-toggle></mat-list-item>
+		<mat-list-item role="listitem"><mat-slide-toggle [checked]="orderCard" (change)="toggleOrder()">Order</mat-slide-toggle></mat-list-item>
+		<mat-list-item role="listitem"><mat-slide-toggle [checked]="reportCard" (change)="toggleReport()">Report</mat-slide-toggle></mat-list-item>
+		<mat-list-item role="listitem"><mat-slide-toggle [checked]="reportCard" (change)="toggleCal()">Calendar</mat-slide-toggle></mat-list-item>
 	</mat-list>
 </mat-menu>
-<section fxLayoutAlign="start start" fxLayoutGap="10px" fxLayout="row wrap" class="lita-section">
+<section fxLayoutAlign="start start" fxLayoutGap="10px" fxLayout="row wrap" class="lita-section" >
+		<mat-card fxFlex="100%" fxFlexFill *ngIf="orderCard">
+			<mat-card-header fxLayout="row">
+				<mat-card-title fxLayout="row">
+					<mat-icon class="lita-icon">content_paste</mat-icon>
+					Orders
+				</mat-card-title>
+			</mat-card-header>
+			
+			<mat-card-content>
+					<table mat-table [dataSource]="orderSource">
+							<ng-container matColumnDef="user">
+							  <th mat-header-cell *matHeaderCellDef>From</th>
+							  <td mat-cell *matCellDef="let element"> {{order.name}} </td>
+							</ng-container>
+						  
+		
+							<ng-container matColumnDef="pub">
+							  <th mat-header-cell *matHeaderCellDef>Publication</th>
+							  <td mat-cell *matCellDef="let element"> {{order.pub}} </td>
+							</ng-container>
+						  
+				
+							<ng-container matColumnDef="actions">
+							  <th mat-header-cell *matHeaderCellDef>Actions</th>
+							  <td mat-cell *matCellDef="let element"> <button mat-button>Cancel</button> <button mat-button>Complete</button> </td>
+							</ng-container>
+						  
+							<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+							<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+						  </table>
+						  
+			</mat-card-content>
+			<mat-card-actions align="end">
+				<button mat-button routerLink='/home/order'> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
+				<button mat-button color="primary"> <mat-icon class="lita-icon">add</mat-icon>CREATE ORDER</button>
+			</mat-card-actions>
+
+		</mat-card>
+
+
 	<mat-card *ngIf="publisherCard">
 		<mat-card-header fxLayout="row">
 			<mat-card-title fxLayout="row">
@@ -58,23 +99,7 @@
 		</mat-card-actions>
 	</mat-card>
 	
-	<mat-card *ngIf="orderCard">
-		<mat-card-header fxLayout="row">
-			<mat-card-title fxLayout="row">
-				<mat-icon class="lita-icon">content_paste</mat-icon>
-				INVENTORY
-			</mat-card-title>
-		</mat-card-header>
-		<mat-card-content>
-			<p>
-				
-			</p>
-		</mat-card-content>
-		<mat-card-actions align="end">
-			<button mat-button routerLink='/home/order'> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
-			<button mat-button color="primary"> <mat-icon class="lita-icon">add</mat-icon>CREATE ORDER</button>
-		</mat-card-actions>
-	</mat-card>
+
 	
 	<mat-card *ngIf="reportCard">
 		<mat-card-header fxLayout="row">
@@ -92,7 +117,8 @@
 			<button routerLink='/home/report' mat-button> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
 		</mat-card-actions>
 	</mat-card>
-	<mat-card >
+
+	<mat-card *ngIf="calendarCard">
 		<mat-card-header fxLayout="row">
 			<mat-card-title fxLayout="row">
 				<mat-icon class="lita-icon">calendar_today</mat-icon>

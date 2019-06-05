@@ -36,7 +36,8 @@ export class CongLiterature {
 export class Orders {
 	id?: string;
 	name?: string;
-	quantity: string;
+	quantity?: string;
+	user?: string;
 }
 
 

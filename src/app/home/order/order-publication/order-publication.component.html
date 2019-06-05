@@ -1,4 +1,4 @@
-<a (click)="load.goBack()" mat-button class="lita-button lita-button--goback">
+<a (click)="goBack()" mat-button class="lita-button lita-button--goback">
     <mat-icon>keyboard_arrow_left</mat-icon> GO BACK
 </a>
 
@@ -24,9 +24,9 @@
         </div>
         <mat-form-field appearance="fill">
             <mat-label>Order for:</mat-label>
-            <mat-select [value]="id" formControlName="order" (selectionChange)="onSelectChange()">
-            <mat-option [value]="id">
-                {{ name }}
+            <mat-select [(ngModel)]="id" formControlName="order" (selectionChange)="onSelectChange()">
+            <mat-option [value]="congID">
+                {{ congName }} {{ congLang }}
             </mat-option>
             <mat-option *ngFor="let publi of publishers" [value]="publi.id">
                 {{ publi.fname }}  {{ publi.lname }}
@@ -40,7 +40,7 @@
        
          <mat-slider color="primary" style="display: block; width: 50%;" min="0" max="50" [value]="quantity" [(ngModel)]="quantity" formControlName="quantity"
                 thumbLabel></mat-slider>
-        <button mat-button (click)="load.goBack()">
+        <button mat-button (click)="goBack()">
             <mat-icon class="lita-icon">clear</mat-icon>CANCEL
         </button>
         <button mat-button color="primary" (click)="orderPub()">
