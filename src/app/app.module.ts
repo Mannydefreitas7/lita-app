@@ -18,6 +18,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { LiteratureComponent } from './home/literature/literature.component';
 import { HelpComponent } from './home/help/help.component';
 import { OrderComponent } from './home/order/order.component';
+import { InventoryComponent } from './home/inventory/inventory.component';
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -33,6 +34,7 @@ import { PubFilterPipe } from './components/pipes/pub-filter.pipe';
     PublishersComponent,
     HeaderComponent,
     DashboardComponent,
+    InventoryComponent,
     LiteratureComponent,
     HelpComponent,
     OrderComponent,

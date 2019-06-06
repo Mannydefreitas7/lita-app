@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
-import { MatSlideToggleChange, MatSlideToggle, MatDialog } from '@angular/material'
+import { MatSlideToggleChange, MatSlideToggle, MatDialog, MatTableDataSource } from '@angular/material'
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Publisher, Congregation } from 'src/app/shared/models/congregation.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   totalRequests: number;
   orderCount: number = 0;
   loading: boolean;
-  displayedColumns: string[] = ['user', 'pub', 'actions']
+  displayedColumns: string[] = ['user', 'pub','quantity', 'actions']
 
   constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog, private dash: DashboardService) { }
 
@@ -57,6 +57,10 @@ export class HomeComponent implements OnInit {
 
       this.auth.user.subscribe(user => {
         this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
+
+          this.dash.getCongregationDoc(`${userDoc.congregation}`).collection('orders').valueChanges().subscribe(data => {
+            this.orderSource = new MatTableDataSource(JSON.parse(JSON.stringify(data)));
+          })
 
 
           this.afs.doc<Congregation>(`congregations/${userDoc.congregation}`).collection('publishers')

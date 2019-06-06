@@ -2,20 +2,19 @@ import { Component, OnInit} from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
 import { MatButtonToggleChange, MatTableDataSource, MatSelectChange, MatButtonToggleGroup } from '@angular/material';
 import { DashboardService } from '../dashboard/dashboard.service';
-import { OrderService } from './order.service';
+import { OrderService } from '../order/order.service';
 import { map } from 'rxjs/operators';
 import { CongLiterature, Literature, Congregation } from 'src/app/shared/models/congregation.model';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
-  selector: 'lita-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['../publishers/scss/publishers.component.scss', './order.component.scss']
+  selector: 'lita-inventory',
+  templateUrl: './inventory.component.html',
+  styleUrls: ['../publishers/scss/publishers.component.scss', './inventory.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class InventoryComponent implements OnInit {
   loading: boolean;
-  toggle: boolean = true;
-  toggleGroup: MatButtonToggleGroup
+  inventory: boolean;
   publications:any = [];
   currentMonth: number;
   month: number;
@@ -24,7 +23,7 @@ export class OrderComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'pubId', 'contextTitle', 'quantityIn', 'quantityOnHand', 'quantityOut'];
   congregation: any;
 
-  title = "ORDERS";
+  title = "Inventory";
   constructor(
     private auth: AuthService,
     private dash: DashboardService,
@@ -37,6 +36,9 @@ export class OrderComponent implements OnInit {
     const date = new Date()
     this.auth.user.subscribe(user => {
     this.congregation = user.congregation
+    this.dash.getCongregationDoc(`${user.congregation}`).valueChanges().subscribe(cong => {
+        this.inventory = cong.inventory;
+      })
     })
     this.currentMonth = date.getMonth();
     this.month = this.currentMonth;
@@ -44,14 +46,10 @@ export class OrderComponent implements OnInit {
       this.showInventory(this.currentMonth)
     }, 1000)
     console.log(this.publications);
+
+
   }
   
-
-  applyFilter(filterValue: string) {
-    if (!this.toggle) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
-  }
 
  mapInventory(congID: number, litID) {
     return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).valueChanges()
@@ -94,8 +92,5 @@ monthDisplay(event: MatSelectChange) {
     }, 3000)
 }
 
-  toggleView(change: MatButtonToggleChange) {
-    this.toggle = change.value;
-  }
 
 }

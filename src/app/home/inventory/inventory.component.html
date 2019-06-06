@@ -1,0 +1,73 @@
+<section class="lita-section">
+  <section fxFill fxLayoutAlign="space-between center">
+    <h2>{{ title }}</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Current Month</mat-label>
+      <mat-select [(value)]="month" (selectionChange)="monthDisplay($event)">
+        <mat-option *ngFor="let mon of order.months" [value]="mon.value">{{ mon.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </section>
+  <section fxLayout="row" fxLayoutAlign="end center">
+      <button mat-flat-button color="primary" [disabled]="inventory"><mat-icon style="margin-right: 10px;">add</mat-icon>CREATE INVENTORY</button>
+  </section>
+
+  <section class="lita-spinner" *ngIf="loading else loaded">
+    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
+      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+      <p>LOADING...</p>
+    </div>
+</section>
+
+  <ng-template #loaded>
+
+    <table mat-table [dataSource]="dataSource" class="lita-table">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Item Number</th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.id }} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.name }} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="pubId">
+        <th mat-header-cell *matHeaderCellDef>Pub. ID </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.pubId }} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="contextTitle">
+        <th mat-header-cell *matHeaderCellDef> Context Title </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.contextTitle }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantityIn">
+        <th mat-header-cell *matHeaderCellDef> Qty Received </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.in }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantityOnHand">
+        <th mat-header-cell *matHeaderCellDef> Qty On Hand </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.onHand }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantityOut">
+        <th mat-header-cell *matHeaderCellDef> Qty Out </th>
+        <td mat-cell *matCellDef="let pub"> {{ pub.out }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </ng-template>
+</section>

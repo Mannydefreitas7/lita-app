@@ -7,6 +7,7 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LiteratureComponent } from './home/literature/literature.component';
 import { OrderComponent } from './home/order/order.component';
+import { InventoryComponent } from './home/inventory/inventory.component';
 import { ReportComponent } from './home/report/report.component';
 import { HelpComponent } from './home/help/help.component';
 import { HomeComponent } from './home/home/home.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'publishers/:id', component: PublisherComponent },
       { path: 'add-publisher', component: AddpublisherComponent },
       { path: 'order' , component: OrderComponent },
+      { path: 'inventory' , component: InventoryComponent },
       { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent },
       { path: 'report', component: ReportComponent },
       { path: 'help', component: HelpComponent }
