@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { MatTableDataSource, MatButtonToggleChange } from '@angular/material';
+import { MatTableDataSource, MatButtonToggleChange, MatDialog } from '@angular/material';
 import { PublisherService } from './publisher.service';
 import { Publisher } from 'src/app/shared/models/congregation.model';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth.service';
+import { AddpublisherComponent } from './addpublisher.component';
+import { OrderComponent } from '../order/order.component';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -24,8 +26,9 @@ export class PublishersComponent implements OnInit {
 
   constructor(
     public publisherService: PublisherService,
-    private auth: AuthService
-    ) {this.loading = true;}
+    private auth: AuthService,
+    private dialog: MatDialog
+  ) { this.loading = true; }
 
   applyFilter(filterValue: string) {
     if (!this.toggle) {
@@ -37,15 +40,27 @@ export class PublishersComponent implements OnInit {
     this.toggle = change.value;
   }
 
+  addPublisher() {
+    this.dialog.open(AddpublisherComponent, { width: '400px' });
+  }
+
+  order(id) {
+          this.dialog.open(OrderComponent, {
+            width: '95%', data: {
+              id: id
+            }
+          })
+  }
+
   ngOnInit() {
     setTimeout(() => {
-    this.auth.user.subscribe(user => {
-      this.publisherService.publishersCollection(user.congregation).valueChanges().subscribe(publishers => {
+      this.auth.user.subscribe(user => {
+        this.publisherService.publishersCollection(user.congregation).valueChanges().subscribe(publishers => {
           this.pubs = JSON.parse(JSON.stringify(publishers));
           this.dataSource = new MatTableDataSource(this.pubs)
           this.loading = false;
           console.log(this.pubs)
-          });
+        });
       });
     }, 1000)
   }

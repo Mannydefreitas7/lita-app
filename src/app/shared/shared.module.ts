@@ -41,7 +41,7 @@ import { OrderPublicationComponent } from '../home/order/order-publication/order
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [DeletepublisherComponent],
+  entryComponents: [DeletepublisherComponent, AddpublisherComponent],
   exports: [
     CommonModule,
     FormsModule,

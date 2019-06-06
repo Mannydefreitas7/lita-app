@@ -28,7 +28,6 @@ const routes: Routes = [
       { path: 'literature', component: LiteratureComponent },
       { path: 'publishers', component: PublishersComponent },
       { path: 'publishers/:id', component: PublisherComponent },
-      { path: 'add-publisher', component: AddpublisherComponent },
       { path: 'order' , component: OrderComponent },
       { path: 'inventory' , component: InventoryComponent },
       { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent },

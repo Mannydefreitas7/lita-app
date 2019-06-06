@@ -8,6 +8,7 @@ import { AddpublisherComponent } from '../publishers/addpublisher.component';
 import { Observable } from 'rxjs';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { User } from 'src/app/shared/models/user.model';
+import { PublisherService } from '../publishers/publisher.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',
@@ -25,13 +26,28 @@ export class HomeComponent implements OnInit {
   totalPublishers: number;
   totalRequests: number;
   orderCount: number = 0;
+  today: number = Date.now();
+  day: number = new Date().getDate();
+  currentYear = new Date().getFullYear();
+  currentMonth = new Date().getMonth() + 1;
+  nextMonth = new Date().getMonth() + 2;
+  nextInv: any;
   loading: boolean;
+  congregation: any;
   displayedColumns: string[] = ['user', 'pub','quantity', 'actions']
 
-  constructor(private auth: AuthService, private afs: AngularFirestore, private fb: FormBuilder, private dialog: MatDialog, private dash: DashboardService) { }
+  constructor(
+    private auth: AuthService,
+    private afs: AngularFirestore,
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private dash: DashboardService,
+    public pubService: PublisherService
+    ) { }
 
   addPublisher() {
-    this.dialog.open(AddpublisherComponent);
+    this.dialog.open(AddpublisherComponent, { width: '400px' });
+    
   }
 
   togglePub() {
@@ -50,14 +66,24 @@ export class HomeComponent implements OnInit {
     this.reportCard = !this.reportCard
   }
 
+  daysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
+  }
+
+
+
 
   ngOnInit() {
+    this.nextInv = this.currentMonth
+    this.nextMonth = this.currentMonth + 1;
     this.loading = true;
+    this.nextInv = this.daysInMonth(this.currentMonth, this.currentYear) - this.day
+
     setTimeout(() => {
 
       this.auth.user.subscribe(user => {
         this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
-
+          this.congregation = userDoc.congregation;
           this.dash.getCongregationDoc(`${userDoc.congregation}`).collection('orders').valueChanges().subscribe(data => {
             this.orderSource = new MatTableDataSource(JSON.parse(JSON.stringify(data)));
           })

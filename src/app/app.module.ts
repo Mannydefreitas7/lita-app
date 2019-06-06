@@ -27,6 +27,7 @@ import { PublisherService } from './home/publishers/publisher.service';
 import { DashboardService } from './home/dashboard/dashboard.service';
 import { ListFilterPipe } from './components/pipes/list-filter.pipe';
 import { PubFilterPipe } from './components/pipes/pub-filter.pipe';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PubFilterPipe } from './components/pipes/pub-filter.pipe';
     PublishersComponent,
     HeaderComponent,
     DashboardComponent,
+    SpinnerComponent,
     InventoryComponent,
     LiteratureComponent,
     HelpComponent,

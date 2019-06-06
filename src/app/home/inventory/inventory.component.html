@@ -13,14 +13,7 @@
       <button mat-flat-button color="primary" [disabled]="inventory"><mat-icon style="margin-right: 10px;">add</mat-icon>CREATE INVENTORY</button>
   </section>
 
-  <section class="lita-spinner" *ngIf="loading else loaded">
-    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-      <p>LOADING...</p>
-    </div>
-</section>
+  <lita-spinner *ngIf="loading else loaded"></lita-spinner>
 
   <ng-template #loaded>
 
@@ -67,7 +60,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
 
   </ng-template>
 </section>

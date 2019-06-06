@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthModule } from '../auth/auth.module';
 import { AuthService } from './auth.service';
+import { SpinnerComponent } from '../components/spinner/spinner.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,6 @@ import { AuthService } from './auth.service';
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
-  declarations: [],
   providers: [AuthService]
 })
 export class CoreModule { }

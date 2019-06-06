@@ -29,6 +29,24 @@
 	}
 }
 
+.mat-card-title {
+	font-size: 18px;
+}
+.mat-card-content {
+	margin-bottom: 0;
+}
+.mat-card-footer {
+	padding: 15px 0 10px;
+	span {
+		padding: 5px;
+		background: #676767;
+		border-radius: 6px;
+		margin-right: 10px;
+		margin-top: 10px;
+		color: #fff;
+	}
+}
+
 h2 {
 	margin-bottom: 0;
 	padding-bottom: 0;

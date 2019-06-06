@@ -66,7 +66,8 @@ p {
     }
 }
 .lita-search {
-    width: 50%;
+    width: 100%;
+    margin: 1pc 0;
     .mat-form-field-wrapper {
         padding-bottom: 0 !important;
     }
@@ -81,11 +82,6 @@ p {
     box-shadow: none;
 }
 
-.lita-spinner {
-    h3 { 
-        font-weight: 300;
-     }
-}
 
 .mat-card {
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
@@ -120,4 +116,25 @@ p {
     &--goback {
         margin-bottom: 15px;
     }
+}
+
+.mat-dialog-container {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+
+.lita-modal {
+    padding: 24px;
+}
+
+.lita-modal-title {
+    background: #0275bf;
+    padding: 10px 10px 10px 24px;
+     h2 {
+         color: #fff !important;
+         padding: 0;
+         margin: 0;
+     }
 }

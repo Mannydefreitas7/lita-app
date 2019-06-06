@@ -1,13 +1,13 @@
 <section class="lita-section">
   <section fxFill fxLayoutAlign="space-between center">
     <h2>{{ title }} </h2>
-    <a mat-button color="primary" routerLink="/home/add-publisher">
+    <button mat-button color="primary" (click)="addPublisher()">
       <mat-icon class="lita-icon" color="primary">person_add</mat-icon> ADD PUBLISHER
-    </a>
+    </button>
   </section>
   <div fxLayoutAlign="space-between center">
 
-    <mat-form-field appearance="fill" class="lita-search">
+    <mat-form-field appearance="fill" class="lita-search" fxFlex="50%" fxFlexFill>
       <mat-label>Search Publishers</mat-label>
       <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
         placeholder="ex: John Doe, Charles Russell,..." [(ngModel)]="searchText">
@@ -29,14 +29,7 @@
     </mat-button-toggle-group>
   </div>
 
-  <section class="lita-spinner" *ngIf="loading else loaded">
-    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-      <p>LOADING...</p>
-    </div>
-</section>
+  <lita-spinner *ngIf="loading else loaded"></lita-spinner>
 
   <ng-template #loaded>
 
@@ -74,14 +67,14 @@
         <mat-card-content>
         </mat-card-content>
         <mat-card-actions align="center">
-          <button mat-button color="accent">
+          <button mat-button color="accent" (click)="publisherService.order(pub.id)">
             <mat-icon color="accent" class="lita-icon lita-icon-order">add_circle_outline</mat-icon>ORDER
           </button>
         </mat-card-actions>
       </mat-card>
 
       <mat-card fxFlex="170px" class="lita-card lita-add-pub">
-        <a routerLink="/home/add-publisher">
+        <a (click)="addPublisher()" style="cursor: pointer;">
           <mat-card-content fxLayoutAlign="center center" fxLayout="column" fxFill="306px">
             <mat-icon color="primary">
               add_circle

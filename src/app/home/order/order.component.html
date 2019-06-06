@@ -1,66 +1,38 @@
-<section class="lita-section">
-  <section fxFill fxLayoutAlign="space-between center">
-    <h2>{{ title }}</h2>
-    <mat-form-field appearance="fill" class="lita-search">
-        <mat-label>Search Publications</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off"
-          placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="pubText">
-        <button mat-button *ngIf="pubText" matSuffix mat-icon-button aria-label="Clear" (click)="pubText=''">
-          <mat-icon>close</mat-icon>
-        </button>
-        <mat-icon matSuffix *ngIf="!pubText">search</mat-icon>
-      </mat-form-field>
-  </section>
-
-  <section class="lita-spinner" *ngIf="loading else loaded">
-    <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-      <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-      <p>LOADING...</p>
-    </div>
-</section>
-
-  <ng-template #loaded>
-
-    <section class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="15px">
-      
-      <mat-card *ngFor="let pub of publications" fxFlex="400px">
-        <a [routerLink]="['/home/add-publication', congregation, pub.id]">
-        <mat-card-title-group>
-          <mat-card-subtitle>{{ pub.contextTitle }}</mat-card-subtitle>
-          <mat-card-title>{{ pub.name }}</mat-card-title>
-          <img mat-card-sm-image [src]="pub.cover" class="lita-pub--avatar">
-        </mat-card-title-group>
-        <mat-card-content>
-          <mat-list role="list">
-              <mat-list-item role="listitem">
-                <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-                  <p>Item Number</p>
-                  <span>{{ pub.id }}</span>
-                </div>
-                <mat-divider></mat-divider>
-              </mat-list-item>
-      
-              <mat-list-item role="listitem">
-                  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-                  <p>Publication ID</p>
-                  <span>{{ pub.pubId }}</span>
-                </div>
-                <mat-divider></mat-divider>
-              </mat-list-item>
-            
-              <mat-list-item role="listitem">
-                  <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
-                  <p>Quantity On Hand</p>
-                  <span style="color: #00aeef;">{{ pub.onHand }}</span>
-                </div>
-              </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-      </a>
-      </mat-card>
-    </section>
-
-  </ng-template>
+<header  class="lita-modal-title" fxLayout="row" fxLayoutAlign="space-between center">
+    <h2 mat-dialog-title>{{ title }}</h2>
+    <button mat-icon-button matSuffix mat-dialog-close><mat-icon style="color: #fff;">clear</mat-icon></button>
+</header>
+<section class="lita-modal">
+    <div fxLayout="row">
+        <mat-form-field  mat-dialog-title appearance="fill" class="lita-search" fxFlex="50%" fxFlexFill>
+          <mat-label>Search Publications</mat-label>
+          <input matInput autocomplete="off"
+            placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="pubText">
+          <button mat-button *ngIf="pubText" matSuffix mat-icon-button aria-label="Clear" (click)="pubText=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-icon matSuffix *ngIf="!pubText">search</mat-icon>
+        </mat-form-field>
+      </div>
+      <mat-dialog-content >
+          <lita-spinner *ngIf="loading else loaded"></lita-spinner>
+          <ng-template #loaded>
+              <section class="lita-section lita-cards lita-publication" fxLayout="row wrap" fxLayoutGap="10px">
+                <mat-card *ngFor="let pub of publications | pubfilter : pubText" fxFlex="220px">
+                  <a [routerLink]="['/home/add-publication', routed_id, pub.id]" (click)="close()">
+                        <img mat-card-image [src]="pub.cover" class="lita-pub--avatar">
+                        <mat-card-subtitle align="center">{{ pub.contextTitle }}</mat-card-subtitle>
+                      <mat-card-title align="center">{{ pub.name }}</mat-card-title>
+                  <mat-card-content>  
+                    <br> 
+                  </mat-card-content>
+                  <mat-card-footer align="end">
+                      <span *ngIf="pub.pubId">{{ pub.pubId }}</span>
+                      <span>{{ pub.id }}</span>
+                  </mat-card-footer>
+                </a>
+                </mat-card>
+              </section>
+            </ng-template>
+      </mat-dialog-content>
 </section>

@@ -9,6 +9,7 @@ import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { Publisher, Congregation } from 'src/app/shared/models/congregation.model';
 import { Observable } from 'rxjs';
+import { OrderComponent } from '../order/order.component';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +77,16 @@ export class PublisherService {
   public goBack() {
     this.location.back();
   }
+
+
+  public order(id) {
+    this.dialog.open(OrderComponent, {
+      width: '95%', data: {
+        id: id
+      }
+    })
+}
+
 
   // Add new publisher functIon //
   addPub() {

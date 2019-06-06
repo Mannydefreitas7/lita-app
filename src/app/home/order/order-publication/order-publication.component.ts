@@ -85,7 +85,7 @@ export class OrderPublicationComponent implements OnInit {
   }
 
   private goBack() {
-    return this.url.navigateByUrl('/home/order');
+    return this.url.navigateByUrl('/home');
   }
 
   onSelectChange() {
@@ -152,7 +152,7 @@ export class OrderPublicationComponent implements OnInit {
       })
     })
 
-    this.url.navigateByUrl('/home/order');
+    this.url.navigateByUrl('/home');
     return this.service.snackBar.open('Publication order is added successfully', '', { duration: 5000 })
   }
 

@@ -4,14 +4,9 @@
 	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, ut harum quasi recusandae cum odit, aliquam beatae ea illo doloribus corporis quo iste hic ducimus, quia dicta atque non nostrum?</p>
 </section>
 <mat-divider></mat-divider>
-<section class="lita-spinner" *ngIf="loading else loaded">
-        <div fxLayout="col" fxLayoutAlign="center center" fxFill>
-          <mat-spinner strokeWidth="3" diameter="50"></mat-spinner>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="center center" fxFill>
-			<p>LOADING...</p>
-        </div>
-</section>
+
+
+<lita-spinner *ngIf="loading else loaded"></lita-spinner>
 
 <ng-template #loaded>
 	
@@ -66,8 +61,7 @@
 						  
 			</mat-card-content>
 			<mat-card-actions align="end">
-				<button mat-button routerLink='/home/order'> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
-				<button mat-button color="primary"> <mat-icon class="lita-icon">add</mat-icon>CREATE ORDER</button>
+				<button mat-button color="primary" (click)="pubService.order(congregation)"> <mat-icon class="lita-icon">add</mat-icon>CREATE ORDER</button>
 			</mat-card-actions>
 
 		</mat-card>
@@ -112,9 +106,7 @@
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content>
-			<p>
-			
-			</p>
+		
 		</mat-card-content>
 		<mat-card-actions align="end">
 			<button routerLink='/home/report' mat-button> <mat-icon class="lita-icon">remove_red_eye</mat-icon>VIEW</button>
@@ -128,7 +120,18 @@
 			</mat-card-title>
 		</mat-card-header>
 		<mat-card-content>
-			<mat-datepicker></mat-datepicker>
+			<div class="lita-calendar">
+				<span fxLayoutAlign="center end" fxFill class="lita-month">{{ today | date:'LLLL' }}</span>
+				<h4 fxLayoutAlign="center center" fxFill>{{ today | date:'d' }}</h4>
+				 <span fxLayoutAlign="center start" fxFill class="lita-year">{{ today | date:'yyyy' }}</span>
+			</div>
+			<mat-list role="list">
+					<mat-list-item role="listitem" >
+						<div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill fxFlex="250px">
+							<p>Inventory due in:</p> <span [className]="nextInv < 10 ? 'danger' : ''">{{ nextInv }} {{ nextInv == 1 ? 'day' : 'days' }}</span>
+						</div>
+					</mat-list-item>
+				</mat-list>
 		</mat-card-content>
 	</mat-card>
 </section>
