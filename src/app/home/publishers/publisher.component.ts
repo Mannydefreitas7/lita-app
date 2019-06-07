@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/core/auth.service';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { OrderService } from '../order/order.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -40,6 +41,7 @@ export class PublisherComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthService,
     private router: Router,
+    private orderService: OrderService,
     private dashService: DashboardService
   ) { }
 
@@ -117,8 +119,8 @@ export class PublisherComponent implements OnInit {
           this.publisherService.publisherDocument(congID, params['id']).collection('orders').snapshotChanges().subscribe(s => {
               s.forEach(item => {
   
-                this.publisherService.publisherDocument(congID, params['id']).collection('orders').doc<Orders>(`${item.payload.doc.id}`).valueChanges().subscribe(d => {
-                return this.total.push(d.quantity)
+                 this.publisherService.publisherDocument(congID, params['id']).collection('orders').doc<Orders>(`${item.payload.doc.id}`).valueChanges().subscribe(d => {
+                 this.total.push(JSON.parse(JSON.stringify(d.quantity)))
                 })
                  })
               })

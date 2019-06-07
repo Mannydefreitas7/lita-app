@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { MatSlideToggleChange, MatSlideToggle, MatDialog, MatTableDataSource } from '@angular/material'
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Publisher, Congregation } from 'src/app/shared/models/congregation.model';
+import { Publisher, Congregation, Orders } from 'src/app/shared/models/congregation.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AddpublisherComponent } from '../publishers/addpublisher.component';
 import { Observable } from 'rxjs';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { User } from 'src/app/shared/models/user.model';
 import { PublisherService } from '../publishers/publisher.service';
+import { OrderService } from '../order/order.service';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'lita-home',
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
   nextInv: any;
   loading: boolean;
   congregation: any;
-  displayedColumns: string[] = ['user', 'pub','quantity', 'actions']
+  displayedColumns: string[] = ['user', 'pub', 'quantity', 'actions']
 
   constructor(
     private auth: AuthService,
@@ -42,12 +43,13 @@ export class HomeComponent implements OnInit {
     private fb: FormBuilder,
     private dialog: MatDialog,
     private dash: DashboardService,
-    public pubService: PublisherService
-    ) { }
+    public pubService: PublisherService,
+    private orderService: OrderService
+  ) { }
 
   addPublisher() {
     this.dialog.open(AddpublisherComponent, { width: '400px' });
-    
+
   }
 
   togglePub() {
@@ -84,7 +86,7 @@ export class HomeComponent implements OnInit {
       this.auth.user.subscribe(user => {
         this.afs.doc<User>(`users/${user.uid}`).valueChanges().subscribe(userDoc => {
           this.congregation = userDoc.congregation;
-          this.dash.getCongregationDoc(`${userDoc.congregation}`).collection('orders').valueChanges().subscribe(data => {
+          this.dash.getCongregationDoc(`${userDoc.congregation}`).collection<Orders>('orders').valueChanges().subscribe(data => {
             this.orderSource = new MatTableDataSource(JSON.parse(JSON.stringify(data)));
           })
 

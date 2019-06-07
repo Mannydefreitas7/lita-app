@@ -1,4 +1,4 @@
-<form [formGroup]="signInForm" (ngSubmit)="signIn()">
+<form [formGroup]="signInForm">
   <h3>Login to your account</h3>
 
   <mat-form-field [formGroup]="signInForm" appearance="fill" fxFill>
@@ -23,7 +23,7 @@
   <mat-error *ngIf="">Email and Password are required</mat-error>
 
   <div fxLayout="row">
-    <button mat-flat-button class="lita-button" type="submit" color="primary">SIGN IN</button>
+    <button mat-flat-button class="lita-button" type="submit" color="primary" (click)="signIn()">SIGN IN</button>
   </div>
 
   <mat-divider></mat-divider>

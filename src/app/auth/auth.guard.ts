@@ -14,14 +14,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean {
+
       if (this.auth.authenticated) {
+
         return true;
-      } else if (this.auth.isAuth) {
-        return true;
+        
       } else {
 
-        this.publisher.snackBar.open('You don\'t have access to this site')
         this.router.navigate(['/']);
+        return false;
       }
   }
 

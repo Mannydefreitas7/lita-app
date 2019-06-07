@@ -17,23 +17,25 @@ import { UsersComponent } from './home/admin/users/users.component';
 import { CongregationsComponent } from './home/admin/congregations/congregations.component';
 import { NewsComponent } from './home/admin/news/news.component';
 import { OrderPublicationComponent } from './home/order/order-publication/order-publication.component';
+import { AddcongregationComponent } from './home/dashboard/addcongregation.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: DashboardComponent, canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent  },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'literature', component: LiteratureComponent },
-      { path: 'publishers', component: PublishersComponent },
-      { path: 'publishers/:id', component: PublisherComponent },
-      { path: 'order' , component: OrderComponent },
-      { path: 'inventory' , component: InventoryComponent },
-      { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent },
-      { path: 'report', component: ReportComponent },
-      { path: 'help', component: HelpComponent },
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+      { path: 'literature', component: LiteratureComponent, canActivate: [AuthGuard] },
+      { path: 'publishers', component: PublishersComponent, canActivate: [AuthGuard] },
+      { path: 'publishers/:id', component: PublisherComponent, canActivate: [AuthGuard] },
+      { path: 'order' , component: OrderComponent, canActivate: [AuthGuard] },
+      { path: 'inventory' , component: InventoryComponent, canActivate: [AuthGuard] },
+      { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent, canActivate: [AuthGuard] },
+      { path: 'report', component: ReportComponent, canActivate: [AuthGuard] },
+      { path: 'help', component: HelpComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+      { path: 'add-congregation', component: AddcongregationComponent, canActivate: [AuthGuard] },
       { path: 'congregations', component: CongregationsComponent, canActivate: [AuthGuard] },
       { path: 'news', component: NewsComponent, canActivate: [AuthGuard] }
     ]

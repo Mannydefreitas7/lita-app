@@ -127,7 +127,9 @@ export class OrderPublicationComponent implements OnInit {
                 id: par['pubid'],
                 name: pub.name,
                 quantity: this.orderForm.get('quantity').value,
-                user: cong.name + ' ' + cong.language
+                user: cong.name + ' ' + cong.language,
+                uid: order_id,
+                oid: par['id']
               }, { merge: false })
             })
           
@@ -135,7 +137,9 @@ export class OrderPublicationComponent implements OnInit {
             return this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').doc<Publisher>(`${par['id']}`).collection('orders').doc(`${order_id}`).set({
               id: par['pubid'],
               name: pub.name,
-              quantity: this.orderForm.get('quantity').value
+              quantity: this.orderForm.get('quantity').value,
+              uid: order_id,
+              oid: par['id']
             }, { merge: false })
             .then(() => {
               this.load.fireStore.collection('congregations').doc(`${user.congregation}`).collection('publishers').doc<Publisher>(`${par['id']}`).valueChanges().subscribe(p => {
@@ -143,7 +147,9 @@ export class OrderPublicationComponent implements OnInit {
                   id: par['pubid'],
                   name: pub.name,
                   quantity: this.orderForm.get('quantity').value,
-                  user: p.fname + ' ' + p.lname
+                  user: p.fname + ' ' + p.lname,
+                  uid: order_id,
+                  oid: par['id']
                 }, { merge: false })
               })
             })

@@ -52,6 +52,6 @@ import { OrderPublicationComponent } from '../home/order/order-publication/order
     FlexLayoutModule,
     HttpClientModule
   ],
-  providers: [PublisherService, DashboardService]
+  providers: [DashboardService]
 })
 export class SharedModule { }

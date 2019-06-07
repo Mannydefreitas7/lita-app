@@ -41,7 +41,9 @@ export class AddcongregationComponent implements OnInit {
     const congID = this.setupGroup.get('congID');
     const congName = this.setupGroup.get('congName');
     const congLanguage = this.setupGroup.get('congLanguage');
-    const user = this.auth.currentUserObservable.currentUser;
+
+    this.auth.user.subscribe(user => {
+
     const currentUser = this.dash.getUserDoc(user.uid);
 
     const publishersRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('publishers');
@@ -69,7 +71,15 @@ export class AddcongregationComponent implements OnInit {
     .then(() => {
           const literatureRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('literature');
           this.pubs.forEach(pub => {
-            literatureRef.doc(`${pub.id}`).set(pub);
+            literatureRef.doc(`${pub.id}`).set(pub.id);
+            for (let i = 1; i < 13; i++) {
+             return literatureRef.doc(`${pub.id}`).collection('months').doc(`${i}`).set({
+                in: pub.id.months[0].in,
+                onHand: pub.id.months[0].onHand,
+                out: pub.id.months[0].out,
+              })
+            }
+           
            });
       })
     .then(() => {
@@ -82,9 +92,12 @@ export class AddcongregationComponent implements OnInit {
       }, {merge: true})
     })
     .then(() => {
+      this.router.navigateByUrl('/home')
       this.snackBar.open('Congregation Created Successfully','', {duration: 2000})
     })
-    .catch(error => this.snackBar.open(error.message,'', {duration: 2000})).then(() => this.dash.loading = false)
+    .catch(error => this.snackBar.open(error.message,'', {duration: 2000}))
+    .then(() => this.dash.loading = false)
+  })
   }
 
 }

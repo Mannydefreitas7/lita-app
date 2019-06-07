@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 import { AuthService } from '../../core/auth.service';
 import { map } from 'rxjs/operator/map';
@@ -24,7 +24,7 @@ import { DashboardService } from './dashboard.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
   }]
 })
 export class DashboardComponent implements OnInit {
@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   setupGroup: FormGroup;
   pubs: any = [];
   date = new Date();
-  month = this.date.getMonth()+1;
+  month = this.date.getMonth() + 1;
 
   constructor(
     private auth: AuthService,
@@ -49,14 +49,14 @@ export class DashboardComponent implements OnInit {
     private http: HttpClient,
     private ngZone: NgZone,
     private snackBar: MatSnackBar
-    ) {     }
+  ) { }
 
   ngOnInit() {
 
     this.http.get('assets/literature-quantity.json').subscribe(results => {
 
-    this.pubs = JSON.parse(JSON.stringify(results));
-  });
+      this.pubs = JSON.parse(JSON.stringify(results));
+    });
 
 
     this.setupGroup = this._formBuilder.group({
@@ -65,18 +65,17 @@ export class DashboardComponent implements OnInit {
       congLanguage: ['', [Validators.required, Validators.min(3)]]
     });
 
+    if (this.auth.authenticated) {
       this.auth.user.subscribe(user => {
-        
-        this.userDoc = this.dash.getUserDoc(user.uid).valueChanges();
-        this.userDoc.subscribe(user => {
-          if (user.homeView.firstLog == true) {
-            this.firstLog = true;
+        this.dash.getUserDoc(`${user.uid}`).valueChanges().subscribe(d => {
+          if (d.homeView.firstLog) {
+            this.router.navigateByUrl('/home/add-congregation')
           } else {
-            this.firstLog = false;
+            this.router.navigateByUrl('/home')
           }
-          this.congregation = this.dash.getCongregationDoc(user.congregation).valueChanges();
-        });
+        })
       })
+    }
 
   }
 
@@ -86,54 +85,4 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  createCongregation() {
-    const congID = this.setupGroup.get('congID');
-    const congName = this.setupGroup.get('congName');
-    const congLanguage = this.setupGroup.get('congLanguage');
-    const user = this.auth.currentUserObservable.currentUser;
-    const currentUser = this.dash.getUserDoc(user.uid);
-    let date = new Date();
-    const month = date.getMonth()+1;
-    console.log(month);
-    const publishersRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('publishers');
-    this.dash.loading = true;
-
-    return this.dash.getCongregationDoc(congID.value).set(
-      {
-        id: congID.value,
-        name: congName.value,
-        language: congLanguage.value
-      }, { merge: true }
-    )
-    .then(() => {
-      return publishersRef.doc<Publisher>(`${user.uid}`).set({
-        id: user.uid,
-        fname: user.displayName.split(' ')[0],
-        lname: user.displayName.split(' ')[1] || '',
-        email: user.email,
-        role: 'Admin',
-        photoUrl: user.photoURL,
-        orderCount: 0
-      })
-    })
-    .then(() => {
-          const literatureRef: AngularFirestoreCollection<any> = this.dash.getCongregationDoc(congID.value).collection('literature');
-          this.pubs.forEach(pub => {
-            literatureRef.doc(`${pub.id}`).set(pub);
-           });
-      })
-    .then(() => {
-      return currentUser.set(
-        {
-        congregation: congID.value,
-        homeView: {
-          firstLog: false
-        }
-      }, {merge: true})
-    })
-    .then(() => {
-      this.snackBar.open('Congregation Created Successfully','', {duration: 2000})
-    })
-    .catch(error => this.snackBar.open(error.message,'', {duration: 2000})).then(() => this.dash.loading = false)
-  }
 }

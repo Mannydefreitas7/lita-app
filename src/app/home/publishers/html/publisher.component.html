@@ -87,7 +87,10 @@
       <mat-list>
         <mat-list-item *ngFor="let order of orders | async as order">
           <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
-              <p>{{ order.name }}</p> <span class="lita-count">{{ order.quantity }}</span>
+              <p>{{ order.name }} <span class="lita-count">{{ order.quantity }}</span></p> 
+              <button mat-button color="warn" (click)="orderService.deleteOrder(order.uid)">
+                  <mat-icon color="warn"  class="lita-icon">clear</mat-icon>DELETE ORDER
+              </button>
           </div>
           <mat-divider></mat-divider>
         </mat-list-item>

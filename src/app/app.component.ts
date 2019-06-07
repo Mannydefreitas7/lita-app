@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/auth.service';
-import {
-  Event,
-  NavigationCancel,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router
-} from '@angular/router';
+import { Router } from '@angular/router';
+
+import { AngularFirestore } from 'angularfire2/firestore';
+import { ThrowStmt } from '@angular/compiler';
+import { DashboardService } from './home/dashboard/dashboard.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,33 +12,23 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'lita';
+  firstlog: boolean;
   loading = false;
+  authenticated: boolean;
 
-  constructor(public router: Router, private auth: AuthService) {
+  constructor(
+    public router: Router,
+    private auth: AuthService, 
+    private afs: AngularFirestore,
+    private dash: DashboardService
+    ) {
    
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event: Event) => {
-      switch (true) {
-        case event instanceof NavigationStart: {
-          this.loading = true;
-          break;
-        }
-
-        case event instanceof NavigationEnd:
-        case event instanceof NavigationCancel:
-        case event instanceof NavigationError: {
-          this.loading = false;
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    });
-
-    console.log(this.auth.authenticated, this.router.url)
+    this.authenticated = this.auth.authenticated
+    console.log(this.auth.authenticated)
   }
+ 
 }
 

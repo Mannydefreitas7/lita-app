@@ -17,9 +17,12 @@ export class SignupComponent implements OnInit {
   hide = true;
   empty = true;
   emailMessage = false;
+  emailOne: string;
+  emailTwo: string;
   faGoogle = faGoogle;
   faFacebook = faFacebook;
   faMicrosoft = faMicrosoft;
+  emailCheck: any;
 
   constructor(
     public fb: FormBuilder,
@@ -28,6 +31,7 @@ export class SignupComponent implements OnInit {
   ) {
     this.signUpForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
+      emailTwo: ['', [Validators.email]],
       password: ['',
       [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
@@ -39,7 +43,9 @@ export class SignupComponent implements OnInit {
 
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.emailCheck = false
+  }
   get email() {
     return this.signUpForm.get('email');
   }
@@ -51,11 +57,20 @@ export class SignupComponent implements OnInit {
    }
 
   signUp() {
-    return this.auth.emailSignUp(this.email.value, this.password.value, this.name.value)
-    .then(user => {
-      if (this.signUpForm.valid) {
-        this.router.navigate(['/home']);
-      }
-    });
+
+    if (this.signUpForm.get('email').value === this.signUpForm.get('emailTwo').value) {
+
+      this.emailCheck = true
+
+      return this.auth.emailSignUp(this.email.value, this.password.value, this.name.value)
+      .then(user => {
+        if (this.signUpForm.valid) {
+          this.router.navigate(['/home']);
+        }
+      }); 
+    } else {
+      this.emailCheck = false
+    }
+   
   }
 }

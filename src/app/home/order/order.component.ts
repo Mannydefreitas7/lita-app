@@ -7,12 +7,22 @@ import { map } from 'rxjs/operators';
 import { CongLiterature, Literature, Congregation } from 'src/app/shared/models/congregation.model';
 import { AngularFirestore } from 'angularfire2/firestore';
 
+export interface Month {
+  in: string,
+  onHand: string,
+  out: string
+}
+
+
 @Component({
   selector: 'lita-order',
   templateUrl: './order.component.html',
   styleUrls: ['../publishers/scss/publishers.component.scss', './order.component.scss']
 })
+
+
 export class OrderComponent implements OnInit {
+  
   loading: boolean;
   publications:any = [];
   currentMonth: number;
@@ -51,7 +61,7 @@ setTimeout(() => {
   }
 
  mapInventory(congID: number, litID) {
-    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).valueChanges()
+    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).collection('months').snapshotChanges()
   }
 
 showInventory(selected: number) {
@@ -61,16 +71,23 @@ showInventory(selected: number) {
       lits.forEach(lit => {
       return this.mapInventory(user.congregation, `${lit.id}`)
         .pipe(map(pubs => { 
-             return {
-               id: pubs.id,
-               cover: lit.cover,
-               contextTitle: lit.contextTitle,
-               name: lit.name,
-               pubId: lit.pubId,
-               in: pubs.months[selected].in,
-               onHand: pubs.months[selected].onHand,
-               out: pubs.months[selected].out
-             }
+          pubs.forEach(pub => {
+            this.dash.getCongregationDoc(user.congregation).collection('literature').doc<CongLiterature>(`${lit.id}`).collection('months').doc<Month>(`${selected}`).valueChanges()
+            .subscribe(m => {
+              return {
+                id: lit.id,
+                cover: lit.cover,
+                contextTitle: lit.contextTitle,
+                name: lit.name,
+                pubId: lit.pubId,
+                in: m.in,
+                onHand: m.onHand,
+                out: m.out
+              }
+            })
+           
+          })
+           
           })).subscribe(data => {
             this.publications.push(JSON.parse(JSON.stringify(data)));
           })

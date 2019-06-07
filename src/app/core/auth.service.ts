@@ -37,13 +37,11 @@ export class AuthService {
       }
     }));
 
-    this.afAuth.authState.subscribe(data => this.authState = data);
-
   }
 
 
-  get authenticated(): boolean {
-    return this.authState !== null;
+ get authenticated(): boolean {
+   return this.afAuth.auth.currentUser !== null;
   }
 
   get currentUserObservable() {
