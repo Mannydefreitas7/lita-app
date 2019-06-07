@@ -4,7 +4,7 @@
 <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
   <h1 class="lita-user-name">{{ (publisher | async )?.fname }} <span
       class="lita-last-name">{{(publisher | async )?.lname}}</span> <span class="lita-count"
-      *ngIf="(publisher | async )?.orderCount > 0">{{ (publisher | async )?.orderCount }}</span>
+      *ngIf="orderCount > 0">{{ orderCount }}</span>
   </h1>
 </div>
 
@@ -15,7 +15,7 @@
       <img mat-card-avatar
         src="https://firebasestorage.googleapis.com/v0/b/lita-jw-app.appspot.com/o/publications%2Fprofile.png?alt=media&token=86287c07-526f-447a-acbf-7161c007ff1e">
       <mat-card-title>Publisher Information</mat-card-title>
-      <mat-card-subtitle><strong>Publisher ID:</strong> {{ (publisher | async )?.id }}</mat-card-subtitle>
+      <mat-card-subtitle><strong>Publisher ID:</strong> {{ (publisher | async )?.id  }}</mat-card-subtitle>
     </mat-card-header>
 
     <form [formGroup]="publisherForm" class="settings">
@@ -79,19 +79,23 @@
     </mat-card-actions>
   </mat-card>
 
-  <mat-card class="lita-card">
+  <mat-card class="lita-card" fxFlex="50%" fxFlexFill>
     <mat-card-title>
       Publications Orders
     </mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item>
+        <mat-list-item *ngFor="let order of orders | async as order">
+          <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+              <p>{{ order.name }}</p> <span class="lita-count">{{ order.quantity }}</span>
+          </div>
+          <mat-divider></mat-divider>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-button color="primary">
-        <mat-icon color="primary" class="lita-icon">add_circle_outline</mat-icon>ORDER
+      <button mat-button color="primary" (click)="publisherService.order(pub.id)">
+        <mat-icon color="primary"  class="lita-icon">add_circle_outline</mat-icon>ORDER
       </button>
     </mat-card-actions>
   </mat-card>

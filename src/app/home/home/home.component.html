@@ -11,8 +11,7 @@
 <ng-template #loaded>
 	
 <div fxLayout="row" fxLayoutAlign="end center">
-	<a
-		[matMenuTriggerFor]="homeSettings" style="cursor: pointer;"><mat-icon class="lita-icon">more_horiz</mat-icon></a>
+	<a [matMenuTriggerFor]="homeSettings" style="cursor: pointer;"><mat-icon class="lita-icon">more_horiz</mat-icon></a>
 </div>
 <mat-menu #homeSettings="matMenu" xPosition="before">
 	<mat-list role="list">
@@ -34,25 +33,27 @@
 					<table mat-table [dataSource]="orderSource" class="lita-table">
 							<ng-container matColumnDef="user">
 							  <th mat-header-cell *matHeaderCellDef>From</th>
-							  <td mat-cell *matCellDef="let order"> {{order.user}} </td>
+							  <td mat-cell *matCellDef="let order"> <strong>{{ order.user }}</strong> </td>
 							</ng-container>
 						  
 		
 							<ng-container matColumnDef="pub">
 							  <th mat-header-cell *matHeaderCellDef>Publication</th>
-							  <td mat-cell *matCellDef="let order"> {{order.name}} </td>
+							  <td mat-cell *matCellDef="let order"> {{ order.name }} </td>
 							</ng-container>
 
 							<ng-container matColumnDef="quantity">
 								<th mat-header-cell *matHeaderCellDef>Quantity</th>
-								<td mat-cell *matCellDef="let order"> {{order.quantity}} </td>
+								<td mat-cell *matCellDef="let order"> <span class="lita-count">{{ order.quantity }}</span> </td>
 							  </ng-container>
-							
 						  
 				
 							<ng-container matColumnDef="actions">
 							  <th mat-header-cell *matHeaderCellDef>Actions</th>
-							  <td mat-cell *matCellDef="let order"> <button mat-button>Cancel</button> <button mat-button>Complete</button> </td>
+							  <td mat-cell *matCellDef="let order"> 
+								  <button mat-button color="warn"><mat-icon color="warn">clear</mat-icon>CANCEL</button> 
+								  <button mat-button style="color: green; margin-right: 5px;"><mat-icon style="color: green; margin-right: 5px;">done</mat-icon>COMPLETE</button> 
+								</td>
 							</ng-container>
 						  
 							<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -20,7 +20,7 @@ export class OrderComponent implements OnInit {
   pubText:string;
   routed_id: any;
 
-  title = 'ORDER';
+  title = 'SELECT A PUBLICATION';
   constructor(
     private auth: AuthService,
     private dash: DashboardService,

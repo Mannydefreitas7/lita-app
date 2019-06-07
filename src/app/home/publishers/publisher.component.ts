@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublisherService } from './publisher.service';
 import { AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Publisher } from 'src/app/shared/models/congregation.model';
+import { Publisher, Orders } from 'src/app/shared/models/congregation.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { DeletepublisherComponent } from './deletepublisher.component';
@@ -29,6 +29,10 @@ export class PublisherComponent implements OnInit {
   errorMessage: string;
   admin: boolean;
   pub: any;
+  orders: any;
+  orderCount: any[];
+  total:any[];
+
 
 
   constructor(
@@ -100,16 +104,33 @@ export class PublisherComponent implements OnInit {
     this.publisherForm = this.publisherService.publisherForm;
     this.publisherForm.disable();
     this.user = this.auth.afAuth.authState;
-
+    this.orderCount = [];
+    this.total = []
 
     this.auth.user.subscribe(user => {
       this.dashService.getUserDoc(user.uid).valueChanges().subscribe(res => {
         const congID = res.congregation
         this.route.params.subscribe(params => {
+
+          this.orders =  this.publisherService.publisherDocument(congID, params['id']).collection('orders').valueChanges();
+
+          this.publisherService.publisherDocument(congID, params['id']).collection('orders').snapshotChanges().subscribe(s => {
+              s.forEach(item => {
+  
+                this.publisherService.publisherDocument(congID, params['id']).collection('orders').doc<Orders>(`${item.payload.doc.id}`).valueChanges().subscribe(d => {
+                return this.total.push(d.quantity)
+                })
+                 })
+              })
+
+              
+
+               console.log(this.total)
           this.publisher = this.publisherService.publisherDocument(congID, params['id']).valueChanges();
           this.publisherService.publisherDocument(congID, params['id']).valueChanges().subscribe(pub => {
-            if (pub.role === 'publisher') {
               this.pub = pub;
+            if (pub.role === 'publisher') {
+
               this.admin = false;
             } else {
               this.admin = true;
@@ -118,6 +139,8 @@ export class PublisherComponent implements OnInit {
         });
       });
     });
+
+
   }
 
   adminInvite() {

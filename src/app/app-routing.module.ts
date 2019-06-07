@@ -32,12 +32,12 @@ const routes: Routes = [
       { path: 'inventory' , component: InventoryComponent },
       { path: 'add-publication/:id/:pubid' , component: OrderPublicationComponent },
       { path: 'report', component: ReportComponent },
-      { path: 'help', component: HelpComponent }
+      { path: 'help', component: HelpComponent },
+      { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+      { path: 'congregations', component: CongregationsComponent, canActivate: [AuthGuard] },
+      { path: 'news', component: NewsComponent, canActivate: [AuthGuard] }
     ]
-  },
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
-  { path: 'congregations', component: CongregationsComponent, canActivate: [AuthGuard] },
-  { path: 'news', component: NewsComponent, canActivate: [AuthGuard] }
+  }
   
 ];
 

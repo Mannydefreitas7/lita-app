@@ -30,6 +30,7 @@ export class PublisherService {
 
   constructor(
     public auth: AuthService,
+    private publisherService: PublisherService,
     private dashService: DashboardService,
     public fb: FormBuilder,
     public dialog: MatDialog,
