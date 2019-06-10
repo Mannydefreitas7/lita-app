@@ -1,10 +1,10 @@
-<section class="lita-welcome">
+<section class="lita-welcome lita-section">
 
   <h1>Welcome to Lita!</h1>
   <p>Lita is an web application to manage Jehovah's Witnesses Literature orders and reports.</p>
   <p>To start, please enter your congregation information:</p>
 
-  <form [formGroup]="setupGroup" (ngSubmit)="createCongregation()">
+  <form [formGroup]="setupGroup">
 
     <mat-vertical-stepper #stepper class="lita-setup">
 
@@ -76,8 +76,8 @@
         </mat-card>
 
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-flat-button color="primary">Submit</button>
+          <button mat-button matStepperPrevious>BACK</button>
+          <button mat-flat-button color="primary" (click)="createCongregation()">SUBMIT</button>
         </div>
       </mat-step>
 

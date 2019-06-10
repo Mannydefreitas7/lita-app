@@ -41,5 +41,11 @@ export class Orders {
 	user?: string;
 }
 
+export class Month {
+	in: number;
+	onHand: number;
+	out: number;
+}
+
 
 

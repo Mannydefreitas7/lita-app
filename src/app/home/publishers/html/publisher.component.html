@@ -3,8 +3,7 @@
 </a>
 <div fxLayout="row" fxLayoutAlign="space-between center" fxFill>
   <h1 class="lita-user-name">{{ (publisher | async )?.fname }} <span
-      class="lita-last-name">{{(publisher | async )?.lname}}</span> <span class="lita-count"
-      *ngIf="orderCount > 0">{{ orderCount }}</span>
+      class="lita-last-name">{{(publisher | async )?.lname}}</span>
   </h1>
 </div>
 
@@ -68,7 +67,7 @@
       </div>
 
 
-      <button *ngIf="!edit" (click)="openDeleteModal()" mat-button>
+      <button [disabled]="admin" *ngIf="!edit" (click)="openDeleteModal()" mat-button>
         <mat-icon class="lita-icon lita-icon-order" color="disabled">delete</mat-icon>DELETE
       </button>
 

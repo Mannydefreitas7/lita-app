@@ -53,7 +53,7 @@ export class OrderPublicationComponent implements OnInit {
     })
 
     this.router.params.subscribe(par => {
-
+      this.orderForm.get('order').setValue(`${par['id']}`);
       this.id = par['id'];
       this.pubId = par['pubid']
       console.log(this.id, this.pubId)
@@ -76,6 +76,7 @@ export class OrderPublicationComponent implements OnInit {
     })
 
     if (this.orderForm.get('quantity').touched) {
+      
       this.quantity = this.orderForm.get('quantity').value;
     } else {
       this.quantity = 0;

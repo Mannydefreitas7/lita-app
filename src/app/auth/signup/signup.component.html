@@ -7,20 +7,21 @@
     <mat-icon matSuffix>person</mat-icon>
   </mat-form-field> 
 
+  <div>
   <mat-form-field  appearance="fill" fxFill>
       <mat-label>Your Email</mat-label>
       <input matInput placeholder="example@domain.com" formControlName="email" required autocomplete="none">
       <mat-icon matSuffix>email</mat-icon>
-      <mat-error *ngIf="email.invalid">Not a valid email</mat-error>
+    <mat-error *ngIf="signUpForm.get('email').invalid">Not a valid email</mat-error> 
     </mat-form-field>
 
     <mat-form-field appearance="fill" fxFill >
         <mat-label>Type Your Email Again</mat-label>
         <input matInput placeholder="example@domain.com" formControlName="emailTwo" required autocomplete="none">
         <mat-icon matSuffix>email</mat-icon>
-        <mat-error *ngIf="!emailCheck">Emails don't match.</mat-error>
+        <mat-error *ngIf="f.emailTwo.errors || emailCheck">Emails don't match.</mat-error>
     </mat-form-field> 
-
+  </div>
   
   <mat-form-field appearance="fill" fxFill>
     <mat-label>Create Password</mat-label>

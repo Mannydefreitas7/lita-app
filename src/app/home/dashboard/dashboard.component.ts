@@ -58,24 +58,29 @@ export class DashboardComponent implements OnInit {
       this.pubs = JSON.parse(JSON.stringify(results));
     });
 
+    this.userDoc = this.auth.afAuth.user;
+
+    if (this.auth.authenticated) {
+      
+      this.auth.user.subscribe(user => {
+        this.dash.getUserDoc(`${user.uid}`).valueChanges().subscribe(d => {
+          if (d.homeView.firstLog) {
+            this.router.navigateByUrl('/add-congregation')
+          } else {
+            this.router.navigateByUrl('/home')
+          }
+        })
+       this.congregation = this.dash.getCongregationDoc(`${user.congregation}`).valueChanges()
+      })
+
+      
+    }
 
     this.setupGroup = this._formBuilder.group({
       congID: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       congName: ['', [Validators.required, Validators.min(3)]],
       congLanguage: ['', [Validators.required, Validators.min(3)]]
     });
-
-    if (this.auth.authenticated) {
-      this.auth.user.subscribe(user => {
-        this.dash.getUserDoc(`${user.uid}`).valueChanges().subscribe(d => {
-          if (d.homeView.firstLog) {
-            this.router.navigateByUrl('/home/add-congregation')
-          } else {
-            this.router.navigateByUrl('/home')
-          }
-        })
-      })
-    }
 
   }
 

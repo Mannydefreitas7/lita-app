@@ -24,11 +24,12 @@ export interface Month {
 export class OrderComponent implements OnInit {
   
   loading: boolean;
-  publications:any = [];
+  publications:any[] = [];
   currentMonth: number;
   month: number; 
   pubText:string;
   routed_id: any;
+  publication: any;
 
   title = 'SELECT A PUBLICATION';
   constructor(
@@ -45,6 +46,7 @@ export class OrderComponent implements OnInit {
     const date = new Date()
     this.routed_id = this.data.id
     this.currentMonth = date.getMonth();
+    console.log(this.currentMonth)
     this.month = this.currentMonth;
       this.showInventory(this.currentMonth)
       this.pubText = ' ';
@@ -61,35 +63,33 @@ setTimeout(() => {
   }
 
  mapInventory(congID: number, litID) {
-    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).collection('months').snapshotChanges()
+    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).collection('months').valueChanges()
   }
 
 showInventory(selected: number) {
+this.publications = []
 
  this.afs.collection<Literature>('literature').valueChanges().subscribe(lits => {
       this.auth.user.subscribe(user => {
       lits.forEach(lit => {
-      return this.mapInventory(user.congregation, `${lit.id}`)
-        .pipe(map(pubs => { 
+      this.mapInventory(user.congregation, `${lit.id}`)
+        .pipe(
+          map(pubs => { 
           pubs.forEach(pub => {
-            this.dash.getCongregationDoc(user.congregation).collection('literature').doc<CongLiterature>(`${lit.id}`).collection('months').doc<Month>(`${selected}`).valueChanges()
-            .subscribe(m => {
-              return {
+              this.publication = {
                 id: lit.id,
                 cover: lit.cover,
                 contextTitle: lit.contextTitle,
                 name: lit.name,
                 pubId: lit.pubId,
-                in: m.in,
-                onHand: m.onHand,
-                out: m.out
+                in: pub.in,
+                onHand: pub.onHand,
+                out: pub.out
               }
+              
             })
-           
-          })
-           
-          })).subscribe(data => {
-            this.publications.push(JSON.parse(JSON.stringify(data)));
+          })).subscribe(() => {
+            this.publications.push(this.publication)
           })
         })
       })

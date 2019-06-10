@@ -51,9 +51,10 @@ export class InventoryComponent implements OnInit {
   }
   
 
- mapInventory(congID: number, litID) {
-    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).valueChanges()
+  mapInventory(congID: number, litID) {
+    return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).collection('months').valueChanges()
   }
+
 
 showInventory(selected: number) {
 
@@ -63,14 +64,14 @@ showInventory(selected: number) {
       return this.mapInventory(user.congregation, `${lit.id}`)
         .pipe(map(pubs => { 
              return {
-               id: pubs.id,
+               id: lit.id,
                cover: lit.cover,
                contextTitle: lit.contextTitle,
                name: lit.name,
                pubId: lit.pubId,
-               in: pubs.months[selected].in,
-               onHand: pubs.months[selected].onHand,
-               out: pubs.months[selected].out
+               in: pubs[selected].in,
+               onHand: pubs[selected].onHand,
+               out: pubs[selected].out
              }
           })).subscribe(data => {
             this.publications.push(JSON.parse(JSON.stringify(data)));

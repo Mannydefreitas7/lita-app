@@ -27,23 +27,6 @@ export class DashboardService {
     private afs: AngularFirestore,
     private auth: AuthService
     ) {
-    this.router.events.subscribe((event: Event) => {
-      switch (true) {
-        case event instanceof NavigationStart: {
-          this.loading = true;
-          break;
-        }
-        case event instanceof NavigationCancel:
-        case event instanceof NavigationError:
-        case event instanceof NavigationEnd: {
-          this.loading = false;
-          break;
-        }
-        default: {
-          break;
-        }
-      }
-    });
   }
 
   public goBack() {

@@ -17,6 +17,8 @@ import { UsersComponent } from '../home/admin/users/users.component';
 import { NewsComponent } from '../home/admin/news/news.component';
 import { AddcongregationComponent } from '../home/dashboard/addcongregation.component';
 import { OrderPublicationComponent } from '../home/order/order-publication/order-publication.component';
+import { OrderComponent } from '../home/order/order.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 
 @NgModule({
@@ -28,7 +30,6 @@ import { OrderPublicationComponent } from '../home/order/order-publication/order
     CongregationsComponent,
     UsersComponent,
     NewsComponent,
-    AddcongregationComponent,
     OrderPublicationComponent
   ],
   imports: [
@@ -41,7 +42,7 @@ import { OrderPublicationComponent } from '../home/order/order-publication/order
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents: [DeletepublisherComponent, AddpublisherComponent],
+  entryComponents: [DeletepublisherComponent, AddpublisherComponent, OrderComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -52,6 +53,9 @@ import { OrderPublicationComponent } from '../home/order/order-publication/order
     FlexLayoutModule,
     HttpClientModule
   ],
-  providers: [DashboardService]
+  providers: [DashboardService, 
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+  ]
 })
 export class SharedModule { }

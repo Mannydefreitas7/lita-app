@@ -1,4 +1,4 @@
-<section class="lita-section">
+<section>
   <section fxFill fxLayoutAlign="space-between center">
     <h2>{{ title }} </h2>
     <button mat-button color="primary" (click)="addPublisher()">
@@ -55,7 +55,7 @@
     </table>
 
 
-    <section *ngIf="toggle" class="lita-section lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
+    <section *ngIf="toggle" class="lita-cards" fxLayout="row wrap" fxLayoutGap="15px">
       <mat-card *ngFor="let pub of pubs | filter : searchText" fxFlex="170px">
         <span *ngIf="pub.orderCount > 0" class="lita-count">{{ pub.orderCount }}</span>
         <a [routerLink]="['/home/publishers', pub.id]">

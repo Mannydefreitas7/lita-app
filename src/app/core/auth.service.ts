@@ -37,12 +37,30 @@ export class AuthService {
       }
     }));
 
+    this.afAuth.authState.subscribe(data => {
+      console.log(data)
+      this.authState = data;
+    })
+console.log(this.authenticated)
   }
 
-
- get authenticated(): boolean {
-   return this.afAuth.auth.currentUser !== null;
+  get _currentUserObservable(): any {
+    return this.afAuth.authState
   }
+
+  get authenticated(): boolean {
+    return this.authState != null;
+  }
+
+  // Returns current user
+get _currentUser(): any {
+  return this.authenticated ? this.authState.auth : null;
+}
+
+// Returns current user UID
+get _currentUserId(): string {
+  return this.authenticated ? this.authState.uid : '';
+}
 
   get currentUserObservable() {
     return this.afAuth.auth;
@@ -61,7 +79,6 @@ export class AuthService {
   stateChanged(): any {
     return this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
-        console.log(user);
         this.ngZone.run(() => this.router.navigate(['/home']));
       } else {
         this.ngZone.run(() => this.router.navigate(['/']));

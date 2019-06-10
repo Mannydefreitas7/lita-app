@@ -1,26 +1,31 @@
-<mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="dashboard dashboard-toolbar">
-  <h3 color="grey">Welcome <span>{{ ( userDoc | async )?.displayName }}</span> | {{ ( congregation | async )?.name }}
-    {{ ( congregation | async )?.language }} Congregation</h3>
-  <button mat-button [matMenuTriggerFor]="userSettings">
-    <div class="dashboard-toolbar--image">
-      <img [src]="( userDoc | async )?.photoURL" alt="">
-    </div>
-  </button>
-</mat-toolbar>
-<mat-menu #userSettings="matMenu" xPosition="before">
-  <button mat-menu-item routerLink="/home/settings" style="cursor: pointer;">
-    <mat-icon>settings</mat-icon>
-    Settings
-  </button>
-  <button style="cursor: pointer;" mat-menu-item (click)="logOut()">
-    <mat-icon>exit_to_app</mat-icon>
-    Log Out
-  </button>
-</mat-menu>
+<mat-sidenav-container>
+  <mat-sidenav *ngIf="auth.authenticated" class="header" mode="side" opened fixedInViewport>
+    <lita-header></lita-header>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="dashboard dashboard-toolbar">
+      <h3 color="grey">Welcome <span>{{ ( userDoc | async )?.displayName }}</span> |
+        {{ ( congregation | async )?.name }}
+        {{ ( congregation | async )?.language }} Congregation</h3>
+      <button mat-button [matMenuTriggerFor]="userSettings">
+        <div class="dashboard-toolbar--image">
+          <img [src]="( userDoc | async )?.photoURL" alt="">
+        </div>
+      </button>
+    </mat-toolbar>
+    <mat-menu #userSettings="matMenu" xPosition="before">
+      <button mat-menu-item routerLink="/home/settings" style="cursor: pointer;">
+        <mat-icon>settings</mat-icon>
+        Settings
+      </button>
+      <button style="cursor: pointer;" mat-menu-item (click)="logOut()">
+        <mat-icon>exit_to_app</mat-icon>
+        Log Out
+      </button>
+    </mat-menu>
 
-<section class="lita-section">
-  <router-outlet *ngIf="!dash.loading"></router-outlet>
-  <div *ngIf="dash.loading" class="lita-spinner" fxLayout="col" fxLayoutAlign="center center">
-    <mat-spinner></mat-spinner>
-  </div>
-</section>
+    <section class="lita-section">
+        <router-outlet></router-outlet>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>

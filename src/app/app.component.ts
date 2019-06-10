@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'lita';
   firstlog: boolean;
   loading = false;
-  authenticated: boolean;
+
 
   constructor(
     public router: Router,
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authenticated = this.auth.authenticated
-    console.log(this.auth.authenticated)
+console.log(this.auth.authenticated)
+    
   }
  
 }

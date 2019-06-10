@@ -11,12 +11,15 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit, AfterViewInit {
 
   constructor(private afs: AuthService, private router: Router) { 
-    const currentUser = this.afs.authenticated;
-    console.log(currentUser);
-    if (currentUser) {
+
+    console.log(this.afs.authenticated);
+
+    if (this.afs.authenticated) {
+
       this.afs.stateChanged();
+
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
   }
   }
 
