@@ -4,7 +4,7 @@ import { MatButtonToggleChange, MatTableDataSource, MatSelectChange, MatButtonTo
 import { DashboardService } from '../dashboard/dashboard.service';
 import { OrderService } from '../order/order.service';
 import { map } from 'rxjs/operators';
-import { CongLiterature, Literature, Congregation } from 'src/app/shared/models/congregation.model';
+import { CongLiterature, Literature, Congregation, Month } from 'src/app/shared/models/congregation.model';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
@@ -32,6 +32,7 @@ export class InventoryComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    this.publications = [];
     this.loading = true;
     const date = new Date()
     this.auth.user.subscribe(user => {
@@ -41,6 +42,7 @@ export class InventoryComponent implements OnInit {
       })
     })
     this.currentMonth = date.getMonth();
+    console.log(this.currentMonth)
     this.month = this.currentMonth;
     setTimeout(() => {
       this.showInventory(this.currentMonth)
@@ -59,19 +61,20 @@ export class InventoryComponent implements OnInit {
 showInventory(selected: number) {
 
  this.afs.collection<Literature>('literature').valueChanges().subscribe(lits => {
-      this.auth.user.subscribe(user => {
+      this.auth.user.subscribe(user => { 
       lits.forEach(lit => {
-      return this.mapInventory(user.congregation, `${lit.id}`)
-        .pipe(map(pubs => { 
+       
+      return this.dash.getCongregationDoc(user.congregation).collection('literature').doc<CongLiterature>(`${lit.id}`).collection('months').doc<Month>(`${selected}`).valueChanges()
+        .pipe(map(pub => { 
              return {
                id: lit.id,
                cover: lit.cover,
                contextTitle: lit.contextTitle,
                name: lit.name,
                pubId: lit.pubId,
-               in: pubs[selected].in,
-               onHand: pubs[selected].onHand,
-               out: pubs[selected].out
+               in: pub.in,
+               onHand: pub.onHand,
+               out: pub.out
              }
           })).subscribe(data => {
             this.publications.push(JSON.parse(JSON.stringify(data)));
@@ -91,6 +94,7 @@ monthDisplay(event: MatSelectChange) {
     setTimeout(() => {
       this.showInventory(event.value) 
     }, 3000)
+    console.log(this.publications)
 }
 
 

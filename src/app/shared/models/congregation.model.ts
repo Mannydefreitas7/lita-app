@@ -34,9 +34,20 @@ export class CongLiterature {
 	}]
 }
 
+export class Order {
+	id?: string;
+	name?: string;
+	uid?: string;
+	oid?: string;
+	quantity?: string;
+	user?: string;
+}
+
 export class Orders {
 	id?: string;
 	name?: string;
+	uid?: string;
+	oid?: string;
 	quantity?: string;
 	user?: string;
 }

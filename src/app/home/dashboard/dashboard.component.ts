@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, NgZone, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
@@ -17,6 +17,7 @@ import 'rxjs/operator/map';
 
 import { Observable } from 'rxjs';
 import { DashboardService } from './dashboard.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -27,7 +28,7 @@ import { DashboardService } from './dashboard.service';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
   }]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   userDoc: Observable<User>;
   user: any;
   congregationRef: any;
@@ -84,9 +85,15 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    this.congregation.subscribe().unsubscribe();
+    this.auth.afAuth.user.subscribe().unsubscribe()
+  }
+
 
   logOut() {
-    return this.auth.signOut();
+    this.auth.signOut();
+   return this.router.navigate(['login'])
   }
 
 
