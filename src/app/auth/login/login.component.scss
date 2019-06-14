@@ -2,15 +2,18 @@
 	&-login {
 		height: 100vh;
 	}
-	.mat-card {
-		width: max-content;
-	}
+	
 }
 .lita-button {
 	margin: 10px 0;
 	&.social {
 		margin: 0 10px 0 0;
 	}
+}
+.mat-card {
+	width: max-content;
+	box-shadow: none !important;
+	background: transparent !important;
 }
 .mat-hint {
 	a {

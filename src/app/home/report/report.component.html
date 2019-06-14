@@ -1,63 +1,3755 @@
-<h2>{{ title }}</h2>
-<div fxLayoutAlign="space-between center">
+<div id="report_page_1">
+<section fxFill fxLayout="row" fxLayoutAlign="space-between start">
+      <h3>INSTRUCTIONS:</h3>
+ 
+      <h2>MOVEMENT OF LITERATURE</h2>
+   
+      <h3>LANGUAGE:<span></span></h3>
+  </section>
+<section fxFill fxLayout="row">
+    <ol >
+      <li>Language-coordinating  congregations  take  an  actual  count  of  literature  each  month,  and  the  quantity  is  entered  in the  “Currently on  Hand”  column.</li>
 
-    <mat-form-field appearance="fill" class="lita-search">
-        <mat-label>Search Publications</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="ex: New World Translation, nwt,...">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    
-    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="toggleView($event)">
-        <mat-button-toggle [value]="true">
-          <mat-icon>view_list</mat-icon>
-        </mat-button-toggle>
-        <mat-button-toggle [value]="false">
-          <mat-icon>view_module</mat-icon>
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
-    <table *ngIf="toggle" mat-table [dataSource]="dataSource" class="lita-table">
-    
-      <!-- Position Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Item Number</th>
-        <td mat-cell *matCellDef="let pub"> {{ pub.id }} </td>
-      </ng-container>
-    
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.name}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="pubId">
-        <th mat-header-cell *matHeaderCellDef>Pub. ID </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.pubId}} </td>
-      </ng-container>
-    
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="contextTitle">
-        <th mat-header-cell *matHeaderCellDef> Context Title </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.contextTitle}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="quantityIn">
-        <th mat-header-cell *matHeaderCellDef> Qty Received </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.quantity.in}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="quantityOnHand">
-        <th mat-header-cell *matHeaderCellDef> Qty On Hand </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.quantity.onHand}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="quantityOut">
-        <th mat-header-cell *matHeaderCellDef> Qty Out </th>
-        <td mat-cell *matCellDef="let pub"> {{pub.quantity.out}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <h3 *ngIf="!toggle">Block!</h3>
+      <li>“Rec’d”  column:  Post  the  quantity of each  item  received or  returned  to  stock.</li>  
+
+     <li> “Moved”  column:  Post  the  quantity of each  item  moved.  This  can  be  determined  by  (1)  adding  together  what  was  received  during  the  month with what  was  on hand  from the  previous   month  and  then  (2)  subtracting  from this  total  the  number  of  the  actual  count  just  taken  (“Currently on  Hand”).</li>
+
+      <li>Request  no  more  than  a  three-month  supply  of  congregation  stock  items.  Special-request  items  are  marked  with  an  asterisk  ( * ).  These  items  should  not  be stocked.</li>
+    </ol>
+  </section> 
+      <p fxFill>IMPORTANT:  Inventory  quantities  should  be  submitted  twice  a  year  through  jw.org.  Please  submit  the  February/August  inventory  to  the  branch oﬃce  no  later  than the  15th  of  March/September.</p>    
+  <table>
+  <tr>
+    <td colspan="8">
+      <font>MONTH<span>  </span>&amp;<span> 
+        </span>YEAR</font>
+    </td>
+    <td colspan="3">
+      <font >Sept/Mar</font>
+    </td>
+    <td colspan="3">
+      <font >Oct/Apr</font>
+    </td>
+    <td colspan="3">
+      <font >Nov/May</font>
+    </td>
+    <td colspan="3">
+      <font >Dec/June</font>
+    </td>
+    <td colspan="3">
+      <font >Jan/July</font>
+    </td>
+    <td colspan="3">
+      <font >Feb/Aug</font>
+    </td>
+  </tr>
+  <tr >
+    <td>
+      <font >Item No.</font>
+    </td>
+    <td colspan="6">
+      <font >Annual<span >  </span>Items</font>
+    </td>
+    <td>
+      <font >Originally on Hand</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td>
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >&nbsp;</td>
+    <td colspan="6">
+      <font >Sample</font>
+    </td>
+    <td >212</td>
+    <td >
+      <font >+</font>
+      <font >0</font>
+    </td>
+    <td >-181</td>
+    <td >
+      <font >=</font>
+      <font >31</font>
+    </td>
+    <td >0</td>
+    <td>140</td>
+    <td>41</td>
+    <td >0</td>
+    <td>32</td>
+    <td>108</td>
+    <td>100</td>
+    <td>111</td>
+    <td>21</td>
+    <td>0</td>
+    <td>78</td>
+    <td >33</td>
+    <td >100</td>
+    <td>70</td>
+    <td>108</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td >5000</td>
+    <td colspan="6">
+      <font >Watchtower Library (all
+        years)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5001</td>
+    <td colspan="6">
+      <font >Examining the Scriptures
+        (current year)</font>
+      <font>*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5005</td>
+    <td colspan="6">
+      <font >Yearbooks (all years)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5006</td>
+    <td colspan="6">
+      <font >Bound volume (current
+        year)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5007</td>
+    <td colspan="6">
+      <font >Bound volumes (all other
+        years)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5008</td>
+    <td colspan="6">
+      <font >Indexes (multiyear)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5009</td>
+    <td colspan="6">
+      <font >Indexes (single year)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5112</td>
+    <td colspan="6">
+      <font >Bibles<br>
+      </font>
+      <font >NWT Hardcover<span >                                               
+        </span></font>
+      <font >Hbi12</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5140</td>
+    <td colspan="6">
+      <font >New World Translation<span >                                    
+        </span></font>
+      <font >nwt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5141</td>
+    <td colspan="6">
+      <font >New World Translation
+        (large size)<span >            </span></font>
+      <font >nwtls</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5142</td>
+    <td colspan="6">
+      <font >New World Translation
+        (pocket size)<span >        </span></font>
+      <font >nwtpkt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5108</td>
+    <td colspan="6">
+      <font >NWT Reference</font>
+      <font >*<span >                                           </span></font>
+      <font >Rbi8</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5100</td>
+    <td colspan="6">
+      <font >Other Bibles</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5170</td>
+    <td colspan="6">
+      <font >NWT Deluxe (all colors)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5414</td>
+    <td colspan="6">
+      <font >Books<br>
+      </font>
+      <font >Ministry School</font>
+    </td>
+    <td >
+      <font >be</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5334</td>
+    <td colspan="6">
+      <font >Bible Teach</font>
+    </td>
+    <td >
+      <font >bh</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5340</td>
+    <td colspan="6">
+      <font >Teach Us</font>
+    </td>
+    <td >
+      <font >bhs</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5416</td>
+    <td colspan="6">
+      <font >Bearing Witness</font>
+    </td>
+    <td >
+      <font >bt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5231</td>
+    <td colspan="6">
+      <font >“My Follower”</font>
+    </td>
+    <td >
+      <font >cf</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5331</td>
+    <td colspan="6">
+      <font >Close to Jehovah</font>
+    </td>
+    <td >
+      <font >cl</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5228</td>
+    <td colspan="6">
+      <font >Creator</font>
+    </td>
+    <td >
+      <font >ct</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5328</td>
+    <td colspan="6">
+      <font >Daniel’s Prophecy</font>
+    </td>
+    <td >
+      <font >dp</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5227</td>
+    <td colspan="6">
+      <font >Family Happiness</font>
+    </td>
+    <td >
+      <font >fy</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5225</td>
+    <td colspan="6">
+      <font >God’s Word</font>
+    </td>
+    <td >
+      <font >gm</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5327</td>
+    <td colspan="6">
+      <font >Greatest Man</font>
+    </td>
+    <td >
+      <font >gt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5419</td>
+    <td colspan="6">
+      <font >Imitate</font>
+    </td>
+    <td >
+      <font >ia</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5329</td>
+    <td colspan="6">
+      <font >Isaiah’s Prophecy I</font>
+    </td>
+    <td >
+      <font >ip-1</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5330</td>
+    <td colspan="6">
+      <font >Isaiah’s Prophecy II</font>
+    </td>
+    <td>
+      <font>ip-2</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5411</td>
+    <td colspan="6">
+      <font >Insight (complete set)</font>
+      <font >*</font>
+    </td>
+    <td>
+      <font >it</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5230</td>
+    <td colspan="6">
+      <font >Jehovah’s Day</font>
+    </td>
+    <td>
+      <font >jd</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5232</td>
+    <td colspan="6">
+      <font >Jeremiah</font>
+    </td>
+    <td >
+      <font >jr</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5425</td>
+    <td colspan="6">
+      <font >Jesus—The Way</font>
+    </td>
+    <td>
+      <font >jy</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5422</td>
+    <td colspan="6">
+      <font >God’s Kingdom Rules!</font>
+    </td>
+    <td>
+      <font >kr</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5427</td>
+    <td colspan="6">
+      <font >Learn From the Bible</font>
+    </td>
+    <td >
+      <font >lfb</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5415</td>
+    <td colspan="6">
+      <font >Teacher</font>
+    </td>
+    <td>
+      <font >lr</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5335</td>
+    <td colspan="6">
+      <font >“God’s Love”</font>
+    </td>
+    <td>
+      <font >lv</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5343</td>
+    <td colspan="6">
+      <font >Remain in God’s Love</font>
+    </td>
+    <td>
+      <font >lvs</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5407</td>
+    <td colspan="6">
+      <font >Bible Stories</font>
+    </td>
+    <td >
+      <font >my</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5332</td>
+    <td colspan="6">
+      <font >Organized</font>
+    </td>
+    <td>
+      <font >od</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5410</td>
+    <td colspan="6">
+      <font >Revelation Climax</font>
+    </td>
+    <td>
+      <font >re</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5323</td>
+    <td colspan="6">
+      <font >Reasoning</font>
+    </td>
+    <td>
+      <font >rs</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5324</td>
+    <td colspan="6">
+      <font >Creation—Small Size</font>
+    </td>
+    <td>
+      <font >Sce</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5326</td>
+    <td colspan="6">
+      <font >Mankind’s Search for God</font>
+    </td>
+    <td>
+      <font >sh</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5403</td>
+    <td colspan="6">
+      <font >“All Scripture”</font>
+    </td>
+    <td>
+      <font >si</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5341</td>
+    <td colspan="6">
+      <font >“Sing Out Joyfully”</font>
+    </td>
+    <td >
+      <font >sjj</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5441</td>
+    <td colspan="6">
+      <font >“Sing Out Joyfully” (large size)</font>
+    </td>
+    <td >
+      <font >sjjls</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5442</td>
+    <td colspan=4 >
+      <font >“Sing Out Joyfully”—Lyrics Only</font>
+    </td>
+    <td colspan=2>
+      <font >sjjyls</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5322</td>
+    <td colspan=4 >
+      <font >Bible Stories—Small Size</font>
+    </td>
+    <td >
+      <font >Smy</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5339</td>
+    <td colspan=4 >
+      <font >Young People Ask, Volume 1</font>
+    </td>
+    <td>
+      <font >yp1</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5336</td>
+    <td colspan=4 >
+      <font >Young People Ask, Volume 2</font>
+    </td>
+    <td >
+      <font >yp2</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >5200</td>
+    <td >
+      <font >Other books</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >
+      <font >Books—Large<span > 
+        </span>Print<br>
+      </font>
+      <font >Brochures<span > 
+        </span>and<span >  </span>Booklets</font>
+    </td>
+  </tr>
+  </table>
+</div>
+<div id="report_page_2">
+  <table>
+    <tbody>
+        <tr>
+            <td colspan="3">
+              <font>MONTH<span>  </span>&amp;<span> 
+                </span>YEAR</font>
+            </td>
+            <td colspan="3">
+              <font >Sept/Mar</font>
+            </td>
+            <td colspan="3">
+              <font >Oct/Apr</font>
+            </td>
+            <td colspan="3">
+              <font >Nov/May</font>
+            </td>
+            <td colspan="3">
+              <font >Dec/June</font>
+            </td>
+            <td colspan="3">
+              <font >Jan/July</font>
+            </td>
+            <td colspan="3">
+              <font >Feb/Aug</font>
+            </td>
+          </tr>
+          <tr >
+            <td >
+              <font >Item No.</font>
+            </td>
+            <td >
+              <font >Annual<span >  </span>Items</font>
+            </td>
+            <td>
+              <font >Originally on Hand</font>
+            </td>
+            <td >
+              <font >Rec’d</font>
+            </td>
+            <td>
+              <font >Currently on Hand</font>
+            </td>
+            <td >
+              <font >Moved</font>
+            </td>
+            <td >
+              <font >Rec’d</font>
+            </td>
+            <td>
+              <font >Currently on Hand</font>
+            </td>
+            <td>
+              <font >Moved</font>
+            </td>
+            <td >
+              <font >Rec’d</font>
+            </td>
+            <td>
+              <font >Currently on Hand</font>
+            </td>
+            <td >
+              <font >Moved</font>
+            </td>
+            <td >
+              <font >Rec’d</font>
+            </td>
+            <td>
+              <font >Currently on Hand</font>
+            </td>
+            <td >
+              <font >Moved</font>
+            </td>
+            <td >
+              <font >Rec’d</font>
+            </td>
+            <td >
+              <font >Currently on Hand</font>
+            </td>
+            <td >
+              <font >Moved</font>
+            </td>
+            <td>
+              <font >Rec’d</font>
+            </td>
+            <td>
+              <font >Currently on Hand</font>
+            </td>
+            <td>
+              <font >Moved</font>
+            </td>
+            <td></td>
+          </tr>
+  <tr>
+    <td >6200</td>
+    <td >
+      <font >All large-print books</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6618</td>
+    <td>
+      <font >Reading and Writing<span >                                          
+        </span></font>
+      <font >ay</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6641</td>
+    <td>
+      <font >Book for All<span
+          >                                                           
+        </span></font>
+      <font >ba</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6652</td>
+    <td >
+      <font >Bible’s Message<span
+          >                                                     
+        </span></font>
+      <font >bm</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6632</td>
+    <td >
+      <font >Does God Care<span
+          >                                                      
+        </span></font>
+      <font >dg</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6638</td>
+    <td >
+      <font >Education<span
+          >                                                               
+        </span></font>
+      <font >ed</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <font >MONTH<span >  </span>&amp;<span > 
+        </span>YEAR</font>
+    </td>
+    <td colspan="3">
+      <font >Sept/Mar</font>
+    </td>
+    <td colspan="3">
+      <font >Oct/Apr</font>
+    </td>
+    <td colspan="3">
+      <font >Nov/May</font>
+    </td>
+    <td colspan="3">
+      <font >Dec/June</font>
+    </td>
+    <td colspan="3">
+      <font >Jan/July</font>
+    </td>
+    <td colspan="3">
+      <font >Feb/Aug</font>
+    </td>
+  </tr>
+  <tr >
+    <td >
+      <font >Item No.</font>
+    </td>
+    <td >
+      <font >Brochures<span >  </span>and</font>
+    </td>
+    <td >
+      <font >Booklets</font>
+    </td>
+    <td >
+      <font >(Cont.)</font>
+    </td>
+    <td >
+      <font >Originally on Hand</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Currently on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Currently on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6659</td>
+    <td>
+      <font >Good News</font>
+    </td>
+    <td >
+      <font >fg</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6645</td>
+    <td>
+      <font >God’s Friend</font>
+    </td>
+    <td>
+      <font >gf</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6650</td>
+    <td >
+      <font >“Good Land”</font>
+      <font >*</font>
+    </td>
+    <td >
+      <font >gl</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6643</td>
+    <td>
+      <font >Guidance of God</font>
+    </td>
+    <td >
+      <font >gu</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6628</td>
+    <td>
+      <font >Blood</font>
+    </td>
+    <td >
+      <font >hb</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6665</td>
+    <td>
+      <font >Happy Family</font>
+    </td>
+    <td>
+      <font >hf</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6662</td>
+    <td>
+      <font >Happy Life</font>
+    </td>
+    <td >
+      <font >hl</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6642</td>
+    <td>
+      <font >When We Die</font>
+    </td>
+    <td>
+      <font >ie</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6660</td>
+    <td>
+      <font >Jehovah’s Will</font>
+    </td>
+    <td>
+      <font >jl</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6647</td>
+    <td>
+      <font >Satisfying Life</font>
+    </td>
+    <td>
+      <font >la</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6654</td>
+    <td>
+      <font >Was Life Created?</font>
+    </td>
+    <td>
+      <font >lc</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6658</td>
+    <td>
+      <font >Listen to God</font>
+    </td>
+    <td>
+      <font >ld</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6655</td>
+    <td>
+      <font >Origin of Life</font>
+    </td>
+    <td>
+      <font >lf</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6657</td>
+    <td>
+      <font >Listen and Live</font>
+    </td>
+    <td>
+      <font >ll</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6625</td>
+    <td>
+      <font >“Look!” brochure</font>
+    </td>
+    <td>
+      <font >Lmn</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6663</td>
+    <td>
+      <font >My Bible Lessons</font>
+    </td>
+    <td>
+      <font >mb</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6622</td>
+    <td>
+      <font >Divine Name</font>
+    </td>
+    <td>
+      <font >na</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6674</td>
+    <td>
+      <font >Nations</font>
+    </td>
+    <td>
+      <font >np</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6648</td>
+    <td>
+      <font >Road to Life</font>
+    </td>
+    <td>
+      <font >ol</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6629</td>
+    <td>
+      <font >Our Problems</font>
+    </td>
+    <td>
+      <font >op</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6639</td>
+    <td>
+      <font >Lasting Peace</font>
+    </td>
+    <td>
+      <font >pc</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6653</td>
+    <td>
+      <font >Pathway</font>
+    </td>
+    <td>
+      <font >ph</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6636</td>
+    <td>
+      <font >Purpose of Life</font>
+    </td>
+    <td>
+      <font >pr</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6671</td>
+    <td>
+      <font >Return to Jehovah</font>
+    </td>
+    <td>
+      <font >rj</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6656</td>
+    <td>
+      <font >Real Faith</font>
+    </td>
+    <td>
+      <font >rk</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6630</td>
+    <td>
+      <font >Spirits of the Dead</font>
+    </td>
+    <td>
+      <font >sp</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6637</td>
+    <td>
+      <font >When Someone Dies</font>
+    </td>
+    <td >
+      <font >we</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6634</td>
+    <td>
+      <font >World Without War</font>
+    </td>
+    <td>
+      <font >wi</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6635</td>
+    <td>
+      <font >Why Worship God</font>
+    </td>
+    <td>
+      <font >wj</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6664</td>
+    <td>
+      <font >Teach Your Children</font>
+    </td>
+    <td>
+      <font >yc</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >6684</td>
+    <td>
+      <font >10 Questions</font>
+    </td>
+    <td>
+      <font >ypq</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td >6600</td>
+    <td>
+      <font >Other brochures and
+        booklets</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <font >Tracts<span > 
+        </span>(1<span >  </span>inch </font>
+      <font >˙ </font>
+      <font >300)</font>
+    </td>
+  </tr>
+  <tr >
+    <td>7305</td>
+    <td>
+      <font >Invitation to congregation</font>
+    </td>
+    <td>
+      <font >meetings</font>
+    </td>
+    <td>
+      <font >inv</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7074</td>
+    <td>
+      <font >Know the Truth</font>
+    </td>
+    <td>
+      <font >kt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7071</td>
+    <td>
+      <font >Road to Paradise</font>
+    </td>
+    <td>
+      <font >rp</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7130</td>
+    <td>
+      <font >View the Bible</font>
+    </td>
+    <td>
+      <font >T-30</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7131</td>
+    <td>
+      <font >View the Future</font>
+    </td>
+    <td>
+      <font >T-31</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7132</td>
+    <td>
+      <font >Happy Family Life</font>
+    </td>
+    <td>
+      <font >T-32</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7133</td>
+    <td>
+      <font >Who Controls the World?</font>
+    </td>
+    <td>
+      <font >T-33</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7134</td>
+    <td>
+      <font >Will Suffering End?</font>
+    </td>
+    <td>
+      <font >T-34</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7135</td>
+    <td>
+      <font >Live Again</font>
+    </td>
+    <td>
+      <font >T-35</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7136</td>
+    <td>
+      <font >Kingdom</font>
+    </td>
+    <td>
+      <font >T-36</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >7137</td>
+    <td>
+      <font >Web site tract</font>
+    </td>
+    <td>
+      <font >T-37</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7182</td>
+    <td>
+      <font >Trust the Creator!</font>
+    </td>
+    <td>
+      <font >T-82</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7100</td>
+    <td>
+      <font >Other tracts</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td>9200</td>
+    <td>
+      <font >Video/DVD<br>
+      </font>
+      <font >DVDs (except Watchtower)</font>
+      <font >*</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >9305</td>
+    <td>
+      <font >DVD<span >  </span>(Sign<span > 
+        </span>Language)<br>
+      </font>
+      <font >Teach Us—On DVD<span >                                         
+        </span></font>
+      <font >dvbhs</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >9280</td>
+    <td>
+      <font >Good News—On DVD<span >                                      
+        </span></font>
+      <font >dvfg</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td >9270</td>
+    <td >
+      <font >Listen and Live—On
+        DVD<span >                                </span></font>
+      <font >dvll</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >1540</td>
+    <td >
+      <font >Matthew—On DVD<span >                                          
+        </span></font>
+      <font >dvMt</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td >9295</td>
+    <td >
+      <font >Questions Answered—On
+        DVD<span >                  </span></font>
+      <font >dvqua7</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >8724</td>
+    <td >
+      <font >Forms<span >  </span>(1<span > 
+        </span>inch </font>
+      <font >˙ </font>
+      <font >300)<br>
+      </font>
+      <font >Receipt<span
+          >                                                                   
+        </span></font>
+      <font >S-24</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >8704</td>
+    <td >
+      <font >Field Service Report
+        Form<span >                               </span></font>
+      <font >S-4</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td >8708</td>
+    <td >
+      <font >House-to-House Record<span >                                    
+        </span></font>
+      <font >S-8</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td colspan="3">
+      <font >PERIODICALS<span >                        </span></font>
+      <font ><sup>Report<span >  </span>Month:</sup></font>
+    </td>
+    <td colspan="3">
+      <font >Jan/Feb</font>
+    </td>
+    <td colspan="3">
+      <font >Mar/Apr</font>
+    </td>
+    <td colspan="3">
+      <font >May/June</font>
+    </td>
+    <td colspan="3">
+      <font >July/Aug</font>
+    </td>
+    <td colspan="3">
+      <font >Sept/Oct</font>
+    </td>
+    <td colspan="3">
+      <font >Nov/Dec</font>
+    </td>
+    <td></td>
+  </tr>
+  <tr >
+    <td colspan="2">
+      <font >Record the total quantity received for each issue.<br>
+      </font>
+      <font >Record the total quantity for each issue
+        remaining on hand at the end of the featured months.</font>
+    </td>
+    <td >&nbsp;</td>
+    <td colspan="3">
+      <font >The<span >  </span>Watchtower<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>1</font>
+    </td>
+    <td colspan="3">
+      <font >Awake!<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>1</font>
+    </td>
+    <td colspan="3">
+      <font >The<span >  </span>Watchtower<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>2</font>
+    </td>
+    <td colspan="3">
+      <font >Awake!<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>2</font>
+    </td>
+    <td colspan="3">
+      <font >The<span >  </span>Watchtower<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>3</font>
+    </td>
+    <td colspan="3">
+      <font >Awake!<br>
+      </font>
+      <font >Issue No.<span > 
+        </span>3</font>
+    </td>
+  </tr>
+  <tr >
+    <td >&nbsp;</td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Remaining on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Remaining on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Remaining on Hand</font>
+    </td>
+    <td >
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Remaining on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td >
+      <font >Remaining on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td >
+      <font >Rec’d</font>
+    </td>
+    <td>
+      <font >Remaining on Hand</font>
+    </td>
+    <td>
+      <font >Moved</font>
+    </td>
+    <td></td>
+  </tr>
+  <tr >
+    <td>8000</td>
+    <td>
+      <font >Public-edition magazines
+        (printed)</font>
+    </td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr >
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td >&nbsp;</td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</div>

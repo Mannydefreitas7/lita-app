@@ -1,17 +1,30 @@
-<section class="lita-section">
-  <section fxFill fxLayoutAlign="space-between center">
-    <h2>{{ title }}</h2>
+<section>
+  <div fxFill fxLayoutAlign="space-between start">
+      <h2>{{ title }}</h2>
+      <section fxLayout="row" fxLayoutAlign="end center">
+      <button mat-flat-button color="primary" [disabled]="inventory"><mat-icon style="margin-right: 10px;">add</mat-icon>CREATE INVENTORY</button>
+  </section>
+  </div>
+
+  <section fxFill fxLayoutAlign="space-between start">
+
+      <mat-form-field  mat-dialog-title appearance="fill" fxFlex="50%" fxFlexFill>
+        <mat-label>Search Publications</mat-label>
+        <input matInput autocomplete="off"
+          placeholder="ex: bhs, nwt, Jeremiah..." [(ngModel)]="pubText" (keyup)="applyFilter($event.target.value)">
+        <button mat-button *ngIf="pubText" matSuffix mat-icon-button aria-label="Clear" (click)="pubText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-icon matSuffix *ngIf="!pubText">search</mat-icon>
+      </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Current Month</mat-label>
       <mat-select [(value)]="month" (selectionChange)="monthDisplay($event)">
         <mat-option *ngFor="let mon of order.months" [value]="mon.value">{{ mon.name }}</mat-option>
       </mat-select>
     </mat-form-field>
+  </section>
 
-  </section>
-  <section fxLayout="row" fxLayoutAlign="end center">
-      <button mat-flat-button color="primary" [disabled]="inventory"><mat-icon style="margin-right: 10px;">add</mat-icon>CREATE INVENTORY</button>
-  </section>
 
   <lita-spinner *ngIf="loading else loaded"></lita-spinner>
 

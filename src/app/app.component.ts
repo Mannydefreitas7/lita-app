@@ -3,7 +3,7 @@ import { AuthService } from './core/auth.service';
 import { Router } from '@angular/router';
 
 import { AngularFirestore } from 'angularfire2/firestore';
-import { ThrowStmt } from '@angular/compiler';
+
 import { DashboardService } from './home/dashboard/dashboard.service';
 @Component({
   selector: 'app-root',

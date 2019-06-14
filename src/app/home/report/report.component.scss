@@ -1,13 +1,11 @@
-
 table {
-    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 12px;
+    font-family: "New Times Roman";
 }
 
-mat-icon {
-    color: #3335;
-}
-h2 {
-    color: #333;
-    font-weight: 400;
-    text-transform: uppercase;
+section, p {
+    font-family: "New Times Roman";
+    font-size: 12px;
 }

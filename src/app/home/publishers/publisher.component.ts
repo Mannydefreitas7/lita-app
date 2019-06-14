@@ -165,7 +165,7 @@ export class PublisherComponent implements OnInit {
           }).then(() => {
 
             this.publisherService.publisherDocument(user.congregation, params['id']).update({
-              role: 'admin'
+              role: 'editor'
             })
           })
         })

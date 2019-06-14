@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { MatSlideToggleChange, MatSlideToggle, MatDialog, MatTableDataSource } from '@angular/material'
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Publisher, Congregation, Orders } from 'src/app/shared/models/congregation.model';
+import { Publisher, Congregation, Orders, Order } from 'src/app/shared/models/congregation.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AddpublisherComponent } from '../publishers/addpublisher.component';
 import { Observable } from 'rxjs';
@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit {
   loading: boolean;
   congregation: any;
   displayedColumns: string[] = ['user', 'pub', 'quantity', 'actions']
+
+ 
 
   constructor(
     private auth: AuthService,
@@ -109,4 +111,5 @@ export class HomeComponent implements OnInit {
 
 
   }
+
 }

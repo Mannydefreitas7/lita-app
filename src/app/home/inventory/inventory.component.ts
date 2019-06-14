@@ -57,6 +57,10 @@ export class InventoryComponent implements OnInit {
     return this.dash.getCongregationDoc(congID).collection('literature').doc<CongLiterature>(`${litID}`).collection('months').valueChanges()
   }
 
+  applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
 showInventory(selected: number) {
 

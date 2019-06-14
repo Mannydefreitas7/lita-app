@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { AngularFireModule } from 'angularfire2';
@@ -27,6 +27,7 @@ import { DashboardService } from './home/dashboard/dashboard.service';
 import { ListFilterPipe } from './components/pipes/list-filter.pipe';
 import { PubFilterPipe } from './components/pipes/pub-filter.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
